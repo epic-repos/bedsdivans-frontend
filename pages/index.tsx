@@ -5,7 +5,9 @@ import Head from "next/head";
 const Home: NextPage = () => {
   return (
     <div>
-      <NextSEO title={"Hello WOresbd"} />
+      home
+      <NextSEO title={"DBZBeds"} />
+      
     </div>
   );
 };
