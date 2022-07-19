@@ -1,5 +1,5 @@
 import type { AppProps } from "next/app";
-import "styles/globals.css";
+import "styles/globals.scss";
 import Layout from "layout";
 
 function RootApp({ Component, pageProps }: AppProps) {
@@ -9,5 +9,4 @@ function RootApp({ Component, pageProps }: AppProps) {
     </Layout>
   );
 }
-
 export default RootApp;
