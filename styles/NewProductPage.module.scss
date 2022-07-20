@@ -82,7 +82,7 @@
     flex-wrap: wrap;
     list-style: none;
     font-size: 10px;
-    overflow-y: scroll;
+    
     padding-left: 5px;
 }
  .texture li {
@@ -104,15 +104,20 @@
     flex-wrap: wrap;
     list-style: none;
     font-size: 10px;
+ }
+    
+.color{
     overflow-y: scroll;
+    height: 200px;
 }
+
+
  .texture2 li {
     border: 1px solid #fff;
     text-align: center;
     opacity: 1;
     cursor: pointer;
     width: calc(100%/4);
-    margin-left: 5px;
  }
  .heading{
     padding-left: 10px;
@@ -134,5 +139,46 @@
     padding-bottom: 4px;
     color: #f4ab5d;
     border-bottom: 0 solid #ccc;
+    font-size: 1.125rem;
     }
+ }
+ .chooseitemdetail{
+    list-style: none;
+    
+    margin-left: 20px;
+    li{
+        padding-top: 2px;
+        color:#DADADA;
+        font-size: 11px;
+    }
+ }
+ .priceitemsummary{
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    gap: 30px;
+ }
+ .numbertextarea{
+   
+    width: 50px;
+    height: 20px;
+    padding: 13px 9px;
+    border: 1px solid #0e3f70;
+    border-radius: 2px;
+
+ }
+ .addcart{
+    background: #f4ab5d;
+    line-height: 40px;
+    padding: 7px  20px;
+    color: #0e3f70;
+    border-radius: 5px;
+    font-size: 12px;
+    border: 0;
+ }
+ .numberaddcard{
+    display: flex;
+    align-items: center;
+    gap: 20px;
  }

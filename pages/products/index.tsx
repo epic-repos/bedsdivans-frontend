@@ -4,7 +4,7 @@ import React from "react";
 import styles from "styles/NewProductPage.module.scss";
 import { Tab, Tabs, Row, Col, Nav, Button } from "react-bootstrap";
 import ScaleIcon from "icons/scale";
-
+ 
 const NewProductPage = () => {
 
   const [tabs, setTabs] = React.useState('BedSize')
@@ -70,8 +70,8 @@ const NewProductPage = () => {
           {
             RenderTabsArray.map((data, index) => (
               <TabButton key={index} onClick={() => onTabSelect(data.title)} title={data.title}
-              
-              isactive={data.title===tabs}
+
+                isactive={data.title === tabs}
               />
             ))
           }
@@ -93,14 +93,14 @@ const ContentHeader = () => {
     <div className={styles.header} >
       <div className={styles.headertitle}>
         <h1>Bed size</h1>
-      
+
       </div>
       <div>
         <Button className={styles.btn}>Next</Button>
       </div>
-   
+
     </div>
-   
+
   )
 }
 
@@ -108,61 +108,61 @@ const BedSize = () => {
   return (
     <React.Fragment>
       <ContentHeader />
-      <div>
-       <ul className={styles.texture}>
-        <li>
-         
-        <Image src="/images/bed1.jpg" width={100} height={56} alt=""  />
-        <span className={styles.name}> 3ft single
-        <span className={styles.price}> £400.00</span>
-        </span>
+      <div className={styles.color}>
+        <ul className={styles.texture}>
+          <li>
+
+            <Image src="/images/bed1.jpg" width={100} height={56} alt="" />
+            <span className={styles.name}> 3ft single
+              <span className={styles.price}> £400.00</span>
+            </span>
 
 
-         
-        </li>
-        <li>
-         
-         <Image src="/images/bed1.jpg" width={100} height={56} alt=""  />
-         <span className={styles.name}> 3ft single
-         <span className={styles.price}> £400.00</span>
-         </span>
- 
- 
-          
-         </li>
-         <li>
-         
-         <Image src="/images/bed1.jpg" width={100} height={56} alt=""  />
-         <span className={styles.name}> 3ft single
-         <span className={styles.price}> £400.00</span>
-         </span>
- 
- 
-          
-         </li>
-         <li>
-         
-         <Image src="/images/bed1.jpg" width={100} height={56} alt=""  />
-         <span className={styles.name}> 3ft single
-         <span className={styles.price}> £400.00</span>
-         </span>
- 
- 
-          
-         </li>
-         <li>
-         
-         <Image src="/images/bed1.jpg" width={100} height={56} alt=""  />
-         <span className={styles.name}> 3ft single
-         <span className={styles.price}> £400.00</span>
-         </span>
- 
- 
-          
-         </li>
+
+          </li>
+          <li>
+
+            <Image src="/images/bed1.jpg" width={100} height={56} alt="" />
+            <span className={styles.name}> 3ft single
+              <span className={styles.price}> £400.00</span>
+            </span>
 
 
-       </ul>
+
+          </li>
+          <li>
+
+            <Image src="/images/bed1.jpg" width={100} height={56} alt="" />
+            <span className={styles.name}> 3ft single
+              <span className={styles.price}> £400.00</span>
+            </span>
+
+
+
+          </li>
+          <li>
+
+            <Image src="/images/bed1.jpg" width={100} height={56} alt="" />
+            <span className={styles.name}> 3ft single
+              <span className={styles.price}> £400.00</span>
+            </span>
+
+
+
+          </li>
+          <li>
+
+            <Image src="/images/bed1.jpg" width={100} height={56} alt="" />
+            <span className={styles.name}> 3ft single
+              <span className={styles.price}> £400.00</span>
+            </span>
+
+
+
+          </li>
+
+
+        </ul>
       </div>
     </React.Fragment>
   )
@@ -171,44 +171,127 @@ const BedColor = () => {
   return (
     <React.Fragment>
       <ContentHeader />
-      <div className={styles.color} >
-      <div className={styles.heading} >
-        <span>plush velvet</span>
-        </div>
-        <div className={styles.colorimage} >
-        <ul className={styles.texture2}>
-        <li>
-         
-        <Image src="/images/berry.jpg" width={70} height={70} alt="" className={styles.imagestyle2} />
-        <span className={styles.name}> 3ft single </span>  
-        </li>
-        <li>
-         
-         <Image src="/images/berry.jpg" width={70} height={70} alt="" className={styles.imagestyle2} />
-         <span className={styles.name}> 3ft single </span>
-        </li>
-        <li>
-         
-         <Image src="/images/berry.jpg" width={70} height={70} alt="" className={styles.imagestyle2} />
-         <span className={styles.name}> 3ft single </span>
-        </li>
-        <li>
-         
-         <Image src="/images/berry.jpg" width={70} height={70} alt="" className={styles.imagestyle2} />
-         <span className={styles.name}> 3ft single </span>
-        </li>
-        <li>
-         
-         <Image src="/images/berry.jpg" width={70} height={70} alt="" className={styles.imagestyle2} />
-         <span className={styles.name}> 3ft single </span>
-        </li>
-         
-        </ul>
-       
-        </div>
+      <div className={styles.color}>
+        <div  >
+          <div className={styles.heading} >
+            <span>plush velvet</span>
+          </div>
+
+          <div className={styles.colorimage} >
+            <ul className={styles.texture2}>
+              <li>
+
+                <Image src="/images/berry.jpg" width={60} height={60} alt="" className={styles.imagestyle2} />
+                <span className={styles.name}> 3ft single </span>
+              </li>
+              <li>
+
+                <Image src="/images/berry.jpg" width={60} height={60} alt="" className={styles.imagestyle2} />
+                <span className={styles.name}> 3ft single </span>
+              </li>
+              <li>
+
+                <Image src="/images/berry.jpg" width={60} height={60} alt="" className={styles.imagestyle2} />
+                <span className={styles.name}> 3ft single </span>
+              </li>
+              <li>
+
+                <Image src="/images/berry.jpg" width={60} height={60} alt="" className={styles.imagestyle2} />
+                <span className={styles.name}> 3ft single </span>
+              </li>
+              <li>
+
+                <Image src="/images/berry.jpg" width={60} height={60} alt="" className={styles.imagestyle2} />
+                <span className={styles.name}> 3ft single </span>
+              </li>
+
+            </ul>
+
+          </div>
 
 
-        
+
+        </div>
+        <div  >
+          <div className={styles.heading} >
+            <span>Malham Weave</span>
+          </div>
+
+          <div className={styles.colorimage} >
+            <ul className={styles.texture2}>
+              <li>
+
+                <Image src="/images/berry.jpg" width={60} height={60} alt="" className={styles.imagestyle2} />
+                <span className={styles.name}> 3ft single </span>
+              </li>
+              <li>
+
+                <Image src="/images/berry.jpg" width={60} height={60} alt="" className={styles.imagestyle2} />
+                <span className={styles.name}> 3ft single </span>
+              </li>
+              <li>
+
+                <Image src="/images/berry.jpg" width={60} height={60} alt="" className={styles.imagestyle2} />
+                <span className={styles.name}> 3ft single </span>
+              </li>
+              <li>
+
+                <Image src="/images/berry.jpg" width={60} height={60} alt="" className={styles.imagestyle2} />
+                <span className={styles.name}> 3ft single </span>
+              </li>
+              <li>
+
+                <Image src="/images/berry.jpg" width={60} height={60} alt="" className={styles.imagestyle2} />
+                <span className={styles.name}> 3ft single </span>
+              </li>
+
+            </ul>
+
+          </div>
+
+
+
+        </div>
+        <div  >
+          <div className={styles.heading} >
+            <span>Firenza Velour</span>
+          </div>
+
+          <div className={styles.colorimage} >
+            <ul className={styles.texture2}>
+              <li>
+
+                <Image src="/images/berry.jpg" width={60} height={60} alt="" className={styles.imagestyle2} />
+                <span className={styles.name}> 3ft single </span>
+              </li>
+              <li>
+
+                <Image src="/images/berry.jpg" width={60} height={60} alt="" className={styles.imagestyle2} />
+                <span className={styles.name}> 3ft single </span>
+              </li>
+              <li>
+
+                <Image src="/images/berry.jpg" width={60} height={60} alt="" className={styles.imagestyle2} />
+                <span className={styles.name}> 3ft single </span>
+              </li>
+              <li>
+
+                <Image src="/images/berry.jpg" width={60} height={60} alt="" className={styles.imagestyle2} />
+                <span className={styles.name}> 3ft single </span>
+              </li>
+              <li>
+
+                <Image src="/images/berry.jpg" width={60} height={60} alt="" className={styles.imagestyle2} />
+                <span className={styles.name}> 3ft single </span>
+              </li>
+
+            </ul>
+
+          </div>
+
+
+
+        </div>
       </div>
     </React.Fragment>
   )
@@ -217,61 +300,102 @@ const BedHeadBoard = () => {
   return (
     <React.Fragment>
       <ContentHeader />
-      <div>
-       <ul className={styles.texture}>
-        <li>
-         
-        <Image src="/images/bed1.jpg" width={100} height={56} alt=""  />
-        <span className={styles.name}> 3ft single
-        <span className={styles.price}> £400.00</span>
-        </span>
+      <div className={styles.color}>
+        <ul className={styles.texture}>
+          <li>
+
+            <Image src="/images/bed1.jpg" width={100} height={56} alt="" />
+            <span className={styles.name}> 3ft single
+              <span className={styles.price}> £400.00</span>
+            </span>
 
 
-         
-        </li>
-        <li>
-         
-         <Image src="/images/bed1.jpg" width={100} height={56} alt=""  />
-         <span className={styles.name}> 3ft single
-         <span className={styles.price}> £400.00</span>
-         </span>
- 
- 
-          
-         </li>
-         <li>
-         
-         <Image src="/images/bed1.jpg" width={100} height={56} alt=""  />
-         <span className={styles.name}> 3ft single
-         <span className={styles.price}> £400.00</span>
-         </span>
- 
- 
-          
-         </li>
-         <li>
-         
-         <Image src="/images/bed1.jpg" width={100} height={56} alt=""  />
-         <span className={styles.name}> 3ft single
-         <span className={styles.price}> £400.00</span>
-         </span>
- 
- 
-          
-         </li>
-         <li>
-         
-         <Image src="/images/bed1.jpg" width={100} height={56} alt=""  />
-         <span className={styles.name}> 3ft single
-         <span className={styles.price}> £400.00</span>
-         </span>
- 
- 
-          
-         </li>
+
+          </li>
+          <li>
+
+            <Image src="/images/bed1.jpg" width={100} height={56} alt="" />
+            <span className={styles.name}> 3ft single
+              <span className={styles.price}> £400.00</span>
+            </span>
 
 
-       </ul>
+
+          </li>
+          <li>
+
+            <Image src="/images/bed1.jpg" width={100} height={56} alt="" />
+            <span className={styles.name}> 3ft single
+              <span className={styles.price}> £400.00</span>
+            </span>
+
+
+
+          </li>
+          <li>
+
+            <Image src="/images/bed1.jpg" width={100} height={56} alt="" />
+            <span className={styles.name}> 3ft single
+              <span className={styles.price}> £400.00</span>
+            </span>
+
+
+
+          </li>
+          <li>
+
+            <Image src="/images/bed1.jpg" width={100} height={56} alt="" />
+            <span className={styles.name}> 3ft single
+              <span className={styles.price}> £400.00</span>
+            </span>
+
+
+
+          </li>
+
+          <li>
+
+            <Image src="/images/bed1.jpg" width={100} height={56} alt="" />
+            <span className={styles.name}> 3ft single
+              <span className={styles.price}> £400.00</span>
+            </span>
+
+
+
+          </li>
+          <li>
+
+            <Image src="/images/bed1.jpg" width={100} height={56} alt="" />
+            <span className={styles.name}> 3ft single
+              <span className={styles.price}> £400.00</span>
+            </span>
+
+
+
+          </li>
+          <li>
+
+            <Image src="/images/bed1.jpg" width={100} height={56} alt="" />
+            <span className={styles.name}> 3ft single
+              <span className={styles.price}> £400.00</span>
+            </span>
+
+
+
+          </li>
+          <li>
+
+            <Image src="/images/bed1.jpg" width={100} height={56} alt="" />
+            <span className={styles.name}> 3ft single
+              <span className={styles.price}> £400.00</span>
+            </span>
+
+
+
+          </li>
+
+
+        </ul>
       </div>
     </React.Fragment>
   )
@@ -281,17 +405,17 @@ const BedStorage = () => {
     <React.Fragment>
       <ContentHeader />
       <div>
-       <ul className={styles.texture}>
-        <li>
-         
-        <Image src="/images/bed1.jpg" width={100} height={56} alt=""  />
-        <span className={styles.name}>Front lift</span>
+        <ul className={styles.texture}>
+          <li>
+
+            <Image src="/images/bed1.jpg" width={100} height={56} alt="" />
+            <span className={styles.name}>Front lift</span>
 
 
-         
-        </li>
+
+          </li>
         </ul>
-        </div>
+      </div>
     </React.Fragment>
   )
 }
@@ -301,7 +425,31 @@ const BedFeet = () => {
       <ContentHeader />
       <div className={styles.summary}>
         <h3>How its looking?</h3>
-   
+        <ul className={styles.chooseitemdetail} >
+          <li>
+            Bed Size : 3ft Single £400.00
+          </li>
+          <li>Fabric : Saxon Twill - Grey +£50.00</li>
+          <li>Headboard : Garland</li>
+        </ul>
+        <div className={styles.priceitemsummary}>
+          <div>
+            <h5>Total Price</h5>
+            <span>
+              £450.00</span>
+
+          </div>
+          <div  className={styles.numberaddcard} >
+            <div>
+              <input type ="number"  className={styles.numbertextarea}  ></input>
+            </div>
+            <div>
+              <Button className={styles.addcart}> Add the cart</Button>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </React.Fragment>
   )
@@ -319,12 +467,12 @@ const BedMattress = () => {
 
 
 interface TabButtonProps extends React.ComponentPropsWithoutRef<'div'> {
-  isactive?:boolean;
+  isactive?: boolean;
 }
 const TabButton = (props: TabButtonProps) => {
 
-  const styleActive={
-    background:props.isactive?'#fff':'#0e3f70'
+  const styleActive = {
+    background: props.isactive ? '#fff' : '#0e3f70'
   }
   return (
     <div style={styleActive} className={styles.imageicon} {...props}>
