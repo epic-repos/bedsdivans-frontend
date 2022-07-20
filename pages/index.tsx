@@ -41,7 +41,7 @@ const Home: NextPage = () => {
               </p>
               <div>
                 <button
-                  className="ShopMobile"
+                  className={Style.ShopMobile}
                   style={{
                     color: "#ffffff",
                     backgroundColor: "#f22222",
@@ -56,6 +56,7 @@ const Home: NextPage = () => {
                     letterSpacing: "0.5px",
                     marginTop: "50px !important",
                     marginBottom: "37px !important",
+                    border: "none",
                   }}
                 >
                   <b>SHOP NOW</b>
@@ -158,7 +159,7 @@ const Home: NextPage = () => {
         <div className="row" style={{ width: "83%", margin: "0 auto" }}>
           <div className="col-md-12 text-center" data-aos="fade-up">
             <div className={Style.section_title}>
-              <h2 className={Style.colorfirst}>BedsDivans.co.uk</h2>
+              <h2 className={Style.colorfirst}>DBZBeds</h2>
             </div>
             <p className={Style.sub_title}>
               We’re one of the UK’s leading manufacturers of

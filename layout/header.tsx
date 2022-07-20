@@ -6,7 +6,7 @@ import Image from "next/image";
 const Header = () => {
   return (
     <div>
-      <section className="MenuForDesktop">
+      {/* <section className="MenuForDesktop">
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-2"></div>
@@ -54,7 +54,7 @@ const Header = () => {
             style={{ marginTop: "10px" }}
           ></div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };
