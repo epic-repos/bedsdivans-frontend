@@ -1,3 +1,13 @@
+.item3{
+    width: 65%;
+    padding-left: 32px;
+
+}
+
+.item4{
+    width: 35%;
+}
+
 .cart_heading h1 {
     font-weight: 600;
     color: #0e3f70;
@@ -44,3 +54,10 @@
     -webkit-box-shadow: 0 2px 10px 0 rgb(0 0 0 / 13%);
     box-shadow: 0 2px 10px 0 rgb(0 0 0 / 13%);
 }
+
+.first_boxcart{
+    display: flex;
+    width: 100%;
+    
+}
+

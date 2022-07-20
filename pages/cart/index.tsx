@@ -1,6 +1,7 @@
 import React from "react";
 // import Style from "styles/cart.module.scss";
 import Style from "../../styles/cart.module.scss";
+import Contact from "../cart/contact";
 
 const NewProductPage = () => {
   return (
@@ -10,16 +11,19 @@ const NewProductPage = () => {
           <h1>Your basket and service options</h1>
         </div>
       </div>
+      <Contact />
       <div
         className={Style.container_fluid}
         style={{ background: "rgb(243, 243, 248)" }}
       >
         <div className="container ">
           <div className="row">
+          
             <div className={Style.first_boxcart}>
+            <div className={Style.item3}>
               <h5>Services recommended for you</h5>
               <div className={`${Style.bg_white}  ${Style.boxfirst_cart}`}>
-                <h4>Mattress and bed frame recycling service</h4>               
+                <h4>Mattress and bed frame recycling service</h4>
                 <p>
                   For peace of mind, add this to your order today – we’ll
                   collect and recycle your old bed during the delivery of your
@@ -75,8 +79,18 @@ const NewProductPage = () => {
                   </li>
                 </ul>
               </div>
+              </div>
             </div>
+            <div className={Style.item4}>
+              <div>
+              
+
+              </div>
+
+            </div>
+            
           </div>
+
         </div>
       </div>
     </div>
