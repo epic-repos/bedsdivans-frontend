@@ -1,0 +1,102 @@
+.swiper_wrapper {
+  background-image: url(/assets/images/banner/Mask_Group.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.slider_height {
+  height: 60vh !important;
+}
+.banner_bottom_style {
+  background: #0000000d;
+  padding: 20px 0px;
+}
+.banner_bottom_ineerbox ul {
+  display: -webkit-flex;
+  /* display: flex; */
+  -webkit-align-items: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.banner_bottom_ineerbox li {
+  list-style: none;
+}
+hr.banner_icons {
+  margin-top: 0;
+  color: #1e196c;
+  height: 4px !important;
+  opacity: 3;
+}
+.banner_bottom_ineerbox h6 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e196c;
+}
+.banner_bottom_ineerbox span {
+  font-size: 14px;
+  color: #00b2bd;
+  font-weight: 500;
+}
+.banner_bottom_ineerbox ul li:first-child {
+  width: 70px;
+  height: 60px;
+  margin-right: 6px;
+}
+.section_title h2 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.colorfirst {
+  color: #1e196c;
+}
+.sub_title {
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  font-size: 16px;
+  font-family: sans-serif;
+}
+.colorRed {
+  color: #1e196c;
+}
+.size_box {
+  -webkit-justify-content: center;
+  justify-content: center;
+  /* display: -webkit-flex; */
+  display: flex;
+  /* -webkit-flex-wrap: wrap; */
+}
+.single_box {
+  padding: 14px 60px;
+}
+.colorsecond {
+  color: #262884;
+}
+.sub_title11 {
+  color: #474747;
+  padding: 0 30%;
+  font-weight: 600;
+}
+.bg_green {
+  background-color: #00b2bc;
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+.moreOffer h2 {
+  font-size: 25px;
+  text-align: center;
+  color: #fff;
+}
+.more {
+  background-color: #fff;
+  color: #00b2bc;
+  border-radius: 25px;
+  padding: 10px 32px;
+}
+.explore_mattress {
+  padding-top: 15px;
+}
+
+.newtabs {
+  display: flex;
+}
