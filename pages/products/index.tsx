@@ -4,7 +4,7 @@ import React from "react";
 import styles from "styles/NewProductPage.module.scss";
 import { Tab, Tabs, Row, Col, Nav, Button } from "react-bootstrap";
 import ScaleIcon from "icons/scale";
- 
+
 const NewProductPage = () => {
 
   const [tabs, setTabs] = React.useState('BedSize')
@@ -60,6 +60,19 @@ const NewProductPage = () => {
   const onTabSelect = React.useCallback((value: string) => {
     setTabs(value)
   }, [tabs])
+
+
+
+  const [tabIndex, settabIndex] = React.useState(RenderTabsArray.findIndex((data) => data.title === tabs))
+  const onClickNext = () => {
+    // console.log(index)
+    if (tabIndex < RenderTabsArray.length ) {
+      settabIndex((i) => i + 1)
+      setTabs(RenderTabsArray[tabIndex].title)
+    }
+
+    // console.log(RenderTabsArray[index+1].title)
+  }
   return <div>
     <NextSEO title={"Dbz beds "} />
     {/* Gufran  */}
@@ -69,14 +82,18 @@ const NewProductPage = () => {
         <div className={styles.left}>
           {
             RenderTabsArray.map((data, index) => (
-              <TabButton key={index} onClick={() => onTabSelect(data.title)} title={data.title}
-
-                isactive={data.title === tabs}
-              />
+              <React.Fragment>
+                <TabButton key={index} onClick={() => onTabSelect(data.title)} title={data.title}
+                  isactive={data.title === tabs} />
+              </React.Fragment>
             ))
           }
         </div>
         <div className={styles.right} >
+          <ContentHeader title={RenderTabsArray.find((data) => data.title === tabs)?.title}
+
+            onClickNext={onClickNext}
+          />
           <RenderTabs />
         </div>
       </div>
@@ -86,19 +103,20 @@ const NewProductPage = () => {
 export default NewProductPage;
 
 
+interface ContentHeaderProps {
+  title?: string;
+  onClickNext?: () => void;
+}
 
-
-const ContentHeader = () => {
+const ContentHeader = ({ title, onClickNext }: ContentHeaderProps) => {
   return (
     <div className={styles.header} >
       <div className={styles.headertitle}>
-        <h1>Bed size</h1>
-
+        <h1>{title}</h1>
       </div>
       <div>
-        <Button className={styles.btn}>Next</Button>
+        <Button onClick={onClickNext} className={styles.btn}>Next</Button>
       </div>
-
     </div>
 
   )
@@ -107,7 +125,7 @@ const ContentHeader = () => {
 const BedSize = () => {
   return (
     <React.Fragment>
-      <ContentHeader />
+
       <div className={styles.color}>
         <ul className={styles.texture}>
           <li>
@@ -170,7 +188,7 @@ const BedSize = () => {
 const BedColor = () => {
   return (
     <React.Fragment>
-      <ContentHeader />
+
       <div className={styles.color}>
         <div  >
           <div className={styles.heading} >
@@ -299,7 +317,7 @@ const BedColor = () => {
 const BedHeadBoard = () => {
   return (
     <React.Fragment>
-      <ContentHeader />
+
       <div className={styles.color}>
         <ul className={styles.texture}>
           <li>
@@ -403,7 +421,7 @@ const BedHeadBoard = () => {
 const BedStorage = () => {
   return (
     <React.Fragment>
-      <ContentHeader />
+
       <div>
         <ul className={styles.texture}>
           <li>
@@ -422,7 +440,7 @@ const BedStorage = () => {
 const BedFeet = () => {
   return (
     <React.Fragment>
-      <ContentHeader />
+
       <div className={styles.summary}>
         <h3>How its looking?</h3>
         <ul className={styles.chooseitemdetail} >
@@ -439,9 +457,9 @@ const BedFeet = () => {
               £450.00</span>
 
           </div>
-          <div  className={styles.numberaddcard} >
+          <div className={styles.numberaddcard} >
             <div>
-              <input type ="number"  className={styles.numbertextarea}  ></input>
+              <input type="number" className={styles.numbertextarea}  ></input>
             </div>
             <div>
               <Button className={styles.addcart}> Add the cart</Button>
@@ -457,7 +475,7 @@ const BedFeet = () => {
 const BedMattress = () => {
   return (
     <React.Fragment>
-      <ContentHeader />
+
       <div>
         Mattress
       </div>
@@ -470,14 +488,14 @@ interface TabButtonProps extends React.ComponentPropsWithoutRef<'div'> {
   isactive?: boolean;
 }
 const TabButton = (props: TabButtonProps) => {
-
   const styleActive = {
     background: props.isactive ? '#fff' : '#0e3f70'
   }
+  const color = props.isactive ? '#000' : '#fff'
   return (
     <div style={styleActive} className={styles.imageicon} {...props}>
-      <ScaleIcon />
-      <span>{props.title}</span>
+      <ScaleIcon fill={color} />
+      <span style={{ color: color }}>{props.title}</span>
     </div>
   )
 }

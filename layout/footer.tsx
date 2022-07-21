@@ -1,10 +1,11 @@
 import React from "react";
 import Image from "next/image";
-
+import Style from "styles/footer/footer.module.scss";
+import Link from "next/link";
 const Footer = () => {
   return (
     <div>
-      <div className="">
+      <div className={Style.ftrBackgrd}>
         <div className="">
           <div className="">
             <div className="container-fluid">
@@ -53,7 +54,7 @@ const Footer = () => {
                     <p>
                       <i className="fa fa-phone" aria-hidden="true"></i>
                       &nbsp;&nbsp;
-                      <a href="tel:01902405535">01902405535</a>
+                      <Link href="tel:01902405535">01902405535</Link>
                     </p>
                     <p>
                       <i className="fa fa-envelope-o" aria-hidden="true"></i>
@@ -69,55 +70,58 @@ const Footer = () => {
                   data-aos="fade-up"
                   data-aos-delay="400"
                 >
-                  <div className="single-wedge">
-                    <h4 className="footer-herading">USEFUL LINKS</h4>
+                  <div className={Style.single_wedge}>
+                    <h4>USEFUL LINKS</h4>
                     <div className="footer-links">
                       <div className="footer-row">
                         <ul className="align-items-left">
-                          <li className="li">
-                            <a className="single-link" href="/product/divanbed">
+                          <li>
+                            <Link
+                              className={Style.ftr_links}
+                              href="/product/divanbed"
+                            >
                               Diven Beds
-                            </a>
+                            </Link>
                           </li>
                           <li className="li">
-                            <a
+                            <Link
                               className="single-link"
                               href="/divanbed/suede-Fabric-Divan-Beds"
                             >
                               Suede Divan Bed
-                            </a>
+                            </Link>
                           </li>
                           <li className="li">
-                            <a
+                            <Link
                               className="single-link"
                               href="/product/headboard"
                             >
                               Headboards
-                            </a>
+                            </Link>
                           </li>
                           <li className="li">
-                            <a
+                            <Link
                               className="single-link"
                               href="/product/Mattressess"
                             >
                               Mattressess
-                            </a>
+                            </Link>
                           </li>
                           <li className="li">
-                            <a
+                            <Link
                               className="single-link"
                               href="/divanbed/velvet-Fabric-Divan-Beds"
                             >
                               Velvet Fabric Diven Beds
-                            </a>
+                            </Link>
                           </li>
                           <li className="li">
-                            <a
+                            <Link
                               className="single-link"
                               href="/allbed/sleigh-beds"
                             >
                               Sleigh Beds
-                            </a>
+                            </Link>
                           </li>
                         </ul>
                         <hr className="my-4" />
@@ -139,8 +143,8 @@ const Footer = () => {
                   data-aos="fade-up"
                   data-aos-delay="600"
                 >
-                  <div className="single-wedge">
-                    <h4 className="footer-herading">Additional links</h4>
+                  <div className={Style.single_wedge}>
+                    <h4>Additional links</h4>
                     <div className="footer-links">
                       <div className="footer-row">
                         <ul className="align-items-center">
@@ -195,8 +199,8 @@ const Footer = () => {
                   data-aos="fade-up"
                   data-aos-delay="800"
                 >
-                  <div className="single-wedge">
-                    <h4 className="footer-herading">top selected</h4>
+                  <div className={Style.single_wedge}>
+                    <h4>top selected</h4>
                     <div className="footer-links">
                       <div id="mc_embed_signup" className="footer-4">
                         <p>

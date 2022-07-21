@@ -15,5 +15,4 @@ function RootApp({ Component, pageProps }: AppProps) {
     </Layout>
   );
 }
-
 export default RootApp;
