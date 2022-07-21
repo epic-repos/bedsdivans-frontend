@@ -1,20 +1,21 @@
 @import "./variable.scss";
-
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.6.3/css/all.min.css');
 html,
 body {
   padding: 0;
   margin: 0;
   font-size: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  // font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  //   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: "Poppins";
 }
 ul {
   list-style: none;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+  color: inherit !important;
+  text-decoration: none !important;
 }
 
 * {
@@ -22,6 +23,8 @@ a {
   margin: 0;
   box-sizing: border-box;
 }
+
+
 
 html,
 body {
@@ -31,6 +34,8 @@ body {
   //   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-family: "Poppins";
 }
+
+
 
 p,
 h1,
@@ -45,8 +50,8 @@ a {
 }
 
 a {
-  color: inherit !important;
-  text-decoration: none !important;
+  color: inherit;
+  text-decoration: none;
   cursor: pointer;
 }
 
@@ -423,3 +428,30 @@ button {
   border: 1.75px solid #e0e0e0 !important;
   text-align: center !important;
 }
+ul.align-items-left li {
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 14px;
+line-height: 24px;
+font-weight: 500;
+}
+.single-wedge {
+  color: #777777;
+}
+ul.align-items-center li {
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 14px;
+line-height: 24px;
+font-weight: 500;
+}
+p.copy-text {
+  text-align: center;
+}
+ol, ul {
+  padding-left: 0px !important
+}
+.footer-links {
+  font-size: 15px !important;
+}
+

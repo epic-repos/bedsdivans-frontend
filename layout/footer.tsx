@@ -43,10 +43,11 @@ const Footer = () => {
                      
                     </p> */}
                     <p className=" my-2 sahil">
-                      <i
+                    <i className="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                      {/* <i
                         className="fa fa-arrow-circle-right "
                         aria-hidden="true"
-                      ></i>
+                      ></i> */}
                       &nbsp;&nbsp; Unit 8A Stag Industrial Estate,
                     </p>
                     <p>Oxford Street, Bilston,</p>

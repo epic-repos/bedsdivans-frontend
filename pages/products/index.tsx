@@ -66,39 +66,73 @@ const NewProductPage = () => {
   const [tabIndex, settabIndex] = React.useState(RenderTabsArray.findIndex((data) => data.title === tabs))
   const onClickNext = () => {
     // console.log(index)
-    if (tabIndex < RenderTabsArray.length ) {
+    if (tabIndex < RenderTabsArray.length) {
       settabIndex((i) => i + 1)
       setTabs(RenderTabsArray[tabIndex].title)
     }
 
     // console.log(RenderTabsArray[index+1].title)
   }
-  return <div>
+  return (
+     <div>
     <NextSEO title={"Dbz beds "} />
     {/* Gufran  */}
     <div >
       <Image src="/images/bed.png" layout="fill" height={700} className={styles.imagestyle} />
       <div className={styles.container}>
-        <div className={styles.left}>
-          {
-            RenderTabsArray.map((data, index) => (
-              <React.Fragment>
-                <TabButton key={index} onClick={() => onTabSelect(data.title)} title={data.title}
-                  isactive={data.title === tabs} />
-              </React.Fragment>
-            ))
-          }
-        </div>
-        <div className={styles.right} >
-          <ContentHeader title={RenderTabsArray.find((data) => data.title === tabs)?.title}
+        <div className={styles.item1}>
+          <div className={styles.left}>
+            {
+              RenderTabsArray.map((data, index) => (
+                <React.Fragment>
+                  <TabButton key={index} onClick={() => onTabSelect(data.title)} title={data.title}
+                    isactive={data.title === tabs} />
+                </React.Fragment>
+              ))
+            }
+          </div>
+          <div className={styles.right} >
+            <ContentHeader title={RenderTabsArray.find((data) => data.title === tabs)?.title}
 
-            onClickNext={onClickNext}
-          />
-          <RenderTabs />
+              onClickNext={onClickNext}
+            />
+            <RenderTabs />
+          </div>
+        </div>
+        <div className={styles.item2}>
+        <div className={styles.summary}>
+        {/* <h3>How its looking?</h3> */}
+        {/* <ul className={styles.chooseitemdetail} >
+          <li>
+            Bed Size : 3ft Single £400.00
+          </li>
+          <li>Fabric : Saxon Twill - Grey +£50.00</li>
+          <li>Headboard : Garland</li>
+        </ul> */}
+        <div className={styles.priceitemsummary}>
+          <div>
+            <h5>Total Price</h5>
+            <span>
+              £450.00</span>
+
+          </div>
+          <div className={styles.numberaddcard} >
+            <div>
+              <input type="number" className={styles.numbertextarea}  ></input>
+            </div>
+            <div>
+              <Button className={styles.addcart}> Add the cart</Button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
         </div>
       </div>
     </div>
-  </div>;
+  </div>
+  );
 };
 export default NewProductPage;
 
