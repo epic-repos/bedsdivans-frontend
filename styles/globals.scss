@@ -1,22 +1,70 @@
 @import "./variable.scss";
-
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.6.3/css/all.min.css');
 html,
 body {
   padding: 0;
   margin: 0;
   font-size: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  // font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  //   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: "Poppins";
+}
+ul {
+  list-style: none;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+  color: inherit !important;
+  text-decoration: none !important;
 }
 
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
+}
+
+
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  // font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  //   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Poppins";
+}
+
+
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+input {
+  font-family: "poppins";
+}
+
+button {
+  font-family: "poppins";
+  cursor: pointer;
+}
+
+* {
   box-sizing: border-box;
 }
 
@@ -47,8 +95,6 @@ a {
 .bg-black {
   background-color: #000;
 }
-
-
 
 .d-flex {
   display: -webkit-box !important;
@@ -366,3 +412,46 @@ a {
 .container {
   max-width: 1140px;
 }
+.row.tab-inner-sofa-row ul.react-tabs__tab-list {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  list-style: none;
+}
+.row.tab-inner-sofa-row ul.react-tabs__tab-list li {
+  background: #ffffff !important;
+  margin: 5px 12px !important ;
+  padding: 10px 10px !important;
+  border-radius: 5px !important;
+  width: calc(100% / 4 - 0px) !important;
+  cursor: pointer !important;
+  border: 1.75px solid #e0e0e0 !important;
+  text-align: center !important;
+}
+ul.align-items-left li {
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 14px;
+line-height: 24px;
+font-weight: 500;
+}
+.single-wedge {
+  color: #777777;
+}
+ul.align-items-center li {
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 14px;
+line-height: 24px;
+font-weight: 500;
+}
+p.copy-text {
+  text-align: center;
+}
+ol, ul {
+  padding-left: 0px !important
+}
+.footer-links {
+  font-size: 15px !important;
+}
+
