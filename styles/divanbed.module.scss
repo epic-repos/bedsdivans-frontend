@@ -1,0 +1,283 @@
+.mydiv {
+    background: linear-gradient(90deg, rgb(214 212 249) 75%, rgb(48 164 229) 75%);
+    button {
+        background-color: red;
+        color: #fff;
+        border-color: red;
+        padding: 10px 20px;
+        border: none;
+        text-transform: uppercase;
+        font-family: sans-serif;
+        border-radius: 34px;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 12px;
+    }
+    h1 {
+        font-size: 34px;
+        font-family: sans-serif;
+        color: #2d89db;
+        max-width: 325px;
+        margin-top: 50px;
+        margin-bottom: 30px;
+    }
+    p {
+        font-family: sans-serif;
+        font-size: 18px;
+        line-height: 28px;
+        margin-bottom: 35px;
+    }
+    img {
+        width: 620px;
+        height: 380px;
+        position: relative;
+        left: 30px;
+    
+    }
+    .box2 {
+        border-bottom: 1px solid #8080804f;
+    }
+}
+.mydiv1 {
+    background-color: #caaf1e;
+    padding: 20px 0;
+    margin-top: 10px;
+    h1 {
+        text-align: center;
+        font-family: sans-serif;
+        font-weight: 500;
+    }
+}
+.mydiv2 {
+    h1 {
+        font-weight: 700;
+        font-size: 34px;
+        color: #17175f;
+        margin-top: 40px;
+        margin-bottom: 28px;
+        text-align: center;
+        font-family: sans-serif;
+    }
+
+}
+.bedicon{
+    .bedbox {
+        margin-left: 38px;
+    
+        p {
+            text-align: center;
+            font-size: 14px;
+            font-family: sans-serif;
+            font-weight: 600;
+            margin-top: 18px;
+        }
+        img {
+            width: 80px;
+            height: 75px;
+            margin: 0 auto;
+            display: block;
+        }
+    }
+}
+.mydiv4 {
+  h2{
+    text-align: center;
+    margin-top: 36px;
+    color: #0a3459;
+    font-size: 36px;
+    font-family: sans-serif;
+  }
+  p{
+       margin-top: 20px;
+    line-height: 32px;
+    font-weight: 600;
+    border-bottom: 1px solid #d2bbbb;
+    padding-bottom: 24px;
+    font-family: sans-serif;
+    text-align: center;
+  }
+}
+.mydiv6 {
+    .colorbox {
+        img {
+            height: 60px;
+            width: 110px;
+        }
+    }
+}
+.mydiv6heading {
+    h1{
+        text-align: center;
+        font-family: sans-serif;
+        font-size: 38px;
+        padding: 30px 0px 40px;
+        font-weight: 700;
+        color: #0a3459;
+    }
+}
+.mydiv7 {
+    background-image: url(/image/q.png);
+    padding: 50px 0 0;
+    margin-top: 80px;
+    margin-bottom: 50px;
+    h1 {
+        font-size: 40px;
+        text-transform: capitalize;
+        font-family: sans-serif;
+        color: #fff;
+    }
+    p {
+        color: #fff;
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 18px;
+    line-height: 25px;
+    margin-bottom: 40px;
+}
+    button {
+        padding: 8px 25px;
+        background-color: red;
+        border-color: red;
+        border: none;
+        outline: none;
+        color: #fff;
+        font-size: 22px;
+        font-family: sans-serif;
+        text-transform: uppercase;
+    }
+    img {
+            width: 480px;
+            position: relative;
+            bottom: 50px;
+            left: 100px;
+    }
+}
+.mydiv8 {
+    h2 {
+        text-align: center;
+        color: red;
+        font-family: sans-serif;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+    h1 {
+        text-align: center;
+        font-family: sans-serif;
+        text-transform: capitalize;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+    p {
+        text-align: center;
+        max-width: 700px;
+        display: block;
+        margin: 0 auto;
+        font-family: sans-serif;
+        color: #487397;
+        font-weight: 600;
+        line-height: 26px;
+    }
+}
+
+.mydiv9 {
+    
+    margin-top: 30px;
+.innerbox {
+    background-color: #f1d0d0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+}
+    select {
+        border: none;
+        outline: none;
+        font-size: 18px;
+        font-weight: 600;
+        width: 150px;
+        color: #060644;
+        background: transparent;
+    }
+}
+
+
+.productname {
+    font-size: .8666666667rem;
+    color: #0e3f70;
+    font-weight: 700;
+    font-family: sans-serif;
+    padding-top: 10px;
+    padding-left: 10px;
+    font-style: normal;
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+           line-clamp: 2; 
+   -webkit-box-orient: vertical;
+   line-height: 20px;
+}
+.price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    font-family: sans-serif;
+    color: #ff0000;
+    padding-left: 10px;
+    font-style: normal;
+}
+.box1 {
+    border: 1px solid #80808063;
+    padding-bottom: 10px;
+    width: 260px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.productsimages {
+    margin-top: 30px;
+}
+
+
+.mydiv10 {
+    margin-top: 36px;
+h1 {
+    text-align: center;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    max-width: 690px;
+    margin: 0 auto;
+}
+
+p {
+    text-align: center;
+    font-size: 15px;
+    font-family: sans-serif;
+    font-weight: 500;
+    max-width: 940px;
+    margin: 0 auto;
+    line-height: 25px;
+}
+
+button {
+    text-align: center;
+    margin: 0 auto;
+    padding: 8px 20px;
+    border-radius: 32px;
+    background-color: #3da6e4;
+    border-color: #3da6e4;
+    border: none;
+    display: block;
+    font-size: 16px;
+    color: #fff;
+    font-family: sans-serif;
+    text-transform: uppercase;
+}
+}
+.trustpilot {
+    img {
+        width: 160px;
+        position: relative;
+        left: 12px;
+        padding-bottom: 17px;
+        padding-top: 16px;
+    }
+}
