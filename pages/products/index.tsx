@@ -73,7 +73,8 @@ const NewProductPage = () => {
 
     // console.log(RenderTabsArray[index+1].title)
   }
-  return <div>
+  return (
+     <div>
     <NextSEO title={"Dbz beds "} />
     {/* Gufran  */}
     <div >
@@ -130,7 +131,8 @@ const NewProductPage = () => {
         </div>
       </div>
     </div>
-  </div>;
+  </div>
+  );
 };
 export default NewProductPage;
 
