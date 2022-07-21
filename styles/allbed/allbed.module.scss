@@ -243,3 +243,35 @@ p {
         color: #0a3459;
     }
 }
+
+.mydiv2 {
+    h1 {
+        font-weight: 700;
+        font-size: 34px;
+        color: #17175f;
+        margin-top: 40px;
+        margin-bottom: 28px;
+        text-align: center;
+        font-family: sans-serif;
+    }
+
+}
+.bedicon{
+    .bedbox {
+        margin-left: 38px;
+    
+        p {
+            text-align: center;
+            font-size: 14px;
+            font-family: sans-serif;
+            font-weight: 600;
+            margin-top: 18px;
+        }
+        img {
+            width: 80px;
+            height: 75px;
+            margin: 0 auto;
+            display: block;
+        }
+    }
+}

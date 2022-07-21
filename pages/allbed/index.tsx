@@ -20,7 +20,54 @@ const NewProductPage = () => {
           Shop our beds available within 2 weeks
         </h3>
       </section>
-      <section className={style.mydiv1}>
+
+
+      <section className={style.mydiv2}>
+        <div className="container">
+           <div className="row">
+              <div className="col-12">
+                <h1>Shop By Size</h1>
+              </div>
+           </div>
+        </div>
+  </section>
+  <section className={style.bedicon}>
+   <div className="container">
+       <div className="row justify-content-center">
+            <div className="col-2">
+              <div className={style.bedbox}>
+              <img src="\assets\images\small.svg" alt="img" />
+              <p className={style.parap}>3'0 Single</p>
+              </div>
+            </div>
+            <div className="col-2">
+            <div className={style.bedbox}>
+              <img src="\assets\images\smalldouble.svg" alt="img" />
+              <p className={style.parap}>4'0 Small Double </p>
+              </div>
+            </div>
+            <div className="col-2">
+            <div className={style.bedbox}>
+              <img src="\assets\images\double.svg" alt="img" />
+              <p className={style.parap}>4'6 Double</p>
+              </div>
+            </div>
+            <div className="col-2">
+            <div className={style.bedbox}>
+              <img src="\assets\images\king.svg" alt="img" />
+              <p className={style.parap}>5'0 King</p>
+              </div>
+            </div>
+            <div className="col-2">
+            <div className={style.bedbox}>
+              <img src="\assets\images\superking.svg" alt="img" />
+              <p className={style.parap}>6'0 Super King</p>
+              </div>
+            </div>
+       </div>
+   </div>
+ </section>
+      {/* <section className={style.mydiv1}>
         <h2>Shop By Size</h2>
         <div className="container">
           <div className="row">
@@ -67,7 +114,7 @@ const NewProductPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className={style.sleighbed}>
         <div className="container">
@@ -113,31 +160,31 @@ const NewProductPage = () => {
        <div className="row justify-content-center">
             <div className="col-2">
               <div className={style.bedbox}>
-              <img src="/image/8.svg" alt="img" />
+              <img src="assets\images\IrishBlue.svg" alt="img" />
               <p className={style.parap}>Grey Linen</p>
               </div>
             </div>
             <div className="col-2">
             <div className={style.bedbox}>
-              <img src="/image/9.svg" alt="img" />
+              <img src="assets\images\Brown.svg" alt="img" />
               <p className={style.parap}>Grey suede </p>
               </div>
             </div>
             <div className="col-2">
             <div className={style.bedbox}>
-              <img src="/image/10.svg" alt="img" />
+              <img src="assets\images\Grey.svg" alt="img" />
               <p className={style.parap}>Charcoal Chennile</p>
               </div>
             </div>
             <div className="col-2">
             <div className={style.bedbox}>
-              <img src="/image/11.svg" alt="img" />
+              <img src="assets\images\Blue.svg" alt="img" />
               <p className={style.parap}>Black Crushed Velvet</p>
               </div>
             </div>
             <div className="col-2">
             <div className={style.bedbox}>
-              <img src="/image/12.svg" alt="img" />
+              <img src="assets\images\Pink.svg" alt="img" />
               <p className={style.parap}>Pink</p>
               </div>
             </div>
@@ -198,7 +245,7 @@ const NewProductPage = () => {
 
               <div className="col-6">
                 <div className={style.allbedbedbed}>
-                  <img src="/assets/images/redbed.webp" alt="img" />
+                  <img src="../assets/images/redbed.webp" alt="img" />
                 </div>
               </div>
             </div>
