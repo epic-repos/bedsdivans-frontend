@@ -8,11 +8,12 @@ function DynamicTabs() {
     <div className={style.tabs}>
       {/* New tabs start */}
       <Tabs>
-        <div className="container pt-2 pb-6">
+        <div className="container">
           <div className="row tab-inner-sofa-row">
             <TabList>
               <Tab>
                 <div className="tab-inner-sofa">
+                  {" "}
                   <Image
                     src="/assets/images/banner/Group 611.png"
                     width={50}
@@ -58,43 +59,285 @@ function DynamicTabs() {
 
         <TabPanel>
           <div className="row">
-            <h1>tab1</h1>
-          </div>
-          <div
-            className="text-center"
-            style={{ marginTop: "3px", marginBottom: "-30px" }}
-          >
-            <button
-              className="ShopMobile"
-              style={{
-                color: "#ffffff",
-                backgroundColor: "rgb(38, 40, 132)",
-                borderRadius: "6px",
-                fontSize: "15px",
-                padding: "12px 20px",
-                fontWeight: "400",
-                letterSpacing: "0.5px",
-                marginTop: "",
-                marginBottom: "",
-              }}
-            >
-              <b>VIEW ALL PRODUCT</b>
-            </button>
+            <section className={style.productsimages}>
+              <div className="container">
+                <div className="row">
+                  <div className="col-3">
+                    <div className={style.box1}>
+                      <img
+                        src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
+                        alt="img"
+                        width={258}
+                        height="210"
+                      />
+                      <h2 className={style.productname}>
+                        Laurence Llewelyn-Bowen Hesper Velvet Fabric Ottoman Bed
+                      </h2>
+                      <p className={style.price}>£545.00</p>
+                    </div>
+                  </div>
+                  <div className="col-3">
+                    <div className={style.box1}>
+                      <img
+                        src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
+                        alt="img"
+                        width={258}
+                        height="210"
+                      />
+                      <h2 className={style.productname}>
+                        Laurence Llewelyn-Bowen Estella Velvet Fabric Ottoman
+                        Bed
+                      </h2>
+                      <p className={style.price}>£549.00</p>
+                    </div>
+                  </div>
+                  <div className="col-3">
+                    <div className={style.box1}>
+                      <img
+                        src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
+                        alt="img"
+                        width={258}
+                        height="210"
+                      />
+                      <h2 className={style.productname}>
+                        Laurence Llewelyn-Bowen Seren Velvet Fabric Ottoman Bed
+                      </h2>
+                      <p className={style.price}>£549.00</p>
+                    </div>
+                  </div>
+                  <div className="col-3">
+                    <div className={style.box1}>
+                      <img
+                        src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
+                        alt="img"
+                        width={258}
+                        height="210"
+                      />
+                      <h2 className={style.productname}>
+                        Catherine Lansfield Boutique Divan Bed Set
+                      </h2>
+                      <p className={style.price}>£210.00</p>
+                    </div>
+                  </div>
+                  <div className={style.viewAllProductTab}>
+                    <button className={style.viewAllProduct}>
+                      <b>VIEW ALL PRODUCT</b>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
         </TabPanel>
         <TabPanel>
           <div className="row">
-            <h1>tab 2</h1>
+            <section className={style.productsimages}>
+              <div className="container">
+                <div className="row">
+                  <div className="col-3">
+                    <div className={style.box1}>
+                      <img
+                        src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
+                        alt="img"
+                        width={258}
+                        height="210"
+                      />
+                      <h2 className={style.productname}>
+                        Laurence Llewelyn-Bowen Hesper Velvet Fabric Ottoman Bed
+                      </h2>
+                      <p className={style.price}>£545.00</p>
+                    </div>
+                  </div>
+                  <div className="col-3">
+                    <div className={style.box1}>
+                      <img
+                        src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
+                        alt="img"
+                        width={258}
+                        height="210"
+                      />
+                      <h2 className={style.productname}>
+                        Laurence Llewelyn-Bowen Estella Velvet Fabric Ottoman
+                        Bed
+                      </h2>
+                      <p className={style.price}>£549.00</p>
+                    </div>
+                  </div>
+                  <div className="col-3">
+                    <div className={style.box1}>
+                      <img
+                        src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
+                        alt="img"
+                        width={258}
+                        height="210"
+                      />
+                      <h2 className={style.productname}>
+                        Laurence Llewelyn-Bowen Seren Velvet Fabric Ottoman Bed
+                      </h2>
+                      <p className={style.price}>£549.00</p>
+                    </div>
+                  </div>
+                  <div className="col-3">
+                    <div className={style.box1}>
+                      <img
+                        src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
+                        alt="img"
+                        width={258}
+                        height="210"
+                      />
+                      <h2 className={style.productname}>
+                        Catherine Lansfield Boutique Divan Bed Set
+                      </h2>
+                      <p className={style.price}>£210.00</p>
+                    </div>
+                  </div>
+                  <div className={style.viewAllProductTab}>
+                    <button className={style.viewAllProduct}>
+                      <b>VIEW ALL PRODUCT</b>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
         </TabPanel>
         <TabPanel>
           <div className="row">
-            <h1>tab 3</h1>
+            <section className={style.productsimages}>
+              <div className="container">
+                <div className="row">
+                  <div className="col-3">
+                    <div className={style.box1}>
+                      <img
+                        src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
+                        alt="img"
+                        width={258}
+                        height="210"
+                      />
+                      <h2 className={style.productname}>
+                        Laurence Llewelyn-Bowen Hesper Velvet Fabric Ottoman Bed
+                      </h2>
+                      <p className={style.price}>£545.00</p>
+                    </div>
+                  </div>
+                  <div className="col-3">
+                    <div className={style.box1}>
+                      <img
+                        src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
+                        alt="img"
+                        width={258}
+                        height="210"
+                      />
+                      <h2 className={style.productname}>
+                        Laurence Llewelyn-Bowen Estella Velvet Fabric Ottoman
+                        Bed
+                      </h2>
+                      <p className={style.price}>£549.00</p>
+                    </div>
+                  </div>
+                  <div className="col-3">
+                    <div className={style.box1}>
+                      <img
+                        src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
+                        alt="img"
+                        width={258}
+                        height="210"
+                      />
+                      <h2 className={style.productname}>
+                        Laurence Llewelyn-Bowen Seren Velvet Fabric Ottoman Bed
+                      </h2>
+                      <p className={style.price}>£549.00</p>
+                    </div>
+                  </div>
+                  <div className="col-3">
+                    <div className={style.box1}>
+                      <img
+                        src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
+                        alt="img"
+                        width={258}
+                        height="210"
+                      />
+                      <h2 className={style.productname}>
+                        Catherine Lansfield Boutique Divan Bed Set
+                      </h2>
+                      <p className={style.price}>£210.00</p>
+                    </div>
+                  </div>
+                  <div className={style.viewAllProductTab}>
+                    <button className={style.viewAllProduct}>
+                      <b>VIEW ALL PRODUCT</b>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
         </TabPanel>
         <TabPanel>
           <div className="row">
-            <h1>tab4</h1>
+            <section className={style.productsimages}>
+              <div className="container">
+                <div className="row">
+                  <div className="col-3">
+                    <div className={style.box1}>
+                      <img
+                        src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
+                        alt="img"
+                        width={258}
+                        height="210"
+                      />
+                      <h2 className={style.productname}>
+                        Laurence Llewelyn-Bowen Hesper Velvet Fabric Ottoman Bed
+                      </h2>
+                      <p className={style.price}>£545.00</p>
+                    </div>
+                  </div>
+                  <div className="col-3">
+                    <div className={style.box1}>
+                      <img
+                        src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
+                        alt="img"
+                        width={258}
+                        height="210"
+                      />
+                      <h2 className={style.productname}>
+                        Laurence Llewelyn-Bowen Estella Velvet Fabric Ottoman
+                        Bed
+                      </h2>
+                      <p className={style.price}>£549.00</p>
+                    </div>
+                  </div>
+                  <div className="col-3">
+                    <div className={style.box1}>
+                      <img
+                        src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
+                        alt="img"
+                        width={258}
+                        height="210"
+                      />
+                      <h2 className={style.productname}>
+                        Laurence Llewelyn-Bowen Seren Velvet Fabric Ottoman Bed
+                      </h2>
+                      <p className={style.price}>£549.00</p>
+                    </div>
+                  </div>
+                  <div className="col-3">
+                    <div className={style.box1}>
+                      <img
+                        src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
+                        alt="img"
+                        width={258}
+                        height="210"
+                      />
+                      <h2 className={style.productname}>
+                        Catherine Lansfield Boutique Divan Bed Set
+                      </h2>
+                      <p className={style.price}>£210.00</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
         </TabPanel>
       </Tabs>

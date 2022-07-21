@@ -1,7 +1,7 @@
 import NextSEO from "layout/nextseo";
 import type { NextPage } from "next";
 import Head from "next/head";
-import Style from "styles/home.module.scss";
+import Style from "styles/HomePage/home.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import DynamicTabs from "../components/tabs/index";
@@ -39,26 +39,8 @@ const Home: NextPage = () => {
               >
                 Save upto 60% with Divan Beds
               </p>
-              <div>
-                <button
-                  className={Style.ShopMobile}
-                  style={{
-                    color: "#ffffff",
-                    backgroundColor: "#f22222",
-                    padding: "9px",
-                    borderRadius: "42px",
-                    paddingLeft: "40px",
-                    paddingRight: "40px",
-                    fontSize: "18px",
-                    paddingTop: "12px",
-                    paddingBottom: "12px",
-                    fontWeight: "300",
-                    letterSpacing: "0.5px",
-                    marginTop: "50px !important",
-                    marginBottom: "37px !important",
-                    border: "none",
-                  }}
-                >
+              <div className={Style.bannerButton}>
+                <button>
                   <b>SHOP NOW</b>
                 </button>
               </div>
@@ -175,22 +157,23 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
-      <div className="container">
-        <div className="row">
-          <div className="col-md-12 text-center" data-aos="fade-up">
-            <div className={Style.section_title}>
-              <h2 className={Style.colorRed}>Featured Products</h2>
+      <div className={Style.tabProduct}>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12 text-center" data-aos="fade-up">
+              <div className={Style.section_title}>
+                <h2 className={Style.colorRed}>Featured Products</h2>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* tabs start  */}
-      <div className={Style.newtabs}>
-        <DynamicTabs />
+        {/* tabs start  */}
+        <div className={Style.newtabs}>
+          <DynamicTabs />
+        </div>
+        {/* tabs end  */}
       </div>
-      {/* tabs end  */}
-
       <div className="section">
         <div className="container-fluid">
           <div className="row">
@@ -274,7 +257,7 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
-      <div className="container-fluid">
+      <div className={`${Style.newBestSelling} container-fluid`}>
         <div className="row">
           <div className="col-md-12 text-center" data-aos="fade-up">
             <div className={Style.section_title}>
@@ -283,6 +266,11 @@ const Home: NextPage = () => {
                 We’re one of the UK’s leading manufacturers of cheap divan beds,
                 offering a rich selection of products in a variety of styles.
               </p>
+            </div>
+            <div>
+              <button className={Style.viewAllProduct}>
+                <b>VIEW ALL PRODUCT</b>
+              </button>
             </div>
           </div>
         </div>
@@ -325,7 +313,7 @@ const Home: NextPage = () => {
             <div className="row">
               <div
                 className={`${Style.mattres_sectionb} col-12`}
-                style={{ cursor: "pointer" }}
+                style={{ cursor: "pointer", padding: "0" }}
               >
                 <Link href="/product/Mattressess">
                   <Image
@@ -369,19 +357,7 @@ const Home: NextPage = () => {
           </div>
         </div>
         <div className={`${Style.responsive_button} text-center`}>
-          <button
-            className={Style.ShopMobile}
-            style={{
-              color: "#ffffff",
-              backgroundColor: "rgb(38, 40, 132)",
-              borderRadius: "6px",
-              fontSize: "15px",
-              padding: "12px 20px",
-              fontWeight: "400",
-              letterSpacing: "0.5px",
-              marginTop: "37px",
-            }}
-          >
+          <button className={Style.viewAllProduct}>
             <b>VIEW ALL PRODUCT</b>
           </button>
         </div>
@@ -412,19 +388,7 @@ const Home: NextPage = () => {
           </div>
 
           <div className={`${Style.discover_button} text-center`}>
-            <button
-              className={Style.ShopMobile}
-              style={{
-                color: "#ffffff",
-                backgroundColor: "rgb(38, 40, 132)",
-                borderRadius: "6px",
-                fontSize: "15px",
-                padding: "12px 20px",
-                fontWeight: "400",
-                letterSpacing: "0.5px",
-                marginTop: "0px",
-              }}
-            >
+            <button className={Style.viewAllProduct}>
               <b>More Services</b>
             </button>
           </div>

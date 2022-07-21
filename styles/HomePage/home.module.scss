@@ -46,6 +46,7 @@ hr.banner_icons {
   font-size: 42px;
   font-weight: 700;
   margin-bottom: 15px;
+  padding-top: 30px;
 }
 .colorfirst {
   color: #1e196c;
@@ -64,6 +65,7 @@ hr.banner_icons {
   justify-content: center;
   /* display: -webkit-flex; */
   display: flex;
+  padding-top: 50px;
   /* -webkit-flex-wrap: wrap; */
 }
 .single_box {
@@ -92,11 +94,58 @@ hr.banner_icons {
   color: #00b2bc;
   border-radius: 25px;
   padding: 10px 32px;
+  border: none;
 }
 .explore_mattress {
-  padding-top: 15px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-image: linear-gradient(180deg, #f9f9e8, #e0eaf9);
 }
 
 .newtabs {
-  display: flex;
+  display: flex !important;
+}
+.bannerButton button {
+  color: #ffffff;
+  background-color: #f22222;
+  padding: 9px;
+  border-radius: 42px;
+  padding-left: 40px;
+  padding-right: 40px;
+  font-size: 18px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  margin-top: 50px;
+  margin-bottom: 37px !important;
+  border: none;
+}
+.viewAllProduct {
+  color: #ffffff;
+  background-color: rgb(38, 40, 132);
+  border-radius: 6px;
+  font-size: 15px;
+  padding: 12px 20px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  margin-top: 37px;
+  border: none;
+}
+.bg_brown {
+  padding-top: 40px;
+  padding-bottom: 30px;
+}
+.newBestSelling {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background: #f5f5f5;
+}
+.tabProduct {
+  background-image: linear-gradient(180deg, #f9f9e8, #e0eaf9);
+  border-top-left-radius: 152px;
+  border-top-right-radius: 152px;
+}
+.mattress_bannerone {
+  padding: 0;
 }
