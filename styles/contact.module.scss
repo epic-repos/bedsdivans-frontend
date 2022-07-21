@@ -1,0 +1,191 @@
+.row{
+  display: flex;
+  
+}
+
+.item {
+  width: 100;
+  background-color:rgb(243, 243, 248);
+}
+
+.item1{
+  width: 60%;
+  margin-top: 40px;
+
+  
+}
+
+.item2{
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  padding: 10px 20px;
+  background-color: #fff;
+  width: 150%;
+  height:auto;
+  align-items:center;
+  justify-content:center; 
+  border-radius:5px;
+  
+
+}
+.under ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  .under ul li {
+    width: 100%;
+  }
+  
+  .under ul li label {
+    display: block;
+  }
+  
+  .under ul li input {
+    border: 2px solid #bfbfbf;
+    width: 100%;
+    display: inline-block;
+    line-height: 50px;
+    height: 50px;
+    font-size: 15px;
+    width: 100%;
+    background: 0 0;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    text-align: left;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    padding-left: 20px;
+    padding-right: 10px;
+    outline: 0;
+  }
+  
+  .under ul li textarea {
+    height: 80px;
+  }
+  
+  .shopping_page a {
+    color: #fff;
+    font-weight: 600;
+    font-size: 20px;
+    text-decoration: none;
+    background: #041f5d;
+    padding: 10px 18px 14px 18px;
+    border-radius: 30px;
+    line-height: 75px;
+    
+}
+
+.button{
+  display: block;
+  margin: 0px auto;
+  width: fit-content;
+  margin-top: 40px;
+
+  
+  
+}
+
+.contact_form2{
+padding-left: 32px;
+}
+
+.text_area{
+resize: none;
+width: 100%;
+background-color:rgb(243, 243, 248);
+}
+
+
+
+
+.billformbox {
+  .billform {
+  padding: 30px;
+  h3 {
+    color: rgb(14, 63, 112);
+    font-weight: 600;
+  }
+  button {
+    border: 1px solid #000;
+    padding: 8px 30px;
+    text-transform: uppercase;
+    background: #000;
+    color: #fff;
+    font-weight: 600;
+    font-size: 20px;
+    text-decoration: none;
+    background: #041f5d;
+  }
+  ul 
+  {
+    padding: 0;margin: 0;list-style: none;display: flex;flex-wrap: wrap;
+    li 
+    {
+      width: 100%;
+      label {
+        display: block;
+        margin-bottom: 15px;
+      }
+    }
+    input {
+      display: inline-block;
+      line-height: 50px;
+      height: 50px;
+      font-size: 15px;
+      width: 100%;
+      background: 0 0;
+      border-radius: 0;
+      -webkit-border-radius: 0;
+      text-align: left;
+      box-shadow: none;
+      -webkit-box-shadow: none;
+      padding-left: 20px;
+      padding-right: 10px;
+      outline: 0;
+      border: 2px solid #bfbfbf;
+      margin-bottom: 15px;
+    }
+    textarea {
+      display: inline-block;
+      line-height: 50px;
+      
+      font-size: 15px;
+      width: 100%;
+      background: 0 0;
+      border-radius: 0;
+      -webkit-border-radius: 0;
+      text-align: left;
+      box-shadow: none;
+      -webkit-box-shadow: none;
+      padding-left: 20px;
+      padding-right: 10px;
+      outline: 0;
+      border: 2px solid #bfbfbf;
+      margin-bottom: 15px;
+    }
+    .countryname {
+      font-size: 20px;
+      color: rgb(14, 63, 112);
+      font-weight: 700;
+    }
+    
+  }
+}
+}
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+ 
+
+ 
+
+ 

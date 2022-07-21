@@ -64,36 +64,36 @@ const NewProductPage = () => {
  <section className={styles.bedicon}>
    <div className="container">
        <div className="row">
-            <div className="col-2">
-              <div className={styles.bedbox}>
-              <img src="https://aspirestore.co.uk/c/14-category_thumb/6-0-super-king.jpg" alt="img" />
-              <p className={styles.parap}>3'0 Single</p>
-              </div>
-            </div>
-            <div className="col-2">
+          <div className="col-2">
             <div className={styles.bedbox}>
-              <img src="https://aspirestore.co.uk/c/14-category_thumb/6-0-super-king.jpg" alt="img" />
-              <p className={styles.parap}>4'0 Small Double </p>
-              </div>
+            <img src="https://aspirestore.co.uk/c/14-category_thumb/6-0-super-king.jpg" alt="img" />
+            <p className={styles.parap}>3 0 Single</p>
             </div>
-            <div className="col-2">
-            <div className={styles.bedbox}>
-              <img src="https://aspirestore.co.uk/c/14-category_thumb/6-0-super-king.jpg" alt="img" />
-              <p className={styles.parap}>4'6 Double</p>
-              </div>
+          </div>
+          <div className="col-2">
+          <div className={styles.bedbox}>
+            <img src="https://aspirestore.co.uk/c/14-category_thumb/6-0-super-king.jpg" alt="img" />
+            <p className={styles.parap}>4 0 Small Double </p>
             </div>
-            <div className="col-2">
-            <div className={styles.bedbox}>
-              <img src="https://aspirestore.co.uk/c/14-category_thumb/6-0-super-king.jpg" alt="img" />
-              <p className={styles.parap}>5'0 King</p>
-              </div>
+          </div>
+          <div className="col-2">
+          <div className={styles.bedbox}>
+            <img src="https://aspirestore.co.uk/c/14-category_thumb/6-0-super-king.jpg" alt="img" />
+            <p className={styles.parap}>4 6 Double</p>
             </div>
-            <div className="col-2">
-            <div className={styles.bedbox}>
-              <img src="https://aspirestore.co.uk/c/14-category_thumb/6-0-super-king.jpg" alt="img" />
-              <p className={styles.parap}>6'0 Super King</p>
-              </div>
+          </div>
+          <div className="col-2">
+          <div className={styles.bedbox}>
+            <img src="https://aspirestore.co.uk/c/14-category_thumb/6-0-super-king.jpg" alt="img" />
+            <p className={styles.parap}>5 0 King</p>
             </div>
+          </div>
+          <div className="col-2">
+          <div className={styles.bedbox}>
+            <img src="https://aspirestore.co.uk/c/14-category_thumb/6-0-super-king.jpg" alt="img" />
+            <p className={styles.parap}>6 0 Super King</p>
+            </div>
+          </div>
        </div>
    </div>
  </section>

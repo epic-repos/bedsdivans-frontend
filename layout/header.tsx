@@ -2,6 +2,7 @@ import React from "react";
 import type { NextPage } from "next";
 import Styles from "./headerstyle/topheader.module.scss";
 import Link from "next/link";
+ 
 
 const Header = () => {
   return (
@@ -28,12 +29,12 @@ const Header = () => {
     <section className={Styles.secondheader}>
        <div className="container">
           <div className="row">
-             <div className="col-2">
+             <div className="col-md-2">
              <div className={Styles.mainlogo}>
                 <img src="/image/1.png" alt="logo" />
              </div>
              </div>
-             <div className={`${Styles.searchbar1}col-7`}>
+             <div className={`${Styles.searchbar1} col-md-7`}>
              <div className={Styles.searchbar}>
               <input type="text" placeholder="search for products"/>
              
@@ -44,12 +45,12 @@ const Header = () => {
             <option value="3">3</option>
   </select>
 
-  <button type="search-button">
+  <button className={Styles.search_button}>
                 <img src="/image/SEARCH.SVG" alt="" />
               </button>
              </div>
              </div>
-             <div className="col-3">
+             <div className="col-md-3">
               <div className={Styles.carticon}>
                   <ul>
                     <li>
@@ -71,16 +72,16 @@ const Header = () => {
        </div>
     </section >
 
-
+ 
 
 
     <section className={Styles.menudiv}>
           <div className="container">
              <div className="row">
-                <div className="col-12">
+                <div className="col-md-12">
                     <div className={Styles.mainmenu}>
                       <ul>
-                         <li>Beds</li>
+                         <li>Beds  </li>
                          <li>Mattresses</li>
                          <li>Wardrobes</li>
                          <li>Sofa Beds</li>
