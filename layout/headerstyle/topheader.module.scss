@@ -102,9 +102,11 @@ section.headersection:before {
 .mainmenu {
     ul {
         display: flex;
-        justify-content: space-between;
-        text-align: center;
-        ma
+       justify-content: center;
+       text-align: center;
+       gap: 65px;
+       margin-bottom: 0;
+       text-transform: uppercase;
         li {
             list-style: none;
             font-size: 14px;
@@ -116,9 +118,10 @@ section.headersection:before {
 }
 .menudiv {
     background-color: #1414af;
-    padding: 14px 20px 3px;
+    padding: 0;
     color: #fff;
     font-weight: 500;
+    line-height: 50px;
 }
 .mainlogo {
     img {
@@ -173,4 +176,67 @@ section.headersection:before {
             }
         }
     }
+}
+.drop{
+    display: none;
+
+    ul {
+        display: block;
+    }
+    h2 {
+        font-size: 20px;
+        margin-bottom: 32px;
+        border-bottom: 1px solid #8080804d;
+        padding-bottom: 14px;
+        color: #1414af;
+    }
+    
+    li {
+        padding-bottom: 12px;
+        font-family: sans-serif;
+    }
+    p {
+        font-weight: 700;
+        color: #1414af;
+    }
+}
+.dropdownmenu {
+    img {
+        width: 300px !important;
+    }
+    h2 { 
+        font-size: 18px;
+        font-weight: 600;
+        text-align: initial;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #8080805c;
+        padding-bottom: 10px;
+    }
+    ul {
+        display: block;
+    text-align: initial;
+    line-height: 20px;
+    li {
+        margin-bottom: 20px;
+        a {
+            color: #000 !important;
+        }
+    }
+    }
+}
+.mainmenu ul li:hover a + ul {
+    position: absolute;
+    background: #ffffff;
+    left: 0;
+    top: 100%;
+    color: blue;
+    z-index: 9;
+    padding-top: 15px;
+    display: block;
+    width: 100%;
+    transition: all 0.4s ease;
+    box-shadow: 2px 3px 3px 6px rgb(128 128 128 / 40%);
+}
+.mainmenu ul li a + ul {
+    display: none;
 }
