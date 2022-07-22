@@ -2,10 +2,7 @@ import React from "react";
 import type { NextPage } from "next";
 import Styles from "./headerstyle/topheader.module.scss";
 import Link from "next/link";
-<<<<<<< HEAD
-=======
  
->>>>>>> 01e75f6bd69bd20bdb7dfbc5f3922e9d1db51d9f
 
 const Header = () => {
   return (
@@ -32,20 +29,12 @@ const Header = () => {
     <section className={Styles.secondheader}>
        <div className="container">
           <div className="row">
-<<<<<<< HEAD
-             <div className="col-2">
-=======
              <div className="col-md-2">
->>>>>>> 01e75f6bd69bd20bdb7dfbc5f3922e9d1db51d9f
              <div className={Styles.mainlogo}>
                 <img src="/image/1.png" alt="logo" />
              </div>
              </div>
-<<<<<<< HEAD
-             <div className={`${Styles.searchbar1}col-7`}>
-=======
              <div className={`${Styles.searchbar1} col-md-7`}>
->>>>>>> 01e75f6bd69bd20bdb7dfbc5f3922e9d1db51d9f
              <div className={Styles.searchbar}>
               <input type="text" placeholder="search for products"/>
              
@@ -56,20 +45,12 @@ const Header = () => {
             <option value="3">3</option>
   </select>
 
-<<<<<<< HEAD
-  <button type="search-button">
-=======
   <button className={Styles.search_button}>
->>>>>>> 01e75f6bd69bd20bdb7dfbc5f3922e9d1db51d9f
                 <img src="/image/SEARCH.SVG" alt="" />
               </button>
              </div>
              </div>
-<<<<<<< HEAD
-             <div className="col-3">
-=======
              <div className="col-md-3">
->>>>>>> 01e75f6bd69bd20bdb7dfbc5f3922e9d1db51d9f
               <div className={Styles.carticon}>
                   <ul>
                     <li>
@@ -91,27 +72,16 @@ const Header = () => {
        </div>
     </section >
 
-<<<<<<< HEAD
-
-=======
  
->>>>>>> 01e75f6bd69bd20bdb7dfbc5f3922e9d1db51d9f
 
 
     <section className={Styles.menudiv}>
           <div className="container">
              <div className="row">
-<<<<<<< HEAD
-                <div className="col-12">
-                    <div className={Styles.mainmenu}>
-                      <ul>
-                         <li>Beds</li>
-=======
                 <div className="col-md-12">
                     <div className={Styles.mainmenu}>
                       <ul>
                          <li>Beds  </li>
->>>>>>> 01e75f6bd69bd20bdb7dfbc5f3922e9d1db51d9f
                          <li>Mattresses</li>
                          <li>Wardrobes</li>
                          <li>Sofa Beds</li>
