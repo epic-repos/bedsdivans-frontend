@@ -56,7 +56,7 @@ const Divanbed = () => {
        <div className="row justify-content-center">
             <div className="col-2">
               <div className={styles.bedbox}>
-              <img src="/image/1.svg" alt="img" />
+              <img src="/image/image-single-bed.svg" alt="img" />
               <p className={styles.parap}>3'0 Single</p>
               </div>
             </div>
@@ -94,7 +94,7 @@ const Divanbed = () => {
     <div className="container">
         <div className="row">
             <div className="col-12">
-                <h2>BedsDivans.co.uk</h2>
+                <h2>DBZBEDS.CO.UK</h2>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti voluptatum illum rerum autem voluptate, soluta, inventore unde nulla numquam minima consequuntur explicabo incidunt facilis asperiores error quis necessitatibus repudiandae possimus temporibus ratione! Aperiam mollitia architecto sed. Consectetur numquam cupiditate praesentium, velit repudiandae accusantium totam corrupti, obcaecati nihil corporis doloremque recusandae.</p>
             </div>
         </div>
@@ -103,12 +103,19 @@ const Divanbed = () => {
 
 
 <section className={styles.mydiv5}> 
-    <div className="container">
+<div className={` ${styles.krishnabox} container`}>
         <div className="row">
            <div className="col-6">
-
+            <div className={styles.bedimage}>
+              <img src="/image/6.webp" alt="img" />
+              </div>
            </div>
-           <div className="col-6">
+           <div className={` ${styles.krishnabox2} col-6`}>
+             <h1>UK's Latest</h1>
+             <p>Range of Divan Beds in Affordable Prices</p>
+             <img src="/image/7.webp" alt="img" />
+             <p>June 23rd -  July 6th</p>
+             <button type="submit">SHOP NOW</button>
            </div>
         </div>
     </div>
@@ -124,7 +131,7 @@ const Divanbed = () => {
      </div>
 </section>
 
-<section className={styles.bedicon}>
+<section className={styles.bedicon2}>
    <div className="container">
        <div className="row justify-content-center">
             <div className="col-2">
