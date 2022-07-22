@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "styles/headboard.module.scss";
+import styles from "styles/divanbed.module.scss";
 import Image from "next/image";
 import NextSEO from "layout/nextseo";
 import Header from "layout/header";
@@ -56,7 +56,7 @@ const Divanbed = () => {
        <div className="row justify-content-center">
             <div className="col-2">
               <div className={styles.bedbox}>
-              <img src="/image/image-single-bed.svg" alt="img" />
+              <img src="/image/image.svg" alt="img" />
               <p className={styles.parap}>3'0 Single</p>
               </div>
             </div>
@@ -242,7 +242,7 @@ const Divanbed = () => {
             <img src="https://aspirestore.co.uk/49144-home_default/presley-fabric-ottoman-bed.jpg" alt="img" width={258} height="210"  />
                   <h2 className={styles.productname}>Presley Fabric Ottoman Bed</h2>
                   <div className={styles.trustpilot}>
-                    <img src="/image/trustpilot (1).png" alt="img" />
+                    <img src="/image/tru.png" alt="img" />
                   </div>
                   <p className={styles.price}>£600.00</p>
               </div>
@@ -252,7 +252,7 @@ const Divanbed = () => {
             <img src="https://aspirestore.co.uk/49144-home_default/presley-fabric-ottoman-bed.jpg" alt="img" width={258} height="210"  />
                   <h2 className={styles.productname}>Presley Fabric Ottoman Bed</h2>
                   <div className={styles.trustpilot}>
-                    <img src="/image/trustpilot (1).png" alt="img" />
+                  <img src="/image/tru.png" alt="img" />
                   </div>
                   <p className={styles.price}>£600.00</p>
               </div>
@@ -262,7 +262,7 @@ const Divanbed = () => {
             <img src="https://aspirestore.co.uk/49144-home_default/presley-fabric-ottoman-bed.jpg" alt="img" width={258} height="210"  />
                   <h2 className={styles.productname}>Presley Fabric Ottoman Bed</h2>
                   <div className={styles.trustpilot}>
-                    <img src="/image/trustpilot (1).png" alt="img" />
+                  <img src="/image/tru.png" alt="img" />
                   </div>
                   <p className={styles.price}>£600.00</p>
               </div>
@@ -272,7 +272,7 @@ const Divanbed = () => {
             <img src="https://aspirestore.co.uk/49144-home_default/presley-fabric-ottoman-bed.jpg" alt="img" width={258} height="210"  />
                   <h2 className={styles.productname}>Presley Fabric Ottoman Bed</h2>
                   <div className={styles.trustpilot}>
-                    <img src="/image/trustpilot (1).png" alt="img" />
+                  <img src="/image/tru.png" alt="img" />
                   </div>
                   <p className={styles.price}>£600.00</p>
               </div>
