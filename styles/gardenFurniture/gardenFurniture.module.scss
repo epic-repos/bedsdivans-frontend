@@ -5,9 +5,18 @@
   font-size: 44px;
   margin-top: 50px;
 }
+.mattresspage hr {
+  width: 84%;
+  margin: 10px 0;
+  color: #474747;
+  background-color: currentColor;
+  border: 0;
+  opacity: 0.25;
+}
 .mtresp p {
-  color: #fff;
+  color: #141414;
   font-size: 15px;
+  padding-top: 30px;
 }
 .ShopMobile button {
   letter-spacing: 2px;
@@ -40,6 +49,7 @@
 }
 .scnd_sct {
   background-color: #ec9e17;
+  margin-top: 10px;
 }
 .scnd_scttxt h3 {
   color: #141414;
@@ -117,14 +127,14 @@
   color: #222178;
 }
 .sectionTitle {
-  font-weight: 600;
-  font-size: 18px;
+  font-weight: 500;
+  font-size: 16px;
   text-align: center;
 }
 .sectionTitle hr {
-  width: 44%;
-  margin: 0 auto;
-  height: 2px !important;
+  width: 100%;
+  margin-top: 40px;
+  color: inherit;
   background-color: currentColor;
   border: 0;
   opacity: 0.25;
@@ -136,8 +146,10 @@
 }
 .mattressExcusive h6 {
   margin-bottom: 5px;
-  font-weight: 500;
-  line-height: 1.2;
+  font-weight: 400;
+  padding-top: 10px;
+  font-size: 14px;
+  line-height: 23px;
 }
 .mtrButton button {
   color: #ffffff;
@@ -145,26 +157,26 @@
   padding: 7px 35px 7px 35px;
   border-radius: 0px;
   font-size: 18px;
-  margin: auto;
   font-weight: 300;
-  margin-bottom: 13px;
   border: none;
+  margin-top: 30px;
 }
 .mattressExcusive {
+  padding: 45px;
   background-color: #fff;
-  padding: 30px;
 }
 .exclusive_img {
   //   background-image: url(/assets/images/mattressbanner/All-beds.png);
   background-image: url(/assets/images/mattressbanner/Allbeds.png);
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
   height: 100%;
   width: 100%;
 }
 .mExcusive {
   padding-bottom: 40px;
-  padding-top: 80px;
+  padding-top: 20px;
 }
 .shpbysze {
   background-color: #f3f3f8;
@@ -177,31 +189,40 @@
   background-image: url(/assets/images/mattressbanner/Group539.png);
   background-repeat: no-repeat;
   background-size: cover;
+  height: 434px;
+  background-repeat: no-repeat;
+  background-size: cover;
   padding-top: 30px;
   padding-bottom: 30px;
 }
 .DivanPageH2 h2 {
-  margin-top: 10px;
-  font-size: 36px;
-  color: #ffffff;
+  text-align: left;
+  margin-top: 50px;
+  color: #ec9e17;
+  font-size: 41px;
   font-weight: 800;
   font-size: 44px;
 }
 .DivanPageH2 p {
-  color: #ffffff;
+  color: #000;
   font-size: 15px;
   margin-top: 20px !important;
+  padding-right: 50px;
+  text-align: left;
 }
 .DivanPageH2 button {
   color: #ffffff;
   background-color: #f22222;
   padding: 9px;
   border-radius: 0px;
-  padding-left: 33px;
+  padding-left: 37px;
   padding-right: 37px;
   font-size: 18px;
   padding-top: 7px;
-  padding-bottom: 5px;
+  padding-bottom: 7px;
+  border: none;
+  float: left;
+  margin-top: 30px;
 }
 .ourexllsve h4 {
   color: #f22222;
@@ -212,12 +233,16 @@
   font-weight: 800;
   margin-top: 10px !important;
   text-align: center;
+  font-size: 42px;
 }
 .ourexllsve p {
-  color: #7c7c7c;
-  font-size: 15px;
+  color: #474747;
+  font-size: 16px;
   text-align: center;
-  padding-top: 20px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 .tabs {
   width: 100%;
@@ -288,24 +313,73 @@
 .mExcusivep {
   padding: 0;
 }
-.gardenexclsv h2 {
-  color: #ec9e17;
-  font-size: 41px;
-  margin-top: 10px;
+.mydiv2 {
+  h1 {
+    font-weight: 700;
+    font-size: 34px;
+    color: #17175f;
+    margin-top: 40px;
+    margin-bottom: 28px;
+    text-align: center;
+    font-family: sans-serif;
+  }
 }
-.gardenexclsv p {
-  color: #000;
-  font-size: 15px;
-  margin-top: 20px !important;
+.bedicon {
+  .bedbox {
+    margin-left: 38px;
+
+    p {
+      text-align: center;
+      font-size: 16px;
+      font-family: sans-serif;
+      font-weight: 600;
+      margin-top: 18px;
+      color: #222178;
+    }
+    img {
+      width: 105px;
+      height: 70px;
+      margin: 0 auto;
+      display: block;
+    }
+  }
 }
-.gardenexclsv button {
-  color: #ffffff;
-  background-color: #f22222;
-  padding: 7px 35px 7px 35px;
-  border-radius: 0px;
-  font-size: 18px;
-  margin: auto;
-  font-weight: 300;
-  margin-bottom: 13px;
-  border: none;
+.mydiv6 {
+  .colorbox {
+    img {
+      height: 60px;
+      width: 110px;
+    }
+  }
+}
+.mydiv6heading {
+  h1 {
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 38px;
+    padding: 30px 0px 40px;
+    font-weight: 700;
+    color: #0a3459;
+  }
+}
+.bedicon {
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+.mydiv9 {
+  margin-top: 30px;
+  .innerbox {
+    background-color: #f2f2f2;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  select {
+    border: none;
+    outline: none;
+    font-size: 18px;
+    font-weight: 600;
+    width: 150px;
+    color: #060644;
+    background: transparent;
+  }
 }
