@@ -103,12 +103,19 @@ const Divanbed = () => {
 
 
 <section className={styles.mydiv5}> 
-    <div className="container">
+<div className={` ${styles.krishnabox} container`}>
         <div className="row">
            <div className="col-6">
-
+            <div className={styles.bedimage}>
+              <img src="/image/6.webp" alt="img" />
+              </div>
            </div>
-           <div className="col-6">
+           <div className={` ${styles.krishnabox2} col-6`}>
+             <h1>UK's Latest</h1>
+             <p>Range of Divan Beds in Affordable Prices</p>
+             <img src="/image/7.webp" alt="img" />
+             <p>June 23rd -  July 6th</p>
+             <button type="submit">SHOP NOW</button>
            </div>
         </div>
     </div>
@@ -124,7 +131,7 @@ const Divanbed = () => {
      </div>
 </section>
 
-<section className={styles.bedicon}>
+<section className={styles.bedicon2}>
    <div className="container">
        <div className="row justify-content-center">
             <div className="col-2">
@@ -245,7 +252,7 @@ const Divanbed = () => {
             <img src="https://aspirestore.co.uk/49144-home_default/presley-fabric-ottoman-bed.jpg" alt="img" width={258} height="210"  />
                   <h2 className={styles.productname}>Presley Fabric Ottoman Bed</h2>
                   <div className={styles.trustpilot}>
-                    <img src="/image/tru.png" alt="img" />
+                  <img src="/image/tru.png" alt="img" />
                   </div>
                   <p className={styles.price}>£600.00</p>
               </div>
@@ -255,7 +262,7 @@ const Divanbed = () => {
             <img src="https://aspirestore.co.uk/49144-home_default/presley-fabric-ottoman-bed.jpg" alt="img" width={258} height="210"  />
                   <h2 className={styles.productname}>Presley Fabric Ottoman Bed</h2>
                   <div className={styles.trustpilot}>
-                    <img src="/image/tru.png" alt="img" />
+                  <img src="/image/tru.png" alt="img" />
                   </div>
                   <p className={styles.price}>£600.00</p>
               </div>
@@ -265,7 +272,7 @@ const Divanbed = () => {
             <img src="https://aspirestore.co.uk/49144-home_default/presley-fabric-ottoman-bed.jpg" alt="img" width={258} height="210"  />
                   <h2 className={styles.productname}>Presley Fabric Ottoman Bed</h2>
                   <div className={styles.trustpilot}>
-                    <img src="/image/tru.png" alt="img" />
+                  <img src="/image/tru.png" alt="img" />
                   </div>
                   <p className={styles.price}>£600.00</p>
               </div>

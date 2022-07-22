@@ -39,16 +39,18 @@
     }
 }
 .mydiv1 {
-    background-color: #caaf1e;
-    padding: 20px 0;
+    background-color: #edb213;
+    padding: 15px 0 6px;
     margin-top: 10px;
     h1 {
         text-align: center;
         font-family: sans-serif;
         font-weight: 500;
+        font-size: 24px;
     }
 }
 .mydiv2 {
+    background-color: #d3d3e3;
     h1 {
         font-weight: 700;
         font-size: 34px;
@@ -61,6 +63,28 @@
 
 }
 .bedicon{
+    background-color: #d3d3e3;
+    padding-top: 20px;
+    .bedbox {
+        margin-left: 38px;
+    
+        p {
+            text-align: center;
+            font-size: 14px;
+            font-family: sans-serif;
+            font-weight: 600;
+            margin-top: 18px;
+        }
+        img {
+            width: 80px;
+            height: 75px;
+            margin: 0 auto;
+            display: block;
+        }
+    }
+}
+.bedicon2{
+    background-color: #fff;
     .bedbox {
         margin-left: 38px;
     
@@ -80,12 +104,14 @@
     }
 }
 .mydiv4 {
+    background-color: #d3d3e3;
   h2{
     text-align: center;
     margin-top: 36px;
     color: #0a3459;
-    font-size: 36px;
+    font-size: 30px;
     font-family: sans-serif;
+    font-weight: 600;
   }
   p{
        margin-top: 20px;
@@ -120,6 +146,7 @@
     padding: 50px 0 0;
     margin-top: 80px;
     margin-bottom: 50px;
+    background-color: #651d37;
     h1 {
         font-size: 40px;
         text-transform: capitalize;
@@ -240,27 +267,35 @@
 .mydiv10 {
     margin-top: 36px;
 h1 {
-    text-align: center;
     font-family: sans-serif;
     text-transform: uppercase;
-    max-width: 690px;
+    max-width: 1020px;
+    text-align: center;
+    display: block;
     margin: 0 auto;
+    font-size: 38px;
+    color: #1c1c90;
+    font-weight: 700;
+    padding-bottom: 10px;
+    padding-top: 40px;
 }
 
 p {
     text-align: center;
     font-size: 15px;
     font-family: sans-serif;
-    font-weight: 500;
-    max-width: 940px;
+    font-weight: 600;
+    max-width: 1165px;
     margin: 0 auto;
     line-height: 25px;
+    padding-bottom: 42px;
+    padding-top: 12px;
 }
 
 button {
     text-align: center;
     margin: 0 auto;
-    padding: 8px 20px;
+    padding: 12px 15px;
     border-radius: 32px;
     background-color: #3da6e4;
     border-color: #3da6e4;
@@ -279,5 +314,67 @@ button {
         left: 12px;
         padding-bottom: 17px;
         padding-top: 16px;
+    }
+}
+.mydiv5 {
+    background-color: #d3d3e3;
+         padding-top: 50px;
+         padding-bottom: 110px;
+        .krishnabox {            
+            width: 830px;
+            height: 313px;
+            box-shadow: 3px 1px 4px 1px #80808085;
+            background-color: #fff;
+            .krishnabox2 {
+                 text-align: center;
+            }
+        }
+    button{
+        padding: 6px 35px;
+        color: white;
+        background-color: #ff0000;
+        border: none;
+        outline: none;
+        position: relative;
+        top: 42px;
+        bottom: 0;
+        box-shadow: -1px 4px 5px 0px #808080c4;
+        font-size: 16px;
+    }
+    .bedimage::before{
+        content: "";
+    position: absolute;
+    background-color: #eda434;
+    top: -26px;
+    bottom: 0;
+    left: -19px;
+    right: 0;
+    width: 84%;
+    height: 99%;
+    opacity: 0.9;
+    }
+    .bedimage img{
+        height: 350px;
+        width: 470px;
+        position: relative;
+        left: -65px;
+    }
+    h1 {
+        margin-left: 20px;
+        font-size: 60px;
+        color: #66dbff;
+    }
+    p {
+        max-width: 165px;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    font-size: 16px;
+    font-weight: 600;
+    }
+    img {
+        width: 295px;
+        margin-top: 14px;
+        margin-bottom: 12px;
     }
 }

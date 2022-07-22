@@ -10,7 +10,7 @@ const NewProductPage = () => {
     <div>
     <NextSEO title={"DBZBEDS"} />
     <section 
-    className="mydiv"
+    className={styles.mydiv}
     >
       <div 
       className="container"
@@ -63,37 +63,37 @@ const NewProductPage = () => {
 
  <section className={styles.bedicon}>
    <div className="container">
-       <div className="row">
-          <div className="col-2">
+       <div className="row justify-content-around">
+            <div className="col-2">
+              <div className={styles.bedbox}>
+              <img src="/image/a.jpg" alt="img" />
+              <p className={styles.parap}>3'0 Single</p>
+              </div>
+            </div>
+            <div className="col-2">
             <div className={styles.bedbox}>
-            <img src="https://aspirestore.co.uk/c/14-category_thumb/6-0-super-king.jpg" alt="img" />
-            <p className={styles.parap}>3 0 Single</p>
+              <img src="/image/b.jpg" alt="img" />
+              <p className={styles.parap}>4'0 Small Double </p>
+              </div>
             </div>
-          </div>
-          <div className="col-2">
-          <div className={styles.bedbox}>
-            <img src="https://aspirestore.co.uk/c/14-category_thumb/6-0-super-king.jpg" alt="img" />
-            <p className={styles.parap}>4 0 Small Double </p>
+            <div className="col-2">
+            <div className={styles.bedbox}>
+              <img src="/image/c.jpg" alt="img" />
+              <p className={styles.parap}>4'6 Double</p>
+              </div>
             </div>
-          </div>
-          <div className="col-2">
-          <div className={styles.bedbox}>
-            <img src="https://aspirestore.co.uk/c/14-category_thumb/6-0-super-king.jpg" alt="img" />
-            <p className={styles.parap}>4 6 Double</p>
+            <div className="col-2">
+            <div className={styles.bedbox}>
+              <img src="/image/d.jpg" alt="img" />
+              <p className={styles.parap}>5'0 King</p>
+              </div>
             </div>
-          </div>
-          <div className="col-2">
-          <div className={styles.bedbox}>
-            <img src="https://aspirestore.co.uk/c/14-category_thumb/6-0-super-king.jpg" alt="img" />
-            <p className={styles.parap}>5 0 King</p>
+            <div className="col-2">
+            <div className={styles.bedbox}>
+              <img src="/image/e.jpg" alt="img" />
+              <p className={styles.parap}>6'0 Super King</p>
+              </div>
             </div>
-          </div>
-          <div className="col-2">
-          <div className={styles.bedbox}>
-            <img src="https://aspirestore.co.uk/c/14-category_thumb/6-0-super-king.jpg" alt="img" />
-            <p className={styles.parap}>6 0 Super King</p>
-            </div>
-          </div>
        </div>
    </div>
  </section>
@@ -143,6 +143,9 @@ const NewProductPage = () => {
               <div className={styles.box1}>
                   <img src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg" alt="img" width={258} height="210"  />
                   <h2 className={styles.productname}>Olivier Fabric Ottoman Bed</h2>
+                  <div className={styles.trustpilot}>
+                  <img src="/image/tru.png" alt="img" />
+                  </div>
                   <p className={styles.price}>£600.00</p>
               </div>
             </div>
@@ -150,6 +153,9 @@ const NewProductPage = () => {
             <div className={styles.box1}>
             <img src="https://aspirestore.co.uk/49826-home_default/garland-fabric-ottoman-bed.jpg" alt="img" width={258} height="210"  />
                   <h2 className={styles.productname}>Garland Fabric Ottoman Bed</h2>
+                  <div className={styles.trustpilot}>
+                  <img src="/image/tru.png" alt="img" />
+                  </div>
                   <p className={styles.price}>£600.00</p>
               </div>
             </div>
@@ -157,6 +163,9 @@ const NewProductPage = () => {
             <div className={styles.box1}>
             <img src="https://aspirestore.co.uk/49144-home_default/presley-fabric-ottoman-bed.jpg" alt="img" width={258} height="210"  />
                   <h2 className={styles.productname}>Presley Fabric Ottoman Bed</h2>
+                  <div className={styles.trustpilot}>
+                  <img src="/image/tru.png" alt="img" />
+                  </div>
                   <p className={styles.price}>£600.00</p>
               </div>
             </div>
@@ -164,6 +173,9 @@ const NewProductPage = () => {
             <div className={styles.box1}>
             <img src="https://aspirestore.co.uk/49308-home_default/grant-upholstered-ottoman-bed.jpg" alt="img" width={258} height="210"  />
                   <h2 className={styles.productname}>Grant Upholstered Ottoman Bed</h2>
+                  <div className={styles.trustpilot}>
+                  <img src="/image/tru.png" alt="img" />
+                  </div>
                   <p className={styles.price}>£675.00</p>
               </div>
             </div>
@@ -179,6 +191,9 @@ const NewProductPage = () => {
               <div className={styles.box1}>
                   <img src="https://aspirestore.co.uk/26322-home_default/kelly-upholstered-ottoman-bed.jpg" alt="img" width={258} height="210"  />
                   <h2 className={styles.productname}>Kelly Upholstered Ottoman Bed</h2>
+                  <div className={styles.trustpilot}>
+                  <img src="/image/tru.png" alt="img" />
+                  </div>
                   <p className={styles.price}>£600.00</p>
               </div>
             </div>
@@ -186,6 +201,9 @@ const NewProductPage = () => {
             <div className={styles.box1}>
             <img src="https://aspirestore.co.uk/48980-home_default/caine-fabric-ottoman-bed.jpg" alt="img" width={258} height="210"  />
                   <h2 className={styles.productname}>Caine Fabric Ottoman Bed</h2>
+                  <div className={styles.trustpilot}>
+                  <img src="/image/tru.png" alt="img" />
+                  </div>
                   <p className={styles.price}>£650.00</p>
               </div>
             </div>
@@ -193,6 +211,9 @@ const NewProductPage = () => {
             <div className={styles.box1}>
             <img src="https://aspirestore.co.uk/26404-home_default/monroe-upholstered-ottoman-bed.jpg" alt="img" width={258} height="210"  />
                   <h2 className={styles.productname}>Monroe Upholstered Ottoman Bed</h2>
+                  <div className={styles.trustpilot}>
+                  <img src="/image/tru.png" alt="img" />
+                  </div>
                   <p className={styles.price}>£650.00</p>
               </div>
             </div>
@@ -200,6 +221,9 @@ const NewProductPage = () => {
             <div className={styles.box1}>
             <img src="https://aspirestore.co.uk/25912-home_default/sinatra-fabric-ottoman-bed.jpg" alt="img" width={258} height="210"  />
                   <h2 className={styles.productname}>Sinatra Fabric Ottoman Bed</h2>
+                  <div className={styles.trustpilot}>
+                  <img src="/image/tru.png" alt="img" />
+                  </div>
                   <p className={styles.price}>£600.00</p>
               </div>
             </div>
@@ -215,6 +239,9 @@ const NewProductPage = () => {
               <div className={styles.box1}>
                   <img src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg" alt="img" width={258} height="210"  />
                   <h2 className={styles.productname}>Hepburn Fabric Ottoman Bed</h2>
+                  <div className={styles.trustpilot}>
+                  <img src="/image/tru.png" alt="img" />
+                  </div>
                   <p className={styles.price}>£600.00</p>
               </div>
             </div>
@@ -222,6 +249,9 @@ const NewProductPage = () => {
             <div className={styles.box1}>
             <img src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg" alt="img" width={258} height="210"  />
                   <h2 className={styles.productname}>Pacific Solid Wood White Bed Frame - Single to Super King Sizes</h2>
+                  <div className={styles.trustpilot}>
+                  <img src="/image/tru.png" alt="img" />
+                  </div>
                   <p className={styles.price}>£110.00</p>
               </div>
             </div>
@@ -229,6 +259,9 @@ const NewProductPage = () => {
             <div className={styles.box1}>
             <img src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg" alt="img" width={258} height="210"  />
                   <h2 className={styles.productname}>Solid Wood White Bed Frame - Single to Super King Sizes</h2>
+                  <div className={styles.trustpilot}>
+                  <img src="/image/tru.png" alt="img" />
+                  </div>
                   <p className={styles.price}>£110.00</p>
               </div>
             </div>
@@ -236,6 +269,9 @@ const NewProductPage = () => {
             <div className={styles.box1}>
             <img src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg" alt="img" width={258} height="210"  />
                   <h2 className={styles.productname}>Footstool Sofa Bed - Foldaway Single Guest Bed with Mattress</h2>
+                  <div className={styles.trustpilot}>
+                  <img src="/image/tru.png" alt="img" />
+                  </div>
                   <p className={styles.price}>£229.00</p>
               </div>
             </div>
@@ -251,6 +287,9 @@ const NewProductPage = () => {
               <div className={styles.box1}>
                   <img src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg" alt="img" width={258} height="210"  />
                   <h2 className={styles.productname}>Side Opening Storage Ottoman Bed Available in Grey Linen, Steel Plush Velvet or Silver...</h2>
+                  <div className={styles.trustpilot}>
+                  <img src="/image/tru.png" alt="img" />
+                  </div>
                   <p className={styles.price}>£370.00</p>
               </div>
             </div>
@@ -258,6 +297,9 @@ const NewProductPage = () => {
             <div className={styles.box1}>
             <img src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg" alt="img" width={258} height="210"  />
                   <h2 className={styles.productname}>Storage Ottoman Bed Available in Grey, Black or Natural Linen Fabrics</h2>
+                  <div className={styles.trustpilot}>
+                  <img src="/image/tru.png" alt="img" />
+                  </div>
                   <p className={styles.price}>£325.00</p>
               </div>
             </div>
@@ -265,6 +307,9 @@ const NewProductPage = () => {
             <div className={styles.box1}>
             <img src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg" alt="img" width={258} height="210"  />
                   <h2 className={styles.productname}>Grey Velvet Scroll Top Chesterfield Ottoman Storage Bed</h2>
+                  <div className={styles.trustpilot}>
+                  <img src="/image/tru.png" alt="img" />
+                  </div>
                   <p className={styles.price}>£525.00</p>
               </div>
             </div>
@@ -272,6 +317,9 @@ const NewProductPage = () => {
             <div className={styles.box1}>
             <img src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg" alt="img" width={258} height="210"  />
                   <h2 className={styles.productname}>Laurence Llewelyn-Bowen Luna Velvet Fabric Ottoman Bed</h2>
+                  <div className={styles.trustpilot}>
+                  <img src="/image/tru.png" alt="img" />
+                  </div>
                   <p className={styles.price}>£545.00</p>
               </div>
             </div>
@@ -287,6 +335,9 @@ const NewProductPage = () => {
               <div className={styles.box1}>
                   <img src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg" alt="img" width={258} height="210"  />
                   <h2 className={styles.productname}>Laurence Llewelyn-Bowen Hesper Velvet Fabric Ottoman Bed</h2>
+                  <div className={styles.trustpilot}>
+                  <img src="/image/tru.png" alt="img" />
+                  </div>
                   <p className={styles.price}>£545.00</p>
               </div>
             </div>
@@ -294,6 +345,9 @@ const NewProductPage = () => {
             <div className={styles.box1}>
             <img src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg" alt="img" width={258} height="210"  />
                   <h2 className={styles.productname}>Laurence Llewelyn-Bowen Estella Velvet Fabric Ottoman Bed</h2>
+                  <div className={styles.trustpilot}>
+                  <img src="/image/tru.png" alt="img" />
+                  </div>
                   <p className={styles.price}>£549.00</p>
               </div>
             </div>
@@ -301,6 +355,9 @@ const NewProductPage = () => {
             <div className={styles.box1}>
             <img src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg" alt="img" width={258} height="210"  />
                   <h2 className={styles.productname}>Laurence Llewelyn-Bowen Seren Velvet Fabric Ottoman Bed</h2>
+                  <div className={styles.trustpilot}>
+                  <img src="/image/tru.png" alt="img" />
+                  </div>
                   <p className={styles.price}>£549.00</p>
               </div>
             </div>
@@ -308,6 +365,9 @@ const NewProductPage = () => {
             <div className={styles.box1}>
             <img src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg" alt="img" width={258} height="210"  />
                   <h2 className={styles.productname}>Catherine Lansfield Boutique Divan Bed Set</h2>
+                  <div className={styles.trustpilot}>
+                  <img src="/image/tru.png" alt="img" />
+                  </div>
                   <p className={styles.price}>£210.00</p>
               </div>
             </div>
@@ -326,6 +386,9 @@ const NewProductPage = () => {
               <div className={styles.box1}>
                   <img src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg" alt="img" width={258} height="210"  />
                   <h2 className={styles.productname}>Catherine Lansfield Soho Divan Bed</h2>
+                  <div className={styles.trustpilot}>
+                  <img src="/image/tru.png" alt="img" />
+                  </div>
                   <p className={styles.price}>£210.00</p>
               </div>
             </div>
