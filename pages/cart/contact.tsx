@@ -126,6 +126,7 @@ export const Contact = () => {
             <div >
               <p className={style.bagitem}>My Bag <strong className={style.colorchange}>1</strong> item (s)</p>
               <div className={style.check}>
+              <div className={style.check1}>
                 <h4>$219.99 </h4>
                 <ul className="checkout-ul">
                   <li>
@@ -161,22 +162,25 @@ export const Contact = () => {
                     <span>Mattressess-Price = </span>
                   </li>
                 </ul>
-
-                <select>
+                <svg className={`${style.MuiSvgIcon_root} ${style.MuiSvgIcon_fontSizeSmall}`} focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 13H5v-2h14v2z"></path></svg>
+                <select className={style.dropdown}>
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
                   </select>
+                  <svg className={`${style.MuiSvgIcon_root} ${style.MuiSvgIcon_fontSizeSmall}`} focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path></svg>
 
-               
-                <div className={style.CartItems_buttons}>                 
+             </div>
+                <div className={style.CartItems_buttons}>   
+                <div className={style.CartItems_buttons1}>               
                 <button type="submit" className={style.removebutton}>Remove</button>                
+               </div>
                 <button type="submit">Buy Now</button>
                 </div>
                
               </div>
-              
+            
             </div>
 
             <div className={style.checkform}>
