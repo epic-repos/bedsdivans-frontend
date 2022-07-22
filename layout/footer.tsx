@@ -224,7 +224,7 @@ const Footer = () => {
                           Frimness
                         </p>
                         <hr className="my-4" />
-                        <div className="ftr_social_icons">
+                        {/* <div className="ftr_social_icons">
                           <a href="https://www.facebook.com">
                             <i
                               className="fa fa-facebook-f"
@@ -233,12 +233,12 @@ const Footer = () => {
                             ></i>
                           </a>
                           <a href="https://www.facebook.com">
-                            {/* <i class="fa fa-envelope"></i> */}
+                        
                           </a>
                           <a href="https://www.facebook.com">
-                            {/* <i class="fa fa-instagram"></i> */}
+                          
                           </a>
-                        </div>
+                        </div> */}
 
                         {/* <form id="mc-embedded-subscribe-form" className="validate" novalidate="" target="_blank" name="mc-embedded-subscribe-form" method="post" action="http://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef">
                                             <div id="mc_embed_signup_scroll" className="mc-form">
