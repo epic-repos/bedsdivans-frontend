@@ -1,8 +1,12 @@
 import type { AppProps } from "next/app";
-// import "styles/globals.css";
-import "../styles/globals.scss"
-import Layout from "layout";
 
+import "styles/globals.scss";
+
+// import "styles/globals.css";
+import "../styles/globals.scss";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Layout from "layout";
+// import 'bootstrap/dist/css/bootstrap.min.css'
 function RootApp({ Component, pageProps }: AppProps) {
   return (
     <Layout>
@@ -10,5 +14,4 @@ function RootApp({ Component, pageProps }: AppProps) {
     </Layout>
   );
 }
-
 export default RootApp;
