@@ -56,7 +56,7 @@ const Divanbed = () => {
        <div className="row justify-content-center">
             <div className="col-2">
               <div className={styles.bedbox}>
-              <img src="/image/1.svg" alt="img" />
+              <img src="/image/image.svg" alt="img" />
               <p className={styles.parap}>3'0 Single</p>
               </div>
             </div>
