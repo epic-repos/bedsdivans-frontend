@@ -1,0 +1,142 @@
+.headingh1  {
+    font-size: 40px;
+    font-family: sans-serif;
+    text-align: center;
+    font-weight: 700;
+    color: #0e3f70;
+    margin-bottom: 40px;
+}
+.paragraphp  {
+    text-align: center;
+    font-size: 22px;
+    line-height: 1.4em;
+    color: #0e3f70;
+    font-weight: 400;
+    font-family: sans-serif;
+    margin-bottom: 10px;
+    word-break: break-word;
+}
+.rightbedheading {
+    font-size: 38px;
+    font-weight: 300;
+    line-height: 55px;
+    font-family: sans-serif;
+    text-align: center;
+    color: #0e3f70;
+    margin-left: -70px;
+}
+.bannersection {
+    position: relative;
+    margin-left: -8vh;
+    background-color: #dff2f0;
+    margin-top: 50px;
+}
+.rightbed {
+    margin: 65% 40% 0 0;
+}
+.sizeh1 {
+    text-align: center;
+    font-size: 43px;
+    margin: 40px 0 50px 0px;
+    font-weight: 700;
+    font-family: sans-serif;
+    color: #0e3f70;
+}
+.bedicon {
+    margin-left: 5vh;
+}
+.parap {
+    text-align: center;
+    margin-top: 12px;
+    color: #0e3f70;
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+}
+.items {
+    display: flex;
+    justify-content: space-around;
+}
+.showingitems {
+    list-style: none;
+}
+.selectrelevance {
+    list-style: none;
+}
+.selectnumber {
+    list-style: none;
+}
+.selectoption {
+    padding: 0.2rem 0.8rem;
+    width: 85%;
+    border: 2px solid #e3e3e3;
+}
+.parashowing {
+    font-size: 18px;
+    font-family: sans-serif;
+    font-weight: 500;
+    color: #0e3f70;
+}
+.beddropdown {
+    margin: 50px 0;
+}
+.productname {
+    font-size: .8666666667rem;
+    color: #0e3f70;
+    font-weight: 700;
+    font-family: sans-serif;
+    padding-top: 10px;
+    padding-left: 10px;
+    font-style: normal;
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+           line-clamp: 2; 
+   -webkit-box-orient: vertical;
+   line-height: 20px;
+}
+.price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    font-family: sans-serif;
+    color: #008849;
+    padding-left: 10px;
+    font-style: normal;
+    margin-top: 15px;
+}
+.box1 {
+    border: 1px solid #80808063;
+    padding-bottom: 70px;
+    width: 260px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.productsimages {
+    margin-top: 30px;
+}
+.bedbox {
+    margin-left: 38px;
+}
+.shopsize {
+    margin-top: 20px;
+}
+.content1 {
+    margin-top: 10px;
+
+        p {
+            color: #0e3f70;
+            margin-bottom: 26px;
+            font-size: 18px;
+            font-weight: 400;
+            font-family: sans-serif;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            margin-top: 30px;
+            color: #0e3f70;
+            font-family: sans-serif;
+        }
+}
