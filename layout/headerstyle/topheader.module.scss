@@ -116,13 +116,15 @@ section.headersection:before {
 }
 .menudiv {
     background-color: #1414af;
-    padding: 20px;
+    padding: 14px 20px 3px;
+    color: #fff;
+    font-weight: 500;
 }
 .mainlogo {
     img {
         position: relative;
-        right: 120px;
-        top: 0;
+        right: 60px;
+        top: -20px;
     }
 }
 

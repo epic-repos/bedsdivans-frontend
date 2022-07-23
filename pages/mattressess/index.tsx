@@ -45,7 +45,7 @@ const NewProductPage = () => {
                 {/* <img src="/assets/imagges/mattressbanner/bnerimage.webp"  alt="BigCo Inc. logo"></img> */}
                 <Image
                   width={600}
-                  height={500}
+                  height={450}
                   className="responsiveImage"
                   src="/assets/images/mattressbanner/bnerimage.webp"
                   alt=""
@@ -102,7 +102,7 @@ const NewProductPage = () => {
                         src="/assets/images/mattressbanner/Group479.svg"
                         alt="img"
                       />
-                      <p className={Style.parap}>4'6 Double</p>
+                      <p className={Style.parap}>4`6 Double</p>
                     </div>
                   </div>
                   <div className="col-2">
