@@ -3,7 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
 import Style from "../../styles/gardenFurniture/gardenFurniture.module.scss";
-
 const NewProductPage = () => {
   return (
     <div>
@@ -19,15 +18,20 @@ const NewProductPage = () => {
                 </b>
                 <div className={Style.mtresp}>
                   <p>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                    Lorem ipsum dolor sit ametfe,consetetur consetetur
+                    sadipscing elitr,
                     <br />
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                    Lorem ipsum dolor sit consetetur, consetetur sadipscing
+                    elitr,
                     <br />
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                    Lorem ipsum dolor sit, consetetur
+                    conseteturconseteturconsetetur elitr,
                     <br />
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                    Lorem ipsum dolor consetetur amet, consetetur sadipscing
+                    elitr,
                     <br />
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                    Lorem consetetur dolor sit amet, consetetur sadipscing
+                    elitr,
                   </p>
                 </div>
                 <div className={Style.ShopMobile}>
@@ -35,6 +39,7 @@ const NewProductPage = () => {
                     <b>SHOP NOW</b>
                   </button>
                 </div>
+                <hr />
               </div>
             </div>
             <div className="col-6">
@@ -65,10 +70,56 @@ const NewProductPage = () => {
       <div className={Style.shpbysze}>
         <div className={`${Style.scnd_sct1} section`}>
           <div className={`${Style.scnd_sct11} container-fluid`}>
-            <div className={`${Style.sectionTitle} row`}>
-              <h2> Shop by Size</h2>
-            </div>
-            <div className={`${Style.size_box} row`}>
+            <section className={Style.mydiv2}>
+              <div className="container">
+                <div className={`${Style.sectionTitle} row`}>
+                  <h2> Shop by Size</h2>
+                </div>
+              </div>
+            </section>
+            <section className={Style.bedicon}>
+              <div className="container">
+                <div className="row justify-content-center">
+                  <div className="col-3">
+                    <div className={Style.bedbox}>
+                      <img
+                        src="/assets/images/mattressbanner/size1.webp"
+                        alt="img"
+                      />
+                      <p className={Style.parap}>1 Seater</p>
+                    </div>
+                  </div>
+                  <div className="col-3">
+                    <div className={Style.bedbox}>
+                      <img
+                        src="/assets/images/mattressbanner/size2.webp"
+                        alt="img"
+                      />
+                      <p className={Style.parap}>2 Seater</p>
+                    </div>
+                  </div>
+                  <div className="col-3">
+                    <div className={Style.bedbox}>
+                      <img
+                        src="/assets/images/mattressbanner/size3.webp"
+                        alt="img"
+                      />
+                      <p className={Style.parap}>3 Seater</p>
+                    </div>
+                  </div>
+                  <div className="col-3">
+                    <div className={Style.bedbox}>
+                      <img
+                        src="/assets/images/mattressbanner/size4.webp"
+                        alt="img"
+                      />
+                      <p className={Style.parap}>4 Seater</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            {/* <div className={`${Style.size_box} row`}>
               <div className={Style.singleBox}>
                 <div className={Style.singleBoxImg}>
                   <div className={Style.singleBoxImg11}>
@@ -98,7 +149,7 @@ const NewProductPage = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="container">
@@ -126,7 +177,9 @@ const NewProductPage = () => {
                 <h6>
                   Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                   diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                  aliquyam erat, sed diam
+                  aliquyam erat, sed diam Lorem ipsum dolor sit amet, consetetur
+                  sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                  labore et dolore magna aliquyam erat, sed diam
                 </h6>
                 <div className={Style.mtrButton}>
                   <button>
@@ -141,27 +194,80 @@ const NewProductPage = () => {
           </div>
         </div>
       </div>
-      <div className={`${Style.shpcolor} container`}>
+      <div className={`${Style.shpcolor} container-fluid`}>
         <div className={`${Style.sectionTitle} row`}>
           <h2> Shop by Color</h2>
+
+          {/* <section className={Style.mydiv6heading}></section> */}
+
+          <section className={Style.bedicon}>
+            <div>
+              <div className="row justify-content-center">
+                <div className="col-2">
+                  <div className={Style.bedbox}>
+                    <img
+                      src="/assets/images/mattressbanner/color1.webp"
+                      alt="img"
+                    />
+                    <p className={Style.parap}>Irish Blue</p>
+                  </div>
+                </div>
+                <div className="col-2">
+                  <div className={Style.bedbox}>
+                    <img
+                      src="/assets/images/mattressbanner/color2.webp"
+                      alt="img"
+                    />
+                    <p className={Style.parap}>Brown</p>
+                  </div>
+                </div>
+                <div className="col-2">
+                  <div className={Style.bedbox}>
+                    <img
+                      src="/assets/images/mattressbanner/color3.webp"
+                      alt="img"
+                    />
+                    <p className={Style.parap}>Blue</p>
+                  </div>
+                </div>
+                <div className="col-2">
+                  <div className={Style.bedbox}>
+                    <img
+                      src="/assets/images/mattressbanner/color4.webp"
+                      alt="img"
+                    />
+                    <p className={Style.parap}>Pink</p>
+                  </div>
+                </div>
+                <div className="col-2">
+                  <div className={Style.bedbox}>
+                    <img
+                      src="/assets/images/mattressbanner/color3.webp"
+                      alt="img"
+                    />
+                    <p className={Style.parap}>Grey</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
       <div className={`${Style.firmmatrress} section`}>
-        <div className={`${Style.sectionTitle} container`}>
+        <div className={`${Style.sectionTitle} container-fluid`}>
           <div className="row">
             <div className="col-7"></div>
             <div className="col-5">
-              <div className={Style.gardenexclsv}>
-                <h2>Exclusive offer on Slender 3 Seater Sofa</h2>
+              <div className={Style.DivanPageH2}>
+                <h2>
+                  <b>Exclusive offer on Slender 3 Seater Sofa</b>
+                </h2>
                 <p>
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore et dolore magna
                   Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                   diam nonumy eirmod tempor invidunt ut labore et dolore magna
                 </p>
                 <button className="ShopMobile">
-                  {" "}
-                  <b>SHOP NOW</b>{" "}
+                  <b>SHOP NOW</b>
                 </button>
               </div>
             </div>
@@ -177,6 +283,39 @@ const NewProductPage = () => {
               Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
               nonumy eirmod tempor invidunt ut labore et dolore magna
             </p>
+          </div>
+          <div>
+            <section className={Style.mydiv9}>
+              <div className={` ${Style.innerbox} container`}>
+                <div className="row">
+                  <div className="col-3">
+                    <select name="category" id="category">
+                      <option value="Select">Beds</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                    </select>
+                  </div>
+                  <div className="col-3">
+                    <select name="category" id="category">
+                      <option value="Select">Color</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                    </select>
+                  </div>
+                  <div className="col-3">
+                    <select name="category" id="category">
+                      <option value="Select">Price</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                    </select>
+                  </div>
+                  <div className="col-3"></div>
+                </div>
+              </div>
+            </section>
           </div>
           <div className="row">
             <section className={Style.productsimages}>
