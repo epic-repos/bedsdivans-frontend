@@ -210,7 +210,7 @@ const Footer = () => {
                             <a className="single-link" href="/PrivacyPolicy">
                             Buy on Phone
                             </a>
-                          </li>                        
+                          </li>                         
                         </ul>
                       </div>
                     </div>
@@ -222,13 +222,41 @@ const Footer = () => {
           <div className="hrzntal_rw">
             <hr />
           </div>
-          <div className="container ftr_btm_txt">
-            <div className="row">
-              <div className="col-md-12 footer-bottom-text">
-                <p className="copy-text">DBZBeds © 2022</p>
+         <section className={Style.lastfooter}>
+              <div className="container"> 
+                <div className="row">
+                   <div className="col-4">
+                    <p>Copyright by@dbz all right reserved</p>
+                   </div>
+                   <div className="col-4">
+                    <div className={Style.centerfooter}>
+                    <p>Keep in touch</p>
+                    <ul>
+                      <li>
+                        <img src="/image/fa.png" alt="img" />
+                      </li>
+                      <li> 
+                        <img src="/image/twi.png" alt="img" />
+                        </li>
+                      <li>
+                      <img src="/image/ins.png" alt="img" />
+                      </li>
+                    </ul>
+                    </div>                 
+                   </div>
+                   <div className="col-4">
+                    <ul>
+                      <li>
+                      <img src="/image/upi.png" alt="img" />
+                      </li>
+                      <li>
+                      <img src="/image/mas.png" alt="img" />
+                      </li>
+                    </ul>
+                   </div>
+                </div>
               </div>
-            </div>
-          </div>
+         </section>
         </div>
       </div>
 

@@ -26,5 +26,35 @@
 }
 ul.align-items-left {
   padding-left: 0px !important;
- 
+}
+.lastfooter {
+  background-color: black;
+    margin-top: -17px;
+    padding-top: 15px;
+    height: 68px;
+         p {
+          position: relative;
+          top: 6px;
+          color: #fff;
+          font-weight: 500; 
+         }
+  ul {
+        display: flex;
+      justify-content: flex-end;
+      li {
+        margin-left: 10px;
+      }
+      }
+    
+    .centerfooter {
+      display: flex;
+      justify-content: center;
+      ul {
+        display: flex;
+        justify-content: center;
+        li {
+          margin-left: 10px;
+        }
+      }
+    }
 }
