@@ -20,11 +20,6 @@ const Home: NextPage = () => {
             <div className={Style.bannerheadingmiddle}>
               <h1
                 className="HeadingForM"
-                style={{
-                  fontSize: "85px",
-                  color: "#ffffff",
-                  textShadow: "2px 2px 4px #909090e0",
-                }}
               >
                 <strong>Divan Beds</strong>
               </h1>
@@ -136,163 +131,80 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
-      <hr className={Style.banner_icons} />
-      <div className="container">
-        <div className="row" style={{ width: "83%", margin: "0 auto" }}>
-          <div className="col-md-12 text-center" data-aos="fade-up">
-            <div className={Style.section_title}>
-              <h2 className={Style.colorfirst}>DBZBeds</h2>
-            </div>
-            <p className={Style.sub_title}>
-              We’re one of the UK’s leading manufacturers of
-              <span style={{ color: "#262884" }}> cheap divan beds</span> ,
-              offering a rich selection of products in a variety of styles. At
-              BedsDivans, we are committed to improving comfort and sleep
-              quality without compromising style. We believe shopping for a bed,
-              mattress, or set of
-              <span style={{ color: "#262884" }}> rattan furniture</span> for
-              your garden should be an enjoyable experience all the way through.
-            </p>
-            <hr />
-          </div>
-        </div>
-      </div>
-      <div className={Style.tabProduct}>
+      <hr className={Style.banner_icons} />    
+          
+      <section className={Style.imgcontainer}>
         <div className="container">
           <div className="row">
-            <div className="col-md-12 text-center" data-aos="fade-up">
-              <div className={Style.section_title}>
-                <h2 className={Style.colorRed}>Featured Products</h2>
+            <div className="col-6">
+              <div className={Style.bigbed1}>
+                <img src="/images/z.png" alt="img" /></div>
+              <div className={Style.heading1}>
+                <h1>There's No Place Like A Bed</h1>
+                <p>Lord bless the person who invented beds! Choose from a wide variety to suit your needs and preferences.</p>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* tabs start  */}
-        <div className={Style.newtabs}>
-          <DynamicTabs />
-        </div>
-        {/* tabs end  */}
-      </div>
-      <div className="section">
-        <div className="container-fluid">
-          <div className="row">
-            <div className={Style.size_box}>
-              <div className={Style.single_box}>
-                <a href="/divanbed/two-feet-bed">
-                  <Image
-                    width={140}
-                    height={100}
-                    alt="BedsDivan"
-                    src="/assets/images/image/bed-sizes-01.png"
-                  />
-                </a>
-
-                <p className="text-center text-blue mt-2"> Single 2FT 6 </p>
-              </div>
-
-              <div className={Style.single_box}>
-                <a href="/divanbed/three-feet-bed">
-                  <Image
-                    width={140}
-                    height={100}
-                    alt="BedsDivan"
-                    src="/assets/images/image/bed-sizes-02.png"
-                  />
-                </a>
-                <p className="text-center text-blue mt-2"> Single(3FT) </p>
-              </div>
-
-              <div className={Style.single_box}>
-                <a href="/divanbed/four-feet-bed">
-                  <Image
-                    width={140}
-                    height={100}
-                    alt="BedsDivan"
-                    src="/assets/images/image/bed-sizes-03.png"
-                  />
-                </a>
-                <p className="text-center text-blue mt-2">
-                  {" "}
-                  Small Double(4FT){" "}
-                </p>
-              </div>
-
-              <div className={Style.single_box}>
-                <a href="/divanbed/five-feet-bed">
-                  <Image
-                    width={140}
-                    height={100}
-                    alt="BedsDivan"
-                    src="/assets/images/image/bed-sizes-04.png"
-                  />
-                </a>
-                <p className="text-center text-blue mt-2"> Double 4FT 6 </p>
-              </div>
-
-              <div className={Style.single_box}>
-                <a href="/divanbed/five-feet-bed">
-                  <Image
-                    width={140}
-                    height={100}
-                    alt="BedsDivan"
-                    src="/assets/images/image/bed-sizes-05.png"
-                  />
-                </a>
-                <p className="text-center text-blue mt-2"> King(5FT) </p>
-              </div>
-
-              <div className={Style.single_box}>
-                <a href="/divanbed/six-feet-bed">
-                  <Image
-                    width={140}
-                    height={100}
-                    alt="BedsDivan"
-                    src="/assets/images/image/bed-sizes-N-01.png"
-                  />
-                </a>
-                <p className="text-center text-blue mt-2"> Super King(6FT) </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className={`${Style.newBestSelling} container-fluid`}>
-        <div className="row">
-          <div className="col-md-12 text-center" data-aos="fade-up">
-            <div className={Style.section_title}>
-              <h2 className={Style.colorsecond}>New Best Selling Bed</h2>
-              <p className={Style.sub_title11}>
-                We’re one of the UK’s leading manufacturers of cheap divan beds,
-                offering a rich selection of products in a variety of styles.
-              </p>
-            </div>
-            <div>
-              <button className={Style.viewAllProduct}>
-                <b>VIEW ALL PRODUCT</b>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className={`${Style.bg_green} section`}>
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <div className="row align-items-center">
-                <div
-                  className={`${Style.moreOffer} col-lg-6 col-md-6 col-sm-12 text-center text-md-left`}
-                >
-                  <h2>Want to get 60% off? Save the time and money?</h2>
+            <div className= "col-6">
+            <div className="row">
+                <div className="col-6">
+                  <img src="/images/x.png" alt="img" />
+                  <h2>Kings size beds</h2>
                 </div>
-                <div className="col-lg-6  col-md-6 col-sm-12 text-center">
-                  <button className={Style.more}>More Offer</button>
+                <div className="col-6">
+                  <img src="/images/c.png" alt="img" />
+                  <h2>Single Beds</h2>
+                </div>
+                <div className="col-6">
+                  <img src="/images/o.png" alt="img" />
+                  <h2>Queen size beds</h2>
+                </div>
+                <div className="col-6">
+                  <img src="/images/v.png" alt="img" />
+                  <h2>Storage beds</h2>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
+
+
+      <section className={Style.imgcontainer2}>
+        <div className="container">
+          <div className="row">
+            <div className="col-6">
+              <div className="row">
+                <div className="col-6 ">
+                  <img src="/images/b.png" alt="img" />
+                  <h2>Orthopedic mattress</h2>
+                </div>
+                <div className="col-6">
+                  <img src="/images/m.png" alt="img" />
+                  <h2>Tinsel top matrress</h2>
+                </div>
+                <div className="col-6">
+                  <img src="/images/n.png" alt="img" />
+                  <h2>Memory foam mattress</h2>
+                </div>
+                <div className="col-6">
+                  <img src="/images/g.png" alt="img" />
+                  <h2>Pillow top mattress</h2>
+                </div>
+              </div>
+            </div>
+            <div className="col-6">
+              <div className={Style.bigbed2}>
+                <img src="/images/u.png" alt="img" /></div>
+              <div className={Style.heading2}>
+                <h1>Secret To Good Sleep</h1>
+                <p>Your mattress plays a major role iin one's sleep cycle. The right mattress will ensure you get a good night's sleep every night</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
       <div className={`${Style.explore_mattress} section`}>
         <div className="container">
           <div className="row">

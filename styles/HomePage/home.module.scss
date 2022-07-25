@@ -1,10 +1,10 @@
 .swiper_wrapper {
-  background-image: url(/assets/images/banner/Mask_Group.png);
+  background-image: url(/image/i.png);
   background-size: cover;
   background-repeat: no-repeat;
 }
 .slider_height {
-  height: 60vh !important;
+  height: 60vh !important;  
 }
 .banner_bottom_style {
   background: #0000000d;
@@ -26,11 +26,15 @@ hr.banner_icons {
   color: #1e196c;
   height: 4px !important;
   opacity: 3;
+  margin-bottom: -2px;
 }
 .banner_bottom_ineerbox h6 {
   font-size: 18px;
   font-weight: 700;
   color: #1e196c;
+  position: relative;
+  top: 12px;
+  line-height: 35px;
 }
 .banner_bottom_ineerbox span {
   font-size: 14px;
@@ -148,4 +152,112 @@ hr.banner_icons {
 }
 .mattress_bannerone {
   padding: 0;
+}
+.bannerheadingmiddle {
+  h1 {
+    color: #203445;
+    padding: 100px 0px 0px;
+    font-size: 85px;
+  }
+}
+.imgcontainer {
+  position: relative;
+  padding-bottom: 24px;
+  background-color: #F5F5F5;
+
+  [class*="col"] {
+      padding: 0px !important;
+  }
+
+  .bigbed1 {
+      margin-top: 8px;
+      margin-right: 10px;
+  }
+
+  .bigbed1 img {
+      width: 100%;
+      height: 565px;
+  }
+
+  img {
+      width: 100%;
+  }
+
+  h2 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-left: 10px;
+      margin-top: -10px;
+      padding-bottom: 20px;
+  }
+
+  h1 {
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 32px;
+  }
+
+  p {
+      opacity: 0.51;
+  }
+
+  .heading1 {
+      position: absolute;
+      top: 0px;
+      padding: 32px 0px 0px 31px;
+      max-width: 94%;
+
+  }
+}
+
+.imgcontainer2 {
+  position: relative;
+  width: 100%;
+  background-color: #F5F5F5;
+
+
+  [class*="col"] {
+      padding: 0px !important;
+  }
+
+  img {
+      width: 100%;
+  }
+
+  h2 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-left: 10px;
+      margin-top: -10px;
+      padding-bottom: 20px;
+  }
+
+  h1 {
+      text-align: end;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 32px;
+  }
+
+  .bigbed2 {
+      margin-top: 5px;
+      margin-left: 10px;
+  }
+
+  .bigbed2 img {
+      width: 100%;
+      height: 565px;
+  }
+
+  p {
+      margin-left: 30px;
+      opacity: 0.51;
+  }
+
+  .heading2 {
+      position: absolute;
+      top: 0px;
+      margin-top: 20px;
+      max-width: 94%;
+  }
 }
