@@ -480,7 +480,7 @@ const Home: NextPage = () => {
         </div>
       </section>
 
-      <section>
+      <section className={Style.reviewtable}>
         <div className={Style.pride}>
           <h2>Their words, our pride</h2>
           <p>DBZ words of our happy customers</p>
