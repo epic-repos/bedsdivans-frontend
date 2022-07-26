@@ -215,7 +215,96 @@ const Header = () => {
                             </div>
                             <div className="col-md-3">
                               <div className={Styles.dropdownmenu}>
-                                <h2>Shop BY Type</h2>
+                                <h2>Sleigh Beds</h2>
+                                <ul>
+                                  <li>
+                                    <Link href="/divanbed">
+                                      <a>Florida Bed Range</a>
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/divanbed">
+                                      <a>Ambassador Range</a>
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/divanbed">
+                                      <a>Kendall Bed</a>
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/divanbed">
+                                      <a>Manoco Range</a>
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/divanbed">
+                                      <a>Royal Beds</a>
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/divanbed">
+                                      <a>Swan Bed Range</a>
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/divanbed">
+                                      <a>Wing Bed Range</a>
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/divanbed">
+                                      <a>Winchester Bed</a>
+                                    </Link>
+                                  </li>
+                                  {/* <li>
+                                    <Link href="/divanbed">
+                                      <p>View All</p>
+                                    </Link>
+                                  </li> */}
+                                </ul>
+                              </div>
+                            </div>
+                            <div className="col-md-3">
+                              <div className={Styles.dropdownmenu}>
+                                {/* <h2>Shop BY Size</h2> */}
+                                <ul>
+                                  <li>
+                                    <Link href="/divanbed">
+                                      <a>Ottoman Beds</a>
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/divanbed">
+                                      <a>Kids Bed</a>
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/divanbed">
+                                      <a>Leather Beds</a>
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/divanbed">
+                                      <a>Nevada Beds</a>
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/divanbed">
+                                      <a>Storage Beds</a>
+                                    </Link>
+                                  </li>
+                                  {/* <li>
+                                    <Link href="/divanbed">
+                                      <a>Super King (6ft)</a>
+                                    </Link>
+                                  </li> */}
+                                </ul>
+                              </div>
+                            </div>
+                            <div className="col-md-3">
+                              <div className={Styles.dropdownmenu}>
+                                <h2>Divan Beds</h2>
                                 <ul>
                                   <li>
                                     <Link href="/divanbed">
@@ -229,12 +318,7 @@ const Header = () => {
                                   </li>
                                   <li>
                                     <Link href="/divanbed">
-                                      <a>Chennile Fabric Divan Bed</a>
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link href="/divanbed">
-                                      <a>Suede Fabric Divan Bed</a>
+                                      <a>Suede Fabric Divan Beds</a>
                                     </Link>
                                   </li>
                                   <li>
@@ -249,61 +333,7 @@ const Header = () => {
                                   </li>
                                   <li>
                                     <Link href="/divanbed">
-                                      <a> Divan Bed Base</a>
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link href="/divanbed">
                                       <p>View All</p>
-                                    </Link>
-                                  </li>
-                                </ul>
-                              </div>
-                            </div>
-                            <div className="col-md-3">
-                              <div className={Styles.dropdownmenu}>
-                                <h2>Shop BY Size</h2>
-                                <ul>
-                                  <li>
-                                    <Link href="/divanbed">
-                                      <a>Small Single (2'6ft)</a>
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link href="/divanbed">
-                                      <a>Single (3ft)</a>
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link href="/divanbed">
-                                      <a>Small Double (4ft)</a>
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link href="/divanbed">
-                                      <a>Double (4'6ft)</a>
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link href="/divanbed">
-                                      <a>King (5ft)</a>
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link href="/divanbed">
-                                      <a>Super King (6ft)</a>
-                                    </Link>
-                                  </li>
-                                </ul>
-                              </div>
-                            </div>
-                            <div className="col-md-3">
-                              <div className={Styles.dropdownmenu}>
-                                <h2>Divan Beds Complete Set</h2>
-                                <ul>
-                                  <li>
-                                    <Link href="/divanbed">
-                                      <a>Linen Fabric Divan Beds</a>
                                     </Link>
                                   </li>
                                 </ul>
@@ -336,30 +366,30 @@ const Header = () => {
                                 <ul>
                                   <li>
                                     <Link href="/divanbed">
-                                      <a>Linen Fabric Divan Beds</a>
+                                      <a>Cube Headboard</a>
                                     </Link>
                                   </li>
                                   <li>
                                     <Link href="/divanbed">
-                                      <a>Velvet Fabric Divan Beds</a>
+                                      <a>4 Panel Vertical Headboard</a>
                                     </Link>
                                   </li>
                                   <li>
                                     <Link href="/divanbed">
-                                      <a>Chennile Fabric Divan Bed</a>
+                                      <a>3 Panel Horizontal Headboard</a>
                                     </Link>
                                   </li>
                                   <li>
                                     <Link href="/divanbed">
-                                      <a>Suede Fabric Divan Bed</a>
+                                      <a>Plain Headboard</a>
                                     </Link>
                                   </li>
                                   <li>
                                     <Link href="/divanbed">
-                                      <a>Low Divan Beds</a>
+                                      <a>View All</a>
                                     </Link>
                                   </li>
-                                  <li>
+                                  {/* <li>
                                     <Link href="/divanbed">
                                       <a>Leather Divan Beds</a>
                                     </Link>
@@ -373,7 +403,7 @@ const Header = () => {
                                     <Link href="/divanbed">
                                       <p>View All</p>
                                     </Link>
-                                  </li>
+                                  </li> */}
                                 </ul>
                               </div>
                             </div>
@@ -383,7 +413,7 @@ const Header = () => {
                                 <ul>
                                   <li>
                                     <Link href="/divanbed">
-                                      <a>Small Single (2'6ft)</a>
+                                      <a>Small Single (2'6")</a>
                                     </Link>
                                   </li>
                                   <li>
@@ -414,7 +444,7 @@ const Header = () => {
                                 </ul>
                               </div>
                             </div>
-                            <div className="col-md-3">
+                            {/* <div className="col-md-3">
                               <div className={Styles.dropdownmenu}>
                                 <h2>Divan Beds Complete Set</h2>
                                 <ul>
@@ -425,7 +455,7 @@ const Header = () => {
                                   </li>
                                 </ul>
                               </div>
-                            </div>
+                            </div> */}
                           </div>
                         </div>
                       </section>
@@ -453,25 +483,25 @@ const Header = () => {
                                 <ul>
                                   <li>
                                     <Link href="/divanbed">
-                                      <a>Linen Fabric Divan Beds</a>
+                                      <a>Orthopedic Mattresses</a>
                                     </Link>
                                   </li>
                                   <li>
                                     <Link href="/divanbed">
-                                      <a>Velvet Fabric Divan Beds</a>
+                                      <a>Pocket Mattresses</a>
                                     </Link>
                                   </li>
                                   <li>
                                     <Link href="/divanbed">
-                                      <a>Chennile Fabric Divan Bed</a>
+                                      <a>Memory Form Mattresses</a>
                                     </Link>
                                   </li>
                                   <li>
                                     <Link href="/divanbed">
-                                      <a>Suede Fabric Divan Bed</a>
+                                      <a>Pillow Top Mattresses</a>
                                     </Link>
                                   </li>
-                                  <li>
+                                  {/* <li>
                                     <Link href="/divanbed">
                                       <a>Low Divan Beds</a>
                                     </Link>
@@ -485,7 +515,7 @@ const Header = () => {
                                     <Link href="/divanbed">
                                       <a> Divan Bed Base</a>
                                     </Link>
-                                  </li>
+                                  </li> */}
                                   <li>
                                     <Link href="/divanbed">
                                       <p>View All</p>
@@ -533,11 +563,26 @@ const Header = () => {
                             </div>
                             <div className="col-md-3">
                               <div className={Styles.dropdownmenu}>
-                                <h2>Divan Beds Complete Set</h2>
+                                <h2>Shop By Comfort</h2>
                                 <ul>
                                   <li>
                                     <Link href="/divanbed">
-                                      <a>Linen Fabric Divan Beds</a>
+                                      <a>Very Firm</a>
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/divanbed">
+                                      <a>Firm</a>
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/divanbed">
+                                      <a>Very Firm</a>
+                                    </Link>
+                                  </li>
+                                  <li>
+                                    <Link href="/divanbed">
+                                      <a>Very Firm</a>
                                     </Link>
                                   </li>
                                 </ul>
