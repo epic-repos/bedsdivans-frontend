@@ -2,7 +2,6 @@ import Head from "next/head";
 import React from "react";
 import style from "../../styles/contact.module.scss";
 
-
 export const Contact = () => {
   return (
     <div className={style.item}>
@@ -118,69 +117,86 @@ export const Contact = () => {
           </div>
 
           <div className={style.button}>
-             <div className={style.item2}>
-         <p>Your Cart is Empty</p>
-         <div className={style.shopping_page}><a href="">Continue Shopping</a></div>
-        </div> 
+            <div className={style.item2}>
+              <p>Your Cart is Empty</p>
+              <div className={style.shopping_page}>
+                <a href="">Continue Shopping</a>
+              </div>
+            </div>
 
-            <div >
-              <p className={style.bagitem}>My Bag <strong className={style.colorchange}>1</strong> item (s)</p>
+            <div>
+              <p className={style.bagitem}>
+                My Bag <strong className={style.colorchange}>1</strong> item (s)
+              </p>
               <div className={style.check}>
-              <div className={style.check1}>
-                <h4>$219.99 </h4>
-                <ul className="checkout-ul">
-                  <li>
-                    {" "}
-                    <span>Bed Size = </span>
-                  </li>
-                  <li>
-                    {" "}
-                    <span>Bed Color = </span>
-                  </li>
-                  <li>
-                    <span>Storage = </span>
-                  </li>
-                  <li>
-                    <span>Storage-Price = </span>
-                  </li>
-                  <li>
-                    <span>Headboard = </span>
-                  </li>
-                  <li>
-                    <span>Headboard-Price = </span>
-                  </li>
-                  <li>
-                    <span>Feet = </span>
-                  </li>
-                  <li>
-                    <span>Feet-Price = </span>
-                  </li>
-                  <li>
-                    <span>Mattressess = </span>
-                  </li>
-                  <li>
-                    <span>Mattressess-Price = </span>
-                  </li>
-                </ul>
-                <svg className={`${style.MuiSvgIcon_root} ${style.MuiSvgIcon_fontSizeSmall}`} focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 13H5v-2h14v2z"></path></svg>
-                <select className={style.dropdown}>
+                <div className={style.check1}>
+                  <h4>$219.99 </h4>
+                  <ul className="checkout-ul">
+                    <li>
+                      {" "}
+                      <span>Bed Size = </span>
+                    </li>
+                    <li>
+                      {" "}
+                      <span>Bed Color = </span>
+                    </li>
+                    <li>
+                      <span>Storage = </span>
+                    </li>
+                    <li>
+                      <span>Storage-Price = </span>
+                    </li>
+                    <li>
+                      <span>Headboard = </span>
+                    </li>
+                    <li>
+                      <span>Headboard-Price = </span>
+                    </li>
+                    <li>
+                      <span>Feet = </span>
+                    </li>
+                    <li>
+                      <span>Feet-Price = </span>
+                    </li>
+                    <li>
+                      <span>Mattressess = </span>
+                    </li>
+                    <li>
+                      <span>Mattressess-Price = </span>
+                    </li>
+                  </ul>
+                  <svg
+                    className={`${style.MuiSvgIcon_root} ${style.MuiSvgIcon_fontSizeSmall}`}
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="M19 13H5v-2h14v2z"></path>
+                  </svg>
+                  <select className={style.dropdown}>
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
                   </select>
-                  <svg className={`${style.MuiSvgIcon_root} ${style.MuiSvgIcon_fontSizeSmall}`} focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path></svg>
-
-             </div>
-                <div className={style.CartItems_buttons}>   
-                <div className={style.CartItems_buttons1}>               
-                <button type="submit" className={style.removebutton}>Remove</button>                
-               </div>
-                <button type="submit">Buy Now</button>
+                  <svg
+                    className={`${style.MuiSvgIcon_root} ${style.MuiSvgIcon_fontSizeSmall}`}
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
+                  </svg>
                 </div>
-               
+                <div className={style.CartItems_buttons}>
+                  <div className={style.CartItems_buttons1}>
+                    <button type="submit" className={style.removebutton}>
+                      Remove
+                    </button>
+                  </div>
+                  <button type="submit">Buy Now</button>
+                </div>
               </div>
-            
             </div>
 
             <div className={style.checkform}>
@@ -188,7 +204,6 @@ export const Contact = () => {
                 <div>
                   <p>Price Summary </p>
                   <div className={style.price}>
-                    
                     <p>Total MRP (Incl.of taxes) </p>
                     <p>£55.00</p>
                   </div>
@@ -197,29 +212,29 @@ export const Contact = () => {
                     <p>FREE</p>
                   </div>
                   <div className={style.price}>
-                  <p>Bag Discount </p>
-                        <p>£ 1024</p>
+                    <p>Bag Discount </p>
+                    <p>£ 1024</p>
                   </div>
 
                   <div className={style.price}>
-                  <p>Subtotal </p>
-                  <p>£55.00</p>
-
+                    <p>Subtotal </p>
+                    <p>£55.00</p>
                   </div>
 
                   <div className={style.checkord}>
-                    You are saving £ 3090 on this order</div>
-                <div className={style.Cart_finalCheckout}>
+                    You are saving £ 3090 on this order
+                  </div>
+                  <div className={style.Cart_finalCheckout}>
                     <div className={style.Cart_price}>
-                    <p>Total</p>
-                    <p>£55.00</p>
+                      <p>Total</p>
+                      <p>£55.00</p>
                     </div>
                     <div>
-                    <button className={style.checkpro} type="submit">Proceed To Checkout</button>
+                      <button className={style.checkpro} type="submit">
+                        Proceed To Checkout
+                      </button>
                     </div>
                   </div>
-
-
                 </div>
               </div>
             </div>

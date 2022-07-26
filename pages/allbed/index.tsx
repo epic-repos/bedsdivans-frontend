@@ -228,9 +228,8 @@ const NewProductPage = () => {
               <h2>our exclusive</h2>
               <h1>complete divan bed set range</h1>
               <p>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
-              sed diam nonumy eirmod 
-              tempor invidunt ut labore et dolore magna
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                diam nonumy eirmod tempor invidunt ut labore et dolore magna
               </p>
             </div>
           </div>
@@ -272,25 +271,192 @@ const NewProductPage = () => {
       <section className={style.discover}>
         <div className="container">
           <div className="row">
-              <div className={style.benifit}>
-                <h1>DISCOVER THE BENEFITS OF SHOPPING ONLINE AT BEDSDIVANS</h1>
-                <p>
-                When looking for a new bed why not try the new designed divan bed.
-                 It is affordable and looks great. At bedsdivans we spent 
-                 years in improving our wide selection of beds and we can assure you will 
-                 love our latest selection of divan beds. At Bedsdivans we aim to 
-                 work around your needs whether it comes to short notice delivery 
-                 dates or the slightest adjustment to your bed 
-                 we are always here to help you get the bed right for you.
+            <div className={style.benifit}>
+              <h1>DISCOVER THE BENEFITS OF SHOPPING ONLINE AT BEDSDIVANS</h1>
+              <p>
+                When looking for a new bed why not try the new designed divan
+                bed. It is affordable and looks great. At bedsdivans we spent
+                years in improving our wide selection of beds and we can assure
+                you will love our latest selection of divan beds. At Bedsdivans
+                we aim to work around your needs whether it comes to short
+                notice delivery dates or the slightest adjustment to your bed we
+                are always here to help you get the bed right for you.
+              </p>
+              <button className={style.service} type="submit">
+                More Service
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* <------------------------------------------------------------!> */}
+
+      <section className={style.productsimages}>
+        <h2>Our Quality Products</h2>
+        <p className={style.refresh}>Get up Refresh Every day</p>
+        <div className="container">
+          <div className="row">
+            <div className="col-3">
+              <div className={style.box8}>
+                <img
+                  src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
+                  alt="img"
+                  width={258}
+                  height="210"
+                />
+                <h4>Beds</h4>
+                <p className={style.productname8}>
+                  Our range of beds come in single, double, king and super king
+                  sizes are crafted with superior memory foam that cradles your
+                  head and keeps your head and neck aligned even while you sleep
+                  on your side and prevents the head from sinking.
                 </p>
-                <button className={style.service} type="submit">
-                  More Service
+                <button className={style.sofabutton8} type="submit">
+                  SHOP NOW
                 </button>
-             
+              </div>
             </div>
+            <div className="col-3">
+              <div className={style.box8}>
+                <img
+                  src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
+                  alt="img"
+                  width={258}
+                  height="210"
+                />
+
+                <h4>Mattress</h4>
+
+                <p className={style.productname8}>
+                  Memory foam Mattress topper provides an additional cushioning
+                  to your regular memory foam mattress. The topper is made from
+                  one inch gel foam which is to be placed above the memory foam
+                  mattress.
+                </p>
+                <button className={style.sofabutton9} type="submit">
+                  SHOP NOW
+                </button>
+              </div>
             </div>
+            <div className="col-3">
+              <div className={style.box8}>
+                <img
+                  src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
+                  alt="img"
+                  width={258}
+                  height="210"
+                />
+                <h4>Headboard</h4>
+                <p className={style.productname8}>
+                  Our range of beds come in single, double, king and super king
+                  sizes are crafted with superior memory foam that cradles your
+                  head and keeps your head and neck aligned even while you sleep
+                  on your side and prevents the head from sinking.
+                </p>
+                <button className={style.sofabutton8} type="submit">
+                  SHOP NOW
+                </button>
+              </div>
             </div>
-            </section>
+            <div className="col-3">
+              <div className={style.box8}>
+                <img
+                  src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
+                  alt="img"
+                  width={258}
+                  height="210"
+                />
+                <h4>Garden Furniture</h4>
+                <p className={style.productname8}>
+                  Our range of beds come in single, double, king and super king
+                  sizes are crafted with superior memory foam that cradles your
+                  head and keeps your head and neck aligned even while you sleep
+                  on your side and prevents the head from sinking.
+                </p>
+                <button className={style.sofabutton8} type="submit">
+                  SHOP NOW
+                </button>
+              </div>
+            </div>
+
+            <p className={style.perfect8}>
+              <strong>Why wait for the perfect bed?</strong>
+              Spread the cost of your order with interest free credit{" "}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className={style.productsimages9}>
+      <h2 className={style.season}>Best-seller of the season</h2>
+        <div className="container">
+          <div className="row">
+            <div className="col-3">
+              <div className={style.box9}>
+                <img
+                  src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
+                  alt="img"
+                  width={258}
+                  height="210"
+                />
+              
+                <p className={style.productname}>
+                Grey Linen Divan Bed Base or Set Headboard & Mattress
+                </p>
+                <p className={style.price}>£545.00</p>
+              </div>
+            </div>
+            <div className="col-3">
+              <div className={style.box9}>
+                <img
+                  src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
+                  alt="img"
+                  width={258}
+                  height="210"
+                />
+
+              
+
+                <p className={style.productname}>
+                Grey Linen Divan Bed Base or Set Headboard & Mattress
+                </p>
+                <p className={style.price}>£545.00</p>
+              </div>
+            </div>
+            <div className="col-3">
+              <div className={style.box9}>
+                <img
+                  src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
+                  alt="img"
+                  width={258}
+                  height="210"
+                />
+              
+                <p className={style.productname}>
+                Grey Linen Divan Bed Base or Set Headboard & Mattress
+                </p>
+                <p className={style.price}>£545.00</p>
+              </div>
+            </div>
+            <div className="col-3">
+              <div className={style.box9}>
+                <img
+                  src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
+                  alt="img"
+                  width={258}
+                  height="210"
+                />
+               
+                <p className={style.productname8}>
+                Grey Linen Divan Bed Base or Set Headboard & Mattress
+                </p>
+                <p className={style.price}>£545.00</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
