@@ -339,13 +339,13 @@ const Home: NextPage = () => {
             <div className="col-3">
               <div className={Style.box1}>
                 <img
-                  src="https://aspirestore.co.uk/49144-home_default/presley-fabric-ottoman-bed.jpg"
+                  src="/img/1.png"
                   alt="img"
                   width={258}
                   height="210"
                 />
                 <h2 className={Style.productname}>
-                  Presley Fabric Ottoman Bed
+                 Cream divan base
                 </h2>
                 <div className={Style.trustpilot}>
                   <img src="/image/tru.png" alt="img" />
@@ -359,13 +359,13 @@ const Home: NextPage = () => {
             <div className="col-3">
               <div className={Style.box1}>
                 <img
-                  src="https://aspirestore.co.uk/49144-home_default/presley-fabric-ottoman-bed.jpg"
+                  src="/img/2.png"
                   alt="img"
                   width={258}
                   height="210"
                 />
                 <h2 className={Style.productname}>
-                  Presley Fabric Ottoman Bed
+                  Grey pulse suede divan bed
                 </h2>
                 <div className={Style.trustpilot}>
                   <img src="/image/tru.png" alt="img" />
@@ -379,13 +379,13 @@ const Home: NextPage = () => {
             <div className="col-3">
               <div className={Style.box1}>
                 <img
-                  src="https://aspirestore.co.uk/49144-home_default/presley-fabric-ottoman-bed.jpg"
+                  src="/img/3.png"
                   alt="img"
                   width={258}
                   height="210"
                 />
                 <h2 className={Style.productname}>
-                  Presley Fabric Ottoman Bed
+                  Black Crushed Divan Bed
                 </h2>
                 <div className={Style.trustpilot}>
                   <img src="/image/tru.png" alt="img" />
@@ -399,13 +399,13 @@ const Home: NextPage = () => {
             <div className="col-3">
               <div className={Style.box1}>
                 <img
-                  src="https://aspirestore.co.uk/49144-home_default/presley-fabric-ottoman-bed.jpg"
+                  src="/img/4.png"
                   alt="img"
                   width={258}
                   height="210"
                 />
                 <h2 className={Style.productname}>
-                  Presley Fabric Ottoman Bed
+                  Deep Grey Linear Divan Bed
                 </h2>
                 <div className={Style.trustpilot}>
                   <img src="/image/tru.png" alt="img" />
