@@ -339,7 +339,7 @@ const Home: NextPage = () => {
             <div className="col-3">
               <div className={Style.box1}>
                 <img
-                  src="/img/1.png"
+                  src="/img/gk.jpg"
                   alt="img"
                   width={258}
                   height="210"
@@ -359,7 +359,7 @@ const Home: NextPage = () => {
             <div className="col-3">
               <div className={Style.box1}>
                 <img
-                  src="/img/2.png"
+                  src="/img/k.jpg"
                   alt="img"
                   width={258}
                   height="210"
@@ -379,7 +379,7 @@ const Home: NextPage = () => {
             <div className="col-3">
               <div className={Style.box1}>
                 <img
-                  src="/img/3.png"
+                  src="/img/bl.jpg"
                   alt="img"
                   width={258}
                   height="210"
@@ -399,7 +399,7 @@ const Home: NextPage = () => {
             <div className="col-3">
               <div className={Style.box1}>
                 <img
-                  src="/img/4.png"
+                  src="/img/wo.jpg"
                   alt="img"
                   width={258}
                   height="210"
