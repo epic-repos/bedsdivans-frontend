@@ -3,8 +3,13 @@ import styles from "styles/headboard.module.scss";
 import Image from "next/image";
 import NextSEO from "layout/nextseo";
 import Header from "layout/header";
+import axios from "axios";
+import { useRouter } from "next/router";
 
-const Divanbed = () => {
+
+const Divanbed = (props:any) => {
+  const router = useRouter();
+
   return (
     <>
     <div>
@@ -237,16 +242,25 @@ const Divanbed = () => {
  <section className={styles.productsimages}>
     <div className="container">
         <div className="row">
-        <div className="col-3">
-            <div className={styles.box1}>
-            <img src="https://aspirestore.co.uk/49144-home_default/presley-fabric-ottoman-bed.jpg" alt="img" width={258} height="210"  />
-                  <h2 className={styles.productname}>Presley Fabric Ottoman Bed</h2>
-                  <div className={styles.trustpilot}>
-                    <img src="/image/trustpilot (1).png" alt="img" />
+         {
+           props.response.map((item: { images: { url: string | undefined; }[]; product_name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; price: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; }) =>{
+              
+              return(
+                <div className="col-3">
+                <div className={styles.box1}>
+                <img src={item.images[0].url}/>
+                      <h2 className={styles.productname}>{item.product_name}</h2>
+                      <div className={styles.trustpilot}>
+                        <img src="/image/trustpilot (1).png" alt="img" />
+                      </div>
+                      <p className={styles.price}>{item.price} </p>
                   </div>
-                  <p className={styles.price}>£600.00</p>
-              </div>
-            </div>
+                </div>
+              
+              );
+          })
+      }
+  
             <div className="col-3">
             <div className={styles.box1}>
             <img src="https://aspirestore.co.uk/49144-home_default/presley-fabric-ottoman-bed.jpg" alt="img" width={258} height="210"  />
@@ -301,3 +315,20 @@ const Divanbed = () => {
   );
 };
 export default Divanbed;
+
+
+export async function getServerSideProps(context:any) {
+  const { req } = context;
+  const size = req?.__NEXT_INIT_QUERY?.size;
+  let sizes = "";
+
+    
+  size ? (sizes = size) : (sizes = "2FT 6");
+  const data = await axios.post(
+    `${process.env.BASE_URL}/api/headboard/getbeds`,
+  );
+    const response = data.data.data;
+    return {
+      props: { response }, // will be passed to the page component as props
+    };
+  }

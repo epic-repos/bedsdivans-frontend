@@ -307,7 +307,7 @@ hr.banner_icons {
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
     img {
-      width: 300px;
+      width: 255px;
   }
   .trustpilot {
     img {
@@ -435,13 +435,14 @@ section.qualityproducts {
   left: 70px;
   top: 10px;
   img {
-    width: 327px;
-    height: 205px;
+    width: 302px !important;
+    height: 205px !important;
   }
   p {
     text-align: center;
-    max-width: 325px;
+    max-width: 302px;
     font-weight: 600;
+
   }
 }
 .guidestrip {
@@ -453,7 +454,7 @@ section.qualityproducts {
   bottom: 0;
   right: 0;
   left: 0;
-  width: 327px;
+  width: 302px !important;
   height: 18%;
   opacity: 0.8;
   p {
@@ -470,7 +471,7 @@ section.qualityproducts {
   bottom: 0;
   right: 0;
   left: 0;
-  width: 327px;
+  width: 302px !important;
   height: 18%;
   opacity: 0.8;
   p {
@@ -487,7 +488,7 @@ section.qualityproducts {
   bottom: 0;
   right: 0;
   left: 0;
-  width: 327px;
+  width: 302px !important;
   height: 18%;
   opacity: 0.8;
   p {
@@ -504,7 +505,7 @@ section.qualityproducts {
   bottom: 0;
   right: 0;
   left: 0;
-  width: 327px;
+  width: 302px !important;
   height: 18%;
   opacity: 0.8;
   p {
@@ -521,7 +522,7 @@ section.qualityproducts {
   bottom: 0;
   right: 0;
   left: 0;
-  width: 327px;
+  width: 302px !important;
   height: 18%;
   opacity: 0.8;
   p {
