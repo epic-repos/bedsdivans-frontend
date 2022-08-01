@@ -4,7 +4,7 @@ import Style from "styles/footer/footer.module.scss";
 import Link from "next/link";
 const Footer = () => {
   return (
-    <div>
+    <footer>
 
 
 
@@ -19,20 +19,20 @@ const Footer = () => {
                   data-aos="fade-up"
                   data-aos-delay="200"
                 >
-                   <ul>
+                  <ul>
                     <li>
                       <div className={Style.footerimage}>
-                         <img src="/image/1.png" alt="img" />
+                        <img src="/image/1.png" alt="img" />
                       </div>
                     </li>
                     <li>
                       <div className={Style.footerimage2}>
-                         <img src="/img/re.png" alt="img" />                         
-                         <img src="/image/5star.jpeg" alt="img" />
+                        <img src="/img/re.png" alt="img" />
+                        <img src="/image/5star.jpeg" alt="img" />
                       </div>
                     </li>
-                   </ul>
-                  </div>
+                  </ul>
+                </div>
                 <div
                   className="col-3"
                   data-aos="fade-up"
@@ -56,7 +56,7 @@ const Footer = () => {
                               className="single-link"
                               href="/divanbed/suede-Fabric-Divan-Beds"
                             >
-                              Our Blog 
+                              Our Blog
                             </Link>
                           </li>
                           <li className="li">
@@ -64,7 +64,7 @@ const Footer = () => {
                               className="single-link"
                               href="/product/headboard"
                             >
-                             Careers 
+                              Careers
                             </Link>
                           </li>
                           <li className="li">
@@ -72,7 +72,7 @@ const Footer = () => {
                               className="single-link"
                               href="/product/Mattressess"
                             >
-                             Corporate Governance 
+                              Corporate Governance
                             </Link>
                           </li>
                           <li className="li">
@@ -80,7 +80,7 @@ const Footer = () => {
                               className="single-link"
                               href="/divanbed/velvet-Fabric-Divan-Beds"
                             >
-                             Pepperfry In the News 
+                              Pepperfry In the News
                             </Link>
                           </li>
                           <li className="li">
@@ -88,7 +88,7 @@ const Footer = () => {
                               className="single-link"
                               href="/allbed/sleigh-beds"
                             >
-                             Find A Studio 
+                              Find A Studio
                             </Link>
                           </li>
                           <li className="li">
@@ -96,7 +96,7 @@ const Footer = () => {
                               className="single-link"
                               href="/allbed/sleigh-beds"
                             >
-                             Gift Cards 
+                              Gift Cards
                             </Link>
                           </li>
                           <li className="li">
@@ -104,7 +104,7 @@ const Footer = () => {
                               className="single-link"
                               href="/allbed/sleigh-beds"
                             >
-                             Brands 
+                              Brands
                             </Link>
                           </li>
                           <li className="li">
@@ -112,7 +112,7 @@ const Footer = () => {
                               className="single-link"
                               href="/allbed/sleigh-beds"
                             >
-                            Customer Reviews
+                              Customer Reviews
                             </Link>
                           </li>
 
@@ -134,42 +134,42 @@ const Footer = () => {
                         <ul className="align-items-center">
                           <li className="li">
                             <a href="/about" className="single-link">
-                            Sell With Us
+                              Sell With Us
                             </a>
                           </li>
                           <li className="li">
                             <a className="single-link" href="/product/shop">
-                            Become a Franchisee 
+                              Become a Franchisee
                             </a>
                           </li>
                           <li className="li">
                             <a href="/contact" className="single-link">
-                            Design For Us 
+                              Design For Us
                             </a>
                           </li>
                           <li className="li">
                             <a className="single-link" href="/ReturnPolicy">
-                            Pepperfry Marketplace Policies 
+                              Pepperfry Marketplace Policies
                             </a>
                           </li>
                           <li className="li">
                             <a className="single-link" href="/PrivacyPolicy">
-                            Login to Your Merchant 
+                              Login to Your Merchant
                             </a>
                           </li>
                           <li className="li">
                             <a className="single-link" href="checkout.html">
-                            Dashboard 
+                              Dashboard
                             </a>
                           </li>
                           <li className="li">
                             <a className="single-link" href="checkout.html">
-                            Important : GST and You 
+                              Important : GST and You
                             </a>
                           </li>
                           <li className="li">
                             <a className="single-link" href="checkout.html">
-                            Corporate Enquiries
+                              Corporate Enquiries
                             </a>
                           </li>
                         </ul>
@@ -189,29 +189,29 @@ const Footer = () => {
                         <ul className="align-items-center">
                           <li className="li">
                             <a href="/about" className="single-link">
-                            Contact Us 
+                              Contact Us
                             </a>
                           </li>
                           <li className="li">
                             <a className="single-link" href="/product/shop">
-                            Returns & Refund 
+                              Returns & Refund
                             </a>
                           </li>
                           <li className="li">
                             <a href="/contact" className="single-link">
-                            Track Your Order 
+                              Track Your Order
                             </a>
                           </li>
                           <li className="li">
                             <a className="single-link" href="/ReturnPolicy">
-                            FAQs
+                              FAQs
                             </a>
                           </li>
                           <li className="li">
                             <a className="single-link" href="/PrivacyPolicy">
-                            Buy on Phone
+                              Buy on Phone
                             </a>
-                          </li>                         
+                          </li>
                         </ul>
                       </div>
                     </div>
@@ -223,46 +223,46 @@ const Footer = () => {
           <div className="hrzntal_rw">
             <hr />
           </div>
-         <section className={Style.lastfooter}>
-              <div className="container"> 
-                <div className="row">
-                   <div className="col-4">
-                    <p>Copyright by@dbz all right reserved</p>
-                   </div>
-                   <div className="col-4">
-                    <div className={Style.centerfooter}>
+          <section className={Style.lastfooter}>
+            <div className="container">
+              <div className="row">
+                <div className="col-4">
+                  <p>Copyright by@dbz all right reserved</p>
+                </div>
+                <div className="col-4">
+                  <div className={Style.centerfooter}>
                     <p>Keep in touch</p>
                     <ul>
                       <li>
                         <img src="/image/fa.png" alt="img" />
                       </li>
-                      <li> 
+                      <li>
                         <img src="/image/twi.png" alt="img" />
-                        </li>
+                      </li>
                       <li>
-                      <img src="/image/ins.png" alt="img" />
+                        <img src="/image/ins.png" alt="img" />
                       </li>
                     </ul>
-                    </div>                 
-                   </div>
-                   <div className="col-4">
-                    <ul>
-                      <li>
+                  </div>
+                </div>
+                <div className="col-4">
+                  <ul>
+                    <li>
                       <img src="/image/upi.png" alt="img" />
-                      </li>
-                      <li>
+                    </li>
+                    <li>
                       <img src="/image/mas.png" alt="img" />
-                      </li>
-                    </ul>
-                   </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
-         </section>
+            </div>
+          </section>
         </div>
       </div>
 
 
-      </div>
+    </footer>
   );
 };
 export default Footer;

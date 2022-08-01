@@ -49,9 +49,6 @@ const Home: NextPage = () => {
   return (
     <div>
       <NextSEO title={"DBZBeds"} />
-
-      <NextSEO title={"DBZBEDS"} />
-
       <div className={Style.swiper_wrapper}>
         <div className={`${Style.slider_height} d-flex`}>
           <div className="container  text-center">
@@ -345,7 +342,7 @@ const Home: NextPage = () => {
                   height="210"
                 />
                 <h2 className={Style.productname}>
-                 Cream divan base
+                  Cream divan base
                 </h2>
                 <div className={Style.trustpilot}>
                   <img src="/image/tru.png" alt="img" />

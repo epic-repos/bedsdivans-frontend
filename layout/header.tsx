@@ -1,13 +1,11 @@
 import React from "react";
 import type { NextPage } from "next";
-import Styles from "./headerstyle/topheader.module.scss";
+import Styles from "styles/topheader.module.scss";
 import Link from "next/link";
 
 const Header = () => {
   return (
-    <div>
-
-
+    <header>
       <section className={Styles.mydiv}>
         <div className="container">
           <div className="row">
@@ -791,7 +789,7 @@ const Header = () => {
         </div>
       </section>
   
-    </div>
+    </header>
   );
 };
 export default Header;
