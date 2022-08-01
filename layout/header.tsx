@@ -6,6 +6,8 @@ import Link from "next/link";
 const Header = () => {
   return (
     <div>
+
+
       <section className={Styles.mydiv}>
         <div className="container">
           <div className="row">
@@ -62,7 +64,7 @@ const Header = () => {
                   </li>
                   <li>
                     <div className={Styles.wishlist}>
-                      <img src="/image/CART.SVG" alt="icon" />
+                      <img src="/img/tyiu.svg" alt="icon" />
                       <p>My basket</p>
                     </div>
                   </li>
@@ -193,6 +195,21 @@ const Header = () => {
                             </div>
                           </div>
                         </div>
+
+
+
+                        <section className={Styles.dropmenulastfooter}>
+                      <div className="container">
+                         <div className="row">
+                           <div className="col-4">
+                           </div>
+                           <div className="col-4">
+                           </div>
+                           <div className="col-4">
+                           </div>
+                         </div>
+                      </div>
+                    </section>
                       </section>
                     </ul>
                   </li>
@@ -341,6 +358,19 @@ const Header = () => {
                             </div>
                           </div>
                         </div>
+
+                        <section className={Styles.dropmenulastfooter}>
+                      <div className="container">
+                         <div className="row">
+                           <div className="col-4">
+                           </div>
+                           <div className="col-4">
+                           </div>
+                           <div className="col-4">
+                           </div>
+                         </div>
+                      </div>
+                    </section>
                       </section>
                     </ul>
                   </li>
@@ -386,7 +416,7 @@ const Header = () => {
                                   </li>
                                   <li>
                                     <Link href="/divanbed">
-                                      <a>View All</a>
+                                      <p>View All</p>
                                     </Link>
                                   </li>
                                   {/* <li>
@@ -458,6 +488,19 @@ const Header = () => {
                             </div> */}
                           </div>
                         </div>
+
+                        <section className={Styles.dropmenulastfooter}>
+                      <div className="container">
+                         <div className="row">
+                           <div className="col-4">
+                           </div>
+                           <div className="col-4">
+                           </div>
+                           <div className="col-4">
+                           </div>
+                         </div>
+                      </div>
+                    </section>
                       </section>
                     </ul>
                   </li>
@@ -590,6 +633,19 @@ const Header = () => {
                             </div>
                           </div>
                         </div>
+
+                        <section className={Styles.dropmenulastfooter}>
+                      <div className="container">
+                         <div className="row">
+                           <div className="col-4">
+                           </div>
+                           <div className="col-4">
+                           </div>
+                           <div className="col-4">
+                           </div>
+                         </div>
+                      </div>
+                    </section>
                       </section>
                     </ul>
                   </li>
@@ -707,6 +763,19 @@ const Header = () => {
                             </div>
                           </div>
                         </div>
+
+                        <section className={Styles.dropmenulastfooter}>
+                      <div className="container">
+                         <div className="row">
+                           <div className="col-4">
+                           </div>
+                           <div className="col-4">
+                           </div>
+                           <div className="col-4">
+                           </div>
+                         </div>
+                      </div>
+                    </section>
                       </section>
                     </ul>
                   </li>
@@ -721,6 +790,7 @@ const Header = () => {
           </div>
         </div>
       </section>
+  
     </div>
   );
 };

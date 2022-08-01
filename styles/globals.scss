@@ -462,5 +462,10 @@ ol, ul {
   width: 19.666667% !important;
 }
 
-
+.slick-prev:before, .slick-next:before {
+  font-family: 'slick';
+  font-size: 30px !important;
+  line-height: 1;
+  color: #2a2a2a !important;
+}
 

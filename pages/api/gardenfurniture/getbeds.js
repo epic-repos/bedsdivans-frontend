@@ -13,17 +13,7 @@ export default async function handler(req, res) {
         type: "gardenFurniture",
       });
 
-      // const count = await Products.countDocuments({});
-      // let totalPages = 0;
-
-      // totalPages = count / limit;
-      // let totalApprox = totalPages.toFixed(0);
-
-      // if (totalPages > totalApprox) {
-      //   totalPages = parseInt(totalApprox) + 1;
-      // } else if (parseInt(totalPages) < parseInt(totalApprox)) {
-      //   totalPages = totalApprox;
-      // }
+      
 
       res.status(200).json({ data: getAllProducts });
     } catch (err) {

@@ -3,8 +3,11 @@ import styles from "styles/divanbed.module.scss";
 import Image from "next/image";
 import NextSEO from "layout/nextseo";
 import Header from "layout/header";
+import axios from "axios";
+import { type } from "os";
 
-const Divanbed = () => {
+const Divanbed = (props:any) => {
+  console.log(props.response)
   return (
     <>
     <div>
@@ -301,3 +304,37 @@ const Divanbed = () => {
   );
 };
 export default Divanbed;
+
+interface dataType {
+  value: any;
+  size: string;
+}
+  
+
+
+export async function getServerSideProps(context:any) {
+  const { query } = context;
+  const size = query?.size as string;
+
+  const minPrice = query?.minPrice ? query.minPrice : "";
+  const maxPrice = query?.maxPrice ? query.maxPrice : "";
+  const images = query?.images ? query.images : "";
+
+
+
+
+
+  const data = await axios.post(
+    `${process.env.BASE_URL}/api/products/getbeds`,
+    // `${process.env.BASE_URL}/api/products/bestproducts?size=${size}&minPrice=${minPrice}&maxPrice=${maxPrice}&color=${images}`,
+    {
+      method: "size",
+    value: size ,
+    }
+  );
+  
+  const response = data.data.data;
+  return {
+    props: { response }, // will be passed to the page component as props
+  };
+}

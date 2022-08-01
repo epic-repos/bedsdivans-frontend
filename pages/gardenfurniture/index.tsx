@@ -2,8 +2,15 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
+import axios from "axios";
+import { useRouter } from "next/router";
+import { useState,useEffect } from "react";
 import Style from "../../styles/gardenFurniture/gardenFurniture.module.scss";
-const NewProductPage = () => {
+import { Value } from "sass";
+const NewProductPage = (props:any) => {
+
+  console.log(props)
+
   return (
     <div>
       <div className={Style.mtrsBannr}>
@@ -321,20 +328,28 @@ const NewProductPage = () => {
             <section className={Style.productsimages}>
               <div className="container">
                 <div className="row">
+                  {props.response.map((item:any,index:any)=>{
+                    return(
+
+                  
                   <div className="col-3">
                     <div className={Style.box1}>
                       <img
-                        src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
+                        src={item?.images[0]?.url?item?.images[0]?.url:"https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"}
                         alt="img"
                         width={258}
                         height="210"
                       />
                       <h2 className={Style.productname}>
-                        Laurence Llewelyn-Bowen Hesper Velvet Fabric Ottoman Bed
+                        {item.product_name}
                       </h2>
-                      <p className={Style.price}>£545.00</p>
+                      <p className={Style.price}>£{item.price}</p>
+                     
                     </div>
+                   
                   </div>
+                    )
+                  })}
                   <div className="col-3">
                     <div className={Style.box1}>
                       <img
@@ -477,3 +492,28 @@ const NewProductPage = () => {
   );
 };
 export default NewProductPage;
+
+export async function getServerSideProps(context:any) {
+  const { req } = context;
+  const size = req?.__NEXT_INIT_QUERY?.size;
+  const category = req?.__NEXT_INIT_QUERY?.category
+  let sizes = "";
+  let categories = "";
+
+    
+  size ? (sizes = size) : (sizes = "2FT 6");
+  category ? (categories = category) : (categories = "Teak color");
+  const data = await axios.post(
+    `${process.env.BASE_URL}/api/gardenfurniture/getbeds`,
+    {
+      method:"wood color",
+      Value:"Teak color"
+    }
+  );
+    const response = data.data.data;
+    return {
+      props: { response }, // will be passed to the page component as props
+    };
+  }
+
+

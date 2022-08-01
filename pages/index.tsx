@@ -12,8 +12,9 @@ import Slider from "react-slick";
 import axios from "axios";
 import React, { useEffect } from "react";
 
-const Home: NextPage = (props:any) => {
-  console.log(props)
+const Home: NextPage = (props: any) => {
+
+  console.log(props);
   const settings = {
     dots: true,
     nav: true,
@@ -54,7 +55,9 @@ const Home: NextPage = (props:any) => {
 
   const getData = async () => {
     try {
-      const res = await axios.get("https://jsonplaceholder.typicode.com/todos/1");
+      const res = await axios.get(
+        "https://jsonplaceholder.typicode.com/todos/1"
+      );
       setData(res.data);
     } catch (e) {
       console.log(e);
@@ -65,8 +68,7 @@ const Home: NextPage = (props:any) => {
     getData();
   }, []);
 
-
-  console.log(data)
+  console.log(data);
   return (
     <div>
       <NextSEO title={"DBZBeds"} />
@@ -357,37 +359,34 @@ const Home: NextPage = (props:any) => {
             <h2>Best-seller of the season</h2>
           </div>
           <div className="row">
-            {props.response.map((item:any,index:any)=>{
-              console.log(item)
-              return(
-
-            
-
-            
-            <div className="col-3" key={index}>
-              <div className={Style.box1}>
-                <img
-                  src="https://aspirestore.co.uk/49144-home_default/presley-fabric-ottoman-bed.jpg"
-                  alt="img"
-                  width={258}
-                  height="210"
-                />
-                <h2 className={Style.productname}>
-                  Presley Fabric Ottoman Bed{item.product_name}
-                </h2>
-                <div className={Style.trustpilot}>
-                  <img src="/image/tru.png" alt="img" />
+            {props.response.map((item: any, index: any) => {
+              console.log(item);
+              return (
+                <div className="col-3" key={index}>
+                  <div className={Style.box1}>
+                    <img
+                      src="https://aspirestore.co.uk/49144-home_default/presley-fabric-ottoman-bed.jpg"
+                      alt="img"
+                      width={258}
+                      height="210"
+                    />
+                    <h2 className={Style.productname}>
+                      Presley Fabric Ottoman Bed{item.product_name}
+                    </h2>
+                    <div className={Style.trustpilot}>
+                      <img src="/image/tru.png" alt="img" />
+                    </div>
+                    <p className={Style.price}>
+                      £600.00{"--" + item.price}
+                      <del>£800.00</del>
+                      <span>10%off</span>
+                    </p>
+                    <p>{item.description}</p>
+                  </div>
                 </div>
-                <p className={Style.price}>
-                  £600.00{"--"+item.price}<del>£800.00</del>
-                  <span>10%off</span>
-                </p>
-                <p>{item.description}</p>
-              </div>
-            </div>
-              )
+              );
             })}
-            
+
             <div className="col-3">
               <div className={Style.box1}>
                 <img
@@ -453,9 +452,6 @@ const Home: NextPage = (props:any) => {
       </section>
 
       {/* <-----------------------------------------------------------------> */}
-
-
-
 
       <section className={Style.productslider}>
         <div className="container">
@@ -524,18 +520,10 @@ const Home: NextPage = (props:any) => {
 
       {/* <-----------------------api fetch------------------------> */}
 
-
-      <section>
-       
-      </section>
-
-
-
-
+      <section></section>
 
       <div className={`${Style.explore_mattress} section`}>
         <div className="container">
-          
           <div className="row">
             <div className="col-md-12 text-center" data-aos="fade-up">
               <div className={Style.section_title}>
@@ -890,9 +878,7 @@ const Home: NextPage = (props:any) => {
 
 export default Home;
 
-
-
-export async function getServerSideProps(context:any) {
+export async function getServerSideProps(context: any) {
   const { req } = context;
   const size = req?.__NEXT_INIT_QUERY?.size;
   let sizes = "";
@@ -931,16 +917,15 @@ export async function getServerSideProps(context:any) {
   );
 
   const response = await data.data.data;
- 
+
   const response1 = await data1.data.data;
 
   const response2 = await data2.data.data;
 
   const response3 = await data3.data.data;
-  console.log({response,response1,response2,response3})
+  console.log({ response, response1, response2, response3 });
 
   return {
     props: { response, response1, response2, response3 }, // will be passed to the page component as props
   };
 }
-

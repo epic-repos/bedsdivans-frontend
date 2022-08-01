@@ -27,7 +27,7 @@ const Footer = () => {
                     </li>
                     <li>
                       <div className={Style.footerimage2}>
-                         <img src="/image/trust.png" alt="img" />
+                         <img src="/img/re.png" alt="img" />                         
                          <img src="/image/5star.jpeg" alt="img" />
                       </div>
                     </li>
