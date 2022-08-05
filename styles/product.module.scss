@@ -19,6 +19,9 @@
     }
 }
 .bodycontent {
+    h2 {
+        color: #008844;
+    }
     ul {
         display: flex;
         li {
@@ -42,7 +45,7 @@ ul.klarnaimage {
 .bedsizeaccordion {
     border: 1px solid #f2f2f2;
     padding: 10px 24px 0;
-    width: 400px;
+    width: 475px;
     background-color: #f2f2f2;
     ul {
         display: flex;
@@ -64,6 +67,7 @@ ul.klarnaimage {
         li.box1{
             border: 1px solid #000;
             padding: 12px 18px;
+            border-radius: 6px;
         }
         li.box2{
             button {
@@ -71,6 +75,7 @@ ul.klarnaimage {
                 color: #fff;
                 padding: 12px 140px;
                 border-color: #084;
+                border-radius: 6px;
             }
         }
     }
@@ -91,21 +96,5 @@ ul.klarnaimage {
                     color: #000;
                 }
             }
-        }
-    }
-    .dimension{
-        margin-top: 10px;
-        border: 1px solid black;
-        ul{
-            display: flex;
-            justify-content: space-between;
-        }
-        button {
-            padding: 8px 82px;
-            border-radius: 8px;
-            background-color: #0e3f70;
-            color: #fff;
-            border: none;
-            font-weight: 700;
         }
     }

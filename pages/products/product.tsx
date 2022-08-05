@@ -27,26 +27,6 @@ const Divanbed = () => {
                   <img src="/image/bed(big).jpg" alt="img"/>
               </div>
             </div>
-            <div className={styles.dimension}>
-                <ul>
-                    <li>
-                        <button>Bed Dimensions</button>
-                        <div className="drop1">
-                        <label for="size">Bed Size:</label>
-                            <select name="bed" id="size">
-                              <option value="1">Single 3ft</option>
-                              <option value="2">Small Double 4ft</option>
-                              <option value="3">Double 4ft6</option>
-                              <option value="4">King size 5ft</option>
-                              <option value="5">Super King 6ft</option>
-                            </select>
-                        </div>
-                    </li>
-                    <li>
-                        <button>Storage Dimensions</button>
-                    </li>
-                </ul>
-            </div>
             </div>
             <div className="col-6">
                   <div className={styles.bodycontent}>
