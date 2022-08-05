@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import NextSEO from "layout/nextseo";
 import Image from "next/image";
 import React from "react";
@@ -85,14 +86,12 @@ const NewProductPage = () => {
             <div className={styles.item1}>
               <div className={styles.left}>
                 {RenderTabsArray.map((data, index) => (
-                  <React.Fragment>
-                    <TabButton
-                      key={index}
-                      onClick={() => onTabSelect(data.title)}
-                      title={data.title}
-                      isactive={data.title === tabs}
-                    />
-                  </React.Fragment>
+                  <TabButton
+                    key={index}
+                    onClick={() => onTabSelect(data.title)}
+                    title={data.title}
+                    isactive={data.title === tabs}
+                  />
                 ))}
               </div>
               <div className={styles.right}>
@@ -130,7 +129,7 @@ const NewProductPage = () => {
         </div>
       </div>
       {/* HERE */}
-    <BestSellingBeds/>
+      <BestSellingBeds />
     </React.Fragment>
   );
 };
@@ -542,7 +541,3 @@ const TabButton = (props: TabButtonProps) => {
     </div>
   );
 };
-
-
-
-

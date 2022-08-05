@@ -1,5 +1,5 @@
 @import "./variable.scss";
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.6.3/css/all.min.css');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.6.3/css/all.min.css");
 html,
 body {
   padding: 0;
@@ -7,7 +7,7 @@ body {
   font-size: 100%;
   // font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
   //   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    font-family: "Poppins";
+  font-family: "Poppins";
 }
 ul {
   list-style: none;
@@ -24,8 +24,6 @@ a {
   box-sizing: border-box;
 }
 
-
-
 html,
 body {
   padding: 0;
@@ -34,8 +32,6 @@ body {
   //   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-family: "Poppins";
 }
-
-
 
 p,
 h1,
@@ -62,6 +58,10 @@ input {
 button {
   font-family: "poppins";
   cursor: pointer;
+}
+
+img {
+  max-width: 100%;
 }
 
 * {
@@ -439,33 +439,32 @@ ul.align-items-left li {
   color: #777777;
 }
 ul.align-items-center li {
-      margin-bottom: 15px  ;
-      color: #333;
-      font-size: 15px;
-      line-height: 14px;
-      font-weight: 500;
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 15px;
+  line-height: 14px;
+  font-weight: 500;
 }
 p.copy-text {
   text-align: center;
 }
-ol, ul {
-  padding-left: 0px !important
+ol,
+ul {
+  padding-left: 0px !important;
 }
 .footer-links {
   font-size: 15px !important;
 }
 
-
 // ankit
 .col-2 {
-  
   width: 19.666667% !important;
 }
 
-.slick-prev:before, .slick-next:before {
-  font-family: 'slick';
+.slick-prev:before,
+.slick-next:before {
+  font-family: "slick";
   font-size: 30px !important;
   line-height: 1;
   color: #2a2a2a !important;
 }
-
