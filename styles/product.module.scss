@@ -1,0 +1,111 @@
+.main {
+    display: flex;
+    justify-content: space-evenly;
+}
+.smallimg {
+  ul {
+    li{
+        margin-bottom: 16px;
+        img {
+            width: 110px;
+        }
+    }
+  }
+}
+.bigimg {
+    padding-right: 10px;
+    img {
+        width: 450px;
+    }
+}
+.bodycontent {
+    ul {
+        display: flex;
+        li {
+            img {
+                width: 120px;
+            }
+            h3 {
+                font-size: 18px;
+            }
+        }
+    }
+}
+ul.klarnaimage {
+    li {
+        padding-left: 10px;
+       img {
+        width: 45px;
+       }
+    }
+}
+.bedsizeaccordion {
+    border: 1px solid #f2f2f2;
+    padding: 10px 24px 0;
+    width: 400px;
+    background-color: #f2f2f2;
+    ul {
+        display: flex;
+        justify-content: space-between;
+        li {
+            img {
+               width: 30px;
+            }
+     }
+    }
+}
+.quamtitydiv {
+    margin-top: 20px;
+    ul {
+        li {
+            margin-right: 10px;
+            align-self: center;
+        }
+        li.box1{
+            border: 1px solid #000;
+            padding: 12px 18px;
+        }
+        li.box2{
+            button {
+                background-color: #084;
+                color: #fff;
+                padding: 12px 140px;
+                border-color: #084;
+            }
+        }
+    }
+}
+.arrowdiv{
+    margin-top: 28px;
+        ul{
+            display: flex;
+            li{
+                display: flex;
+                width: 155px;
+                img{
+                    height: 27px;
+                    width: 55px;
+                    padding-right: 12px;
+                }
+                p {
+                    color: #000;
+                }
+            }
+        }
+    }
+    .dimension{
+        margin-top: 10px;
+        border: 1px solid black;
+        ul{
+            display: flex;
+            justify-content: space-between;
+        }
+        button {
+            padding: 8px 82px;
+            border-radius: 8px;
+            background-color: #0e3f70;
+            color: #fff;
+            border: none;
+            font-weight: 700;
+        }
+    }

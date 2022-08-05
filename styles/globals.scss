@@ -431,19 +431,19 @@ button {
 ul.align-items-left li {
   margin-bottom: 15px;
   color: #333;
-  font-size: 14px;
-line-height: 24px;
-font-weight: 500;
+  font-size: 15px;
+  line-height: 14px;
+  font-weight: 500;
 }
 .single-wedge {
   color: #777777;
 }
 ul.align-items-center li {
-  margin-bottom: 15px;
-  color: #333;
-  font-size: 14px;
-line-height: 24px;
-font-weight: 500;
+      margin-bottom: 15px  ;
+      color: #333;
+      font-size: 15px;
+      line-height: 14px;
+      font-weight: 500;
 }
 p.copy-text {
   text-align: center;
@@ -453,5 +453,19 @@ ol, ul {
 }
 .footer-links {
   font-size: 15px !important;
+}
+
+
+// ankit
+.col-2 {
+  
+  width: 19.666667% !important;
+}
+
+.slick-prev:before, .slick-next:before {
+  font-family: 'slick';
+  font-size: 30px !important;
+  line-height: 1;
+  color: #2a2a2a !important;
 }
 

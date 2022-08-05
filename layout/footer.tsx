@@ -4,70 +4,37 @@ import Style from "styles/footer/footer.module.scss";
 import Link from "next/link";
 const Footer = () => {
   return (
-    <div>
+    <footer>
+
+
+
+
       <div className={Style.ftrBackgrd}>
         <div className="">
           <div className="">
             <div className="container-fluid">
               <div className="row">
                 <div
-                  className="col-md-6 col-lg-4"
+                  className="col-3"
                   data-aos="fade-up"
                   data-aos-delay="200"
                 >
-                  <div className="row">
-                    <div className="col-md-6 col-lg-6">
-                      <Image
-                        width={150}
-                        height={120}
-                        priority
-                        className=""
-                        src="/assets/images/logo/logo.png"
-                        alt=""
-                      />
-                    </div>
-                    <div className="col-md-6 col-lg-6">
-                      <Image
-                        width={120}
-                        height={80}
-                        src="/assets/images/logo/yell.jpg"
-                        alt=""
-                      />
-                      <br />
-                      Trusted by Yell
-                    </div>
-                  </div>
-
-                  <div className="single-wedge ">
-                    {/* <p className="my-5">
-                     
-                    </p> */}
-                    <p className=" my-2 sahil">
-                    <i className="fa fa-arrow-circle-right" aria-hidden="true"></i>
-                      {/* <i
-                        className="fa fa-arrow-circle-right "
-                        aria-hidden="true"
-                      ></i> */}
-                      &nbsp;&nbsp; Unit 8A Stag Industrial Estate,
-                    </p>
-                    <p>Oxford Street, Bilston,</p>
-                    <p>WV14 &nbsp;7HZ,</p>
-                    <p>
-                      <i className="fa fa-phone" aria-hidden="true"></i>
-                      &nbsp;&nbsp;
-                      <Link href="tel:01902405535">01902405535</Link>
-                    </p>
-                    <p>
-                      <i className="fa fa-envelope-o" aria-hidden="true"></i>
-                      &nbsp;&nbsp;info@bedsdivans.co.uk
-                    </p>
-
-                    {/* <p className="footer-herading my-2"><i className="fa fa-arrow-circle-right" aria-hidden="true"></i>Unit 8A Stag Industrial Estate</p> */}
-                  </div>
+                  <ul>
+                    <li>
+                      <div className={Style.footerimage}>
+                        <img src="/image/1.png" alt="img" />
+                      </div>
+                    </li>
+                    <li>
+                      <div className={Style.footerimage2}>
+                        <img src="/img/re.png" alt="img" />
+                        <img src="/image/5star.jpeg" alt="img" />
+                      </div>
+                    </li>
+                  </ul>
                 </div>
-
                 <div
-                  className="col-md-6 col-sm-6 col-lg-3 mb-md-30px mb-lm-30px footer2-margin"
+                  className="col-3"
                   data-aos="fade-up"
                   data-aos-delay="400"
                 >
@@ -81,7 +48,7 @@ const Footer = () => {
                               className={Style.ftr_links}
                               href="/product/divanbed"
                             >
-                              Diven Beds
+                              About Us
                             </Link>
                           </li>
                           <li className="li">
@@ -89,7 +56,7 @@ const Footer = () => {
                               className="single-link"
                               href="/divanbed/suede-Fabric-Divan-Beds"
                             >
-                              Suede Divan Bed
+                              Our Blog
                             </Link>
                           </li>
                           <li className="li">
@@ -97,7 +64,7 @@ const Footer = () => {
                               className="single-link"
                               href="/product/headboard"
                             >
-                              Headboards
+                              Careers
                             </Link>
                           </li>
                           <li className="li">
@@ -105,7 +72,7 @@ const Footer = () => {
                               className="single-link"
                               href="/product/Mattressess"
                             >
-                              Mattressess
+                              Corporate Governance
                             </Link>
                           </li>
                           <li className="li">
@@ -113,7 +80,7 @@ const Footer = () => {
                               className="single-link"
                               href="/divanbed/velvet-Fabric-Divan-Beds"
                             >
-                              Velvet Fabric Diven Beds
+                              Pepperfry In the News
                             </Link>
                           </li>
                           <li className="li">
@@ -121,18 +88,34 @@ const Footer = () => {
                               className="single-link"
                               href="/allbed/sleigh-beds"
                             >
-                              Sleigh Beds
+                              Find A Studio
                             </Link>
                           </li>
-                        </ul>
-                        <hr className="my-4" />
-                        <ul className="align-items-center">
-                          <h4 className="footer-herading my-6">BLOGS</h4>
                           <li className="li">
-                            <a className="single-link" href="about.html">
-                              A Buying Guide To Distinct Sized Mattress
-                            </a>
+                            <Link
+                              className="single-link"
+                              href="/allbed/sleigh-beds"
+                            >
+                              Gift Cards
+                            </Link>
                           </li>
+                          <li className="li">
+                            <Link
+                              className="single-link"
+                              href="/allbed/sleigh-beds"
+                            >
+                              Brands
+                            </Link>
+                          </li>
+                          <li className="li">
+                            <Link
+                              className="single-link"
+                              href="/allbed/sleigh-beds"
+                            >
+                              Customer Reviews
+                            </Link>
+                          </li>
+
                         </ul>
                       </div>
                     </div>
@@ -140,53 +123,53 @@ const Footer = () => {
                 </div>
 
                 <div
-                  className="col-md-6 col-lg-2 col-sm-6 mb-lm-30px"
+                  className="col-3"
                   data-aos="fade-up"
                   data-aos-delay="600"
                 >
                   <div className={Style.single_wedge}>
-                    <h4>Additional links</h4>
+                    <h4>Partners </h4>
                     <div className="footer-links">
                       <div className="footer-row">
                         <ul className="align-items-center">
                           <li className="li">
                             <a href="/about" className="single-link">
-                              About Us
+                              Sell With Us
                             </a>
                           </li>
                           <li className="li">
                             <a className="single-link" href="/product/shop">
-                              Shop
+                              Become a Franchisee
                             </a>
                           </li>
                           <li className="li">
                             <a href="/contact" className="single-link">
-                              Contact Us
+                              Design For Us
                             </a>
                           </li>
                           <li className="li">
                             <a className="single-link" href="/ReturnPolicy">
-                              Return Policy
+                              Pepperfry Marketplace Policies
                             </a>
                           </li>
                           <li className="li">
                             <a className="single-link" href="/PrivacyPolicy">
-                              Privacy Policy
+                              Login to Your Merchant
                             </a>
                           </li>
                           <li className="li">
                             <a className="single-link" href="checkout.html">
-                              Diven Bed Yorkshire
+                              Dashboard
                             </a>
                           </li>
                           <li className="li">
                             <a className="single-link" href="checkout.html">
-                              Diven Bed Birmingham
+                              Important : GST and You
                             </a>
                           </li>
                           <li className="li">
                             <a className="single-link" href="checkout.html">
-                              Diven Bed London
+                              Corporate Enquiries
                             </a>
                           </li>
                         </ul>
@@ -194,64 +177,42 @@ const Footer = () => {
                     </div>
                   </div>
                 </div>
-
                 <div
-                  className="col-md-6 col-lg-3 footer-margin"
+                  className="col-3"
                   data-aos="fade-up"
-                  data-aos-delay="800"
+                  data-aos-delay="600"
                 >
                   <div className={Style.single_wedge}>
-                    <h4>top selected</h4>
+                    <h4>Need Help? </h4>
                     <div className="footer-links">
-                      <div id="mc_embed_signup" className="footer-4">
-                        <p>
-                          Mink Chenillie Divan Base or <br></br>
-                          Set+Headboard+1500 Pocket Mattress<br></br>FREE HOME
-                          DILIVERY
-                        </p>
-                        <p>White Velvet Cube Headboard</p>
-                        <p>
-                          White Crushed Velvet Divan Bed Set <br></br>
-                          +Headboard+Mattress FREE UK DILIVERY
-                        </p>
-                        <p>
-                          Gun Grey Crushed Velvet Divan Set <br></br>
-                          +Headboard+1500 Pocket Pillow Top <br></br>Mattress
-                          FREE UK DILIVERY
-                        </p>
-                        <p>
-                          Orthopedic Foam and Spring Mattress <br></br>Medium
-                          Frimness
-                        </p>
-                        <hr className="my-4" />
-                        {/* <div className="ftr_social_icons">
-                          <a href="https://www.facebook.com">
-                            <i
-                              className="fa fa-facebook-f"
-                              arsia-hidden="true"
-                              style={{ fontSize: 400, color: "blue" }}
-                            ></i>
-                          </a>
-                          <a href="https://www.facebook.com">
-                        
-                          </a>
-                          <a href="https://www.facebook.com">
-                          
-                          </a>
-                        </div> */}
-
-                        {/* <form id="mc-embedded-subscribe-form" className="validate" novalidate="" target="_blank" name="mc-embedded-subscribe-form" method="post" action="http://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef">
-                                            <div id="mc_embed_signup_scroll" className="mc-form">
-                                                <input className="email" type="email" required="" placeholder="Your Mail*" name="EMAIL" value="" />
-                                                <div className="mc-news" aria-hidden="true">
-                                                    <input type="text" value="" tabindex="-1" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef" />
-                                                </div>
-                                                <div className="clear">
-                                                    <button id="mc-embedded-subscribe" className="button btn-primary" type="submit" name="subscribe" value=""><i
-                                                            className="icon-cursor"></i> Send Mail</button>
-                                                </div>
-                                            </div>
-                                        </form>  */}
+                      <div className="footer-row">
+                        <ul className="align-items-center">
+                          <li className="li">
+                            <a href="/about" className="single-link">
+                              Contact Us
+                            </a>
+                          </li>
+                          <li className="li">
+                            <a className="single-link" href="/product/shop">
+                              Returns & Refund
+                            </a>
+                          </li>
+                          <li className="li">
+                            <a href="/contact" className="single-link">
+                              Track Your Order
+                            </a>
+                          </li>
+                          <li className="li">
+                            <a className="single-link" href="/ReturnPolicy">
+                              FAQs
+                            </a>
+                          </li>
+                          <li className="li">
+                            <a className="single-link" href="/PrivacyPolicy">
+                              Buy on Phone
+                            </a>
+                          </li>
+                        </ul>
                       </div>
                     </div>
                   </div>
@@ -262,16 +223,46 @@ const Footer = () => {
           <div className="hrzntal_rw">
             <hr />
           </div>
-          <div className="container ftr_btm_txt">
-            <div className="row">
-              <div className="col-md-12 footer-bottom-text">
-                <p className="copy-text">DBZBeds © 2022</p>
+          <section className={Style.lastfooter}>
+            <div className="container">
+              <div className="row">
+                <div className="col-4">
+                  <p>Copyright by@dbz all right reserved</p>
+                </div>
+                <div className="col-4">
+                  <div className={Style.centerfooter}>
+                    <p>Keep in touch</p>
+                    <ul>
+                      <li>
+                        <img src="/image/fa.png" alt="img" />
+                      </li>
+                      <li>
+                        <img src="/image/twi.png" alt="img" />
+                      </li>
+                      <li>
+                        <img src="/image/ins.png" alt="img" />
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="col-4">
+                  <ul>
+                    <li>
+                      <img src="/image/upi.png" alt="img" />
+                    </li>
+                    <li>
+                      <img src="/image/mas.png" alt="img" />
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
+          </section>
         </div>
       </div>
-    </div>
+
+
+    </footer>
   );
 };
 export default Footer;

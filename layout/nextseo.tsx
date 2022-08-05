@@ -1,7 +1,7 @@
 import Head from "next/head";
 import React from "react";
 
-const NextSEO = ({ title }) => {
+const NextSEO = ({ title }:any) => {
   return (
     <Head>
       <title>{title}</title>

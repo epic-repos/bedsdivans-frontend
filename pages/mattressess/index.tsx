@@ -3,7 +3,12 @@ import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
 import Style from "../../styles/Mattressess/Mattressess.module.scss";
-const NewProductPage = () => {
+import axios from "axios";
+
+
+const NewProductPage = (props: any) => {
+  console.log(props.response)
+
   return (
     <div>
       <div className={Style.mtrsBannr}>
@@ -308,23 +313,28 @@ const NewProductPage = () => {
             </p>
           </div>
           <div className="row">
+          
             <section className={Style.productsimages}>
               <div className="container">
                 <div className="row">
-                  <div className="col-3">
+                {props.response.map((item:any,index:any)=> {
+                  return(
+                  <div className="col-3" key={index}>
                     <div className={Style.box1}>
                       <img
-                        src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
+                        // src={item?.images[0]?item?.images[0]:"/"}
                         alt="img"
                         width={258}
                         height="210"
                       />
                       <h2 className={Style.productname}>
-                        Laurence Llewelyn-Bowen Hesper Velvet Fabric Ottoman Bed
+                      {item.product_name}
                       </h2>
-                      <p className={Style.price}>£545.00</p>
+                      <p className={Style.price}>{item.price}</p>
                     </div>
                   </div>
+                  );
+                })}
                   <div className="col-3">
                     <div className={Style.box1}>
                       <img
@@ -467,3 +477,32 @@ const NewProductPage = () => {
   );
 };
 export default NewProductPage;
+
+
+
+export async function getServerSideProps(context:any) {
+  const { query } = context;
+  const size = query?.size 
+
+  const minPrice = query?.minPrice ? query.minPrice : "";
+  const maxPrice = query?.maxPrice ? query.maxPrice : "";
+  const images = query?.images ? query.images : "";
+
+
+
+
+
+  const data = await axios.post(
+    `${process.env.BASE_URL}/api/mattress/getbeds`,
+    // `${process.env.BASE_URL}/api/products/bestproducts?size=${size}&minPrice=${minPrice}&maxPrice=${maxPrice}&color=${images}`,
+    {
+      method: "size",
+    value: "2FT 6" ,
+    }
+  );
+  
+  const response = data.data.data;
+  return {
+    props: { response }, // will be passed to the page component as props
+  };
+}
