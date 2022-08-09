@@ -6,6 +6,7 @@
 
 import { configureStore } from "@reduxjs/toolkit";
 import addToCartSlice from "./slices/addtocart";
+import selectbedSlice from "./slices/selectbed";
 
 // const middleware = [thunk];
 
@@ -31,7 +32,8 @@ import addToCartSlice from "./slices/addtocart";
 
 const store = configureStore({
   reducer: {
-    addToCart: addToCartSlice.reducer
+    addToCart: addToCartSlice.reducer,
+    selectbed: selectbedSlice.reducer
   },
   devTools: process.env.NODE_ENV === 'development'
 })
