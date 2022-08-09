@@ -2,12 +2,15 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  eslint:{
-    ignoreDuringBuilds:true
+  eslint: {
+    ignoreDuringBuilds: true,
   },
-  typescript:{
-    ignoreBuildErrors:true
-  }
-}
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  images: {
+    domains: ["www.bedsdivans.co.uk", "cdn.shopify.com"],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

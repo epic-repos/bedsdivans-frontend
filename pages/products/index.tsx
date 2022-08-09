@@ -55,6 +55,8 @@ const NewProductPage = () => {
     setBedHeadBoard,
     setBedMatters,
     setBedStorage,
+    setBedImage,
+    setBedPrice,
   } = useSelectBed();
 
   // RENDER TABS
@@ -65,7 +67,11 @@ const NewProductPage = () => {
           <CommonForBed
             items={bedBedSizeArray}
             value={bedState.bedSize}
-            onClickItem={(data) => setBedSize(data.content)}
+            onClickItem={(data) => {
+              setBedSize(data.content);
+              setBedImage(data.imageUrl);
+              setBedPrice(data.price);
+            }}
           />
         );
       case "Color":
@@ -73,12 +79,15 @@ const NewProductPage = () => {
           <CommonForBed
             items={bedColorArray}
             value={bedState.bedColor}
-            onClickItem={(data) => setBedColor(data.content)}
+            onClickItem={(data) => {
+              setBedColor(data.content);
+              setBedImage(data.imageUrl);
+            }}
           />
         );
       case "HeadBoard":
         return (
-          <BedHeadBoard
+          <CommonForBed
             items={bedHeadBoardArray}
             value={bedState.bedHeadBoard}
             onClickItem={(data) => setBedHeadBoard(data.content)}
@@ -111,7 +120,7 @@ const NewProductPage = () => {
       default:
         return null;
     }
-  }, [setBedSize, tabs]);
+  }, [bedState, bedState, tabs]);
 
   const onTabSelect = React.useCallback(
     (value: string) => {
@@ -134,50 +143,53 @@ const NewProductPage = () => {
   };
   return (
     <React.Fragment>
-      <div>
-        <NextSEO title={"Dbz beds "} />
-        {/* Gufran  */}
-        <div className={styles.imageContainer}>
-          <img src="/images/bed.png" alt="Bed Image" className={styles.image} />
-          <div className={styles.container}>
-            <div className={styles.item1}>
-              <div className={styles.left}>
-                {RenderTabsArray.map((data, index) => (
-                  <TabButton
-                    key={index}
-                    onClick={() => onTabSelect(data.title)}
-                    title={data.title}
-                    isactive={data.title === tabs}
-                  />
-                ))}
-              </div>
-              <div className={styles.right}>
-                <ContentHeader
-                  title={
-                    RenderTabsArray.find((data) => data.title === tabs)?.title
-                  }
-                  onClickNext={onClickNext}
+      <NextSEO title={"Dbz beds "} />
+      {/* Gufran  */}
+      <div className={styles.imageContainer}>
+        <img src={bedState.bedImage} alt="Bed Image" className={styles.image} />
+        <div className={styles.container}>
+          <h3 className={styles.productName}>
+            Grey Linen Divan Bed Set With 3 Panel Headboard And Free Pillow Top
+            Mattress
+          </h3>
+          <div className={styles.item1}>
+            <div className={styles.left}>
+              {RenderTabsArray.map((data, index) => (
+                <TabButton
+                  key={index}
+                  onClick={() => onTabSelect(data.title)}
+                  title={data.title}
+                  isactive={data.title === tabs}
                 />
-                {RenderTabs}
-              </div>
+              ))}
             </div>
-            <div className={styles.item2}>
-              <div className={styles.summary}>
-                <div className={styles.priceitemsummary}>
+            <div className={styles.right}>
+              <ContentHeader
+                title={
+                  RenderTabsArray.find((data) => data.title === tabs)?.title
+                }
+                onClickNext={onClickNext}
+              />
+              {RenderTabs}
+            </div>
+          </div>
+          <div className={styles.item2}>
+            <div className={styles.summary}>
+              <div className={styles.priceitemsummary}>
+                <div>
+                  <h5>Total Price</h5>
+                  <span>{bedState.bedPrice}</span>
+                  {/* <span>£450.00</span> */}
+                </div>
+                <div className={styles.numberaddcard}>
                   <div>
-                    <h5>Total Price</h5>
-                    <span>£450.00</span>
+                    <input
+                      type="number"
+                      className={styles.numbertextarea}
+                    ></input>
                   </div>
-                  <div className={styles.numberaddcard}>
-                    <div>
-                      <input
-                        type="number"
-                        className={styles.numbertextarea}
-                      ></input>
-                    </div>
-                    <div>
-                      <Button className={styles.addcart}> Add the cart</Button>
-                    </div>
+                  <div>
+                    <Button className={styles.addcart}> Add the cart</Button>
                   </div>
                 </div>
               </div>

@@ -15,14 +15,14 @@ const CommonForBed = (props: BedSizeProps) => {
               onClick={() => onClickItem(data)}
               style={{
                 border: `2px solid ${
-                  value === data.content ? "#607d8b" : "transparent"
+                  value === data.content ? "#20323e" : "transparent"
                 }`,
               }}
             >
-              <Image src={data.imageUrl} width={100} height={56} alt="" />
+              <Image src={data.iconUrl} width={100} height={56} alt="" />
               <span className={styles.name}>
-                {data.content}ft single is selected
-                <span className={styles.price}> £400.00</span>
+                {data.content}
+                <span className={styles.price}>{data.price}</span>
               </span>
             </li>
           ))}
@@ -33,3 +33,5 @@ const CommonForBed = (props: BedSizeProps) => {
 };
 
 export default CommonForBed;
+//
+//  £400.00

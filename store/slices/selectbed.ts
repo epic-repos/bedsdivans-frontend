@@ -9,15 +9,19 @@ interface BedTypes {
     bedStorage: string;
     bedFeet: string;
     bedMatters: string;
+    bedImage: string;
+    bedPrice: string;
 }
 
 const initialState: BedTypes = {
     bedSize: 2.6,
-    bedColor: 'grey linen',
+    bedColor: 'greylinen',
     bedHeadBoard: '',
     bedStorage: '',
     bedFeet: 'Free Castor Wheels',
     bedMatters: '',
+    bedImage: '/product/color/greylinen.png',
+    bedPrice: '£89'
 }
 
 const selectbedSlice = createSlice({
@@ -41,6 +45,12 @@ const selectbedSlice = createSlice({
         },
         setBedMatters: (state, action) => {
             state.bedMatters = action.payload
+        },
+        setBedImage: (state, action) => {
+            state.bedImage = action.payload
+        },
+        setBedPrice: (state, action) => {
+            state.bedPrice = action.payload
         },
     }
 })

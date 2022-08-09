@@ -49,6 +49,15 @@ const useSelectBed = () => {
     const setBedMatters = React.useCallback((value: string) => {
         dispatch(selectbedSlice.actions.setBedMatters(value))
     }, [dispatch])
+    // HANDLER FOR BED Image
+    const setBedImage = React.useCallback((value: string) => {
+        dispatch(selectbedSlice.actions.setBedImage(value))
+    }, [dispatch])
+    // HANDLER FOR BED PRICE
+
+    const setBedPrice = React.useCallback((value: any) => {
+        dispatch(selectbedSlice.actions.setBedPrice(value))
+    }, [dispatch])
     // Return Values
 
 
@@ -60,6 +69,8 @@ const useSelectBed = () => {
         setBedStorage,
         setBedFeet,
         setBedMatters,
+        setBedImage,
+        setBedPrice
     }
 
 }
