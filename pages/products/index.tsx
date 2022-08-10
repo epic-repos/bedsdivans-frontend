@@ -10,6 +10,7 @@ import SideTabButton from "components/products/tabbutton";
 import ContentHeader from "components/products/contentheader";
 // ARRAY
 import BedsTabs from "./tabs";
+import dummyPayload from "./array";
 import useAddCart from "store/hooks/useaddcart";
 
 /**
@@ -32,17 +33,18 @@ const NewProductPage = () => {
     tabsArray.findIndex((data) => data.title === tabs)
   );
   const onClickNext = React.useCallback(() => {
-    // console.log(index)
     if (tabIndex < tabsArray.length) {
       settabIndex((i) => i + 1);
+    }
+    if (tabIndex >= tabsArray.length - 1) {
+      settabIndex(0);
+    }
+  }, [tabIndex]);
+
+  React.useEffect(() => {
+    if (tabIndex < tabsArray.length) {
       setTabs(tabsArray[tabIndex].title);
     }
-    if (tabIndex > tabsArray.length) {
-      // settabIndex(0);
-      // setTabs(TabsArray[tabIndex].title);
-      console.log(tabIndex);
-    }
-    // console.log(RenderTabsArray[index+1].title)
   }, [tabIndex]);
 
   const forCart = {
@@ -63,6 +65,8 @@ const NewProductPage = () => {
     },
   };
 
+  const { name } = dummyPayload;
+
   return (
     <React.Fragment>
       <NextSEO title={"Dbz beds "} />
@@ -70,10 +74,7 @@ const NewProductPage = () => {
       <div className={styles.imageContainer}>
         <img src={bedState.bedImage} alt="Bed Image" className={styles.image} />
         <div className={styles.container}>
-          <h3 className={styles.productName}>
-            Grey Linen Divan Bed Set With 3 Panel Headboard And Free Pillow Top
-            Mattress
-          </h3>
+          <h3 className={styles.productName}>{name}</h3>
           <div className={styles.item1}>
             <div className={styles.left}>
               {tabsArray.map((data, index) => (
@@ -91,7 +92,7 @@ const NewProductPage = () => {
                 onClickNext={onClickNext}
               />
               {/* DYNAMIC TABS  */}
-              <BedsTabs tabName={tabs} />
+              <BedsTabs productData={dummyPayload} tabName={tabs} />
             </div>
           </div>
           <div className={styles.item2}>

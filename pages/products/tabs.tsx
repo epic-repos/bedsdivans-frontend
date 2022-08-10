@@ -1,20 +1,13 @@
 import React from "react";
 import CommonForBed from "components/products/common";
 import useSelectBed from "store/hooks/useselectbed";
-import {
-  bedBedSizeArray,
-  bedColorArray,
-  bedHeadBoardArray,
-  bedStorageArray,
-  bedFeetArray,
-  bedMattressArray,
-} from "./array";
 
 interface BedsTabsProps {
   tabName: string;
+  productData: any;
 }
 
-const BedsTabs = ({ tabName }: BedsTabsProps) => {
+const BedsTabs = ({ tabName, productData }: BedsTabsProps) => {
   const {
     bedState,
     setBedSize,
@@ -26,13 +19,25 @@ const BedsTabs = ({ tabName }: BedsTabsProps) => {
     setBedMatters,
     setBedStorage,
   } = useSelectBed();
+
+  // LIKE API DATA
+  const {
+    bedColor,
+    bedFeet,
+    bedHeadBoard,
+    bedMatters,
+    bedSize,
+    bedStorage,
+    category,
+  } = productData;
+
   // RENDER TABS
   const RenderTabs = React.useMemo(() => {
     switch (tabName) {
       case "BedSize":
         return (
           <CommonForBed
-            items={bedBedSizeArray}
+            items={bedSize}
             value={bedState.bedSize}
             onClickItem={(data) => {
               setBedSize(data.content);
@@ -44,7 +49,7 @@ const BedsTabs = ({ tabName }: BedsTabsProps) => {
       case "Color":
         return (
           <CommonForBed
-            items={bedColorArray}
+            items={bedColor}
             value={bedState.bedColor}
             onClickItem={(data) => {
               setBedColor(data.content);
@@ -56,7 +61,7 @@ const BedsTabs = ({ tabName }: BedsTabsProps) => {
       case "HeadBoard":
         return (
           <CommonForBed
-            items={bedHeadBoardArray}
+            items={bedHeadBoard}
             value={bedState.bedHeadBoard}
             onClickItem={(data) => {
               setBedHeadBoard(data.content);
@@ -68,7 +73,7 @@ const BedsTabs = ({ tabName }: BedsTabsProps) => {
       case "Storage":
         return (
           <CommonForBed
-            items={bedStorageArray}
+            items={bedStorage}
             value={bedState.bedStorage}
             onClickItem={(data) => {
               setBedStorage(data.content);
@@ -80,7 +85,7 @@ const BedsTabs = ({ tabName }: BedsTabsProps) => {
       case "Feet":
         return (
           <CommonForBed
-            items={bedFeetArray}
+            items={bedFeet}
             value={bedState.bedFeet}
             onClickItem={(data) => {
               setBedFeet(data.content);
@@ -92,7 +97,7 @@ const BedsTabs = ({ tabName }: BedsTabsProps) => {
       case "Mattress":
         return (
           <CommonForBed
-            items={bedMattressArray}
+            items={bedMatters}
             value={bedState.bedMatters}
             onClickItem={(data) => {
               setBedMatters(data.content);

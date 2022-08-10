@@ -10,7 +10,7 @@ const CommonForBed = (props: BedSizeProps) => {
     <React.Fragment>
       <div className={styles.color}>
         <ul className={styles.texture}>
-          {items.map((data, index) => (
+          {items?.map((data, index) => (
             <li
               key={index}
               onClick={() => onClickItem(data)}
