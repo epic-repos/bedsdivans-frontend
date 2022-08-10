@@ -9,6 +9,7 @@ interface SizeData {
 }
 
 interface ProductTypes {
+    id: string | number
     name: string;
     description: string;
     size: string;
@@ -46,19 +47,12 @@ const productsSchema = new Schema<ProductTypes>({
     bedMattersData: { type: Array, required: false },
     bedPriceData: { type: Array, required: false },
     timestamps: true,
+
 })
 
 export default productsSchema;
 
 
-// bedSize
-// bedColor
-// bedHeadBoard
-// bedStorage
-// bedFeet
-// bedMatters
-// bedImage
-// bedPrice
 
 
 const ProductDummyData = {
@@ -121,12 +115,3 @@ const ProductDummyData = {
     ],
 }
 
-
-
-
-// ProductDummyData.name
-// ProductDummyData.description
-
-// ProductDummyData.bedSizeData.map((data)=>{
-
-// })
