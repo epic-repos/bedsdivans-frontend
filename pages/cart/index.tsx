@@ -15,7 +15,6 @@ const CartPage = () => {
           <div className={css.row}>
             {/* FORM */}
             <ContactForm />
-
             <div className={css.button}>
               <div className={css.item2}>
                 <p>Your Cart is Empty</p>
