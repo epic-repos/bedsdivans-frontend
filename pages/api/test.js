@@ -1,7 +1,7 @@
 import Products from "../../schema/beds";
 import Headboard from "../../schema/headboard";
 import Mattress from "../../schema/mattress";
-import dbConnect from "../../utils/DBconnect";
+import dbConnect from "../../utils/connect";
 
 dbConnect();
 export default async function handler(req, res) {

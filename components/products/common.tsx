@@ -5,6 +5,7 @@ import styles from "styles/NewProductPage.module.scss";
 
 const CommonForBed = (props: BedSizeProps) => {
   const { value, items, onClickItem } = React.useMemo(() => props, [props]);
+
   return (
     <React.Fragment>
       <div className={styles.color}>
@@ -21,7 +22,7 @@ const CommonForBed = (props: BedSizeProps) => {
             >
               <Image src={data.iconUrl} width={100} height={56} alt="" />
               <span className={styles.name}>
-                {data.content}
+                {data.content}{" "}
                 <span className={styles.price}>{data.price}</span>
               </span>
             </li>

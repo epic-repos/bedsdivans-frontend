@@ -1,5 +1,4 @@
 import type { AppProps } from "next/app";
-
 import "styles/globals.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Layout from "layout";
@@ -8,15 +7,16 @@ import Script from "next/script";
 import React from "react";
 import { Provider } from "react-redux";
 import store from "store";
+
 // import 'bootstrap/dist/css/bootstrap.min.css'
 function RootApp({ Component, pageProps }: AppProps) {
   return (
     <React.Fragment>
-      <Head>
-        <title>Your title</title>
-        <meta name="description" content="Your description" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Provider store={store}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </Provider>
       <Script
         id="google-tag-manager"
         strategy="afterInteractive"
@@ -28,11 +28,6 @@ function RootApp({ Component, pageProps }: AppProps) {
       })(window,document,'script','dataLayer','GTM-TR98HZH');`,
         }}
       ></Script>
-      <Provider store={store}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </Provider>
     </React.Fragment>
   );
 }

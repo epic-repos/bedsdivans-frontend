@@ -3,7 +3,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 interface BedTypes {
-    bedSize: number;
+    bedSize: string;
     bedColor: string;
     bedHeadBoard: string;
     bedStorage: string;
@@ -14,8 +14,8 @@ interface BedTypes {
 }
 
 const initialState: BedTypes = {
-    bedSize: 2.6,
-    bedColor: 'greylinen',
+    bedSize: `(2'6" x 6')- Small Single`,
+    bedColor: 'grey linen',
     bedHeadBoard: '',
     bedStorage: '',
     bedFeet: 'Free Castor Wheels',

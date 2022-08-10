@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
-import styles from "styles/product.module.scss";
-import NextSEO from "layout/nextseo";
 import { NextPage } from "next";
+import NextSEO from "layout/nextseo";
+import styles from "styles/product.module.scss";
 
 interface SelectProps extends React.ComponentPropsWithRef<"select"> {
   heading: string;

@@ -1,5 +1,5 @@
-import Products from "../../../schema/products";
-import dbConnect from "../../../utils/DBconnect";
+import Products from "schema/products";
+import dbConnect from "utils/DBconnect";
 
 dbConnect();
 export default async function handler(req, res) {
@@ -23,7 +23,7 @@ export default async function handler(req, res) {
           dynamicProducts.push(arr[i - 1]);
         }
       }
-      
+
       const filteredArr = await dynamicProducts.filter((el) => {
         const duplicate = checkDuplicate.has(el.product_name);
         checkDuplicate.add(el.product_name);
@@ -38,4 +38,3 @@ export default async function handler(req, res) {
     res.json({ success: false, data: "GET method missing" });
   }
 }
-

@@ -4,7 +4,7 @@ import styles from "styles/NewProductPage.module.scss";
 interface TabButtonProps extends React.ComponentPropsWithoutRef<"div"> {
   isactive?: boolean;
 }
-const TabButton = (props: TabButtonProps) => {
+const SideTabButton = (props: TabButtonProps) => {
   const styleActive = {
     background: props.isactive ? "#fff" : "#0e3f70",
   };
@@ -16,4 +16,4 @@ const TabButton = (props: TabButtonProps) => {
     </div>
   );
 };
-export default TabButton;
+export default SideTabButton;

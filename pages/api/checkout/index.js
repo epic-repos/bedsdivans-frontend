@@ -6,7 +6,6 @@ const CHECKOUT_SESSION_ID = 1234;
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
-    
     try {
       const session = await stripe.checkout.sessions.create({
         mode: "payment",
@@ -15,7 +14,6 @@ export default async function handler(req, res) {
         success_url: `http://localhost:3000/checkout/${CHECKOUT_SESSION_ID}`,
         cancel_url: `http://localhost:3000/cart`,
       });
-
       res.status(200).json(session);
     } catch (error) {
       res.status(500).json({ message: error.message });

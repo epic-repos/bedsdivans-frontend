@@ -1,7 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable react/no-unescaped-entities */
 import React from "react";
-import type { NextPage } from "next";
-import Styles from "styles/topheader.module.scss";
 import Link from "next/link";
+import Styles from "styles/topheader.module.scss";
 
 const Header = () => {
   return (
@@ -56,8 +57,12 @@ const Header = () => {
                   </li>
                   <li>
                     <div className={Styles.wishlist}>
-                      <img src="/image/CART.SVG" alt="icon" />
-                      <p>My basket</p>
+                      <Link href={"/cart"}>
+                        <a>
+                          <img src="/image/CART.SVG" alt="icon" />
+                          <p>My basket</p>
+                        </a>
+                      </Link>
                     </div>
                   </li>
                   <li>
@@ -194,20 +199,15 @@ const Header = () => {
                           </div>
                         </div>
 
-
-
                         <section className={Styles.dropmenulastfooter}>
-                      <div className="container">
-                         <div className="row">
-                           <div className="col-4">
-                           </div>
-                           <div className="col-4">
-                           </div>
-                           <div className="col-4">
-                           </div>
-                         </div>
-                      </div>
-                    </section>
+                          <div className="container">
+                            <div className="row">
+                              <div className="col-4"></div>
+                              <div className="col-4"></div>
+                              <div className="col-4"></div>
+                            </div>
+                          </div>
+                        </section>
                       </section>
                     </ul>
                   </li>
@@ -358,17 +358,14 @@ const Header = () => {
                         </div>
 
                         <section className={Styles.dropmenulastfooter}>
-                      <div className="container">
-                         <div className="row">
-                           <div className="col-4">
-                           </div>
-                           <div className="col-4">
-                           </div>
-                           <div className="col-4">
-                           </div>
-                         </div>
-                      </div>
-                    </section>
+                          <div className="container">
+                            <div className="row">
+                              <div className="col-4"></div>
+                              <div className="col-4"></div>
+                              <div className="col-4"></div>
+                            </div>
+                          </div>
+                        </section>
                       </section>
                     </ul>
                   </li>
@@ -488,17 +485,14 @@ const Header = () => {
                         </div>
 
                         <section className={Styles.dropmenulastfooter}>
-                      <div className="container">
-                         <div className="row">
-                           <div className="col-4">
-                           </div>
-                           <div className="col-4">
-                           </div>
-                           <div className="col-4">
-                           </div>
-                         </div>
-                      </div>
-                    </section>
+                          <div className="container">
+                            <div className="row">
+                              <div className="col-4"></div>
+                              <div className="col-4"></div>
+                              <div className="col-4"></div>
+                            </div>
+                          </div>
+                        </section>
                       </section>
                     </ul>
                   </li>
@@ -633,17 +627,14 @@ const Header = () => {
                         </div>
 
                         <section className={Styles.dropmenulastfooter}>
-                      <div className="container">
-                         <div className="row">
-                           <div className="col-4">
-                           </div>
-                           <div className="col-4">
-                           </div>
-                           <div className="col-4">
-                           </div>
-                         </div>
-                      </div>
-                    </section>
+                          <div className="container">
+                            <div className="row">
+                              <div className="col-4"></div>
+                              <div className="col-4"></div>
+                              <div className="col-4"></div>
+                            </div>
+                          </div>
+                        </section>
                       </section>
                     </ul>
                   </li>
@@ -651,7 +642,7 @@ const Header = () => {
                     <Link href="/divanbed">
                       <a>Garden Furniture </a>
                     </Link>
-                        <ul>
+                    <ul>
                       <section className="drop">
                         <div className="container">
                           <div className="row">
@@ -763,17 +754,14 @@ const Header = () => {
                         </div>
 
                         <section className={Styles.dropmenulastfooter}>
-                      <div className="container">
-                         <div className="row">
-                           <div className="col-4">
-                           </div>
-                           <div className="col-4">
-                           </div>
-                           <div className="col-4">
-                           </div>
-                         </div>
-                      </div>
-                    </section>
+                          <div className="container">
+                            <div className="row">
+                              <div className="col-4"></div>
+                              <div className="col-4"></div>
+                              <div className="col-4"></div>
+                            </div>
+                          </div>
+                        </section>
                       </section>
                     </ul>
                   </li>
@@ -788,7 +776,6 @@ const Header = () => {
           </div>
         </div>
       </section>
-  
     </header>
   );
 };
