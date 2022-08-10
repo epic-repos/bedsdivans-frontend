@@ -1,0 +1,154 @@
+.containers{
+    padding-left: 40px;
+    padding-right: 40px;
+    max-width: 100%;
+    .container{
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        
+        .itemdetails{
+            display: flex;
+           
+         
+     
+        }
+    }
+}
+.products{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    .productdetails{
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        .productname{
+            font-size:16px;
+            line-height: 1.4rem;
+            width: 300px;
+            text-align: left;
+            color: #0e3f70; 
+             
+
+
+        }
+        .productsize{
+            font-size:14px;
+            text-align: left;
+            
+            
+        }
+        
+    }
+}
+.table1{
+    text-align: center;
+    .tbody1{
+        tr{
+            border-bottom: 1px solid grey;
+            padding-bottom: 10px;
+        }
+
+    }
+   
+}
+.price{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    gap:4px;
+    .price1{
+        text-decoration: line-through
+    }
+    .price2{
+        background: #e5015b;
+    }
+}
+.quantityinput{
+    width:70px;
+    border-radius: 6px;
+    border: 1px solid grey;
+    
+}
+.qty{
+    padding: 10px;
+}
+.total{
+    padding: 10px;
+    color: #008849;
+    font-weight: bolder;
+    font-size: 1rem;
+    line-height: 1.4rem;
+}
+
+.right{
+    border: 1px solid grey;
+    
+    width:400px;
+    .itemprice{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid grey;
+        padding: 10px;
+    }
+    .totalprice{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+
+    }
+    .estimateddeliverytime{
+       
+        border: dashed 1px #f4ab5d;
+        color: #f4ab5d;
+        padding: 5px;
+        line-height: 1.4rem;
+       margin-bottom: 10px;
+       margin: 10px;
+        
+
+
+    }
+    .promocodesection{
+        padding: 1rem;
+    background: rgba(204,204,204,.15);
+    }
+    .promocodesection1{
+        display:flex;
+        gap:10px;
+       
+        .promocodesection2{
+            .vouchertext{
+                height:36px;
+               
+                border: 1px solid grey;
+                border-right: 0px;
+            }
+            .addbotton{
+                background: #f4ab5d;
+    color: #fff;
+    border: none 1px #f0f0f0;
+    padding: 0.5rem 1.25rem;
+                
+            }
+
+        }
+        
+    }
+    .checkout{
+        margin: 10px;
+        .checkoutbtn{
+            border-radius: 0;
+            padding: 1rem 1.5rem;
+           
+            background: #f4ab5d;
+    color: #fff;
+    border: none 1px;
+    width: 100%;
+        }
+    }
+}
