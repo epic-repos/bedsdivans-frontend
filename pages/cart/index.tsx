@@ -1,90 +1,66 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
-import style from "styles/product/cart.module.scss";
-import Image from "next/image";
+import Link from "next/link";
+import AddIcon from "icons/add";
 import DeleteIcon from "icons/delete";
+import CoupanIcon from "icons/coupan";
+import RemoveIcon from "icons/remove";
+import useAddCart from "store/hooks/useaddcart";
+import style from "styles/product/cart.module.scss";
+
+const iconColor = "#777";
+
 const CartPage = () => {
+  const {
+    cartState: { cartItems },
+    removeFromCart,
+    decreaseQuantity,
+    increaseQuantity,
+  } = useAddCart();
+
   return (
-    <div className={style.containers}>
-      <h1>Shopping Cart</h1>
-      <hr></hr>
-      <div className={style.container}>
-        <div className={style.itemdetails}>
-          <table className={style.table1}>
-            <tbody className={style.tbody1}>
-              <tr>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Qty</th>
-                <th>Total</th>
-              </tr>
-
-              <tr>
-                <td>
-                  <div className={style.products}>
-                    <div className={style.productsimage}>
-                      <img src="/img/gk.jpg" alt="img" width={67} height={50} />
-                    </div>
-                    <div className={style.productdetails}>
-                      <div className={style.productname}>
-                        Side Opening Storage Ottoman Mocha Linen CLEARANCE DEAL
-                      </div>
-                      <div className={style.productsize}>Size: 3ft Single</div>
-                      <div className={style.deliverttime}>
-                        Estimated Delivery: 17/08/2022 - 24/08/2022
-                      </div>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div className={style.price}>
-                    <div className={style.price1}>£325.00</div>
-                    <div className={style.price2}>-£187.00</div>
-                    <div>£138.00</div>
-                  </div>
-                </td>
-                <td>
-                  <div className={style.qty}>
-                    <input type="number" className={style.quantityinput} />
-                  </div>
-                </td>
-
-                <td>
-                  <div className={style.total}>£276.00</div>
-                </td>
-                <td>
-                  <DeleteIcon />
-                </td>
-              </tr>
-            </tbody>
-          </table>
+    <div className={style.sectioncart}>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12">
+            <h1 className={style.cartheading}>Shopping Cart</h1>
+          </div>
         </div>
-        <div className={style.right}>
-          <div className={style.itemprice}>
-            <div>2 items</div>
-            <div>£276.00</div>
-          </div>
-          <div className={style.totalprice}>
-            <div>Total </div>
-            <div>£276.00</div>
-          </div>
-          <div className={style.estimateddeliverytime}>
-            Estimated Delivery : 17/08/2022 - 24/08/2022
-          </div>
-          <div className={style.promocodesection}>
-            <div className={style.promocodesection1}>
-              <div>
-                <DeleteIcon />
-              </div>
-              <div className={style.promocodesection2}>
-                <input type="text" className={style.vouchertext} />
-                <span className={style.addbotton}> Add </span>
-              </div>
+        <div className="row">
+          <div className="col-md-8">
+            <div className={style.productlistboxouter}>
+              <table className={style.productcarlist}>
+                {cartItems.length <= 0 ? (
+                  <h3>No Item in Your Cart</h3>
+                ) : (
+                  <React.Fragment>
+                    <TableHead />
+                    {cartItems.map((data, index) => {
+                      return (
+                        <ProductItem
+                          intialQuantity={data.quantity}
+                          key={index}
+                          name="Side Opening Storage Ottoman Mocha Linen CLEARANCE DEAL"
+                          imageUrl={data.options.image}
+                          price={`£${data.price}`}
+                          totalPrice={`£${data.totalPrice}`}
+                          onAddQuantity={() => increaseQuantity(data.id)}
+                          onRemoveQuantity={() => decreaseQuantity(data.id)}
+                          onDeleteItem={() => removeFromCart(data.id)}
+                        />
+                      );
+                    })}
+                  </React.Fragment>
+                )}
+              </table>
+            </div>
+            {/* BUTTON */}
+            <div className={style.continueshopping}>
+              <Link href="/cart/order"> Continue shopping</Link>
             </div>
           </div>
-          <div className={style.checkout}>
-            <span className={style.checkoutbtn}>Proceed to checkout</span>
-
-          </div>
+          {/* PROMOCODE BOX */}
+          <PromoCode />
         </div>
       </div>
     </div>
@@ -92,3 +68,125 @@ const CartPage = () => {
 };
 
 export default CartPage;
+
+const TableHead = () => {
+  return (
+    <thead>
+      <tr>
+        <td>Product</td>
+        <td>Price</td>
+        <td>Qty</td>
+        {/* <td>Total</td> */}
+        <td> </td>
+      </tr>
+    </thead>
+  );
+};
+
+interface ProductItemProps {
+  imageUrl?: string;
+  name?: string;
+  price?: string;
+  totalPrice?: string;
+  onAddQuantity?: () => void;
+  onRemoveQuantity?: () => void;
+  onDeleteItem?: () => void;
+  intialQuantity?: number;
+}
+const ProductItem = ({
+  imageUrl,
+  name,
+  onAddQuantity,
+  onDeleteItem,
+  onRemoveQuantity,
+  price,
+  totalPrice,
+  intialQuantity,
+}: ProductItemProps) => {
+  return (
+    <tbody>
+      <tr>
+        <td>
+          <div className={style.products}>
+            <div className={style.productsimage}>
+              <img src={imageUrl} alt="img" />
+            </div>
+            <div className={style.productdetails}>
+              <div className={style.productname}>{name}</div>
+              {/* <div className={style.productsize}>Size: 3ft Single</div>
+              <div className={style.deliverttime}>
+                Estimated Delivery: 17/08/2022 - 24/08/2022
+              </div> */}
+            </div>
+          </div>
+        </td>
+        <td>
+          <div className={style.price}>{price}</div>
+        </td>
+        <td>
+          <div className={style.qty}>
+            <input type="number" value={intialQuantity} />
+            <div className={style.btn}>
+              <i onClick={onAddQuantity} className={style.svgicon}>
+                <AddIcon fill={iconColor} />
+              </i>
+              <i onClick={onRemoveQuantity} className={style.svgicon}>
+                <RemoveIcon fill={iconColor} />
+              </i>
+            </div>
+          </div>
+        </td>
+        {/* <td>
+          <div className={style.total}>{totalPrice}</div>
+        </td> */}
+        <td>
+          <i onClick={onDeleteItem} className={style.svgicon}>
+            <DeleteIcon fill={iconColor} />
+          </i>
+        </td>
+      </tr>
+    </tbody>
+  );
+};
+
+const PromoCode = () => {
+  return (
+    <div className="col-md-4">
+      <div className={style.cartsummary}>
+        <ul>
+          <li className={style.cartsummaryline}>
+            <span className={style.jssubtotal}>8 items</span>
+            <span className={style.value}>£1,200.00 </span>
+          </li>
+
+          <li className={style.cartsummarytotals}>
+            <div className={style.pritotal}>
+              <span className={style.jssubtotal}>Total </span>
+              <span className={style.value}>£1,200.00 </span>
+            </div>
+
+            <div className={style.alertexpecteddeliverydate}>
+              Estimated Delivery : <span>18/08/2022 - 25/08/2022</span>
+            </div>
+          </li>
+
+          <li className={style.blockpromo}>
+            <div className={style.cartvoucherarea}>
+              <div className={style.img}>
+                <CoupanIcon />
+              </div>
+            </div>
+            <div className={style.inputbox}>
+              <input type="text" placeholder="Promo code" />
+              <button>Add</button>
+            </div>
+          </li>
+
+          <li className={style.cartdetailedactions}>
+            <a href="#">Proceed to checkout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  );
+};

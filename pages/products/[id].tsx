@@ -12,15 +12,28 @@ import ContentHeader from "components/products/contentheader";
 import BedsTabs from "./tabs";
 import dummyPayload from "./array";
 import useAddCart from "store/hooks/useaddcart";
+import { useRouter } from "next/router";
 
 /**
  * NEW PRODUCT PAGE
  * @returns
  */
 const NewProductPage = () => {
+  const router = useRouter();
   const { addToCart, cartState } = useAddCart();
   const [tabs, setTabs] = React.useState("BedSize");
   const { bedState } = useSelectBed();
+
+  const [currentBed, setCurrentBed] = React.useState<any>({});
+
+  console.log({ currentBed });
+
+  React.useEffect(() => {
+    const currentProduct = cartState.cartItems.find(
+      (item) => Number(item.id) === Number(router.query.id)
+    );
+    setCurrentBed(currentProduct);
+  }, [cartState, router]);
 
   const onTabSelect = React.useCallback(
     (value: string) => {
@@ -48,11 +61,11 @@ const NewProductPage = () => {
   }, [tabIndex]);
 
   const forCart = {
-    id: 1,
+    id: 20,
     name: "Product One",
     description: "Small description for product",
     categories: ["writing", "bestseller"],
-    quantity: 0,
+    quantity: 1,
     price: 98.9,
     options: {
       image: "no",
@@ -107,7 +120,8 @@ const NewProductPage = () => {
                   <div>
                     <input
                       type="number"
-                      defaultValue={0}
+                      value={1}
+                      onChange={(e) => console.log(e.target.value)}
                       className={styles.numbertextarea}
                     />
                   </div>

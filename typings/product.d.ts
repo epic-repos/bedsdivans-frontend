@@ -24,6 +24,7 @@ interface CartProductTypes {
         categories: string[];
         quantity: number;
         price: number;
+        totalPrice: number
         options: {
             image: string;
             size: string;

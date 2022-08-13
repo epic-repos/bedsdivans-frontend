@@ -22,7 +22,7 @@ interface ProductTypes {
     bedStorageData: SizeData[];
     bedFeetData: SizeData[];
     bedMattersData: SizeData[];
-    // bedPriceData: SizeData[];
+    timestamps: boolean
 }
 
 
@@ -39,13 +39,39 @@ const productsSchema = new Schema<ProductTypes>({
     // mattressesImages: { type: Array, required: false },
     // feetImages: { type: Array, required: false },
     // images: { type: Array, required: false },
-    bedSizeData: { type: Array, required: false },
-    bedColorData: { type: Array, required: false },
-    bedHeadBoardData: { type: Array, required: false },
-    bedStorageData: { type: Array, required: false },
-    bedFeetData: { type: Array, required: false },
-    bedMattersData: { type: Array, required: false },
-    bedPriceData: { type: Array, required: false },
+    bedSizeData: {
+        price: { type: Number }
+    },
+    bedColorData: {
+        price: { type: Number },
+        content: { type: String },
+        imageUrl: { type: String },
+        required: false,
+    },
+    bedHeadBoardData: {
+        price: { type: Number },
+        content: { type: String },
+        imageUrl: { type: String },
+        required: false,
+    },
+    bedStorageData: {
+        price: { type: Number },
+        content: { type: String },
+        imageUrl: { type: String },
+        required: false,
+    },
+    bedFeetData: {
+        price: { type: Number },
+        content: { type: String },
+        imageUrl: { type: String },
+        required: false,
+    },
+    bedMattersData: {
+        price: { type: Number },
+        content: { type: String },
+        imageUrl: { type: String },
+        required: false,
+    },
     timestamps: true,
 
 })

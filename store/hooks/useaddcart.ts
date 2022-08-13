@@ -13,20 +13,20 @@ const useAddCart = () => {
     const dispatch = useAppDispatch();
     const cartState = useAppSelector((state) => state.addToCart)
     // ADD FROM CART
-    const addToCart = React.useCallback((data: any) => {
-        dispatch(addToCartSlice.actions.addToCart(data))
+    const addToCart = React.useCallback((id: any) => {
+        dispatch(addToCartSlice.actions.addToCart(id))
     }, [dispatch])
     // ADD FROM CART
-    const increaseQuantity = React.useCallback((data: any) => {
-        dispatch(addToCartSlice.actions.increaseQuantity(data))
+    const increaseQuantity = React.useCallback((id: any) => {
+        dispatch(addToCartSlice.actions.increaseQuantity(id))
     }, [dispatch])
     // ADD FROM CART
-    const decreaseQuantity = React.useCallback((data: any) => {
-        dispatch(addToCartSlice.actions.decreaseQuantity(data))
+    const decreaseQuantity = React.useCallback((id: any) => {
+        dispatch(addToCartSlice.actions.decreaseQuantity(id))
     }, [dispatch])
     // REMOVE FROM CART
-    const removeFromCart = React.useCallback((data: any) => {
-        dispatch(addToCartSlice.actions.removeFromCart(data))
+    const removeFromCart = React.useCallback((id: any) => {
+        dispatch(addToCartSlice.actions.removeFromCart(id))
     }, [dispatch])
 
     // Return Values

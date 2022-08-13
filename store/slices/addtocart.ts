@@ -12,8 +12,11 @@ const initialState: CartProductTypes = {
             categories: ["writing", "bestseller"],
             quantity: 0,
             price: 98.9,
+            get totalPrice() {
+                return this.quantity * this.price
+            },
             options: {
-                image: 'no',
+                image: 'images/All-beds.png',
                 size: '2ft',
                 color: 'grey light',
                 headBoard: 'no',
@@ -21,12 +24,51 @@ const initialState: CartProductTypes = {
                 feet: 'no',
                 matters: 'no',
             }
-        }
+        },
+        {
+            id: 1,
+            name: "Product One",
+            description: "Small description for product",
+            categories: ["writing", "bestseller"],
+            quantity: 1,
+            price: 245.4,
+            get totalPrice() {
+                return this.quantity * this.price
+            },
+            options: {
+                image: 'images/All-beds.png',
+                size: '2ft',
+                color: 'grey light',
+                headBoard: 'no',
+                storage: 'single',
+                feet: 'no',
+                matters: 'no',
+            }
+        },
+        {
+            id: 2,
+            name: "Product One",
+            description: "Small description for product",
+            categories: ["writing", "bestseller"],
+            quantity: 2,
+            price: 125.5,
+            get totalPrice() {
+                return this.quantity * this.price
+            },
+            options: {
+                image: 'images/All-beds.png',
+                size: '2ft',
+                color: 'grey light',
+                headBoard: 'no',
+                storage: 'single',
+                feet: 'no',
+                matters: 'no',
+            }
+        },
     ],
     cartTotalQuantity: 0,
     cartTotalAmount: 0,
 }
-
 
 const addToCartSlice = createSlice({
     name: 'Cart',
@@ -36,9 +78,9 @@ const addToCartSlice = createSlice({
         addToCart: (state, action) => {
             const itemInCart = state.cartItems.find((item) => item.id === action.payload.id);
             if (itemInCart) {
-                itemInCart.quantity + 1;
+                itemInCart.quantity = itemInCart.quantity + 1;
             } else {
-                state.cartItems.push({ ...action.payload, quantity: 1 });
+                state.cartItems.push({ ...action.payload, quantity: 1 }) as any;
             }
             state.cartTotalQuantity = itemInCart?.quantity as number
             // state.cartTotalAmount = state.cartItems.forEach((item) => {
@@ -48,9 +90,15 @@ const addToCartSlice = createSlice({
         },
         increaseQuantity: (state, action) => {
             const item = state.cartItems.find((item) => item.id === action.payload);
-            if (item?.quantity)
-                item?.quantity + 1
-            state.cartTotalQuantity = item?.quantity as number
+
+
+            if (item?.quantity !== undefined) {
+
+                item.quantity = (item?.quantity + 1) as number
+            }
+            // item?.quantity - 1
+
+
 
         },
         decreaseQuantity: (state, action) => {
@@ -59,13 +107,14 @@ const addToCartSlice = createSlice({
                 item.quantity = 1
             } else {
                 if (item?.quantity)
-                    item?.quantity - 1
-                state.cartTotalQuantity = item?.quantity as number
+                    // item?.quantity - 1
+                    item.quantity = (item?.quantity - 1) as number
 
             }
         },
         removeFromCart: (state, action) => {
-            state.cartItems.filter((item) => item.id !== action.payload);
+            state.cartItems = state.cartItems.filter((data) => data.id !== action.payload)
+            // state.cartItems.filter((item) => item.id !== action.payload);
         },
     },
 })
