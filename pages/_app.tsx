@@ -1,21 +1,19 @@
-import type { AppProps } from "next/app";
 import "styles/globals.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Layout from "layout";
-import Head from "next/head";
 import Script from "next/script";
 import React from "react";
 import { Provider } from "react-redux";
 import store from "store";
+import { AppPropsWithLayout } from "typings/layout";
 
 // import 'bootstrap/dist/css/bootstrap.min.css'
-function RootApp({ Component, pageProps }: AppProps) {
-  return (
+function RootApp({ Component, pageProps }: AppPropsWithLayout) {
+  const getLayout = Component.getLayout ?? ((page) => page);
+
+  return getLayout(
     <React.Fragment>
       <Provider store={store}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <Component {...pageProps} />
       </Provider>
       <Script
         id="google-tag-manager"

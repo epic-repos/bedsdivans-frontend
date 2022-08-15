@@ -1,9 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
-import style from "../../styles/allbed/allbed.module.scss";
+import { NextPageWithLayout } from "typings/layout";
+import style from "styles/allbed/allbed.module.scss";
+import PerPageLayout from "layout/perpage";
 
-const NewProductPage = () => {
+const AllBeds: NextPageWithLayout = () => {
   return (
     <div>
       <section className={style.mydiv}>
@@ -460,4 +462,6 @@ const NewProductPage = () => {
     </div>
   );
 };
-export default NewProductPage;
+export default AllBeds;
+
+AllBeds.getLayout = PerPageLayout;

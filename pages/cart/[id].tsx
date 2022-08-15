@@ -1,13 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
-import a from "next/link";
 import AddIcon from "icons/add";
 import DeleteIcon from "icons/delete";
 import CoupanIcon from "icons/coupan";
 import RemoveIcon from "icons/remove";
 import useAddCart from "store/hooks/useaddcart";
 import style from "styles/product/cart.module.scss";
-import router from "next/router";
+import router, { useRouter } from "next/router";
+import { loadStripe } from "@stripe/stripe-js";
+import axios from "axios";
+
+const publishableKey = `pk_live_51KUB2yLggtF42pbGuboggv7Gkpsk4f4pkcG72iqva8Eo74OxcMmmWzcnsluD3z7eAbqRTcQGyNgJwYjwoaOkVDbE00f3Pfgrim
+`;
 
 const iconColor = "#777";
 
@@ -18,6 +22,36 @@ const CartPage = () => {
     decreaseQuantity,
     increaseQuantity,
   } = useAddCart();
+  const router = useRouter();
+  const { status } = router.query;
+
+  const [loading, setLoading] = React.useState(false);
+
+  const [item, setItem] = React.useState({
+    name: "Apple AirPods",
+    description: "Latest Apple AirPods.",
+    image:
+      "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80",
+    quantity: 0,
+    price: 999,
+  });
+
+  // const publishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
+  const stripePromise = loadStripe(publishableKey);
+  const createCheckOutSession = async () => {
+    setLoading(true);
+    const stripe = await stripePromise;
+    const checkoutSession = await axios.post("/api/checkout", {
+      item: item,
+    });
+    const result = await stripe?.redirectToCheckout({
+      sessionId: checkoutSession.data.id,
+    });
+    if (result?.error) {
+      alert(result.error.message);
+    }
+    setLoading(false);
+  };
 
   return (
     <div className={style.sectioncart}>
@@ -48,6 +82,7 @@ const CartPage = () => {
                           onAddQuantity={() => increaseQuantity(data.id)}
                           onRemoveQuantity={() => decreaseQuantity(data.id)}
                           onDeleteItem={() => removeFromCart(data.id)}
+                          options={data.options}
                         />
                       );
                     })}
@@ -61,7 +96,7 @@ const CartPage = () => {
             </div>
           </div>
           {/* PROMOCODE BOX */}
-          <PromoCode />
+          <PromoCode onCheckout={createCheckOutSession} />
         </div>
       </div>
     </div>
@@ -93,6 +128,15 @@ interface ProductItemProps {
   onRemoveQuantity?: () => void;
   onDeleteItem?: () => void;
   intialQuantity?: number;
+  options: {
+    image: string;
+    size: string;
+    color: string;
+    headBoard: string;
+    storage: string;
+    feet: string;
+    matters: string;
+  };
 }
 const ProductItem = ({
   imageUrl,
@@ -103,6 +147,7 @@ const ProductItem = ({
   price,
   totalPrice,
   intialQuantity,
+  options,
 }: ProductItemProps) => {
   return (
     <tbody>
@@ -114,6 +159,12 @@ const ProductItem = ({
             </div>
             <div className={style.productdetails}>
               <div className={style.productname}>{name}</div>
+              <ul className={style.list}>
+                <li>Selected Size : {options.size}</li>
+                <li>Selected Storage: {options.storage}</li>
+                <li>Selected Headboard : {options.headBoard}</li>
+                <li>Select Feet : {options.feet}</li>
+              </ul>
               {/* <div className={style.productsize}>Size: 3ft Single</div>
               <div className={style.deliverttime}>
                 Estimated Delivery: 17/08/2022 - 24/08/2022
@@ -150,7 +201,7 @@ const ProductItem = ({
   );
 };
 
-const PromoCode = () => {
+const PromoCode = ({ onCheckout }: any) => {
   return (
     <div className="col-md-4">
       <div className={style.cartsummary}>
@@ -184,7 +235,7 @@ const PromoCode = () => {
           </li>
 
           <li className={style.cartdetailedactions}>
-            <a href="#">Proceed to checkout</a>
+            <a onClick={onCheckout}>Proceed to checkout</a>
           </li>
         </ul>
       </div>

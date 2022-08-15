@@ -16,10 +16,10 @@ interface BedTypes {
 const initialState: BedTypes = {
     bedSize: `(2'6" x 6')- Small Single`,
     bedColor: 'grey linen',
-    bedHeadBoard: '',
-    bedStorage: '',
+    bedHeadBoard: 'no headboard',
+    bedStorage: 'no storage',
     bedFeet: 'Free Castor Wheels',
-    bedMatters: '',
+    bedMatters: 'no matters',
     bedImage: '/product/color/greylinen.png',
     bedPrice: '£89'
 }

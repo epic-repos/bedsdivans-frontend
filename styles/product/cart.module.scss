@@ -490,3 +490,16 @@ ul.formdesign {
     width: 20px;
   }
 }
+
+// FOR LIST
+
+.list {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+
+  li {
+    font-size: 0.8rem;
+    color: #555;
+  }
+}

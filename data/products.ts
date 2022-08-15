@@ -1,6 +1,6 @@
 import { SingleProductTypes } from "typings/product";
 
-const dummyPayload: SingleProductTypes = {
+const productsPayload: SingleProductTypes = {
     name: "DBZBeds Black Crushed Velvet Divan Bed With Reinforced Base",
     description: `Specifications: Variety of colours available in many different fabrics Various drawer options available Chrome Glides or castor wheel options 3 different Mattress options and 5 headboard options available Made in the UK 1-year guarantee included on a full set (not on a base alone – 30 days on a base alone) Headboard can be fitted on either side of the base for a 2 draw same side option Base height is 12” without the feet Dimensions: Single W: 90cm L: 190cm Small Double W: 120cm L: 190cm Double W: 135cm L: 190cm King Size W: 150cm L: 200cm Super King Size W: 180cm L: 200cm'`,
     category: "Linen Fabric DivanBeds",
@@ -182,7 +182,7 @@ const dummyPayload: SingleProductTypes = {
 };
 
 
-export default dummyPayload;
+export default productsPayload;
 
 
 
@@ -221,10 +221,27 @@ export const dataShould = [
         price: 98.9,
         size: 2,
         options: {
-            image: "images/All-beds.png",
-            color: "grey light",
-            headBoard: "no",
-            storage: "single",
+
+            color: [
+                {
+                    color: "gray",
+                    image: "/test.png",
+                },
+                {
+                    color: "black",
+                    image: "/test.png",
+                }
+            ],
+            headBoard: [{
+                name: "2 Side",
+                price: 220
+            }, {
+                name: "Standard",
+                price: 20
+            }],
+            storage: [{
+
+            }],
             feet: "no",
             matters: "no",
         },
@@ -266,3 +283,31 @@ export const dataShould = [
 
 ]
 
+
+const bb = [
+    {
+        name: '',
+        desc: '',
+        sizes: {
+            1: {
+                color: {
+                    image: '',
+
+                }
+            },
+            2: {
+
+            },
+            3: {
+
+            },
+            4: {
+
+            },
+            5: {
+
+            },
+        }
+    },
+
+]

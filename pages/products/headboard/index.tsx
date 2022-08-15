@@ -14,7 +14,6 @@ const Divanbed = (props:any) => {
     <>
       <div>
         <NextSEO title={"DBZBEDS"} />
-
         <section className={styles.mydiv}>
           <div className="container">
             <div className="row">
@@ -370,10 +369,7 @@ const Divanbed = (props:any) => {
               </div>
             </div>
           </div>
-<<<<<<< HEAD
-=======
-      </div>
-</section>
+ 
 
 
 <section className={styles.mydiv9}>
@@ -409,13 +405,11 @@ const Divanbed = (props:any) => {
        </div>
 </section>
  </div>
-
-
  <section className={styles.productsimages}>
     <div className="container">
         <div className="row">
          {
-           props.response.map((item: { images: { url: string | undefined; }[]; product_name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; price: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; }) =>{
+           props.response.map((item: { images: { url: string | undefined; }[]; product_name: string}) =>{
               
               return(
                 <div className="col-3">
@@ -432,6 +426,8 @@ const Divanbed = (props:any) => {
               );
           })
       }
+      </div>
+      </div>
   
             <div className="col-3">
             <div className={styles.box1}>
@@ -463,7 +459,6 @@ const Divanbed = (props:any) => {
                   <p className={styles.price}>£600.00</p>
               </div>
             </div>
->>>>>>> 8469badbf5085a2d7085b80aee4c7f3a511e40c3
         </div>
       </section>
 

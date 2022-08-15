@@ -19,6 +19,8 @@ const dbConnect = async () => {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
+
+
   // @ts-expect-error
   connection.isConnected = db.connections[0].readyState;
 

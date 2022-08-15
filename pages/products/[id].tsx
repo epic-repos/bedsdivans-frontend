@@ -10,15 +10,21 @@ import SideTabButton from "components/products/tabbutton";
 import ContentHeader from "components/products/contentheader";
 // ARRAY
 import BedsTabs from "./tabs";
-import dummyPayload from "./array";
 import useAddCart from "store/hooks/useaddcart";
 import { useRouter } from "next/router";
+import axios from "axios";
+import { GetServerSidePropsContext } from "next";
+import { NextPageWithLayout } from "typings/layout";
+import PerPageLayout from "layout/perpage";
+import dummyPayload from "./array";
 
 /**
  * NEW PRODUCT PAGE
  * @returns
  */
-const NewProductPage = () => {
+const NewProductPage: NextPageWithLayout = ({ response }: any) => {
+  console.log(response);
+
   const router = useRouter();
   const { addToCart, cartState } = useAddCart();
   const [tabs, setTabs] = React.useState("BedSize");
@@ -32,7 +38,7 @@ const NewProductPage = () => {
     );
     setCurrentBed(currentProduct);
     console.log({ currentBed });
-  }, [cartState, router]);
+  }, [cartState]);
 
   const onTabSelect = React.useCallback(
     (value: string) => {
@@ -77,8 +83,6 @@ const NewProductPage = () => {
     },
   };
 
-  const { name } = dummyPayload;
-
   return (
     <React.Fragment>
       <NextSEO title={`Dbz Beds`} />
@@ -86,7 +90,7 @@ const NewProductPage = () => {
       <div className={styles.imageContainer}>
         <img src={bedState.bedImage} alt="Bed Image" className={styles.image} />
         <div className={styles.container}>
-          <h3 className={styles.productName}>{name}</h3>
+          <h3 className={styles.productName}>{dummyPayload.name}</h3>
           <div className={styles.item1}>
             <div className={styles.left}>
               {tabsArray.map((data, index) => (
@@ -126,7 +130,9 @@ const NewProductPage = () => {
                   </div>
                   <div>
                     <Button
-                      onClick={() => addToCart(forCart)}
+                      onClick={() => {
+                        addToCart(forCart);
+                      }}
                       className={styles.addcart}
                     >
                       Add the cart {cartState.cartTotalQuantity}
@@ -144,6 +150,8 @@ const NewProductPage = () => {
   );
 };
 export default NewProductPage;
+
+NewProductPage.getLayout = PerPageLayout;
 
 const tabsArray = [
   {
@@ -202,3 +210,15 @@ const dataTata = {
     },
   ],
 };
+
+export async function getServerSideProps({ query }: GetServerSidePropsContext) {
+  const id = query.id;
+  const forbed = await axios.get(`http://localhost:5000/beds`);
+
+  // const response = await data.data.data;
+  console.log({ SIMPLE: forbed.data });
+  return {
+    props: { response: forbed.data },
+    // will be passed to the page component as props
+  };
+}

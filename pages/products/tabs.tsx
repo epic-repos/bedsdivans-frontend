@@ -2,7 +2,6 @@ import React from "react";
 import CommonForBed from "components/products/common";
 import useSelectBed from "store/hooks/useselectbed";
 import { SingleProductTypes } from "typings/product";
-import { dataShould } from "./array";
 
 interface BedsTabsProps {
   tabName: string;
@@ -22,11 +21,9 @@ const BedsTabs = ({ tabName, productData }: BedsTabsProps) => {
     setBedStorage,
   } = useSelectBed();
 
-  const ds = dataShould.filter((data) => data.size === 3);
-  console.log(dataShould);
   // LIKE API DATA
   const { bedColor, bedFeet, bedHeadBoard, bedMatters, bedSize, bedStorage } =
-    productData.options;
+    productData?.options;
 
   // RENDER TABS
   const RenderTabs = React.useMemo(() => {

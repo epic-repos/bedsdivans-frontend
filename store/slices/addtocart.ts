@@ -5,66 +5,66 @@ import { CartProductTypes } from 'typings/product';
 
 const initialState: CartProductTypes = {
     cartItems: [
-        {
-            id: 'fb8e841281a96ee5',
-            name: "Product One",
-            description: "Small description for product",
-            categories: ["writing", "bestseller"],
-            quantity: 0,
-            price: 98.9,
-            get totalPrice() {
-                return this.quantity * this.price
-            },
-            options: {
-                image: 'images/All-beds.png',
-                size: '2ft',
-                color: 'grey light',
-                headBoard: 'no',
-                storage: 'single',
-                feet: 'no',
-                matters: 'no',
-            }
-        },
-        {
-            id: 'b832d18356ba4be2',
-            name: "Product One",
-            description: "Small description for product",
-            categories: ["writing", "bestseller"],
-            quantity: 1,
-            price: 245.4,
-            get totalPrice() {
-                return this.quantity * this.price
-            },
-            options: {
-                image: 'images/All-beds.png',
-                size: '2ft',
-                color: 'grey light',
-                headBoard: 'no',
-                storage: 'single',
-                feet: 'no',
-                matters: 'no',
-            }
-        },
-        {
-            id: '813a906629ef704c',
-            name: "Product One",
-            description: "Small description for product",
-            categories: ["writing", "bestseller"],
-            quantity: 2,
-            price: 125.5,
-            get totalPrice() {
-                return this.quantity * this.price
-            },
-            options: {
-                image: 'images/All-beds.png',
-                size: '2ft',
-                color: 'grey light',
-                headBoard: 'no',
-                storage: 'single',
-                feet: 'no',
-                matters: 'no',
-            }
-        },
+        // {
+        //     id: 'fb8e841281a96ee5',
+        //     name: "Product One",
+        //     description: "Small description for product",
+        //     categories: ["writing", "bestseller"],
+        //     quantity: 0,
+        //     price: 98.9,
+        //     get totalPrice() {
+        //         return this.quantity * this.price
+        //     },
+        //     options: {
+        //         image: 'images/All-beds.png',
+        //         size: '2ft',
+        //         color: 'grey light',
+        //         headBoard: 'no',
+        //         storage: 'single',
+        //         feet: 'no',
+        //         matters: 'no',
+        //     }
+        // },
+        // {
+        //     id: 'b832d18356ba4be2',
+        //     name: "Product One",
+        //     description: "Small description for product",
+        //     categories: ["writing", "bestseller"],
+        //     quantity: 1,
+        //     price: 245.4,
+        //     get totalPrice() {
+        //         return this.quantity * this.price
+        //     },
+        //     options: {
+        //         image: 'images/All-beds.png',
+        //         size: '2ft',
+        //         color: 'grey light',
+        //         headBoard: 'no',
+        //         storage: 'single',
+        //         feet: 'no',
+        //         matters: 'no',
+        //     }
+        // },
+        // {
+        //     id: '813a906629ef704c',
+        //     name: "Product One",
+        //     description: "Small description for product",
+        //     categories: ["writing", "bestseller"],
+        //     quantity: 2,
+        //     price: 125.5,
+        //     get totalPrice() {
+        //         return this.quantity * this.price
+        //     },
+        //     options: {
+        //         image: 'images/All-beds.png',
+        //         size: '2ft',
+        //         color: 'grey light',
+        //         headBoard: 'no',
+        //         storage: 'single',
+        //         feet: 'no',
+        //         matters: 'no',
+        //     }
+        // },
     ],
     cartTotalQuantity: 0,
     cartTotalAmount: 0,

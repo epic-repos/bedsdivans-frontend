@@ -2,21 +2,20 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable jsx-a11y/alt-text */
 import NextSEO from "layout/nextseo";
-import type { NextPage } from "next";
-import Head from "next/head";
 import Style from "styles/HomePage/home.module.scss";
 import Image from "next/image";
 import Link from "next/link";
-import DynamicTabs from "../components/tabs/index";
-import HomeMattress from "../components/HomeMattress";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import axios from "axios";
-import React, { useEffect } from "react";
+import React from "react";
+import { NextPageWithLayout } from "typings/layout";
+import PerPageLayout from "layout/perpage";
 
-const Home: NextPage = (props: any) => {
-  console.log(props);
+const Home: NextPageWithLayout = (props: any) => {
+  console.log({ beds: props.beds?.data });
+
   const settings = {
     dots: true,
     nav: true,
@@ -53,24 +52,6 @@ const Home: NextPage = (props: any) => {
     ],
   };
 
-  const [data, setData] = React.useState([]);
-
-  const getData = async () => {
-    try {
-      const res = await axios.get(
-        "https://jsonplaceholder.typicode.com/todos/1"
-      );
-      setData(res.data);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
-
-  console.log(data);
   return (
     <div>
       <NextSEO title={"DBZBeds"} />
@@ -359,7 +340,6 @@ const Home: NextPage = (props: any) => {
           </div>
           <div className="row">
             {props.response.map((item: any, index: any) => {
-              console.log(item);
               return (
                 <div className="col-3" key={index}>
                   <div className={Style.box1}>
@@ -877,6 +857,7 @@ const Home: NextPage = (props: any) => {
 
 export default Home;
 
+Home.getLayout = PerPageLayout;
 export async function getServerSideProps(context: any) {
   const { req } = context;
   const size = req?.__NEXT_INIT_QUERY?.size;
@@ -922,10 +903,11 @@ export async function getServerSideProps(context: any) {
   const response2 = await data2.data.data;
 
   const response3 = await data3.data.data;
-  console.log({ response, response1, response2, response3 });
+
+  const responseX = await axios.get(`${process.env.API_URL}/beds`);
 
   return {
-    props: { response, response1, response2, response3 },
+    props: { response, response1, response2, response3, beds: responseX.data },
     // will be passed to the page component as props
   };
 }
