@@ -270,7 +270,9 @@ const Home: NextPageWithLayout = (props: any) => {
                     <img src={data.imageUrl} alt="image" />
                     <h3>{data.heading}</h3>
                     <p>{data.description}</p>
-                    <button onClick={() => router.push(`/products/${data.id}`)}>
+                    <button 
+                    // onClick={() => router.push(`/products/${data.id}`)}
+                    >
                       Buy now
                     </button>
                   </div>
@@ -304,16 +306,18 @@ const Home: NextPageWithLayout = (props: any) => {
           <div className="row">
             {props.response.map((item: any, index: any) => {
               return (
-                <div className="col-3" key={index}>
+                <div className="col-3" key={index}
+                onClick={() => router.push(`/products/dbzbeds-grey-crushed-velvet-divan-bed-with-reinforced-base`)}
+                >
                   <div className={Style.box1}>
-                    <img
-                      src="https://aspirestore.co.uk/49144-home_default/presley-fabric-ottoman-bed.jpg"
+                    <Image
+                      src="/images/x.png"
                       alt="img"
-                      width={258}
-                      height="210"
+                      width="600"
+                      height="500"
                     />
                     <h2 className={Style.productname}>
-                      Presley Fabric Ottoman Bed{item.product_name}
+                    DBZBeds Black Crushed Velvet Divan Bed With Reinforced Base{item.product_name}
                     </h2>
                     <div className={Style.trustpilot}>
                       <img src="/image/tru.png" alt="img" />
@@ -323,13 +327,13 @@ const Home: NextPageWithLayout = (props: any) => {
                       <del>£800.00</del>
                       <span>10%off</span>
                     </p>
-                    <p>{item.description}</p>
+                    {/* <p>{item.description}</p> */}
                   </div>
                 </div>
               );
             })}
 
-            <div className="col-3">
+            {/* <div className="col-3">
               <div className={Style.box1}>
                 <img
                   src="https://aspirestore.co.uk/49144-home_default/presley-fabric-ottoman-bed.jpg"
@@ -388,7 +392,7 @@ const Home: NextPageWithLayout = (props: any) => {
                   <span>10%off</span>
                 </p>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
