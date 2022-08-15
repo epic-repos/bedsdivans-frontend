@@ -117,7 +117,7 @@ const NewProductPage: NextPageWithLayout = ({ response }: any) => {
               <div className={styles.priceitemsummary}>
                 <div>
                   <h5>Total Price</h5>
-                  <span>£{cartState.cartTotalAmount}</span>
+                  <span>{bedState.bedPrice}</span>
                   {/* <span>£450.00</span> */}
                 </div>
                 <div className={styles.numberaddcard}>
