@@ -12,6 +12,8 @@ import axios from "axios";
 import React from "react";
 import { NextPageWithLayout } from "typings/layout";
 import PerPageLayout from "layout/perpage";
+import { randomBytes } from "crypto";
+import router from "next/router";
 
 const Home: NextPageWithLayout = (props: any) => {
   console.log({ beds: props.beds?.data });
@@ -262,58 +264,20 @@ const Home: NextPageWithLayout = (props: any) => {
             </div>
           </div>
           <div className="row">
-            <div className="col-3">
-              <div className={Style.box2}>
-                <img src="/images/x.png" alt="image" />
-                <h3>Beds</h3>
-                <p>
-                  Our range of beds come in single, double, king and super king
-                  sizes are crafted with superior memory foam that cradles your
-                  head and keeps your head and neck aligned even while you sleep
-                  on your side and prevents the head from sinking.
-                </p>
-                <button>Buy now</button>
-              </div>
-            </div>
-            <div className="col-3">
-              <div className={Style.box2}>
-                <img src="/images/ss.png" alt="image" />
-                <h3>Mattress</h3>
-                <p>
-                  Memory foam Mattress topper provides an additional cushioning
-                  to your regular memory foam mattress. The topper is made from
-                  one inch gel foam which is to be placed above the memory foam
-                  mattress.
-                </p>
-                <button>Buy now</button>
-              </div>
-            </div>
-            <div className="col-3">
-              <div className={Style.box2}>
-                <img src="/images/cu.jpg" alt="image" />
-                <h3>Headboard</h3>
-                <p>
-                  Our range of beds come in single, double, king and super king
-                  sizes are crafted with superior memory foam that cradles your
-                  head and keeps your head and neck aligned even while you sleep
-                  on your side and prevents the head from sinking.
-                </p>
-                <button>Buy now</button>
-              </div>
-            </div>
-            <div className="col-3">
-              <div className={Style.box2}>
-                <img src="/images/jkk.jpg" alt="image" />
-                <h3>Garden Furniture</h3>
-                <p>
-                  Our range of beds come in single, double, king and super king
-                  sizes are crafted with superior memory foam that cradles your
-                  head and keeps your head and neck aligned even while you sleep
-                  on your side and prevents the head from sinking.
-                </p>
-                <button>Buy now</button>
-              </div>
-            </div>
+            {products.map((data, index) => {
+              return (
+                <div key={index} className="col-3">
+                  <div className={Style.box2}>
+                    <img src={data.imageUrl} alt="image" />
+                    <h3>{data.heading}</h3>
+                    <p>{data.description}</p>
+                    <button onClick={() => router.push(`/products/${data.id}`)}>
+                      Buy now
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -911,3 +875,43 @@ export async function getServerSideProps(context: any) {
     // will be passed to the page component as props
   };
 }
+
+const products = [
+  {
+    id: randomBytes(8).toString("hex"),
+    heading: `Beds`,
+    imageUrl: `/images/x.png`,
+    description: `  Our range of beds come in single, double, king and super
+                      king sizes are crafted with superior memory foam that
+                      cradles your head and keeps your head and neck aligned
+                      even while you sleep on your side and prevents the head
+                      from sinking.`,
+  },
+  {
+    id: randomBytes(8).toString("hex"),
+    heading: `Mattress`,
+    imageUrl: `/images/ss.png`,
+    description: `  Memory foam Mattress topper provides an additional cushioning
+                  to your regular memory foam mattress. The topper is made from
+                  one inch gel foam which is to be placed above the memory foam
+                  mattress.`,
+  },
+  {
+    id: randomBytes(8).toString("hex"),
+    heading: `Headboard`,
+    imageUrl: `/images/cu.jpg`,
+    description: `  Our range of beds come in single, double, king and super king
+                  sizes are crafted with superior memory foam that cradles your
+                  head and keeps your head and neck aligned even while you sleep
+                  on your side and prevents the head from sinking.`,
+  },
+  {
+    id: randomBytes(8).toString("hex"),
+    heading: `Garden Furniture`,
+    imageUrl: `/images/jkk.jpg`,
+    description: ` Our range of beds come in single, double, king and super king
+                  sizes are crafted with superior memory foam that cradles your
+                  head and keeps your head and neck aligned even while you sleep
+                  on your side and prevents the head from sinking.`,
+  },
+];
