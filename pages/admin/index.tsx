@@ -18,7 +18,7 @@ const AdminPage = () => {
 
   const handlerDynmicColor = (event: E) => {
     const { name, value } = event.target;
-    setColorFields((old) => [...old, { name: name, value, value }]);
+    setColorFields((old) => [...old, { name: name, value: value }]);
   };
 
   const [product, setProduct] = useState({

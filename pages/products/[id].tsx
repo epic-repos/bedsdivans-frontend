@@ -24,7 +24,7 @@ import productsPayload from "data/products";
  * @returns
  */
 const NewProductPage: NextPageWithLayout = ({ response }: any) => {
-  console.log(response);
+  // console.log(response);
 
   const router = useRouter();
   const { addToCart, cartState } = useAddCart();
@@ -212,14 +212,14 @@ const dataTata = {
   ],
 };
 
-export async function getServerSideProps({ query }: GetServerSidePropsContext) {
-  const id = query.id;
-  const forbed = await axios.get(`http://localhost:5000/beds`);
+// export async function getServerSideProps({ query }: GetServerSidePropsContext) {
+//   const id = query.id;
+//   const forbed = await axios.get(`http://localhost:5000/beds`);
 
-  // const response = await data.data.data;
-  console.log({ SIMPLE: forbed.data });
-  return {
-    props: { response: forbed.data },
-    // will be passed to the page component as props
-  };
-}
+//   // const response = await data.data.data;
+//   console.log({ SIMPLE: forbed.data });
+//   return {
+//     props: { response: forbed.data },
+//     // will be passed to the page component as props
+//   };
+// }
