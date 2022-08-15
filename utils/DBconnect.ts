@@ -6,7 +6,7 @@ interface ConnectTypes {
   connections: any
 }
 const connection: ConnectTypes = {
-  connections: [],
+  connections: [{}],
   isConnected: false
 };
 
@@ -15,9 +15,11 @@ const dbConnect = async () => {
     return;
   }
   const db = await mongoose.connect(process.env.MONGODB_URI as string, {
+    // @ts-expect-error
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
+  // @ts-expect-error
   connection.isConnected = db.connections[0].readyState;
 
 }

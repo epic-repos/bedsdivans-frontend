@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import style from "../../styles/allbed/allbed.module.scss";
 
@@ -389,7 +391,7 @@ const NewProductPage = () => {
       </section>
 
       <section className={style.productsimages9}>
-      <h2 className={style.season}>Best-seller of the season</h2>
+        <h2 className={style.season}>Best-seller of the season</h2>
         <div className="container">
           <div className="row">
             <div className="col-3">
@@ -400,9 +402,9 @@ const NewProductPage = () => {
                   width={258}
                   height="210"
                 />
-              
+
                 <p className={style.productname}>
-                Grey Linen Divan Bed Base or Set Headboard & Mattress
+                  Grey Linen Divan Bed Base or Set Headboard & Mattress
                 </p>
                 <p className={style.price}>£545.00</p>
               </div>
@@ -416,10 +418,23 @@ const NewProductPage = () => {
                   height="210"
                 />
 
-              
+                <p className={style.productname}>
+                  Grey Linen Divan Bed Base or Set Headboard & Mattress
+                </p>
+                <p className={style.price}>£545.00</p>
+              </div>
+            </div>
+            <div className="col-3">
+              <div className={style.box9}>
+                <img
+                  src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
+                  alt="img"
+                  width={258}
+                  height="210"
+                />
 
                 <p className={style.productname}>
-                Grey Linen Divan Bed Base or Set Headboard & Mattress
+                  Grey Linen Divan Bed Base or Set Headboard & Mattress
                 </p>
                 <p className={style.price}>£545.00</p>
               </div>
@@ -432,24 +447,9 @@ const NewProductPage = () => {
                   width={258}
                   height="210"
                 />
-              
-                <p className={style.productname}>
-                Grey Linen Divan Bed Base or Set Headboard & Mattress
-                </p>
-                <p className={style.price}>£545.00</p>
-              </div>
-            </div>
-            <div className="col-3">
-              <div className={style.box9}>
-                <img
-                  src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
-                  alt="img"
-                  width={258}
-                  height="210"
-                />
-               
+
                 <p className={style.productname8}>
-                Grey Linen Divan Bed Base or Set Headboard & Mattress
+                  Grey Linen Divan Bed Base or Set Headboard & Mattress
                 </p>
                 <p className={style.price}>£545.00</p>
               </div>

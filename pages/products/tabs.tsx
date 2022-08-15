@@ -1,10 +1,12 @@
 import React from "react";
 import CommonForBed from "components/products/common";
 import useSelectBed from "store/hooks/useselectbed";
+import { SingleProductTypes } from "typings/product";
+import { dataShould } from "./array";
 
 interface BedsTabsProps {
   tabName: string;
-  productData: any;
+  productData: SingleProductTypes;
 }
 
 const BedsTabs = ({ tabName, productData }: BedsTabsProps) => {
@@ -20,16 +22,11 @@ const BedsTabs = ({ tabName, productData }: BedsTabsProps) => {
     setBedStorage,
   } = useSelectBed();
 
+  const ds = dataShould.filter((data) => data.size === 3);
+  console.log(dataShould);
   // LIKE API DATA
-  const {
-    bedColor,
-    bedFeet,
-    bedHeadBoard,
-    bedMatters,
-    bedSize,
-    bedStorage,
-    category,
-  } = productData;
+  const { bedColor, bedFeet, bedHeadBoard, bedMatters, bedSize, bedStorage } =
+    productData.options;
 
   // RENDER TABS
   const RenderTabs = React.useMemo(() => {
@@ -41,7 +38,7 @@ const BedsTabs = ({ tabName, productData }: BedsTabsProps) => {
             value={bedState.bedSize}
             onClickItem={(data) => {
               setBedSize(data.content);
-              setBedImage(data.imageUrl);
+              setBedImage(data.imageUrl as string);
               setBedPrice(data.price);
             }}
           />
@@ -53,7 +50,7 @@ const BedsTabs = ({ tabName, productData }: BedsTabsProps) => {
             value={bedState.bedColor}
             onClickItem={(data) => {
               setBedColor(data.content);
-              setBedImage(data.imageUrl);
+              setBedImage(data.imageUrl as string);
               setBedPrice(data.price);
             }}
           />
@@ -77,7 +74,7 @@ const BedsTabs = ({ tabName, productData }: BedsTabsProps) => {
             value={bedState.bedStorage}
             onClickItem={(data) => {
               setBedStorage(data.content);
-              // setBedImage(data.imageUrl);
+
               setBedPrice(data.price);
             }}
           />
@@ -89,7 +86,7 @@ const BedsTabs = ({ tabName, productData }: BedsTabsProps) => {
             value={bedState.bedFeet}
             onClickItem={(data) => {
               setBedFeet(data.content);
-              // setBedImage(data.imageUrl);
+
               setBedPrice(data.price);
             }}
           />
@@ -101,7 +98,7 @@ const BedsTabs = ({ tabName, productData }: BedsTabsProps) => {
             value={bedState.bedMatters}
             onClickItem={(data) => {
               setBedMatters(data.content);
-              // setBedImage(data.imageUrl);
+
               setBedPrice(data.price);
             }}
           />

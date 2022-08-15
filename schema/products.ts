@@ -16,13 +16,15 @@ interface ProductTypes {
     price: number;
     category: string;
     type: string;
-    bedSizeData: SizeData[];
-    bedColorData: SizeData[];
-    bedHeadBoardData: SizeData[];
-    bedStorageData: SizeData[];
-    bedFeetData: SizeData[];
-    bedMattersData: SizeData[];
     timestamps: boolean
+    options: {
+        bedSize: SizeData[];
+        bedColor: SizeData[];
+        bedHeadBoard: SizeData[];
+        bedStorage: SizeData[];
+        bedFeet: SizeData[];
+        bedMatters: SizeData[];
+    }
 }
 
 
@@ -73,6 +75,7 @@ const productsSchema = new Schema<ProductTypes>({
         required: false,
     },
     timestamps: true,
+
 
 })
 

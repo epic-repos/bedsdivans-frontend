@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import NextSEO from "layout/nextseo";
-import BestSellingBeds from "./demo";
+import BestSellingBeds from "./sellingbeds";
 import Button from "react-bootstrap/Button";
 import styles from "styles/product/product.module.scss";
 // COMPONENTS
@@ -26,13 +26,12 @@ const NewProductPage = () => {
 
   const [currentBed, setCurrentBed] = React.useState<any>({});
 
-  console.log({ currentBed });
-
   React.useEffect(() => {
     const currentProduct = cartState.cartItems.find(
       (item) => Number(item.id) === Number(router.query.id)
     );
     setCurrentBed(currentProduct);
+    console.log({ currentBed });
   }, [cartState, router]);
 
   const onTabSelect = React.useCallback(
@@ -61,20 +60,20 @@ const NewProductPage = () => {
   }, [tabIndex]);
 
   const forCart = {
-    id: 20,
+    id: "f1b18ae7e6e1fe44",
     name: "Product One",
     description: "Small description for product",
     categories: ["writing", "bestseller"],
     quantity: 1,
     price: 98.9,
     options: {
-      image: "no",
-      size: "2ft",
-      color: "grey light",
-      headBoard: "no",
-      storage: "single",
-      feet: "no",
-      matters: "no",
+      image: bedState.bedImage,
+      size: bedState.bedSize,
+      color: bedState.bedColor,
+      headBoard: bedState.bedHeadBoard,
+      storage: bedState.bedStorage,
+      feet: bedState.bedFeet,
+      matters: bedState.bedMatters,
     },
   };
 
@@ -82,7 +81,7 @@ const NewProductPage = () => {
 
   return (
     <React.Fragment>
-      <NextSEO title={"Dbz beds "} />
+      <NextSEO title={`Dbz Beds`} />
       {/* Gufran  */}
       <div className={styles.imageContainer}>
         <img src={bedState.bedImage} alt="Bed Image" className={styles.image} />
@@ -120,7 +119,7 @@ const NewProductPage = () => {
                   <div>
                     <input
                       type="number"
-                      value={1}
+                      value={cartState.cartTotalQuantity}
                       onChange={(e) => console.log(e.target.value)}
                       className={styles.numbertextarea}
                     />
@@ -166,3 +165,40 @@ const tabsArray = [
     title: "Mattress",
   },
 ];
+
+const dataTata = {
+  name: "",
+  category: "",
+  description: "",
+  beds: [
+    {
+      size: {
+        size: "",
+        icon_url: "",
+      },
+      color: [{ colorname: "", colorimage: "" }],
+      price: "",
+      storage: [
+        {
+          price: "",
+          icon_url: "",
+          category: "",
+        },
+      ],
+      headboard: [
+        {
+          price: "",
+          icon_url: "",
+          category: "",
+        },
+      ],
+      mattress: [
+        {
+          price: "",
+          icon_url: "",
+          category: "",
+        },
+      ],
+    },
+  ],
+};

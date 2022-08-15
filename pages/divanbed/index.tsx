@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import styles from "styles/header.module.scss";
@@ -6,8 +7,8 @@ import NextSEO from "layout/nextseo";
 import Header from "layout/header";
 import axios from "axios";
 
-const NewProductPage = (props:any) => {
-  console.log(props.response)
+const NewProductPage = (props: any) => {
+  console.log(props.response);
   return (
     <>
       <div>
@@ -216,27 +217,31 @@ const NewProductPage = (props:any) => {
         <section className={styles.productsimages}>
           <div className="container">
             <div className="row">
-              {props.response.map((item:any,index:any)=> {
-                return(
-              <div className="col-3" key={index}>
-                <div className={styles.box1}>
-                  <img
-                    src={item?.images[0]?.color1.base_url?item?.images[0]?.color1.base_url:"/"}
-                    alt="img"
-                    width={258}
-                    height="210"
-                  />
-                  <h2 className={styles.productname}>
-                 {item.product_name}
-                  </h2>
-                  <div className={styles.trustpilot}>
-                    <img src="/image/tru.png" alt="img" />
+              {props.response.map((item: any, index: any) => {
+                return (
+                  <div className="col-3" key={index}>
+                    <div className={styles.box1}>
+                      <img
+                        src={
+                          item?.images[0]?.color1.base_url
+                            ? item?.images[0]?.color1.base_url
+                            : "/"
+                        }
+                        alt="img"
+                        width={258}
+                        height="210"
+                      />
+                      <h2 className={styles.productname}>
+                        {item.product_name}
+                      </h2>
+                      <div className={styles.trustpilot}>
+                        <img src="/image/tru.png" alt="img" />
+                      </div>
+                      <p className={styles.price}>{item.price}</p>
+                    </div>
                   </div>
-                  <p className={styles.price}>{item.price}</p>
-                </div>
-              </div>
-                 )
-                })}
+                );
+              })}
               <div className="col-3">
                 <div className={styles.box1}>
                   <img
@@ -627,30 +632,23 @@ const NewProductPage = (props:any) => {
 };
 export default NewProductPage;
 
-
-
-
-export async function getServerSideProps(context:any) {
+export async function getServerSideProps(context: any) {
   const { query } = context;
-  const size = query?.size 
+  const size = query?.size;
 
   const minPrice = query?.minPrice ? query.minPrice : "";
   const maxPrice = query?.maxPrice ? query.maxPrice : "";
   const images = query?.images ? query.images : "";
-
-
-
-
 
   const data = await axios.post(
     `${process.env.BASE_URL}/api/products/getbeds`,
     // `${process.env.BASE_URL}/api/products/bestproducts?size=${size}&minPrice=${minPrice}&maxPrice=${maxPrice}&color=${images}`,
     {
       method: "size",
-    value: "2FT 6" ,
+      value: "2FT 6",
     }
   );
-  
+
   const response = data.data.data;
   return {
     props: { response }, // will be passed to the page component as props

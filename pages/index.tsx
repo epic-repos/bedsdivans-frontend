@@ -1,3 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable jsx-a11y/alt-text */
 import NextSEO from "layout/nextseo";
 import type { NextPage } from "next";
 import Head from "next/head";
@@ -13,7 +16,6 @@ import axios from "axios";
 import React, { useEffect } from "react";
 
 const Home: NextPage = (props: any) => {
-
   console.log(props);
   const settings = {
     dots: true,
@@ -923,6 +925,7 @@ export async function getServerSideProps(context: any) {
   console.log({ response, response1, response2, response3 });
 
   return {
-    props: { response, response1, response2, response3 }, // will be passed to the page component as props
+    props: { response, response1, response2, response3 },
+    // will be passed to the page component as props
   };
 }

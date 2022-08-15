@@ -6,7 +6,7 @@ import { CartProductTypes } from 'typings/product';
 const initialState: CartProductTypes = {
     cartItems: [
         {
-            id: 0,
+            id: 'fb8e841281a96ee5',
             name: "Product One",
             description: "Small description for product",
             categories: ["writing", "bestseller"],
@@ -26,7 +26,7 @@ const initialState: CartProductTypes = {
             }
         },
         {
-            id: 1,
+            id: 'b832d18356ba4be2',
             name: "Product One",
             description: "Small description for product",
             categories: ["writing", "bestseller"],
@@ -46,7 +46,7 @@ const initialState: CartProductTypes = {
             }
         },
         {
-            id: 2,
+            id: '813a906629ef704c',
             name: "Product One",
             description: "Small description for product",
             categories: ["writing", "bestseller"],
@@ -83,33 +83,26 @@ const addToCartSlice = createSlice({
                 state.cartItems.push({ ...action.payload, quantity: 1 }) as any;
             }
             state.cartTotalQuantity = itemInCart?.quantity as number
-            // state.cartTotalAmount = state.cartItems.forEach((item) => {
-            //     return item.price * item.quantity
-            // })
+
 
         },
         increaseQuantity: (state, action) => {
             const item = state.cartItems.find((item) => item.id === action.payload);
-
-
             if (item?.quantity !== undefined) {
-
                 item.quantity = (item?.quantity + 1) as number
+                state.cartTotalQuantity = item?.quantity + 1 as number
+
             }
-            // item?.quantity - 1
-
-
-
         },
         decreaseQuantity: (state, action) => {
             const item = state.cartItems.find((item) => item.id === action.payload);
             if (item?.quantity === 1) {
                 item.quantity = 1
             } else {
-                if (item?.quantity)
-                    // item?.quantity - 1
+                if (item?.quantity) {
                     item.quantity = (item?.quantity - 1) as number
-
+                    state.cartTotalQuantity = item?.quantity - 1 as number
+                }
             }
         },
         removeFromCart: (state, action) => {

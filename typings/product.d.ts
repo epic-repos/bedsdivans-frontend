@@ -5,9 +5,9 @@ type Both = string | number
 interface ProductDataTypes {
     id?: Both;
     content: any;
-    iconUrl: string;
-    imageUrl: string;
-    price: Both
+    iconUrl?: string;
+    imageUrl?: string;
+    price: Both;
 }
 interface BedSizeProps {
     value: any;
@@ -18,7 +18,7 @@ interface BedSizeProps {
 
 interface CartProductTypes {
     cartItems: {
-        id: number;
+        id: number | string;
         name: string;
         description: string;
         categories: string[];
@@ -37,4 +37,30 @@ interface CartProductTypes {
     }[];
     cartTotalQuantity: number;
     cartTotalAmount: number;
+}
+
+
+interface ProductProperties {
+    price: string | number;
+    size?: number | string;
+    content: string;
+    imageUrl: string;
+    iconUrl: string;
+}
+
+
+// PRODUCT API DATA TYPES
+interface SingleProductTypes {
+    name: string;
+    description: string;
+    category: string;
+    options: {
+        bedSize: ProductProperties[]
+        bedColor: ProductProperties[]
+        // NO Need Image URL
+        bedHeadBoard: ProductProperties[]
+        bedStorage: ProductProperties[]
+        bedFeet: ProductProperties[]
+        bedMatters: ProductProperties[]
+    };
 }

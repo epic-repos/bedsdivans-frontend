@@ -1,12 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
-import Link from "next/link";
+import a from "next/link";
 import AddIcon from "icons/add";
 import DeleteIcon from "icons/delete";
 import CoupanIcon from "icons/coupan";
 import RemoveIcon from "icons/remove";
 import useAddCart from "store/hooks/useaddcart";
 import style from "styles/product/cart.module.scss";
+import router from "next/router";
 
 const iconColor = "#777";
 
@@ -56,7 +57,7 @@ const CartPage = () => {
             </div>
             {/* BUTTON */}
             <div className={style.continueshopping}>
-              <Link href="/cart/order"> Continue shopping</Link>
+              <a onClick={() => router.back()}> Continue shopping</a>
             </div>
           </div>
           {/* PROMOCODE BOX */}
