@@ -17,6 +17,7 @@ import { GetServerSidePropsContext } from "next";
 import { NextPageWithLayout } from "typings/layout";
 import PerPageLayout from "layout/perpage";
 import dummyPayload from "./array";
+import productsPayload from "data/products";
 
 /**
  * NEW PRODUCT PAGE
@@ -108,7 +109,7 @@ const NewProductPage: NextPageWithLayout = ({ response }: any) => {
                 onClickNext={onClickNext}
               />
               {/* DYNAMIC TABS  */}
-              <BedsTabs productData={dummyPayload} tabName={tabs} />
+              <BedsTabs productsPayload={productsPayload} tabName={tabs} />
             </div>
           </div>
           <div className={styles.item2}>

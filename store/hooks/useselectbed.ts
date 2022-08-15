@@ -11,6 +11,8 @@ import selectbedSlice from 'store/slices/selectbed';
  */
 const useSelectBed = () => {
 
+
+
     const dispatch = useAppDispatch()
     const bedState = useAppSelector((state) => state.selectbed)
 
@@ -18,6 +20,9 @@ const useSelectBed = () => {
 
     const setBedSize = React.useCallback((value: number) => {
         dispatch(selectbedSlice.actions.setBedSize(value))
+    }, [dispatch])
+    const setBed = React.useCallback((value: any) => {
+        dispatch(selectbedSlice.actions.setBed(value))
     }, [dispatch])
 
     // HANDLER FOR BED COLOR
@@ -69,6 +74,7 @@ const useSelectBed = () => {
         setBedStorage,
         setBedFeet,
         setBedMatters,
+        setBed,
         setBedImage,
         setBedPrice
     }
