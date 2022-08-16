@@ -9,13 +9,15 @@ import style from "styles/product/cart.module.scss";
 import router, { useRouter } from "next/router";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
+import { NextPageWithLayout } from "typings/layout";
+import PerPageLayout from "layout/perpage";
 
 const publishableKey = `pk_live_51KUB2yLggtF42pbGuboggv7Gkpsk4f4pkcG72iqva8Eo74OxcMmmWzcnsluD3z7eAbqRTcQGyNgJwYjwoaOkVDbE00f3Pfgrim
 `;
 
 const iconColor = "#777";
 
-const CartPage = () => {
+const CartPage:NextPageWithLayout = () => {
   const {
     cartState: { cartItems },
     removeFromCart,
@@ -105,6 +107,9 @@ const CartPage = () => {
 
 export default CartPage;
 
+
+
+CartPage.getLayout=PerPageLayout
 const TableHead = () => {
   return (
     <thead>
