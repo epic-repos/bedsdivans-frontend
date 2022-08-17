@@ -5,6 +5,7 @@ import NextSEO from "layout/nextseo";
 import Style from "styles/HomePage/home.module.scss";
 import styles from "styles/NewProductPage.module.scss";
 import ProductDetailTab from "components/detailtab";
+import AddIcon from "icons/add";
 
 const BestSellingBeds = () => {
   const [tabName, setTabName] = useState("Overview");
@@ -44,6 +45,16 @@ const BestSellingBeds = () => {
             </div>
           </div>
         </div>
+      </section>
+
+
+      <section  >
+        <h2>FAQ</h2>
+        <div className="col-md-12">
+                {FAQArray.map((data, index) => (
+                  <FAQList key={index} index={index} {...data} />
+                ))}
+              </div>
       </section>
 
       <section className={styles.productsimages}>
@@ -171,3 +182,74 @@ const TermsConditions=()=>{
     </div>
   )
 }
+
+
+const FAQList = ({ question, answer, index }:any) => {
+  const [isOpen, setOpen] = React.useState(index === 0 || false);
+  const onClickButton = React.useCallback(() => {
+    setOpen(!isOpen);
+  }, [isOpen]);
+  return (
+    <React.Fragment>
+      <ul onClick={onClickButton}>
+        <li>
+          <h4 >{question}</h4>
+        </li>
+        <li>
+          <AddIcon
+            style={{
+              transform: `rotate(${isOpen ? "45deg" : "90deg"})`,
+              transition: "all 150ms ease",
+              fill: "#fff",
+            }}
+          />
+        </li>
+      </ul>
+      <p
+        style={{
+          maxHeight: isOpen ? "200px" : "0px",
+          overflow: "hidden",
+          transition: "all 150ms ease",
+          padding: 0,
+          color: "#838383",
+        }}
+      >
+        {answer}
+      </p>
+    </React.Fragment>
+  );
+};
+
+
+const FAQArray = [
+  {
+    question: `Do you offer a free trial?`,
+    answer: `Yes, we do.`,
+  },
+  {
+    question:
+      "Do I need to have a registered company to sell on my own website?",
+    get answer() {
+      return "Yes, you should have registered company to create your digital catalog.";
+    },
+  },
+  {
+    question:
+      "How long have you been an e-commerce product uploading service provider?",
+    get answer() {
+      return " OMRA Solutions are working on e-commerce product uploading from more than 2+ years.";
+    },
+  },
+  {
+    question: "What exposure we have with the e-commerce industry?",
+    get answer() {
+      return "It has been over four years  that we have been working in the e-commerce domain and know exactly what it takes to get it right and increase the online conversions.";
+    },
+  },
+  {
+    question: "Where do you have your client base?",
+    get answer() {
+      return "We have experience in successfully delivering e-commerce Catalog outsourcing services to our offshore clients spanning India & Dubai.";
+    },
+  },
+];
