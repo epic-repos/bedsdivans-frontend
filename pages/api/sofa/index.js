@@ -1,8 +1,7 @@
-import Products from "../../../schema/products";
-import dbConnect from "../../../utils/DBconnect";
+import Products from "schema/products";
+import dbConnect from "utils/DBconnect";
 
 dbConnect();
-
 
 export default async function handler(req, res) {
   const { page = 1, limit = 12 } = req.query;
@@ -11,7 +10,7 @@ export default async function handler(req, res) {
       .limit(limit * 1)
       .skip((page - 1) * limit);
 
-    const count = await Products.countDocuments({ type: "sofa"});
+    const count = await Products.countDocuments({ type: "sofa" });
     let totalPages = 0;
 
     totalPages = count / limit;

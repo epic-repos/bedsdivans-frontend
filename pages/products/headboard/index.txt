@@ -409,8 +409,8 @@ const Divanbed = (props:any) => {
     <div className="container">
         <div className="row">
          {
-           props.response.map((item: { images: { url: string | undefined; }[]; product_name: string}) =>{
-              
+           props.response.map((item: {
+             price: any, images: any, product_name: any}) =>{
               return(
                 <div className="col-3">
                 <div className={styles.box1}>
@@ -422,12 +422,14 @@ const Divanbed = (props:any) => {
                       <p className={styles.price}>{item.price} </p>
                   </div>
                 </div>
-              
+              </div>
               );
           })
       }
       </div>
-      </div>
+      </section>
+      {/* </div>
+    
   
             <div className="col-3">
             <div className={styles.box1}>
@@ -459,7 +461,7 @@ const Divanbed = (props:any) => {
                   <p className={styles.price}>£600.00</p>
               </div>
             </div>
-        </div>
+        </div> */}
       </section>
 
       {/* ---------------product images------------ */}

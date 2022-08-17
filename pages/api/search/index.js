@@ -1,5 +1,5 @@
-import Products from "../../../schema/products";
-import dbConnect from "../../../utils/DBconnect";
+import Products from "schema/products";
+import dbConnect from "utils/DBconnect";
 
 dbConnect();
 export default async function handler(req, res) {
@@ -67,14 +67,11 @@ export default async function handler(req, res) {
       filter.category = categoryPayload;
     }
 
-    
-
     if (maxPrice) {
       filter.price = {
         $lte: parseInt(maxPrice),
       };
     }
-    
 
     if (
       (category ||
@@ -87,8 +84,6 @@ export default async function handler(req, res) {
         diningSetCategory) &&
       (parseInt(sort) == 1 || parseInt(sort) == -1)
     ) {
-      
-
       bedsPipeline = await Products.find({
         $text: {
           $search: query,
@@ -124,8 +119,6 @@ export default async function handler(req, res) {
           $search: query,
         },
       }).count();
-
-      
     } else if (
       category ||
       headboardCategory ||
@@ -136,8 +129,6 @@ export default async function handler(req, res) {
       livingRoomCategory ||
       diningSetCategory
     ) {
-      
-
       bedsPipeline = await Products.find({
         $text: {
           $search: query,
@@ -172,8 +163,6 @@ export default async function handler(req, res) {
           $search: query,
         },
       }).count();
-
-      
     }
 
     //INITIALIZING MATTRESS

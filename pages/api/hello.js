@@ -1,7 +1,7 @@
-import Products from "../../schema/beds";
-import Headboard from "../../schema/headboard";
-import Mattress from "../../schema/mattress";
-import dbConnect from "../../utils/DBconnect";
+import Products from "schema/beds";
+import Headboard from "schema/headboard";
+import Mattress from "schema/mattress";
+import dbConnect from "utils/DBconnect";
 import sortJsonArray from "sort-array";
 
 dbConnect();
@@ -316,7 +316,6 @@ export default async function handler(req, res) {
       totalApproxHeadboard,
       totalApproxMattress
     );
-    
 
     let pipelineFinal = [];
 

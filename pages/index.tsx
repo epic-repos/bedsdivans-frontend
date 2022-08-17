@@ -16,8 +16,6 @@ import { randomBytes } from "crypto";
 import router from "next/router";
 
 const Home: NextPageWithLayout = (props: any) => {
-  console.log({ beds: props.beds?.data });
-
   const settings = {
     dots: true,
     nav: true,
@@ -868,10 +866,10 @@ export async function getServerSideProps(context: any) {
 
   const response3 = await data3.data.data;
 
-  const responseX = await axios.get(`${process.env.API_URL}/beds`);
+  // const responseX = await axios.get(`${process.env.API_URL}/beds`);
 
   return {
-    props: { response, response1, response2, response3, beds: responseX.data },
+    props: { response, response1, response2, response3 },
     // will be passed to the page component as props
   };
 }

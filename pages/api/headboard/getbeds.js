@@ -1,11 +1,10 @@
-import Products from "../../../schema/products";
-import dbConnect from "../../../utils/DBconnect";
+import Products from "schema/products";
+import dbConnect from "utils/DBconnect";
 
 dbConnect();
 export default async function handler(req, res) {
   // const { page = 1, limit = 20 } = req.query;
   if (req.method === "POST") {
-    
     const { value, method } = req.body;
     try {
       const getAllProducts = await Products.find({
