@@ -337,38 +337,8 @@ const Divanbed = (props:any) => {
       </section>
 
 
-      <section className={styles.imgcontainer2}>
-        <div className="container">
-          <div className="row">
-            <div className="col-6">
-              <div className="row">
-                <div className="col-6 ">
-                  <img src="/image/ORTHOPEDIC.png" alt="img" />
-                  <h2>Orthopedic mattress</h2>
-                </div>
-                <div className="col-6">
-                  <img src="/image/mattress2.png" alt="img" />
-                  <h2>Tinsel top matrress</h2>
-                </div>
-                <div className="col-6">
-                  <img src="/image/mattress3.png" alt="img" />
-                  <h2>Memory foam mattress</h2>
-                </div>
-                <div className="col-6">
-                  <img src="/image/PILLOW TOP.png" alt="img" />
-                  <h2>Pillow top mattress</h2>
-                </div>
-              </div>
-            </div>
-            <div className="col-6">
-              <div className={styles.bigbed2}>
-                <img src="/image/bed2.png" alt="img" /></div>
-              <div className={styles.heading2}>
-                <h1>Secret To Good Sleep</h1>
-                <p>Your mattress plays a major role iin one's sleep cycle. The right mattress will ensure you get a good night's sleep every night</p>
-              </div>
-            </div>
-          </div>
+      
+
  
 
 

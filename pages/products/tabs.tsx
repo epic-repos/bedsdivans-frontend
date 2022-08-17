@@ -1,7 +1,6 @@
 import React from "react";
 import CommonForBed from "components/products/common";
 import useSelectBed from "store/hooks/useselectbed";
-import { SingleProductTypes } from "typings/product";
 
 interface BedsTabsProps {
   tabName: string;
@@ -23,8 +22,6 @@ const BedsTabs = ({ tabName, productsPayload }: BedsTabsProps) => {
   } = useSelectBed();
 
   // LIKE API DATA
-  const { bedColor, bedFeet, bedHeadBoard, bedMatters, bedSize, bedStorage } =
-    productsPayload?.options;
 
   console.log(bedState.bedSize);
   // RENDER TABS
@@ -33,7 +30,7 @@ const BedsTabs = ({ tabName, productsPayload }: BedsTabsProps) => {
       case "BedSize":
         return (
           <CommonForBed
-            items={bedSize}
+            items={productsPayload?.options?.bedSize}
             value={bedState.bedSize}
             onClickItem={(data) => {
               setBed(data);
@@ -86,7 +83,6 @@ const BedsTabs = ({ tabName, productsPayload }: BedsTabsProps) => {
             value={bedState.bedFeet}
             onClickItem={(data) => {
               setBedFeet(data.content);
-
               setBedPrice(data.price);
             }}
           />

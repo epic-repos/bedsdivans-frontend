@@ -12,8 +12,6 @@ import ContentHeader from "components/products/contentheader";
 import BedsTabs from "./tabs";
 import useAddCart from "store/hooks/useaddcart";
 import { useRouter } from "next/router";
-import axios from "axios";
-import { GetServerSidePropsContext } from "next";
 import { NextPageWithLayout } from "typings/layout";
 import PerPageLayout from "layout/perpage";
 

@@ -175,6 +175,20 @@ const productsPayload = {
                         imageUrl: "",
                         price: `£900`,
                     },
+                    {
+                        iconUrl:
+                            "https://cdn.shopify.com/s/files/1/0550/6315/0851/files/floor-standing-headboard-icon-02.png?v=1641389356&width=200&height=200",
+                        content: "first headboard 1",
+                        imageUrl: "",
+                        price: `£900`,
+                    },
+                    {
+                        iconUrl:
+                            "https://cdn.shopify.com/s/files/1/0550/6315/0851/files/floor-standing-headboard-icon-02.png?v=1641389356&width=200&height=200",
+                        content: "new headboard 1",
+                        imageUrl: "",
+                        price: `£900`,
+                    },
                 ],
                 bedStorage: [
                     {
