@@ -634,7 +634,7 @@ const DivanBeds: NextPageWithLayout = (props: any) => {
 };
 export default DivanBeds;
 
-Checkout.getLayout = PerPageLayout;
+DivanBeds.getLayout = PerPageLayout;
 
 export async function getServerSideProps(context: any) {
   const { query } = context;
