@@ -1,28 +1,32 @@
-import { ContactlessOutlined } from "@material-ui/icons";
-import Products from "../../../schema/products";
-import dbConnect from "../../../utils/DBconnect";
+import Products from "schema/products";
+import dbConnect from "utils/DBconnect";
 
 dbConnect();
 export default async function handler(req, res) {
   const { page = 0, limit = 50, maxPrice, minPrice, size } = req.query;
   if (req.method === "GET") {
-    const payload = { type: ["allbeds","sleighbed","ottoman","bed"] }
+    const payload = { type: ["allbeds", "sleighbed", "ottoman", "bed"] };
     // const payload2= { type: "sleighbed" }
     // const payload3 = { type: "ottoman" }
     // const payload=payload1 && payload2&& payload3
-    
 
     if (size && size !== "undefined") {
-      Object.assign(payload, { size: size })
+      Object.assign(payload, { size: size });
     }
-    if (maxPrice &&maxPrice!=="undefined" && minPrice &&minPrice !=="undefined") {
+    if (
+      maxPrice &&
+      maxPrice !== "undefined" &&
+      minPrice &&
+      minPrice !== "undefined"
+    ) {
       Object.assign(payload, {
         price: {
-          $gte: minPrice, $lte: maxPrice
-        }
-      })
+          $gte: minPrice,
+          $lte: maxPrice,
+        },
+      });
     }
-   // for payload 2
+    // for payload 2
 
     // if (size && size !== "undefined") {
     //   Object.assign(payload2, { size: size })
@@ -35,7 +39,7 @@ export default async function handler(req, res) {
     //   })
     // }
 
-    // // for payload3 
+    // // for payload3
 
     // if (size && size !== "undefined") {
     //   Object.assign(payload3, { size: size })
@@ -47,7 +51,7 @@ export default async function handler(req, res) {
     //     }
     //   })
     // }
-    
+
     try {
       const checkDuplicate = new Set();
 
@@ -67,15 +71,8 @@ export default async function handler(req, res) {
       //   .skip(limit * page)
       //   .limit(limit);
 
-
       // const arr4 ={...arr1,...arr2,...arr3};
       // const arr = [...new Map(arr4.map(item => [JSON.stringify(item), item])).values()];
-
-
-
-
-
-
 
       for (let i = 0; i < arr.length; i++) {
         if (i * 3 < arr.length) {
@@ -84,7 +81,7 @@ export default async function handler(req, res) {
           dynamicProducts.push(arr[i - 1]);
         }
       }
-      
+
       const filteredArr = await dynamicProducts.filter((el) => {
         const duplicate = checkDuplicate.has(el.product_name);
         checkDuplicate.add(el.product_name);
@@ -102,14 +99,14 @@ export default async function handler(req, res) {
 
 //=================================================================================================================
 
-// import Products from "../../../schema/products";
-// import dbConnect from "../../../utils/DBconnect";
+// import Products from "schema/products";
+// import dbConnect from "utils/DBconnect";
 
 // dbConnect();
 // export default async function handler(req, res) {
 //   const { page = 1, limit = 12 } = req.query;
 //   if (req.method === "POST") {
-//     
+//
 //     const { value, method } = req.body;
 //     try {
 //       const getAllProducts = await Products.find({

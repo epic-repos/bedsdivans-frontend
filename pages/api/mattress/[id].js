@@ -1,5 +1,5 @@
-import Products from "../../../schema/mattress";
-import dbConnect from "../../../utils/DBconnect";
+import Products from "schema/mattress";
+import dbConnect from "utils/DBconnect";
 
 dbConnect();
 export default async function handler(req, res) {

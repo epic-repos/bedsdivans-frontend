@@ -1,8 +1,10 @@
+import PerPageLayout from "layout/perpage";
 import React from "react";
 import css from "styles/cart.module.scss";
+import { NextPageWithLayout } from "typings/layout";
 import ContactForm from "./form";
 
-const CartPage = () => {
+const Checkout: NextPageWithLayout = () => {
   return (
     <div>
       <div className={css.text_center}>
@@ -218,4 +220,6 @@ const CartPage = () => {
     </div>
   );
 };
-export default CartPage;
+export default Checkout;
+
+Checkout.getLayout = PerPageLayout;

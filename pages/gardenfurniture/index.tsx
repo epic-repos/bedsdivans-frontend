@@ -4,13 +4,11 @@ import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
 import axios from "axios";
-import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
 import Style from "../../styles/gardenFurniture/gardenFurniture.module.scss";
-import { Value } from "sass";
-const NewProductPage = (props: any) => {
-  console.log(props);
+import PerPageLayout from "layout/perpage";
+import { NextPageWithLayout } from "typings/layout";
 
+const GardenFurniture: NextPageWithLayout = (props: any) => {
   return (
     <div>
       <div className={Style.mtrsBannr}>
@@ -491,8 +489,9 @@ const NewProductPage = (props: any) => {
     </div>
   );
 };
-export default NewProductPage;
+export default GardenFurniture;
 
+GardenFurniture.getLayout = PerPageLayout;
 export async function getServerSideProps(context: any) {
   const { req } = context;
   const size = req?.__NEXT_INIT_QUERY?.size;

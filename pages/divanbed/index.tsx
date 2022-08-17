@@ -6,8 +6,10 @@ import Image from "next/image";
 import NextSEO from "layout/nextseo";
 import Header from "layout/header";
 import axios from "axios";
+import PerPageLayout from "layout/perpage";
+import { NextPageWithLayout } from "typings/layout";
 
-const NewProductPage = (props: any) => {
+const DivanBeds: NextPageWithLayout = (props: any) => {
   console.log(props.response);
   return (
     <>
@@ -630,7 +632,9 @@ const NewProductPage = (props: any) => {
     </>
   );
 };
-export default NewProductPage;
+export default DivanBeds;
+
+Checkout.getLayout = PerPageLayout;
 
 export async function getServerSideProps(context: any) {
   const { query } = context;

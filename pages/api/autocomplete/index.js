@@ -1,5 +1,5 @@
-// import Products from "../../../schema/products";
-// import dbConnect from "../../../utils/DBconnect";
+// import Products from "schema/products";
+// import dbConnect from "utils/DBconnect";
 
 // dbConnect();
 // export default async function handler(req, res) {
@@ -56,7 +56,7 @@
 //       autocompletePayload.splice(1, 0, payload[0]);
 //     }
 
-//     
+//
 //     const autocomplete = await Products.aggregate([autocompletePayload]);
 
 //     res.status(200).json(autocomplete);
@@ -65,9 +65,8 @@
 //   }
 // }
 
-
-import Products from "../../../schema/products";
-import dbConnect from "../../../utils/DBconnect";
+import Products from "schema/products";
+import dbConnect from "utils/DBconnect";
 
 dbConnect();
 export default async function handler(req, res) {
@@ -109,9 +108,9 @@ export default async function handler(req, res) {
         $project: {
           _id: 1,
           product_name: 1,
-          price:1,
+          price: 1,
           type: 1,
-          images:1,
+          images: 1,
         },
       },
     ];
@@ -126,7 +125,6 @@ export default async function handler(req, res) {
       autocompletePayload.splice(1, 0, payload[0]);
     }
 
-    
     const autocomplete = await Products.aggregate([autocompletePayload]);
 
     res.status(200).json(autocomplete);

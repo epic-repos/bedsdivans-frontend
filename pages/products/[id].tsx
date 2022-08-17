@@ -12,20 +12,16 @@ import ContentHeader from "components/products/contentheader";
 import BedsTabs from "./tabs";
 import useAddCart from "store/hooks/useaddcart";
 import { useRouter } from "next/router";
-import axios from "axios";
-import { GetServerSidePropsContext } from "next";
 import { NextPageWithLayout } from "typings/layout";
 import PerPageLayout from "layout/perpage";
-import dummyPayload from "./array";
+
 import productsPayload from "data/products";
 
 /**
  * NEW PRODUCT PAGE
  * @returns
  */
-const NewProductPage: NextPageWithLayout = ({ response }: any) => {
-  // console.log(response);
-
+const NewProductPage: NextPageWithLayout = () => {
   const router = useRouter();
   const { addToCart, cartState } = useAddCart();
   const [tabs, setTabs] = React.useState("BedSize");
@@ -91,7 +87,7 @@ const NewProductPage: NextPageWithLayout = ({ response }: any) => {
       <div className={styles.imageContainer}>
         <img src={bedState.bedImage} alt="Bed Image" className={styles.image} />
         <div className={styles.container}>
-          <h3 className={styles.productName}>{dummyPayload.name}</h3>
+          <h3 className={styles.productName}>{productsPayload.name}</h3>
           <div className={styles.item1}>
             <div className={styles.left}>
               {tabsArray.map((data, index) => (

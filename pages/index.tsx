@@ -16,7 +16,6 @@ import { randomBytes } from "crypto";
 import router from "next/router";
 
 const Home: NextPageWithLayout = (props: any) => {
- 
   const settings = {
     dots: true,
     nav: true,
@@ -270,7 +269,7 @@ const Home: NextPageWithLayout = (props: any) => {
                     <img src={data.imageUrl} alt="image" />
                     <h3>{data.heading}</h3>
                     <p>{data.description}</p>
-                    <button 
+                    <button
                     // onClick={() => router.push(`/products/${data.id}`)}
                     >
                       Buy now
@@ -306,8 +305,14 @@ const Home: NextPageWithLayout = (props: any) => {
           <div className="row">
             {props.response.map((item: any, index: any) => {
               return (
-                <div className="col-3" key={index}
-                onClick={() => router.push(`/products/dbzbeds-grey-crushed-velvet-divan-bed-with-reinforced-base`)}
+                <div
+                  className="col-3"
+                  key={index}
+                  onClick={() =>
+                    router.push(
+                      `/products/dbzbeds-grey-crushed-velvet-divan-bed-with-reinforced-base`
+                    )
+                  }
                 >
                   <div className={Style.box1}>
                     <Image
@@ -317,7 +322,8 @@ const Home: NextPageWithLayout = (props: any) => {
                       height="500"
                     />
                     <h2 className={Style.productname}>
-                    DBZBeds Black Crushed Velvet Divan Bed With Reinforced Base{item.product_name}
+                      DBZBeds Black Crushed Velvet Divan Bed With Reinforced
+                      Base{item.product_name}
                     </h2>
                     <div className={Style.trustpilot}>
                       <img src="/image/tru.png" alt="img" />
@@ -874,7 +880,7 @@ export async function getServerSideProps(context: any) {
   // const responseX = await axios.get(`${process.env.API_URL}/beds`);
 
   return {
-    props: { response, response1, response2, response3,  },
+    props: { response, response1, response2, response3 },
     // will be passed to the page component as props
   };
 }

@@ -1,5 +1,5 @@
-import Products from '../../../schema/products';
-import dbConnect from '../../../utils/DBconnect';
+import Products from "schema/products";
+import dbConnect from "utils/DBconnect";
 
 dbConnect();
 export default async function handler(req, res) {
@@ -8,6 +8,6 @@ export default async function handler(req, res) {
 
     res.status(200).json({ data: getProductsByID });
   } catch (err) {
-    res.json({ success: false, data: 'Server Error' });
+    res.json({ success: false, data: "Server Error" });
   }
 }

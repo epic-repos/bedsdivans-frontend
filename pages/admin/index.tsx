@@ -1,158 +1,226 @@
+import * as React from "react";
 import axios from "axios";
-import React, { useState } from "react";
+import { randomBytes } from "crypto";
+import Input from "components/admin/input";
+import Select from "components/admin/select";
+import adminSlice, { dynamicFieldsSlice } from "components/admin/state";
+import Textarea from "components/admin/textarea";
+import AddMoreButton from "components/admin/addmore";
+import FilePicker from "components/admin/picker";
 import css from "styles/admin.module.scss";
+
+// CONTEXT FOR FORM
+
+const UploadContext = React.createContext<null | any>(null);
 type E = React.ChangeEvent<
   HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
 >;
-
 type EF = React.FormEvent<HTMLFormElement>;
 
 /**
  * Admin Panel
  */
 const AdminPage = () => {
-  const { actions, init, reducer } = adminSlice;
-  const [state, dispatch] = React.useReducer(reducer, init);
-
-  const [colorFields, setColorFields] = useState([{}]);
-
-  const handlerDynmicColor = (event: E) => {
-    const { name, value } = event.target;
-    setColorFields((old) => [...old, { name: name, value: value }]);
-  };
-
-  const [product, setProduct] = useState({
-    name: "",
-    description: "",
-  });
-
-  const handleProductChange = (event: E) => {
-    setProduct({
-      ...product,
-      [event?.target.name]: event.target.value,
-    });
-  };
-
-  const onSubmitData = React.useCallback(
-    async (e: EF) => {
-      e.preventDefault();
-      try {
-        axios
-          .post("http://localhost:5000/beds/create", product)
-          .then((res) => console.log({ res }));
-      } catch (error) {
-        console.log(error);
-      }
-    },
-    [product]
+  const {
+    state,
+    addColorField,
+    deleteField,
+    onChangeInputs,
+    onSubmitData,
+    colorHandler,
+    colorFieldsArray,
+    inputFields,
+    AddInputField,
+    RemoveInputField,
+    UpdateInputField,
+  } = useAdminPanel();
+  return (
+    <UploadContext.Provider
+      value={{
+        state,
+        addColorField,
+        deleteField,
+        onChangeInputs,
+        onSubmitData,
+        colorHandler,
+        colorFieldsArray,
+        //
+        inputFields,
+        AddInputField,
+        RemoveInputField,
+        UpdateInputField,
+      }}
+    >
+      <FormContent />
+    </UploadContext.Provider>
   );
+};
+export default AdminPage;
 
-  const onChangeInputs = React.useCallback(
-    (e: E) => {
-      const { name, value } = e.target;
-      dispatch(actions.addInputValue(name, value));
-    },
-    [actions]
-  );
+const FormContent = () => {
+  const {
+    state,
+    addColorField,
+    deleteField,
+    onChangeInputs,
+    onSubmitData,
+    colorHandler,
+    colorFieldsArray,
+    inputFields,
+    AddInputField,
+    RemoveInputField,
+    UpdateInputField,
+  } = React.useContext(UploadContext);
 
-  console.log(state);
   return (
     <div className={css.container}>
       <div className={css.sidebar}>
         <div className={css.controls}>
-          <button>Upload</button>
+          <button>Edit</button>
           <button>Upload</button>
         </div>
       </div>
       <form className={css.content} onSubmit={onSubmitData}>
-        <h1>Upload Product</h1>
-        <div className={css.grid}>
+        <h1>Upload New Product</h1>
+        {/* Basic Info */}
+        <div className={css.inputsBox}>
           <Input
             name="name"
             type="text"
             label="Product Name"
             placeholder="Enter product name"
-            onChange={handleProductChange}
+            onChange={onChangeInputs}
           />
-          <Input
-            name="productType"
-            type="text"
-            label="Product Name"
-            placeholder="Enter product name"
-            // onChange={handleProductChange}
-          />
-        </div>
-        <div className={css.inputsBox}>
           <Textarea
             name="description"
             label="Product Description"
             placeholder="Enter product description"
-            onChange={handleProductChange}
+            onChange={onChangeInputs}
           />
-        </div>
-        <div className={css.grid}>
           <Select
-            label="size"
+            name="categoty"
+            label="Category"
             onChange={onChangeInputs}
             options={[
               {
-                text: "Hello",
-                value: "World",
+                text: "Category One",
+                value: "Category One",
               },
               {
-                text: "Hello",
-                value: "World",
-              },
-              {
-                text: "Hello",
-                value: "World",
-              },
-              {
-                text: "Hello",
-                value: "World",
-              },
-              {
-                text: "Hello",
-                value: "World",
-              },
-            ]}
-          />
-          <Select
-            label="Product Size"
-            options={[
-              {
-                text: "Hello",
-                value: "World",
+                text: "Category Two",
+                value: "Category Two",
               },
             ]}
           />
         </div>
-        <br />
-        {colorFields.map((data, index) => {
-          return (
-            <>
-              <div key={index} className={css.grid}>
-                <Input
+        <h4 className={css.heading}>Price and Size</h4>
+        <div className={css.grid3}>
+          <Select
+            name="size"
+            label="Product Size"
+            onChange={onChangeInputs}
+            options={[
+              {
+                text: `(2'6 x 6)- Small Single`,
+                value: `(2'6 x 6)- Small Single`,
+              },
+              {
+                text: `(3 x 6'3)- Single`,
+                value: `(3 x 6'3)- Single`,
+              },
+              {
+                text: `(4' x 6'3) - Small Double`,
+                value: `(4' x 6'3) - Small Double`,
+              },
+              {
+                text: `(4' x 6'3) - Double`,
+                value: `(4' x 6'3) - Double`,
+              },
+              {
+                text: `(5' x 6'6) - King`,
+                value: `(5' x 6'6) - King`,
+              },
+              {
+                text: `(6' x 6'6) - Super King`,
+                value: `(6' x 6'6) - Super King`,
+              },
+            ]}
+          />
+          <Input
+            name="price"
+            type="text"
+            label="Product Price"
+            placeholder="Enter product name"
+            onChange={onChangeInputs}
+          />
+          <FilePicker
+            name="image"
+            type="file"
+            label="Color Image"
+            placeholder="Enter product name"
+            // value={data?.ColorImage}
+            onChange={({ target }) => colorHandler(target.name, target.files)}
+          />
+        </div>
+        {/* Dynamic Fields */}
+        {/* AddInputField */}
+        {/* RemoveInputField */}
+        {/* UpdateInputField */}
+        <h4 className={css.heading}>Color</h4>
+        <div className={css.grid}>
+          {inputFields.map((data: any, index: number) => {
+            return (
+              <React.Fragment key={index}>
+                <Select
                   name="ColorName"
-                  type="text"
                   label="Color Name"
-                  placeholder="Enter product name"
-                  onChange={handlerDynmicColor}
+                  onChange={({ target }) =>
+                    UpdateInputField(index, {
+                      name: target.name,
+                      value: target.value,
+                    })
+                  }
+                  // value={data?.ColorName}
+                  options={[
+                    {
+                      text: "Color One",
+                      value: "Color One",
+                    },
+                    {
+                      text: "Color Two",
+                      value: "Color Two",
+                    },
+                    {
+                      text: "Color Three",
+                      value: "Color Three",
+                    },
+                    {
+                      text: "Color Four",
+                      value: "Color Four",
+                    },
+                  ]}
                 />
                 <FilePicker
                   name="ColorImage"
                   type="file"
                   label="Color Image"
                   placeholder="Enter product name"
-                  onChange={handlerDynmicColor}
+                  onChange={({ target }) =>
+                    UpdateInputField(index, {
+                      name: target.name,
+                      value: target.files,
+                    })
+                  }
+                  deletable
+                  onDelete={() => RemoveInputField(index)}
                 />
-              </div>
-            </>
-          );
-        })}
-        <div className={css.buttonBox}>
-          <button>Add More Images </button>
+              </React.Fragment>
+            );
+          })}
+
+          <AddMoreButton onClick={AddInputField} title="Add More Color" />
         </div>
+
         <br />
         <div className={css.buttonBox}>
           <button type="submit">Submit Data</button>
@@ -161,161 +229,254 @@ const AdminPage = () => {
     </div>
   );
 };
-export default AdminPage;
 
-interface Common {
-  label: string;
-  error?: string;
-}
-
-interface I extends Common, React.ComponentPropsWithoutRef<"input"> {}
-const Input = ({ label, error, ...rest }: I) => {
-  return (
-    <div className={css.input}>
-      <label>{label}</label>
-      <input {...rest} />
-      {error ? <span className={css.error}>{error}</span> : null}
-    </div>
-  );
-};
-interface T extends Common, React.ComponentPropsWithoutRef<"textarea"> {}
-const Textarea = ({ label, error, ...rest }: T) => {
-  return (
-    <div className={css.input}>
-      <label>{label}</label>
-      <textarea {...rest}></textarea>
-      {error ? <span className={css.error}>{error}</span> : null}
-    </div>
-  );
-};
-interface S extends Common, React.ComponentPropsWithoutRef<"select"> {
-  options?: {
-    text: any;
-    value: any;
-  }[];
-}
-const Select = ({ options, label, error, ...rest }: S) => {
-  return (
-    <div className={css.input}>
-      <label>{label}</label>
-      <select {...rest}>
-        {options?.map((d, i) => (
-          <option key={i} value={d.value}>
-            {d.text}
-          </option>
-        ))}
-      </select>
-      {error ? <span className={css.error}>{error}</span> : null}
-    </div>
-  );
-};
-interface FP extends Common, React.ComponentPropsWithoutRef<"input"> {}
-const FilePicker = ({ label, error, ...rest }: FP) => {
-  return (
-    <div className={css.input}>
-      <label>{label}</label>
-      <input type="file" {...rest} />
-      {error ? <span className={css.error}>{error}</span> : null}
-    </div>
-  );
+const ii = {
+  colorFields: {},
+  colorFieldsArray: [],
 };
 
-interface ProductType {
-  name?: string;
-  image?: string;
-  price?: string;
-}
-
-interface VariantsTypes {
-  price: string | number;
-  size: string | number;
-  accessories: {
-    color: ProductType[];
-    storage: ProductType[];
-    feet: ProductType[];
-    headboard: ProductType[];
-    mattress: ProductType[];
+const useAdminPanel = () => {
+  const { actions, init, reducer } = adminSlice;
+  const [state, dispatch] = React.useReducer(reducer, init);
+  // COLOR STATE
+  const [colorFieldsArray, setColorFieldsArray] = React.useState<any>([]);
+  const [colorFields, setColorFields] = React.useState({});
+  // COLOR START
+  const colorHandler = (name: string, value: any) => {
+    setColorFields({
+      ...colorFields,
+      [name]: value,
+    });
   };
-}
-interface StateTypes {
-  name: string;
-  description: string;
-  categories: string[];
-  variants: VariantsTypes[];
-}
-interface ActionTypes {
-  type: string;
-  payload: {
-    name: string;
-    value: string;
-    [key: string]: any;
+
+  // ADD COLOR NEW FIELD
+  const addColorField = () => {
+    const data = {
+      id: randomBytes(4).toString("hex"),
+      ...colorFields,
+    };
+    setColorFieldsArray((old: any) => [...old, data]);
   };
-}
 
-const init: StateTypes = {
-  name: "",
-  description: "",
-  categories: [],
-  variants: [],
+  // DELETE FIELD BY ID
+  const deleteField = (id: string) => {
+    setColorFieldsArray(colorFieldsArray.filter((data: any) => data.id !== id));
+  };
+  // COLOR END
+  const onChangeInputs = React.useCallback(
+    (e: E) => {
+      const { name, value } = e.target;
+      dispatch(actions.addInputValue(name, value));
+    },
+    [actions]
+  );
+
+  //  SUBMIT DATA TO DATABASE
+  const onSubmitData = async (e: EF) => {
+    e.preventDefault();
+    // if (window.confirm("Are you sure to upload product")) {
+    //   try {
+    //     axios
+    //       .post("http://localhost:5000/beds/create", state)
+    //       .then((res) => console.log({ res }));
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // }
+
+    console.log(colorFieldsArray);
+    // console.log(state);
+  };
+
+  const [inputFields, updateField] = React.useReducer(
+    dynamicFieldsSlice.reducer,
+    dynamicFieldsSlice.init
+  );
+
+  const AddInputField = React.useCallback(() => {
+    updateField(dynamicFieldsSlice.actions.AddInputField(null));
+  }, [inputFields]);
+  const RemoveInputField = React.useCallback(
+    (index: number) => {
+      updateField(dynamicFieldsSlice.actions.RemoveInputField(index));
+    },
+    [inputFields]
+  );
+  const UpdateInputField = React.useCallback(
+    (index: number, value: any) => {
+      updateField(dynamicFieldsSlice.actions.UpdateInputField(index, value));
+    },
+    [inputFields]
+  );
+
+  console.log({ inputFields });
+  // DYNAMIC FIELDS FOR CONTENT
+  return {
+    state,
+    colorFieldsArray,
+    addColorField,
+    deleteField,
+    onChangeInputs,
+    onSubmitData,
+    colorHandler,
+    // FOR INPUT
+    inputFields,
+    AddInputField,
+    RemoveInputField,
+    UpdateInputField,
+  };
 };
 
-const adminSlice = {
-  init,
-  reducer: (state: StateTypes, action: ActionTypes) => {
-    switch (action.type) {
-      case "InputField":
-        return {
-          ...state,
-          [action.payload.name]: action.payload.value,
-        };
-      default:
-        return state;
-    }
-  },
-  actions: {
-    addInputValue: (name: string, value: any) => ({
-      type: "InputField",
-      payload: { name, value },
-    }),
-  },
-};
-
-const x = {
-  data: {
-    _id: "62fa5b0682d30bb5709e4775",
-    name: "Product Test One  ",
-    description: "Product Test One =====  ",
-    variants: [
-      {
-        accessories: {
-          color: [
-            {
-              name: "gray",
-              image: "/test.png",
-              _id: "62fa5e5e39836909d19797d4",
-            },
-            {
-              name: "black",
-              image: "/test.png",
-              _id: "62fa5e5e39836909d19797d5",
-            },
-          ],
-          storage: [],
-          feet: [],
-          headboard: [],
-          mattress: [],
-        },
-        _id: "62fa5e5e39836909d19797d3",
-        price: "98.9",
-        size: "2",
-        createdAt: "2022-08-15T14:55:26.209Z",
-        updatedAt: "2022-08-15T14:55:26.209Z",
-        __v: 0,
-      },
-    ],
-    categories: [],
-    createdAt: "2022-08-15T14:41:10.157Z",
-    updatedAt: "2022-08-15T14:55:26.296Z",
-    __v: 0,
-  },
-};
+// <h4 className={css.heading}>Headboard</h4>
+// {/* Headboard */}
+// <div className={css.grid}>
+//   {[{}].map((data: any, index) => {
+//     return (
+//       <React.Fragment key={index}>
+//         <Select
+//           name="ColorName"
+//           label="Type"
+//           options={[
+//             {
+//               text: "Color One",
+//               value: "Color One",
+//             },
+//             {
+//               text: "Color Two",
+//               value: "Color Two",
+//             },
+//             {
+//               text: "Color Three",
+//               value: "Color Three",
+//             },
+//             {
+//               text: "Color Four",
+//               value: "Color Four",
+//             },
+//           ]}
+//         />
+//         <Input
+//           name="productPrice"
+//           type="text"
+//           label="Price"
+//           placeholder="Enter product name"
+//         />
+//       </React.Fragment>
+//     );
+//   })}
+//   <AddMoreButton title="Add More Headboard" />
+// </div>
+// <h4 className={css.heading}>Storage</h4>
+// <div className={css.grid}>
+//   {[{}].map((data: any, index) => {
+//     return (
+//       <React.Fragment key={index}>
+//         <Select
+//           name="ColorName"
+//           label="Type"
+//           options={[
+//             {
+//               text: "Color One",
+//               value: "Color One",
+//             },
+//             {
+//               text: "Color Two",
+//               value: "Color Two",
+//             },
+//             {
+//               text: "Color Three",
+//               value: "Color Three",
+//             },
+//             {
+//               text: "Color Four",
+//               value: "Color Four",
+//             },
+//           ]}
+//         />
+//         <Input
+//           name="productPrice"
+//           type="text"
+//           label="Price"
+//           placeholder="Enter product name"
+//         />
+//       </React.Fragment>
+//     );
+//   })}
+//   <AddMoreButton title="Add More Storage" />
+// </div>
+// <h4 className={css.heading}>Feet</h4>
+// <div className={css.grid}>
+//   {[{}].map((data: any, index) => {
+//     return (
+//       <React.Fragment key={index}>
+//         <Select
+//           name="ColorName"
+//           label="Type"
+//           options={[
+//             {
+//               text: "Color One",
+//               value: "Color One",
+//             },
+//             {
+//               text: "Color Two",
+//               value: "Color Two",
+//             },
+//             {
+//               text: "Color Three",
+//               value: "Color Three",
+//             },
+//             {
+//               text: "Color Four",
+//               value: "Color Four",
+//             },
+//           ]}
+//         />
+//         <Input
+//           name="productPrice"
+//           type="text"
+//           label="Price"
+//           placeholder="Enter product name"
+//         />
+//       </React.Fragment>
+//     );
+//   })}
+//   <AddMoreButton title="Add More Feet" />
+// </div>
+// <h4 className={css.heading}>Mattress</h4>
+// <div className={css.grid}>
+//   {[{}].map((data: any, index) => {
+//     return (
+//       <React.Fragment key={index}>
+//         <Select
+//           name="ColorName"
+//           label="Type"
+//           options={[
+//             {
+//               text: "Color One",
+//               value: "Color One",
+//             },
+//             {
+//               text: "Color Two",
+//               value: "Color Two",
+//             },
+//             {
+//               text: "Color Three",
+//               value: "Color Three",
+//             },
+//             {
+//               text: "Color Four",
+//               value: "Color Four",
+//             },
+//           ]}
+//         />
+//         <Input
+//           name="productPrice"
+//           type="text"
+//           label="Price"
+//           placeholder="Enter product name"
+//         />
+//       </React.Fragment>
+//     );
+//   })}
+//   <AddMoreButton title="Add More Mattress" />
+// </div>

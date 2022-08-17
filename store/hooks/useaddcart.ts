@@ -18,7 +18,7 @@ const useAddCart = () => {
     // ADD FROM CART
     const addToCart = React.useCallback((data: any) => {
         dispatch(addToCartSlice.actions.addToCart(data))
-        push(`/cart/${data?.id}`)
+        push(`/cart`)
     }, [dispatch])
     // ADD FROM CART
     const increaseQuantity = React.useCallback((id: any) => {

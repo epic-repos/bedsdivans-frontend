@@ -3,8 +3,10 @@ import { useState } from "react";
 import style from "styles/product/cart.module.scss";
 import Image from "next/image";
 import DeleteIcon from "icons/delete";
+import { NextPageWithLayout } from "typings/layout";
+import PerPageLayout from "layout/perpage";
 
-const Order = () => {
+const Order: NextPageWithLayout = () => {
   const [isActive1, setIsActive1] = useState(true);
   const [isActive2, setIsActive2] = useState(false);
   const [isActive3, setIsActive3] = useState(false);
@@ -231,3 +233,5 @@ const Order = () => {
 };
 
 export default Order;
+
+Order.getLayout = PerPageLayout;

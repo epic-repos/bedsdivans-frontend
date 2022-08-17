@@ -4,11 +4,12 @@ import Image from "next/image";
 import Head from "next/head";
 import Style from "../../styles/Mattressess/Mattressess.module.scss";
 import axios from "axios";
+import { NextPageWithLayout } from "typings/layout";
+import PerPageLayout from "layout/perpage";
 
 
-const NewProductPage = (props: any) => {
-  console.log(props.response)
-
+const MattressPage:NextPageWithLayout = (props: any) => {
+  
   return (
     <div>
       <div className={Style.mtrsBannr}>
@@ -476,8 +477,9 @@ const NewProductPage = (props: any) => {
     </div>
   );
 };
-export default NewProductPage;
+export default MattressPage;
 
+MattressPage.getLayout=PerPageLayout
 
 
 export async function getServerSideProps(context:any) {
