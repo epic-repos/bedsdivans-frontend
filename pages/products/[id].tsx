@@ -16,6 +16,7 @@ import { NextPageWithLayout } from "typings/layout";
 import PerPageLayout from "layout/perpage";
 
 import productsPayload from "data/products";
+import ColorIcon from "icons/color";
 
 /**
  * NEW PRODUCT PAGE
@@ -93,6 +94,7 @@ const NewProductPage: NextPageWithLayout = () => {
               {tabsArray.map((data, index) => (
                 <SideTabButton
                   key={index}
+                  // icon={data.icon}
                   onClick={() => onTabSelect(data.title)}
                   title={data.title}
                   isactive={data.title === tabs}
@@ -153,21 +155,27 @@ NewProductPage.getLayout = PerPageLayout;
 const tabsArray = [
   {
     title: "BedSize",
+    // icon:'P'
   },
   {
     title: "Color",
+    // icon:<ColorIcon />
   },
   {
     title: "HeadBoard",
+    // icon:'P'
   },
   {
     title: "Storage",
+    // icon:'P'
   },
   {
     title: "Feet",
+    // icon:'P'
   },
   {
     title: "Mattress",
+    // icon:'P'
   },
 ];
 

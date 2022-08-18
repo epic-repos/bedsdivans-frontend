@@ -469,8 +469,6 @@ ul {
   color: #2a2a2a !important;
 }
 
-
-
 .dimensionsbox {
   border: 5px solid #c1c1c1;
   display: flex;
@@ -479,22 +477,21 @@ ul {
   padding: 20px;
 }
 
-
 .dimensionsboxtable table {
   width: 100%;
   border: 1px solid #c1c1c1ba;
 }
 
-
-.dimensionsboxtable table tbody td ,.dimensionsboxtable table tbody th {
+.dimensionsboxtable table tbody td,
+.dimensionsboxtable table tbody th {
   padding: 10px 10px;
-  text-align:
-  center;
+  text-align: center;
   border-top: 1px solid #c1c1c1ba;
 }
 
-.dimensionsboxtable table tbody td ,.dimensionsboxtable table tbody th {
- border-bottom: 1px solid #c1c1c1ba;
+.dimensionsboxtable table tbody td,
+.dimensionsboxtable table tbody th {
+  border-bottom: 1px solid #c1c1c1ba;
 }
 
 img.NewProductPage_bannerimage___OEjc {
@@ -506,44 +503,49 @@ img.NewProductPage_bannerimage___OEjc {
   width: 100%;
 }
 
-.NewProductPage_banner__IFaBP span {width: 100% !important;height: auto !important;}
-
- 
+.NewProductPage_banner__IFaBP span {
+  width: 100% !important;
+  height: auto !important;
+}
 
 .faqsection ul {
   border-top: 1px solid #d1cbcb;
   padding-bottom: 0px !important;
-    padding-top: 20px !important;
+  padding-top: 20px !important;
 }
 
 .faqsection ul li.heading {
-    position: relative;
+  position: relative;
 }
 
 .faqsection ul li.heading .icon {
-    position: absolute;
-    right: 0;
+  position: absolute;
+  right: 0;
 }
 
 .faqsection ul li.heading h4 {
-    color: #000;
-    font-weight: 500;
-    font-size: 18px;
-    margin-bottom: 0px;
-    cursor: pointer;
+  color: #000;
+  font-weight: 500;
+  font-size: 18px;
+  margin-bottom: 0px;
+  cursor: pointer;
 }
 
- 
 .faqsection {
-    border-top: 1px solid #eee;
-    margin-top: 30px;
-    padding-top: 30px;
-    padding-bottom: 50px;
+  border-top: 1px solid #eee;
+  margin-top: 30px;
+  padding-top: 30px;
+  padding-bottom: 50px;
 }
 
 .faqsection h2 {
-    text-align: center;
-    margin-bottom: 30px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.home_box1__uE2FV img {
+  object-fit: cover;
+  object-fit: cover;
+  object-position: -63px;
 }
 
 
