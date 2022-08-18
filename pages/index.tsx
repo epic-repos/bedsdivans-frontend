@@ -267,8 +267,8 @@ const Home: NextPageWithLayout = (props: any) => {
                 <div key={index} className="col-3">
                   <div className={Style.box2}>
                     <img src={data.imageUrl} alt="image" />
-                    <h3>{data.heading}</h3>
-                    <p>{data.description}</p>
+                    <h3>Beds</h3>
+                    <p>Our range of beds come in single, double, king and super king sizes are crafted with superior memory foam that cradles your head and keeps your head and neck aligned even while you sleep on your side and prevents the head from sinking.</p>
                     <button
                     // onClick={() => router.push(`/products/${data.id}`)}
                     >
@@ -303,41 +303,50 @@ const Home: NextPageWithLayout = (props: any) => {
             <h2>Best-seller of the season</h2>
           </div>
           <div className="row">
-            {props.response.map((item: any, index: any) => {
-              return (
-                <div
+
+{
+  products.map((item , index)=>{
+    return(
+        <div
                   className="col-3"
                   key={index}
                   onClick={() =>
                     router.push(
-                      `/products/dbzbeds-grey-crushed-velvet-divan-bed-with-reinforced-base`
+                      `/products/${item.heading}`.replaceAll(" ","-").toLowerCase()
                     )
                   }
                 >
                   <div className={Style.box1}>
                     <Image
-                      src="/images/x.png"
+                      src={item.imageUrl}
                       alt="img"
                       width="600"
                       height="500"
                     />
                     <h2 className={Style.productname}>
                       DBZBeds Black Crushed Velvet Divan Bed With Reinforced
-                      Base{item.product_name}
+                      Base{item.heading}
                     </h2>
                     <div className={Style.trustpilot}>
                       <img src="/image/tru.png" alt="img" />
                     </div>
                     <p className={Style.price}>
-                      £600.00{"--" + item.price}
+                      {"£" + item.price}
                       <del>£800.00</del>
                       <span>10%off</span>
                     </p>
                     {/* <p>{item.description}</p> */}
                   </div>
                 </div>
+    )
+  })
+}
+            
+            {/* {props.response.map((item: any, index: any) => {
+              return (
+              
               );
-            })}
+            })} */}
 
             {/* <div className="col-3">
               <div className={Style.box1}>
@@ -888,7 +897,8 @@ export async function getServerSideProps(context: any) {
 const products = [
   {
     id: randomBytes(8).toString("hex"),
-    heading: `Beds`,
+    heading: `DBZBeds Black Crushed Velvet Divan Bed With Reinforced Base`,
+    price: `89`,
     imageUrl: `/images/x.png`,
     description: `  Our range of beds come in single, double, king and super
                       king sizes are crafted with superior memory foam that
@@ -899,6 +909,7 @@ const products = [
   {
     id: randomBytes(8).toString("hex"),
     heading: `Mattress`,
+    price: `99`,
     imageUrl: `/images/ss.png`,
     description: `  Memory foam Mattress topper provides an additional cushioning
                   to your regular memory foam mattress. The topper is made from
@@ -908,6 +919,7 @@ const products = [
   {
     id: randomBytes(8).toString("hex"),
     heading: `Headboard`,
+    price: `109`,
     imageUrl: `/images/cu.jpg`,
     description: `  Our range of beds come in single, double, king and super king
                   sizes are crafted with superior memory foam that cradles your
@@ -917,6 +929,7 @@ const products = [
   {
     id: randomBytes(8).toString("hex"),
     heading: `Garden Furniture`,
+    price: `129`,
     imageUrl: `/images/jkk.jpg`,
     description: ` Our range of beds come in single, double, king and super king
                   sizes are crafted with superior memory foam that cradles your
