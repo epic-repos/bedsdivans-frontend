@@ -330,6 +330,7 @@
     color: #000;
     border-bottom: 2px solid transparent;
     cursor: pointer;
+    font-weight: 400;
   }
 }
 .tabconatiner{
@@ -347,3 +348,98 @@
     line-height: 21px;
   }
 }
+
+
+// dropdownload 
+
+// dropdown list
+.dropdownlist {
+  position: relative;
+  max-width: 300px;
+  margin-bottom: 30px;
+  .selectname {
+    &:before {
+      content: "▼";
+      bottom: 0;
+      position: absolute;
+      right: 15px;
+      font-size: 12px;
+      display: flex;
+      line-height: 1em;
+      align-items: center;
+      justify-items: center;
+      height: 32px;
+      width: 10px;
+    }
+    
+    &:after {
+      content: "▲";
+      top: 0;
+      position: absolute;
+      right: 15px;
+      font-size: 12px;
+      display: flex;
+      line-height: 1em;
+      align-items: center;
+      justify-items: center;
+      height: 32px;
+      width: 10px;
+    }
+    height: 100%;
+    padding: 10px;
+    font-size: 18px;
+    line-height: 1em;
+    font-weight: 500;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 51px;
+    background-color: #fff;
+    color: #3a356d;
+    padding: 10px 20px;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-radius: 4px;
+    border: 2px solid #d7d6db;
+    -webkit-transition: border-color .5s ease-in-out;
+    transition: border-color .5s ease-in-out;
+    cursor: pointer;
+    
+    }
+    ul {
+      /* margin: 0; */
+      position: absolute;
+      z-index: 999;
+      background: #fff;
+      width: 99%;
+      left: 2px;
+      padding: 20px;
+      padding-left: 20px !important;
+      box-shadow: 0px 7px 8px 2px #cfcccc;
+      border-radius: 0px 0px 10px 10px;
+      li {
+        border: 2px solid #d7d6db;
+        -webkit-transition: border-color .5s ease-in-out;
+        transition: border-color .5s ease-in-out;
+        width: 100%;
+        margin-top: 10px;
+        font-size: 15px;
+        line-height: 1em;
+        padding: 10px 10px;
+        border-radius: 4px;
+        background: #e7e7e7bd;
+        cursor: pointer;
+      }
+      li:first-child {
+        margin-top: 0px;
+      }
+  }
+}
+
+ 
+
