@@ -324,8 +324,7 @@ const Home: NextPageWithLayout = (props: any) => {
                       height="500"
                     />
                     <h2 className={Style.productname}>
-                      DBZBeds Black Crushed Velvet Divan Bed With Reinforced
-                      Base{item.heading}
+                      {item.heading}
                     </h2>
                     <div className={Style.trustpilot}>
                       <img src="/image/tru.png" alt="img" />
@@ -897,9 +896,9 @@ export async function getServerSideProps(context: any) {
 const products = [
   {
     id: randomBytes(8).toString("hex"),
-    heading: `DBZBeds Black Crushed Velvet Divan Bed With Reinforced Base`,
-    price: `89`,
-    imageUrl: `/images/x.png`,
+    heading: `DBZBeds Grey Linen Divan Bed Set With 3 Panel Headboard`,
+    price: `179`,
+    imageUrl: `/product/color4ft/greylinen.png`,
     description: `  Our range of beds come in single, double, king and super
                       king sizes are crafted with superior memory foam that
                       cradles your head and keeps your head and neck aligned
@@ -908,9 +907,9 @@ const products = [
   },
   {
     id: randomBytes(8).toString("hex"),
-    heading: `Mattress`,
-    price: `99`,
-    imageUrl: `/images/ss.png`,
+    heading: `DBZBeds Blue Plush Divan Bed Set With 3 Panel Headboard`,
+    price: `179`,
+    imageUrl: `/product/color4ft/blueplush.png`,
     description: `  Memory foam Mattress topper provides an additional cushioning
                   to your regular memory foam mattress. The topper is made from
                   one inch gel foam which is to be placed above the memory foam
@@ -918,9 +917,9 @@ const products = [
   },
   {
     id: randomBytes(8).toString("hex"),
-    heading: `Headboard`,
-    price: `109`,
-    imageUrl: `/images/cu.jpg`,
+    heading: `DBZBeds Black Crushed Divan Bed Set With 3 Panel Headboard`,
+    price: `179`,
+    imageUrl: `/product/color4ft/blackcrushed.png`,
     description: `  Our range of beds come in single, double, king and super king
                   sizes are crafted with superior memory foam that cradles your
                   head and keeps your head and neck aligned even while you sleep
@@ -928,9 +927,9 @@ const products = [
   },
   {
     id: randomBytes(8).toString("hex"),
-    heading: `Garden Furniture`,
-    price: `129`,
-    imageUrl: `/images/jkk.jpg`,
+    heading: `Cream Chanille Divan Bed Set With 3 Panel Headboard`,
+    price: `179`,
+    imageUrl: `/product/color4ft/creamchenille.png`,
     description: ` Our range of beds come in single, double, king and super king
                   sizes are crafted with superior memory foam that cradles your
                   head and keeps your head and neck aligned even while you sleep
