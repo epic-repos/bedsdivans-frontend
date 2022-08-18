@@ -542,3 +542,36 @@ section.qualityproducts {
     margin-bottom: 0 !important;
   }
 }
+
+
+.productimage {
+  position: relative;
+  ul {
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    z-index: 99999;
+    display: flex;
+    gap: 8px;
+    li {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid #fff;
+      cursor: pointer;
+      -webkit-box-shadow: 0 2px 3px 0 rgb(58 53 109 / 25%);
+      box-shadow: 0 2px 3px 0 rgb(58 53 109 / 25%);
+      position: relative;
+      padding: 0;
+      img {
+        object-fit: cover;
+        object-position: 0px;
+        width: 100% !important;
+        height: 100% !important;
+        top: -2px;
+        position: relative;
+      }
+    }
+  }
+}

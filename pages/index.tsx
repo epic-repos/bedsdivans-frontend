@@ -268,7 +268,13 @@ const Home: NextPageWithLayout = (props: any) => {
                   <div className={Style.box2}>
                     <img src={data.imageUrl} alt="image" />
                     <h3>Beds</h3>
-                    <p>Our range of beds come in single, double, king and super king sizes are crafted with superior memory foam that cradles your head and keeps your head and neck aligned even while you sleep on your side and prevents the head from sinking.</p>
+                    <p>
+                      Our range of beds come in single, double, king and super
+                      king sizes are crafted with superior memory foam that
+                      cradles your head and keeps your head and neck aligned
+                      even while you sleep on your side and prevents the head
+                      from sinking.
+                    </p>
                     <button
                     // onClick={() => router.push(`/products/${data.id}`)}
                     >
@@ -303,29 +309,47 @@ const Home: NextPageWithLayout = (props: any) => {
             <h2>Best-seller of the season</h2>
           </div>
           <div className="row">
-
-{
-  products.map((item , index)=>{
-    return(
-        <div
+            {products.map((item, index) => {
+              return (
+                <div
                   className="col-3"
                   key={index}
                   onClick={() =>
                     router.push(
-                      `/products/${item.heading}`.replaceAll(" ","-").toLowerCase()
+                      `/products/${item.heading}`
+                        .replaceAll(" ", "-")
+                        .toLowerCase()
                     )
                   }
                 >
                   <div className={Style.box1}>
-                    <Image
-                      src={item.imageUrl}
-                      alt="img"
-                      width="600"
-                      height="500"
-                    />
-                    <h2 className={Style.productname}>
-                      {item.heading}
-                    </h2>
+                    <div className={Style.productimage}>
+                      <Image
+                        src={item.imageUrl}
+                        alt="img"
+                        width="600"
+                        height="500"
+                      />
+                      <ul>
+                        <li>
+                          <img
+                            src="bedscolor/1.jpg"
+                            alt="img"
+                            width="50"
+                            height="50"
+                          />
+                        </li>
+                        <li>
+                          <img
+                            src="bedscolor/2.jpg"
+                            alt="img"
+                            width="50"
+                            height="50"
+                          />
+                        </li>
+                      </ul>
+                    </div>
+                    <h2 className={Style.productname}>{item.heading}</h2>
                     <div className={Style.trustpilot}>
                       <img src="/image/tru.png" alt="img" />
                     </div>
@@ -337,10 +361,9 @@ const Home: NextPageWithLayout = (props: any) => {
                     {/* <p>{item.description}</p> */}
                   </div>
                 </div>
-    )
-  })
-}
-            
+              );
+            })}
+
             {/* {props.response.map((item: any, index: any) => {
               return (
               
