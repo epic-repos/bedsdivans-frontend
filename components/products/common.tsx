@@ -4,7 +4,7 @@ import { BedSizeProps } from "typings/product";
 import styles from "styles/NewProductPage.module.scss";
 
 const CommonForBed = (props: BedSizeProps) => {
-  const { value, items, onClickItem } = React.useMemo(() => props, [props]);
+  const { value, items, onClickItem } = props;
 
   return (
     <React.Fragment>
