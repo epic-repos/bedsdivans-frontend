@@ -46,11 +46,6 @@ const adminSlice = {
                     ...state,
                     [action.payload.name]: action.payload.value,
                 };
-            // case "AddVariants":
-            //     return {
-            //         ...state,
-            //         variants: action.payload
-            //     }
             default:
                 return state;
         }
@@ -141,26 +136,3 @@ const dynamicFieldsSlice = {
 }
 
 export { dynamicFieldsSlice }
-
-
-
-//   const handleAddMoreFields = () => {
-//     setInputFields({
-//       type: "add",
-//       payload: { value: null }
-//     });
-//   };
-
-//   const handleRemoveField = (index:number) => {
-//     setInputFields({
-//       type: "remove",
-//       payload: { index: index }
-//     });
-//   };
-
-//   const handleFieldValues = (i:number, event:E) => {
-//     setInputFields({
-//       type: "update",
-//       payload: { index: i, value: event.target.value }
-//     });
-//   };
