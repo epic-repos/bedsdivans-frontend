@@ -24,19 +24,25 @@ import ColorIcon from "icons/color";
  */
 const NewProductPage: NextPageWithLayout = () => {
   const router = useRouter();
+
+  // @ts-expect-error
+  const dynamicData = productsPayload[router?.query?.id];
+
+  console.log({ dynamicData });
+
   const { addToCart, cartState } = useAddCart();
   const [tabs, setTabs] = React.useState("BedSize");
   const { bedState } = useSelectBed();
 
-  const [currentBed, setCurrentBed] = React.useState<any>({});
+  // const [currentBed, setCurrentBed] = React.useState<any>({});
 
-  React.useEffect(() => {
-    const currentProduct = cartState.cartItems.find(
-      (item) => Number(item.id) === Number(router.query.id)
-    );
-    setCurrentBed(currentProduct);
-    console.log({ currentBed });
-  }, [cartState]);
+  // React.useEffect(() => {
+  //   const currentProduct = cartState.cartItems.find(
+  //     (item) => Number(item.id) === Number(router.query.id)
+  //   );
+  //   setCurrentBed(currentProduct);
+  //   // console.log({ currentBed });
+  // }, [cartState]);
 
   const onTabSelect = React.useCallback(
     (value: string) => {
@@ -88,7 +94,7 @@ const NewProductPage: NextPageWithLayout = () => {
       <div className={styles.imageContainer}>
         <img src={bedState.bedImage} alt="Bed Image" className={styles.image} />
         <div className={styles.container}>
-          <h3 className={styles.productName}>{productsPayload.name}</h3>
+          <h3 className={styles.productName}>{dynamicData?.name}</h3>
           <div className={styles.item1}>
             <div className={styles.left}>
               {tabsArray.map((data, index) => (
@@ -107,7 +113,7 @@ const NewProductPage: NextPageWithLayout = () => {
                 onClickNext={onClickNext}
               />
               {/* DYNAMIC TABS  */}
-              <BedsTabs productsPayload={productsPayload} tabName={tabs} />
+              <BedsTabs productsPayload={dynamicData} tabName={tabs} />
             </div>
           </div>
           <div className={styles.item2}>
