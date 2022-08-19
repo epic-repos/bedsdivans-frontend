@@ -23,7 +23,6 @@ const BedsTabs = ({ tabName, productsPayload }: BedsTabsProps) => {
 
   // LIKE API DATA
 
-  console.log(bedState.bedSize);
   // RENDER TABS
   const RenderTabs = React.useMemo(() => {
     switch (tabName) {
@@ -43,7 +42,7 @@ const BedsTabs = ({ tabName, productsPayload }: BedsTabsProps) => {
       case "Color":
         return (
           <CommonForBed
-            items={bedState.bed.bedColor}
+            items={bedState.selectedBedData.bedColor}
             value={bedState.bedColor}
             onClickItem={(data) => {
               setBedColor(data.content);
@@ -55,7 +54,7 @@ const BedsTabs = ({ tabName, productsPayload }: BedsTabsProps) => {
       case "HeadBoard":
         return (
           <CommonForBed
-            items={bedState.bed.bedHeadBoard}
+            items={bedState.selectedBedData.bedHeadBoard}
             value={bedState.bedHeadBoard}
             onClickItem={(data) => {
               setBedHeadBoard(data.content);
@@ -67,7 +66,7 @@ const BedsTabs = ({ tabName, productsPayload }: BedsTabsProps) => {
       case "Storage":
         return (
           <CommonForBed
-            items={bedState.bed.bedStorage}
+            items={bedState.selectedBedData.bedStorage}
             value={bedState.bedStorage}
             onClickItem={(data) => {
               setBedStorage(data.content);
@@ -79,7 +78,7 @@ const BedsTabs = ({ tabName, productsPayload }: BedsTabsProps) => {
       case "Feet":
         return (
           <CommonForBed
-            items={bedState.bed.bedFeet}
+            items={bedState.selectedBedData.bedFeet}
             value={bedState.bedFeet}
             onClickItem={(data) => {
               setBedFeet(data.content);
@@ -90,7 +89,7 @@ const BedsTabs = ({ tabName, productsPayload }: BedsTabsProps) => {
       case "Mattress":
         return (
           <CommonForBed
-            items={bedState.bed.bedMatters}
+            items={bedState.selectedBedData.bedMatters}
             value={bedState.bedMatters}
             onClickItem={(data) => {
               setBedMatters(data.content);
