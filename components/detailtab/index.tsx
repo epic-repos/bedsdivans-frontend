@@ -16,6 +16,7 @@ const ProductDetailTab = ({ defaultTab, onTabClick }: P) => {
           style={{
             color: defaultTab === data.name ? " #ff7035" : "",
             borderBottomColor: defaultTab === data.name ? "#ff7035" : "",
+            fontWeight: defaultTab === data.name ? "500" : "",
           }}
         >
           {data.name}
