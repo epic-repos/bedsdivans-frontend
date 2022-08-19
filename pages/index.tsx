@@ -862,6 +862,7 @@ const Home: NextPageWithLayout = (props: any) => {
 export default Home;
 
 Home.getLayout = PerPageLayout;
+
 export async function getServerSideProps(context: any) {
   const { req } = context;
   const size = req?.__NEXT_INIT_QUERY?.size;

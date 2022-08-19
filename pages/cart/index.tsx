@@ -17,9 +17,7 @@ const publishableKey = `pk_live_51KUB2yLggtF42pbGuboggv7Gkpsk4f4pkcG72iqva8Eo74O
 
 const iconColor = "#777";
 
-
 const CartPage: NextPageWithLayout = () => {
-
   const {
     cartState: { cartItems },
     removeFromCart,
@@ -109,8 +107,7 @@ const CartPage: NextPageWithLayout = () => {
 
 export default CartPage;
 
-
-CartPage.getLayout=PerPageLayout
+CartPage.getLayout = PerPageLayout;
 
 CartPage.getLayout = PerPageLayout;
 
@@ -244,7 +241,7 @@ const PromoCode = ({ onCheckout }: any) => {
           </li>
 
           <li className={style.cartdetailedactions}>
-            <a onClick={onCheckout}>Proceed to checkout</a>
+            <a onClick={onCheckout}>Proceed to checkouts</a>
           </li>
         </ul>
       </div>
