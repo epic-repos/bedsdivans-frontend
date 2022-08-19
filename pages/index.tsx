@@ -66,7 +66,7 @@ const Home: NextPageWithLayout = (props: any) => {
       router.push(path);
       // console.log(item);
     },
-    [bedState]
+    [setBed]
   );
   return (
     <div>
@@ -943,7 +943,7 @@ const products = [
     id: randomBytes(8).toString("hex"),
     heading: `DBZBeds Cream Chanille Divan Bed Set With 3 Panel Headboard`,
     price: `179`,
-    imageUrl: `/product/color4ft/creamchenille.png`,
+    imageUrl: `/product/color4ft/creamchanille.png`,
     description: ` Our range of beds come in single, double, king and super king
                   sizes are crafted with superior memory foam that cradles your
                   head and keeps your head and neck aligned even while you sleep
