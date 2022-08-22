@@ -1,6 +1,6 @@
 import DeleteIcon from "icons/delete";
 import css from "styles/admin.module.scss";
-import { S } from "./types";
+import { S } from "../types";
 
 const Select = ({ options, label, onDelete, deletable, error, ...rest }: S) => {
   return (
@@ -13,12 +13,12 @@ const Select = ({ options, label, onDelete, deletable, error, ...rest }: S) => {
               {d.text}
             </option>
           ))}
-          {deletable ? (
-            <i title="Delete" onClick={onDelete}>
-              <DeleteIcon height={18} width={18} />
-            </i>
-          ) : null}
         </select>
+        {deletable ? (
+          <i title="Delete" onClick={onDelete}>
+            <DeleteIcon height={18} width={18} />
+          </i>
+        ) : null}
       </div>
       {error ? <span className={css.error}>{error}</span> : null}
     </div>

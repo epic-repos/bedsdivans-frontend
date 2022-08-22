@@ -1,13 +1,13 @@
 import DeleteIcon from "icons/delete";
 import css from "styles/admin.module.scss";
-import { FP } from "./types";
+import { I } from "../types";
 
-const FilePicker = ({ label, deletable, error, onDelete, ...rest }: FP) => {
+const Input = ({ label, onDelete, deletable, error, ...rest }: I) => {
   return (
     <div className={css.input}>
       <label>{label}</label>
       <div className={css.field}>
-        <input type="file" accept="image/*" {...rest} />
+        <input {...rest} />
         {deletable ? (
           <i title="Delete" onClick={onDelete}>
             <DeleteIcon height={18} width={18} />
@@ -18,4 +18,5 @@ const FilePicker = ({ label, deletable, error, onDelete, ...rest }: FP) => {
     </div>
   );
 };
-export default FilePicker;
+
+export default Input;

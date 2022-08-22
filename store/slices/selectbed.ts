@@ -23,6 +23,9 @@ const initialState: BedTypes = {
   bedMatters: "no matters",
   bedImage: "/product/color/greylinen.png",
   bedPrice: "£89",
+
+
+
   selectedBedData: {
     content: `(2'6" x 6')- Small Single`,
     iconUrl:

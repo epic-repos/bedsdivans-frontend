@@ -2,9 +2,7 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @next/next/no-img-element */
 import React, { useState } from "react";
-import Image from "next/image";
-import NextSEO from "layout/nextseo";
-import Style from "styles/HomePage/home.module.scss";
+import Style from "styles/home.module.scss";
 import styles from "styles/NewProductPage.module.scss";
 import ProductDetailTab from "components/detailtab";
 import AddIcon from "icons/add";

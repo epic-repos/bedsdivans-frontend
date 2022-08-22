@@ -11,34 +11,45 @@ interface ActionTypes {
     [key: string]: any
 }
 
-const obj = {
-    index: 0,
-    // name: null,
-    // value: null,
-    // image: null
+interface StateTypes {
+    id: string;
+    color: any
+    image: any
+    [key: string]: any
 }
 
-const initialState = [{ ...obj }]
+const initialState: StateTypes[] = [
+    {
+        id: 'g6s3yG',
+        color: 'blue-plus',
+        image: 'base64'
+    },
+]
 
 const inputfieldSlice = {
     initialState,
-    reducer: (state: any[], action: ActionTypes) => {
-
+    reducer: (state: StateTypes[], action: ActionTypes) => {
         switch (action.type) {
             case ADD:
                 return [...state, action.payload];
             case REMOVE:
-                // state.splice(action.payload.id, 1);
-                return state.filter((data) => data.index !== action.payload)
+                return state.filter((data) => data.id !== action.payload)
             case UPDATE:
-                state[action.payload.index] = action.payload.value;
-                return [...state];
+                const finder = state.find((data) => data.id === action.payload.id)
+                if (finder) {
+                    finder.color = action.payload.color
+                    finder.image = action.payload.image
+                }
+                else {
+                    return [...state, action.payload];
+
+                }
             default:
                 return state;
         }
     },
     actions: {
-        addField: () => ({ type: ADD, payload: { ...obj, index: obj.index + 1 } }),
+        addField: () => ({ type: ADD, payload: { id: nanoid(6) } }),
         removeField: (payload: any) => ({ type: REMOVE, payload: payload }),
         updateField: (payload: any) => ({ type: UPDATE, payload: payload }),
     },

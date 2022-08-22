@@ -1,4 +1,4 @@
-import { T } from "./types";
+import { T } from "../types";
 import css from "styles/admin.module.scss";
 import DeleteIcon from "icons/delete";
 
