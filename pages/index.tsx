@@ -14,8 +14,6 @@ import { NextPageWithLayout } from "typings/layout";
 import PerPageLayout from "layout/perpage";
 import { randomBytes } from "crypto";
 import router from "next/router";
-import firstScreenProduct from "data/product-index";
-import useSelectBed from "store/hooks/useselectbed";
 
 const Home: NextPageWithLayout = (props: any) => {
   const settings = {
@@ -54,20 +52,6 @@ const Home: NextPageWithLayout = (props: any) => {
     ],
   };
 
-  // FOR
-
-  const { setBed, bedState } = useSelectBed();
-  const onClickProduct = React.useCallback(
-    (item: any) => {
-      const path = `/products/${item.heading}`
-        .replaceAll(" ", "-")
-        .toLowerCase();
-      setBed(item);
-      router.push(path);
-      // console.log(item);
-    },
-    [bedState]
-  );
   return (
     <div>
       <NextSEO title={"DBZBeds"} />
@@ -325,20 +309,46 @@ const Home: NextPageWithLayout = (props: any) => {
             <h2>Best-seller of the season</h2>
           </div>
           <div className="row">
-            {firstScreenProduct.map((item, index) => {
+            {products.map((item, index) => {
               return (
                 <div
                   className="col-3"
                   key={index}
-                  onClick={() => onClickProduct(item)}
+                  onClick={() =>
+                    router.push(
+                      `/products/${item.heading}`
+                        .replaceAll(" ", "-")
+                        .toLowerCase()
+                    )
+                  }
                 >
                   <div className={Style.box1}>
-                    <Image
-                      src={item.imageUrl}
-                      alt="img"
-                      width="600"
-                      height="500"
-                    />
+                    <div className={Style.productimage}>
+                      <Image
+                        src={item.imageUrl}
+                        alt="img"
+                        width="600"
+                        height="500"
+                      />
+                      <ul>
+                        <li>
+                          <img
+                            src="bedscolor/1.jpg"
+                            alt="img"
+                            width="50"
+                            height="50"
+                          />
+                        </li>
+                        <li>
+                          <img
+                            src="bedscolor/2.jpg"
+                            alt="img"
+                            width="50"
+                            height="50"
+                          />
+                        </li>
+                      </ul>
+                    </div>
                     <h2 className={Style.productname}>{item.heading}</h2>
                     <div className={Style.trustpilot}>
                       <img src="/image/tru.png" alt="img" />
@@ -933,14 +943,14 @@ const products = [
     heading: `DBZBeds Black Crushed Divan Bed Set With 3 Panel Headboard`,
     price: `179`,
     imageUrl: `/product/color4ft/blackcrushed.png`,
-    description: `Our range of beds come in single, double, king and super king
+    description: `  Our range of beds come in single, double, king and super king
                   sizes are crafted with superior memory foam that cradles your
                   head and keeps your head and neck aligned even while you sleep
                   on your side and prevents the head from sinking.`,
   },
   {
     id: randomBytes(8).toString("hex"),
-    heading: `DBZBeds Cream Chanille Divan Bed Set With 3 Panel Headboard`,
+    heading: `Cream Chanille Divan Bed Set With 3 Panel Headboard`,
     price: `179`,
     imageUrl: `/product/color4ft/creamchenille.png`,
     description: ` Our range of beds come in single, double, king and super king
