@@ -10,13 +10,11 @@ import SideTabButton from "components/products/tabbutton";
 import ContentHeader from "components/products/contentheader";
 // ARRAY
 import BedsTabs from "./tabs";
-import useAddCart from "store/hooks/useaddcart";
 import { useRouter } from "next/router";
-import { NextPageWithLayout } from "typings/layout";
 import PerPageLayout from "layout/perpage";
-
 import productsPayload from "data/products";
-import ColorIcon from "icons/color";
+import useAddCart from "store/hooks/useaddcart";
+import { NextPageWithLayout } from "typings/layout";
 
 /**
  * NEW PRODUCT PAGE
@@ -86,6 +84,8 @@ const NewProductPage: NextPageWithLayout = () => {
       matters: bedState.bedMatters,
     },
   };
+
+  // console.log(bedState.selectedBedData.imageUrl);
 
   return (
     <React.Fragment>
@@ -184,43 +184,6 @@ const tabsArray = [
     // icon:'P'
   },
 ];
-
-const dataTata = {
-  name: "",
-  category: "",
-  description: "",
-  beds: [
-    {
-      size: {
-        size: "",
-        icon_url: "",
-      },
-      color: [{ colorname: "", colorimage: "" }],
-      price: "",
-      storage: [
-        {
-          price: "",
-          icon_url: "",
-          category: "",
-        },
-      ],
-      headboard: [
-        {
-          price: "",
-          icon_url: "",
-          category: "",
-        },
-      ],
-      mattress: [
-        {
-          price: "",
-          icon_url: "",
-          category: "",
-        },
-      ],
-    },
-  ],
-};
 
 // export async function getServerSideProps({ query }: GetServerSidePropsContext) {
 //   const id = query.id;

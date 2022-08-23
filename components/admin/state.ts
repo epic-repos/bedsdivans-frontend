@@ -46,11 +46,6 @@ const adminSlice = {
                     ...state,
                     [action.payload.name]: action.payload.value,
                 };
-            // case "AddVariants":
-            //     return {
-            //         ...state,
-            //         variants: action.payload
-            //     }
             default:
                 return state;
         }
@@ -68,99 +63,76 @@ export default adminSlice;
 
 
 
-const x = {
-    data: {
-        _id: "62fa5b0682d30bb5709e4775",
-        name: "Product Test One  ",
-        description: "Product Test One =====  ",
-        variants: [
-            {
-                accessories: {
-                    color: [
-                        {
-                            name: "gray",
-                            image: "/test.png",
-                            _id: "62fa5e5e39836909d19797d4",
-                        },
-                        {
-                            name: "black",
-                            image: "/test.png",
-                            _id: "62fa5e5e39836909d19797d5",
-                        },
-                    ],
-                    storage: [],
-                    feet: [],
-                    headboard: [],
-                    mattress: [],
-                },
-                _id: "62fa5e5e39836909d19797d3",
-                price: "98.9",
-                size: "2",
-                createdAt: "2022-08-15T14:55:26.209Z",
-                updatedAt: "2022-08-15T14:55:26.209Z",
-                __v: 0,
-            },
-        ],
-        categories: [],
-        createdAt: "2022-08-15T14:41:10.157Z",
-        updatedAt: "2022-08-15T14:55:26.296Z",
-        __v: 0,
-    },
-};
+// const x = {
+//     data: {
+//         _id: "62fa5b0682d30bb5709e4775",
+//         name: "Product Test One  ",
+//         description: "Product Test One =====  ",
+//         variants: [
+//             {
+//                 accessories: {
+//                     color: [
+//                         {
+//                             name: "gray",
+//                             image: "/test.png",
+//                             _id: "62fa5e5e39836909d19797d4",
+//                         },
+//                         {
+//                             name: "black",
+//                             image: "/test.png",
+//                             _id: "62fa5e5e39836909d19797d5",
+//                         },
+//                     ],
+//                     storage: [],
+//                     feet: [],
+//                     headboard: [],
+//                     mattress: [],
+//                 },
+//                 _id: "62fa5e5e39836909d19797d3",
+//                 price: "98.9",
+//                 size: "2",
+//                 createdAt: "2022-08-15T14:55:26.209Z",
+//                 updatedAt: "2022-08-15T14:55:26.209Z",
+//                 __v: 0,
+//             },
+//         ],
+//         categories: [],
+//         createdAt: "2022-08-15T14:41:10.157Z",
+//         updatedAt: "2022-08-15T14:55:26.296Z",
+//         __v: 0,
+//     },
+// };
 
 
 
-const dynamicFieldsSlice = {
-    init: [
-        {}
-    ],
-    reducer: (state: any, action: ActionTypes) => {
-        switch (action.type) {
-            case "AddInputField":
-                return [...state, action.payload];
-            case "RemoveInputField":
-                // state.splice(action.payload.index, 1);
-                // return [...state];
-                return state.filter((data: any, index: number) => index !== action.payload.index)
-            case "UpdateInputField":
-                state[action.payload.index]["value"] = action.payload.value;
-                return [...state];
-            default:
-                return state;
-        }
-    },
+// const dynamicFieldsSlice = {
+//     init: [
+//         {}
+//     ],
+//     reducer: (state: any, action: ActionTypes) => {
+//         switch (action.type) {
+//             case "AddInputField":
+//                 return [...state, action.payload];
+//             case "RemoveInputField":
+//                 // state.splice(action.payload.index, 1);
+//                 // return [...state];
+//                 return state.filter((data: any, index: number) => index !== action.payload.index)
+//             case "UpdateInputField":
+//                 state[action.payload.index]["value"] = action.payload.value;
+//                 return [...state];
+//             default:
+//                 return state;
+//         }
+//     },
 
-    actions: {
-        AddInputField: (payload: any) =>
-            ({ type: 'AddInputField', payload: payload }),
-        RemoveInputField: (index: number) =>
-            ({ type: 'RemoveInputField', payload: index }),
-        UpdateInputField: (index: number, value: any) =>
-            ({ type: 'UpdateInputField', payload: { index: index, value: value } }),
-    }
-}
+//     actions: {
+//         AddInputField: (payload: any) =>
+//             ({ type: 'AddInputField', payload: payload }),
+//         RemoveInputField: (index: number) =>
+//             ({ type: 'RemoveInputField', payload: index }),
+//         UpdateInputField: (index: number, value: any) =>
+//             ({ type: 'UpdateInputField', payload: { index: index, value: value } }),
+//     }
+// }
 
-export { dynamicFieldsSlice }
-
-
-
-//   const handleAddMoreFields = () => {
-//     setInputFields({
-//       type: "add",
-//       payload: { value: null }
-//     });
-//   };
-
-//   const handleRemoveField = (index:number) => {
-//     setInputFields({
-//       type: "remove",
-//       payload: { index: index }
-//     });
-//   };
-
-//   const handleFieldValues = (i:number, event:E) => {
-//     setInputFields({
-//       type: "update",
-//       payload: { index: i, value: event.target.value }
-//     });
-//   };
+// export { dynamicFieldsSlice }

@@ -4,13 +4,19 @@ const stripe = new Stripe(process.env.SECRET_KEY);
 
 const CHECKOUT_SESSION_ID = 1234;
 
-export default async function handler(req, res) {
+export default async function handler(req, res, item) {
   if (req.method === "POST") {
     try {
       const session = await stripe.checkout.sessions.create({
         mode: "payment",
         payment_method_types: ["card"],
-        line_items: req?.body?.items ?? [],
+        line_items: req?.body?.items ?? [
+          {
+            price: req.body.price,
+            // For metered billing, do not pass quantity
+            quantity: 1,
+          },
+        ],
         success_url: `http://localhost:3000/checkout/${CHECKOUT_SESSION_ID}`,
         cancel_url: `http://localhost:3000/cart`,
       });

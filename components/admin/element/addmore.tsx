@@ -1,7 +1,7 @@
 import React from "react";
 import AddIcon from "icons/add";
 import css from "styles/admin.module.scss";
-import { Button } from "./types";
+import { Button } from "../types";
 
 const AddMoreButton = (props: Button) => {
   return (
