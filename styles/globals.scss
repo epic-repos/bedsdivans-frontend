@@ -15,7 +15,7 @@ ul {
 }
 
 a {
-  color: inherit !important;
+  color: inherit;
   text-decoration: none !important;
 }
 
@@ -53,11 +53,11 @@ a {
 }
 
 input {
-  font-family: "poppins";
+  font-family: "Inter", sans-serif;
 }
 
 button {
-  font-family: "poppins";
+  font-family: "Inter", sans-serif;
   cursor: pointer;
 }
 
@@ -70,25 +70,25 @@ img {
 }
 
 @font-face {
-  font-family: "poppins";
+  font-family: "Inter", sans-serif;
   src: url(/fonts/Poppins-Regular.ttf);
   font-weight: 400;
 }
 
 @font-face {
-  font-family: "poppins";
+  font-family: "Inter", sans-serif;
   src: url(/fonts/Poppins-Medium.ttf);
   font-weight: 500;
 }
 
 @font-face {
-  font-family: "poppins";
+  font-family: "Inter", sans-serif;
   src: url(/fonts/Poppins-SemiBold.ttf);
   font-weight: 600;
 }
 
 @font-face {
-  font-family: "poppins";
+  font-family: "Inter", sans-serif;
   src: url(/fonts/Poppins-Bold.ttf);
   font-weight: 700;
 }
