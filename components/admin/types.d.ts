@@ -13,7 +13,7 @@ interface I extends Common, React.ComponentPropsWithoutRef<"input"> { }
 interface T extends Common, React.ComponentPropsWithoutRef<"textarea"> { }
 
 interface S extends Common, React.ComponentPropsWithoutRef<"select"> {
-    options?: {
+    options: {
         text: any;
         value: any;
     }[];
