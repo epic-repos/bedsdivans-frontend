@@ -45,8 +45,8 @@ const Header = () => {
               <div className={Styles.mainlogo}>
                 <Link href="/">
                   <a>
-                <img src="/image/1.png" alt="imge" />
-                </a>
+                    <img src="/image/1.png" alt="imge" />
+                  </a>
                 </Link>
               </div>
             </div>
@@ -780,6 +780,53 @@ const Header = () => {
           </div>
         </div>
       </section>
+      <div>
+        <div className={Styles.header2}>
+          <div className={Styles.header1}>
+            <img src="/image/w.png" alt="img"  className={Styles.headerimage}/>
+            <img src="/image/e.png" alt="img"  className={Styles.headerimage}/>
+          </div>
+          <div className={Styles.secondbox1}>
+            <div> Contact Us</div>
+            <div> My account</div>
+          </div>
+        </div>
+        <div  className={Styles.cart3}>
+        <div className={Styles.moblogo}>
+               
+                    <img src="/image/1.png" alt="imge" width={91} height={40} />
+                  
+         </div>
+         <div className={Styles.carticon1}>
+               
+                    <div className={Styles.wishlist}>
+                    <img src="/image/search-icon.SVG" alt="icon" width={20} height={20}  className={Styles.iconstyle}/>
+                      <p className={Styles.pstyle}>search</p>
+                    </div>
+                  
+                    <div className={Styles.wishlist}>
+                      <Link href={"/cart"}>
+                        <a>
+                          <img src="/image/CART.SVG" alt="icon" width={20} height={20}   className={Styles.iconstyle} />
+                          <p className={Styles.pstyle}>My basket</p>
+                        </a>
+                      </Link>
+                    </div>
+                 
+                    <div className={Styles.wishlist}>
+                      <img src="/img/tyiu.svg" alt="icon" width={20} height={20}    className={Styles.iconstyle}/>
+                      <p className={Styles.pstyle}>My basket</p>
+                    </div>
+                    <div className={Styles.wishlist}>
+                      <img src="/image/menu-icon.svg"  alt="icon" width={20} height={20}    className={Styles.iconstyle}/>
+                      <p className={Styles.pstyle}>menu</p>
+                    </div>
+                 
+              </div>
+
+              
+        </div>
+      </div>
     </header>
   );
 };

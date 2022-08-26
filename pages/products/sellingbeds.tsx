@@ -79,10 +79,10 @@ const BestSellingBeds = () => {
             <div className={styles.box1}>
               <img src="/img/k.jpg" alt="img" width={258} height="210" />
               <h2 className={styles.productname}>
-                Pink Crushed Velvet single divan bed
+                Pink Crushed Velvet single divan beds
               </h2>
               <div className={styles.trustpilot}>
-                <img src="/image/tru.png" alt="img" />
+              <img src="/image/tru.png" alt="img" />
               </div>
               <p className={styles.price}>
                 £600.00<del>£800.00</del>
@@ -96,7 +96,7 @@ const BestSellingBeds = () => {
                 Pink Crushed Velvet single divan bed
               </h2>
               <div className={Style.trustpilot}>
-                <img src="/image/tru.png" alt="img" />
+              <img src="/image/tru.png" alt="img" />
               </div>
               <p className={styles.price}>
                 £600.00<del>£800.00</del>
@@ -110,7 +110,7 @@ const BestSellingBeds = () => {
                 Pink Crushed Velvet single divan bed
               </h2>
               <div className={styles.trustpilot}>
-                <img src="/image/tru.png" alt="img" />
+              <img src="/image/tru.png" alt="img" />
               </div>
               <p className={styles.price}>
                 £600.00<del>£800.00</del>
@@ -123,7 +123,7 @@ const BestSellingBeds = () => {
                 Pink Crushed Velvet single divan bed
               </h2>
               <div className={Style.trustpilot}>
-                <img src="/image/tru.png" alt="img" />
+              <img src="/image/tru.png" alt="img" />
               </div>
               <p className={styles.price}>
                 £600.00<del>£800.00</del>
