@@ -9,17 +9,19 @@ interface ProductType {
     price?: string;
 }
 
+
+interface AccessoriesTypes {
+    color: ProductType[];
+    storage: ProductType[];
+    feet: ProductType[];
+    headboard: ProductType[];
+    mattress: ProductType[];
+}
 interface VariantsTypes {
     _id: string;
     price: string | number;
     size: string | number;
-    accessories: {
-        color: ProductType[];
-        storage: ProductType[];
-        feet: ProductType[];
-        headboard: ProductType[];
-        mattress: ProductType[];
-    };
+    accessories: AccessoriesTypes;
 }
 
 export type Bed = {
@@ -37,4 +39,16 @@ export type BedResponse = {
     data: Bed[];
     totalPages: number;
     nextPage: number;
+}
+
+
+export type CreateBedVariantResponse = {
+    message: string;
+    data: VariantsTypes;
+}
+
+export type UploadBedImage = {
+    success: boolean;
+    message: string;
+    url: string
 }
