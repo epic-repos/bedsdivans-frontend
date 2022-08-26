@@ -6,7 +6,7 @@ import Styles from "styles/topheader.module.scss";
 
 const Header = () => {
   return (
-    <header className="desktop">
+    <header>
       <section className={Styles.mydiv}>
         <div className="container">
           <div className="row">
