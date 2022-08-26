@@ -17,7 +17,7 @@ const EditProductPage = () => {
   console.log(data);
   const router = useRouter();
   const goto = (id: string) => {
-    router.push(id);
+    router.push(`/admin/add-new-varient?id=${id}`);
   };
 
   return (

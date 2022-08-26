@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useEffect } from "react";
 import { GetServerSideProps } from "next";
 import { isValidObjectId } from "mongoose";
@@ -10,6 +11,9 @@ import Input from "components/admin/element/input";
 import Textarea from "components/admin/element/textarea";
 import { nanoid } from "@reduxjs/toolkit";
 import FilePicker from "components/admin/element/picker";
+import { bedSizeArray } from "constants/data/bed";
+import { useCreateNewBedVariant } from "network-requests/mutations";
+import { testpost, uploadBedImage } from "network-requests/api";
 
 interface AddNewVarientsProps {
   id: string;
@@ -17,73 +21,152 @@ interface AddNewVarientsProps {
 
 const AddNewVarients = ({ id }: AddNewVarientsProps) => {
   const initialFields = {
-    id: "ed3x",
+    id: "edasd3x",
     name: "",
-    image: "",
+    price: "",
   };
 
-  const [inputFields, setInputFields] = React.useState<any>([]);
-  const draft = [...inputFields];
-
-  const handleFieldsChange = (index: number, event: any) => {
+  const [colorInputs, setColorInputs] = React.useState<any>([
+    {
+      id: "EDF3x",
+      name: "",
+      image: "",
+    },
+  ]);
+  const colorDraft = [...colorInputs];
+  // CHANGE
+  const handleColorChange = (index: number, event: any) => {
     if (event.target.name === "image") {
       const file = event.target.files[0];
-      const blob = URL.createObjectURL(file);
-      draft[index][event.target.name] = blob;
+      // const blob = URL.createObjectURL(file);
+      colorDraft[index][event.target.name] = file;
+      setColorInputs(colorDraft);
     } else {
-      draft[index][event.target.name] = event.target.value;
+      colorDraft[index][event.target.name] = event.target.value;
+      setColorInputs(colorDraft);
     }
-    setInputFields(draft);
   };
-
-  const handleAddFields = () => {
+  console.log({ colorInputs });
+  // ADD
+  const handleAddColor = () => {
     const add = {
       ...initialFields,
       id: nanoid(4),
     };
-    setInputFields([...inputFields, add]);
+    setColorInputs([...colorInputs, add]);
   };
-
-  const handleFieldsRemove = (id: string) => {
+  // REMOVE
+  const handleRemoveColor = (id: string) => {
     if (id) {
-      const filter = draft.filter((v) => v.id !== id);
-      setInputFields(filter);
+      const filter = colorDraft.filter((v) => v.id !== id);
+      setColorInputs(filter);
+    }
+  };
+  /**
+ * Headboard
+Storage
+Feet
+Mattress
+ */
+
+  const [HeadboardInputs, setHeadboardInputs] = React.useState<any>([]);
+  const headboardDraft = [...HeadboardInputs];
+  // CHANGE
+  const handleHeadboardChange = (index: number, event: any) => {
+    headboardDraft[index][event.target.name] = event.target.value;
+    setHeadboardInputs(headboardDraft);
+  };
+  // ADD
+  const handleAddHeadboard = () => {
+    const add = {
+      ...initialFields,
+      id: nanoid(4),
+    };
+    setHeadboardInputs([...HeadboardInputs, add]);
+  };
+  // REMOVE
+  const handleRemoveHeadboard = (id: string) => {
+    if (id) {
+      const filter = headboardDraft.filter((v) => v.id !== id);
+      setHeadboardInputs(filter);
+    }
+  };
+  const [StorageInputs, setStorageInputs] = React.useState<any>([]);
+  const storageDraft = [...StorageInputs];
+  // CHANGE
+  const handleStorageChange = (index: number, event: any) => {
+    storageDraft[index][event.target.name] = event.target.value;
+    setStorageInputs(storageDraft);
+  };
+  // ADD
+  const handleAddStorage = () => {
+    const add = {
+      ...initialFields,
+      id: nanoid(4),
+    };
+    setStorageInputs([...StorageInputs, add]);
+  };
+  // REMOVE
+  const handleRemoveStorage = (id: string) => {
+    if (id) {
+      const filter = storageDraft.filter((v) => v.id !== id);
+      setStorageInputs(filter);
     }
   };
 
-  console.log({ inputFields });
+  /**
+   * Feet
+Mattress
+   */
+  const [FeetInputs, setFeetInputs] = React.useState<any>([]);
+  const feetDraft = [...FeetInputs];
+  // CHANGE
+  const handleFeetChange = (index: number, event: any) => {
+    feetDraft[index][event.target.name] = event.target.value;
+    setFeetInputs(feetDraft);
+  };
+  // ADD
+  const handleAddFeet = () => {
+    const add = {
+      ...initialFields,
+      id: nanoid(4),
+    };
+    setFeetInputs([...FeetInputs, add]);
+  };
+  // REMOVE
+  const handleRemoveFeet = (id: string) => {
+    if (id) {
+      const filter = feetDraft.filter((v) => v.id !== id);
+      setFeetInputs(filter);
+    }
+  };
+  const [MattressInputs, setMattressInputs] = React.useState<any>([]);
+  const mattressDraft = [...MattressInputs];
+  // CHANGE
+  const handleMattressChange = (index: number, event: any) => {
+    mattressDraft[index][event.target.name] = event.target.value;
+    setMattressInputs(mattressDraft);
+  };
+  // ADD
+  const handleAddMattress = () => {
+    const add = {
+      ...initialFields,
+      id: nanoid(4),
+    };
+    setMattressInputs([...MattressInputs, add]);
+  };
+  // REMOVE
+  const handleRemoveMattress = (id: string) => {
+    if (id) {
+      const filter = mattressDraft.filter((v) => v.id !== id);
+      setMattressInputs(filter);
+    }
+  };
 
+  // API SECTION
   const { data, isFetched } = useFetchBedById(id);
-  console.log({ data });
 
-  const initialSizes = [
-    {
-      text: 1,
-      value: 1,
-    },
-    {
-      text: 2,
-      value: 2,
-    },
-    {
-      text: 3,
-      value: 3,
-    },
-    {
-      text: 4,
-      value: 4,
-    },
-    {
-      text: 5,
-      value: 5,
-    },
-    {
-      text: 6,
-      value: 6,
-    },
-  ];
-
-  const [sizeData, setSizeData] = React.useState(initialSizes);
+  const [sizeData, setSizeData] = React.useState(bedSizeArray);
 
   useEffect(() => {
     const handleSizeOption = () => {
@@ -100,6 +183,72 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
     };
     void handleSizeOption();
   }, [isFetched]);
+
+  const blobToBase64 = (blob: Blob) => {
+    if (!blob) {
+      return;
+    }
+    if (typeof blob !== "undefined") {
+      const url = URL.createObjectURL(blob);
+      return url;
+    }
+    // return new Promise((resolve, reject) => {
+    //   const reader = new FileReader();
+    //   reader.onerror = reject;
+    //   reader.onload = () => {
+    //     resolve(reader.result);
+    //   };
+    //   reader.readAsDataURL(blob);
+    // });
+  };
+
+  const [currentInfo, setCurrentInfo] = React.useState({
+    size: "",
+    price: "",
+    image: null,
+  });
+
+  const currentInfoHandler = (e: any) => {
+    const { name, value, files } = e.target;
+    if (name === "image") {
+      setCurrentInfo({ ...currentInfo, [name]: files[0] });
+    } else {
+      setCurrentInfo({ ...currentInfo, [name]: value });
+    }
+  };
+
+  console.log({ currentInfo });
+  //API HANDLING
+
+  const { mutate } = useCreateNewBedVariant(id);
+
+  const handleProductUpload = async () => {
+    const baseImage = await uploadBedImage(
+      currentInfo.image as unknown as Blob
+    );
+
+    // const colorWithUrl = colorInputs.map(async (item: any) => {
+    //   const ii = await uploadBedImage(item.image as Blob);
+    //   return {
+    //     name: item.name,
+    //     image: ii,
+    //   };
+    // });
+
+    // console.log({ baseImage });
+    // console.log({ colorWithUrl });
+
+    const test = await testpost();
+    console.log({ test, baseImage, blob: currentInfo.image });
+
+    // mutate({
+    //   color: await colorWithUrl,
+    //   storage: StorageInputs,
+    //   feet: FeetInputs,
+    //   headboard: HeadboardInputs,
+    //   mattress: MattressInputs,
+    // });
+  };
 
   return (
     <AdminLayout>
@@ -121,7 +270,7 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
           // onChange={onChangeInputs}
         />
       </div>
-      <h4>SIZES</h4>
+      <h4>NOT AVAILABLE SIZES</h4>
       <div className={css.grid}>
         {data?.variants.map((variant) => {
           return (
@@ -131,42 +280,42 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
           );
         })}
       </div>
-      <Select label={"Select Size"} options={sizeData} />
+      {/* <Select label={"Select Size"} options={sizeData} /> */}
 
       <h4 className={css.heading}>Price and Size</h4>
       <div className={css.grid3}>
         <Select
           name="size"
           label="Product Size"
-          // onChange={onChangeInputs}
-          options={sizeArray}
+          onChange={currentInfoHandler}
+          options={sizeData}
         />
         <Input
           name="price"
           type="number"
           label="Product Price"
           placeholder="Enter product name"
-          // onChange={onChangeInputs}
+          onChange={currentInfoHandler}
         />
         <FilePicker
           name="image"
           type="file"
           label="Color Image"
           placeholder="Enter product name"
-          // onChange={({ target }) => colorHandler(target.name, target.files)}
+          onChange={currentInfoHandler}
         />
       </div>
       {/* Dynamic Fields */}
       <h4 className={css.heading}>Color</h4>
       <div className={css.grid}>
-        {inputFields.map((data: any, index: number) => {
+        {colorInputs.map((data: any, index: number) => {
           return (
             <React.Fragment key={index}>
               <Select
                 name="name"
                 label="Color Name"
                 options={colorArray}
-                onChange={(e) => handleFieldsChange(index, e)}
+                onChange={(e) => handleColorChange(index, e)}
                 value={data?.name}
               />
               <FilePicker
@@ -174,22 +323,29 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
                 type="file"
                 label="Color Image"
                 placeholder="Enter product name"
-                onChange={(e) => handleFieldsChange(index, e)}
+                onChange={(e) => handleColorChange(index, e)}
                 deletable
-                onDelete={() => handleFieldsRemove(data.id)}
+                onDelete={() => handleRemoveColor(data.id)}
               />
-              {/* <img src={data?.image} alt="selected-image" /> */}
+              <img
+                style={{
+                  height: "100px",
+                  borderRadius: "4px",
+                  objectFit: "contain",
+                }}
+                src={blobToBase64(data?.image)}
+                alt="selected-image"
+              />
             </React.Fragment>
           );
         })}
-
-        <AddMoreButton onClick={handleAddFields} title="Add More Color" />
+        <AddMoreButton onClick={handleAddColor} title="Add More Color" />
       </div>
 
       <h4 className={css.heading}>Headboard</h4>
       {/* Headboard */}
       <div className={css.grid}>
-        {[{}].map((data: any, index) => {
+        {HeadboardInputs.map((data: any, index: number) => {
           return (
             <React.Fragment key={index}>
               <Select
@@ -213,22 +369,28 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
                     value: "Color Four",
                   },
                 ]}
+                onChange={(e) => handleHeadboardChange(index, e)}
               />
               <Input
                 name="productPrice"
-                type="text"
+                type="number"
                 label="Price"
                 placeholder="Enter product name"
+                onChange={(e) => handleHeadboardChange(index, e)}
                 deletable
+                onDelete={() => handleRemoveHeadboard(data.id)}
               />
             </React.Fragment>
           );
         })}
-        <AddMoreButton title="Add More Headboard" />
+        <AddMoreButton
+          onClick={handleAddHeadboard}
+          title="Add More Headboard"
+        />
       </div>
       <h4 className={css.heading}>Storage</h4>
       <div className={css.grid}>
-        {[{}].map((data: any, index) => {
+        {StorageInputs.map((data: any, index: number) => {
           return (
             <React.Fragment key={index}>
               <Select
@@ -252,22 +414,25 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
                     value: "Color Four",
                   },
                 ]}
+                onChange={(e) => handleStorageChange(index, e)}
               />
               <Input
                 name="productPrice"
-                type="text"
+                type="number"
                 label="Price"
                 placeholder="Enter product name"
                 deletable
+                onChange={(e) => handleStorageChange(index, e)}
+                onDelete={() => handleRemoveStorage(data.id)}
               />
             </React.Fragment>
           );
         })}
-        <AddMoreButton title="Add More Storage" />
+        <AddMoreButton onClick={handleAddStorage} title="Add More Storage" />
       </div>
       <h4 className={css.heading}>Feet</h4>
       <div className={css.grid}>
-        {[{}].map((data: any, index) => {
+        {FeetInputs.map((data: any, index: number) => {
           return (
             <React.Fragment key={index}>
               <Select
@@ -291,22 +456,25 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
                     value: "Color Four",
                   },
                 ]}
+                onChange={(e) => handleFeetChange(index, e)}
               />
               <Input
                 name="productPrice"
-                type="text"
+                type="number"
                 label="Price"
                 placeholder="Enter product name"
                 deletable
+                onChange={(e) => handleFeetChange(index, e)}
+                onDelete={() => handleRemoveFeet(data.id)}
               />
             </React.Fragment>
           );
         })}
-        <AddMoreButton title="Add More Feet" />
+        <AddMoreButton onClick={handleAddFeet} title="Add More Feet" />
       </div>
       <h4 className={css.heading}>Mattress</h4>
       <div className={css.grid}>
-        {[{}].map((data: any, index) => {
+        {MattressInputs.map((data: any, index: number) => {
           return (
             <React.Fragment key={index}>
               <Select
@@ -330,21 +498,24 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
                     value: "Color Four",
                   },
                 ]}
+                onChange={(e) => handleMattressChange(index, e)}
               />
               <Input
                 name="productPrice"
-                type="text"
+                type="number"
                 label="Price"
                 placeholder="Enter product name"
                 deletable
+                onDelete={() => handleRemoveMattress(data.id)}
+                onChange={(e) => handleMattressChange(index, e)}
               />
             </React.Fragment>
           );
         })}
-        <AddMoreButton title="Add More Mattress" />
+        <AddMoreButton onClick={handleAddMattress} title="Add More Mattress" />
       </div>
       <br />
-      <AddMoreButton title="Submit Variant" />
+      <AddMoreButton title="Submit Variant" onClick={handleProductUpload} />
       {/* {JSON.stringify(data)} */}
     </AdminLayout>
   );
@@ -370,33 +541,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 };
 
-// SIZE ARRAY
-const sizeArray = [
-  {
-    text: `(2'6 x 6)- Small Single`,
-    value: `(2'6 x 6)- Small Single`,
-  },
-  {
-    text: `(3 x 6'3)- Single`,
-    value: `(3 x 6'3)- Single`,
-  },
-  {
-    text: `(4' x 6'3) - Small Double`,
-    value: `(4' x 6'3) - Small Double`,
-  },
-  {
-    text: `(4' x 6'3) - Double`,
-    value: `(4' x 6'3) - Double`,
-  },
-  {
-    text: `(5' x 6'6) - King`,
-    value: `(5' x 6'6) - King`,
-  },
-  {
-    text: `(6' x 6'6) - Super King`,
-    value: `(6' x 6'6) - Super King`,
-  },
-];
 // COLOR ARRAY
 
 const colorArray = [
