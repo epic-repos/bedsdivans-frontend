@@ -2,7 +2,7 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable jsx-a11y/alt-text */
 import NextSEO from "layout/nextseo";
-import Style from "styles/HomePage/home.module.scss";
+import Style from "styles/home.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import "slick-carousel/slick/slick.css";
