@@ -40,7 +40,6 @@ const BestSellingBeds = () => {
           </div>
         </div>
       </section>
-
       <section className="faqsection">
         <div className="container">
           <div className="row">
@@ -55,7 +54,6 @@ const BestSellingBeds = () => {
           </div>
         </div>
       </section>
-
       <section className={styles.productsimages}>
         <div className={`${styles.containers} container`}>
           <div className={styles.mainh2}>
