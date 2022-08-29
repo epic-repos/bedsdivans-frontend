@@ -1,3 +1,4 @@
+$mobile: 576px;
 @import "./variable.scss";
 // @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.6.3/css/all.min.css");
 
@@ -548,3 +549,50 @@ img.NewProductPage_bannerimage___OEjc {
   object-fit: cover;
   object-position: -63px;
 }
+
+
+
+
+
+
+
+@media (max-width: $mobile) {
+  .faqsection ul li.heading h4 {
+    color: #000;
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 0px;
+    cursor: pointer;
+    padding-right: 40px;
+  }
+  .faqsection {
+    border-top: 1px solid #eee;
+     margin-top: 0px; 
+    padding-top: 0px; 
+    padding-bottom: 16px;
+}
+.faqsection ul {
+  border-top: 1px solid #d1cbcb;
+  padding-bottom: 0px !important;
+  padding-top: 16px !important;
+ 
+  margin-bottom: 0px;
+}
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
