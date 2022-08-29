@@ -780,7 +780,7 @@ const Header = () => {
           </div>
         </div>
       </section>
-      <div>
+      <div className={Styles.mobileheadert}>
         <div className={Styles.header2}>
           <div className={Styles.header1}>
             <img src="/image/w.png" alt="img"  className={Styles.headerimage}/>

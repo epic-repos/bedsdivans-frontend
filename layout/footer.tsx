@@ -15,7 +15,7 @@ const Footer = () => {
             <div className="container-fluid">
               <div className="row">
                 <div
-                  className="col-3"
+                    className={`col-3 ${Style.footerformob}`}
                   data-aos="fade-up"
                   data-aos-delay="200"
                 >
@@ -34,7 +34,7 @@ const Footer = () => {
                   </ul>
                 </div>
                 <div
-                  className="col-3"
+                  className={`col-3 ${Style.footerformob}`}
                   data-aos="fade-up"
                   data-aos-delay="400"
                 >
@@ -123,7 +123,7 @@ const Footer = () => {
                 </div>
 
                 <div
-                  className="col-3"
+                    className={`col-3 ${Style.footerformob}`}
                   data-aos="fade-up"
                   data-aos-delay="600"
                 >
@@ -178,7 +178,7 @@ const Footer = () => {
                   </div>
                 </div>
                 <div
-                  className="col-3"
+                   className={`col-3 ${Style.footerformob}`}
                   data-aos="fade-up"
                   data-aos-delay="600"
                 >
