@@ -25,7 +25,7 @@ function Order() {
                         width={24}
                         height={24}
                       />
-                    </div>{" "}
+                    </div>
                     <span>All Product</span>
                   </a>
                 </Link>
@@ -33,7 +33,6 @@ function Order() {
               <li>
                 <Link href="order">
                   <a>
-                    {" "}
                     <div className={Styles.ianimg}>
                       <Image
                         src="/icons/link.svg"
@@ -41,7 +40,7 @@ function Order() {
                         width={24}
                         height={24}
                       />
-                    </div>{" "}
+                    </div>
                     <span>Add Product</span>
                   </a>
                 </Link>
@@ -49,7 +48,6 @@ function Order() {
               <li>
                 <Link href="order">
                   <a>
-                    {" "}
                     <div className={Styles.ianimg}>
                       <Image
                         src="/icons/link.svg"
@@ -57,7 +55,7 @@ function Order() {
                         width={24}
                         height={24}
                       />
-                    </div>{" "}
+                    </div>
                     <span>All Order</span>
                   </a>
                 </Link>
@@ -65,7 +63,6 @@ function Order() {
               <li>
                 <Link href="order">
                   <a>
-                    {" "}
                     <div className={Styles.ianimg}>
                       <Image
                         src="/icons/link.svg"
@@ -73,7 +70,7 @@ function Order() {
                         width={24}
                         height={24}
                       />
-                    </div>{" "}
+                    </div>
                     <span>Invoice</span>
                   </a>
                 </Link>
@@ -137,6 +134,83 @@ function Order() {
                 <div className={Styles.tabletopheading}>
                   All Orders <span className={Styles.number}>442</span>
                 </div>
+
+                <div className={Styles.subsubsubactionbtnlist}>
+                  <div className={Styles.actionbtnlist}>
+                    <ul>
+                      <li>
+                        <Link href="#">
+                          <a>
+                            All <span>(39,091)</span>{" "}
+                          </a>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="#">
+                          <a>
+                            Pending payments <span>(16)</span>
+                          </a>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="#">
+                          <a>
+                            On hold <span>(3)</span>
+                          </a>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="#">
+                          <a>
+                            Completed <span>(26,484)</span>
+                          </a>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="#">
+                          <a>
+                            Cancelled <span>(256)</span>
+                          </a>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="#">
+                          <a>
+                            Refunded <span>(830)</span>
+                          </a>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="#">
+                          <a>
+                            Failed <span>(4,161) </span>
+                          </a>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="#">
+                          <a>
+                            Delivered <span>(7,341)</span>
+                          </a>
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className={Styles.searchlistproduct}>
+                    <div className={Styles.box}>
+                      <input type="text" placeholder="Search Order" />
+                      <button>
+                        <Image
+                          src="/icons/search-line.svg"
+                          alt="search"
+                          width={24}
+                          height={24}
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
                 <div className={Styles.table}>
                   <table>
                     <thead>
@@ -172,7 +246,6 @@ function Order() {
                           <div className={Styles.price}>$129.00</div>
                         </td>
                         <td>
-                          {" "}
                           <div
                             className={` ${Styles.ststus} ${Styles.approved} `}
                           >
@@ -210,7 +283,6 @@ function Order() {
                           <div className={Styles.price}>$129.00</div>
                         </td>
                         <td>
-                          {" "}
                           <div
                             className={` ${Styles.ststus} ${Styles.pending} `}
                           >
@@ -248,7 +320,6 @@ function Order() {
                           <div className={Styles.price}>$129.00</div>
                         </td>
                         <td>
-                          {" "}
                           <div
                             className={` ${Styles.ststus} ${Styles.refunded} `}
                           >
@@ -286,7 +357,6 @@ function Order() {
                           <div className={Styles.price}>$129.00</div>
                         </td>
                         <td>
-                          {" "}
                           <div
                             className={` ${Styles.ststus} ${Styles.refunded} `}
                           >
@@ -324,7 +394,6 @@ function Order() {
                           <div className={Styles.price}>$129.00</div>
                         </td>
                         <td>
-                          {" "}
                           <div
                             className={` ${Styles.ststus} ${Styles.refunded} `}
                           >
@@ -362,7 +431,6 @@ function Order() {
                           <div className={Styles.price}>$129.00</div>
                         </td>
                         <td>
-                          {" "}
                           <div
                             className={` ${Styles.ststus} ${Styles.refunded} `}
                           >
@@ -400,7 +468,6 @@ function Order() {
                           <div className={Styles.price}>$129.00</div>
                         </td>
                         <td>
-                          {" "}
                           <div
                             className={` ${Styles.ststus} ${Styles.refunded} `}
                           >
@@ -438,7 +505,6 @@ function Order() {
                           <div className={Styles.price}>$129.00</div>
                         </td>
                         <td>
-                          {" "}
                           <div
                             className={` ${Styles.ststus} ${Styles.refunded} `}
                           >
@@ -476,7 +542,6 @@ function Order() {
                           <div className={Styles.price}>$129.00</div>
                         </td>
                         <td>
-                          {" "}
                           <div
                             className={` ${Styles.ststus} ${Styles.refunded} `}
                           >
@@ -514,7 +579,6 @@ function Order() {
                           <div className={Styles.price}>$129.00</div>
                         </td>
                         <td>
-                          {" "}
                           <div
                             className={` ${Styles.ststus} ${Styles.refunded} `}
                           >
@@ -552,7 +616,6 @@ function Order() {
                           <div className={Styles.price}>$129.00</div>
                         </td>
                         <td>
-                          {" "}
                           <div
                             className={` ${Styles.ststus} ${Styles.refunded} `}
                           >
@@ -590,7 +653,6 @@ function Order() {
                           <div className={Styles.price}>$129.00</div>
                         </td>
                         <td>
-                          {" "}
                           <div
                             className={` ${Styles.ststus} ${Styles.refunded} `}
                           >
