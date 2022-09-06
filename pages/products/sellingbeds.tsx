@@ -93,7 +93,7 @@ const BestSellingBeds = () => {
               <h2 className={styles.productname}>
                 Pink Crushed Velvet single divan bed
               </h2>
-              <div className={Style.trustpilot}>
+              <div className={styles.trustpilot}>
               <img src="/image/tru.png" alt="img" />
               </div>
               <p className={styles.price}>
@@ -120,7 +120,7 @@ const BestSellingBeds = () => {
               <h2 className={styles.productname}>
                 Pink Crushed Velvet single divan bed
               </h2>
-              <div className={Style.trustpilot}>
+              <div className={styles.trustpilot}>
               <img src="/image/tru.png" alt="img" />
               </div>
               <p className={styles.price}>

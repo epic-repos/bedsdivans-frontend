@@ -1,3 +1,4 @@
+$mobile: 576px;
 .ftrBackgrd {
   background-size: cover;
   background-repeat: no-repeat;
@@ -71,4 +72,20 @@ ul.align-items-left {
     width: 155px;
     padding-top: 12px;
   }
+}
+@media (max-width: $mobile) {
+.footerformob{
+  width: 100%  !important;
+
+}
+.lastfooter{
+p {
+  position: relative;
+  top: 6px;
+  color: #fff;
+  font-weight: 500;
+  white-space: nowrap;
+  font-size: 7px;
+}
+}
 }
