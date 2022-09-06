@@ -9,160 +9,18 @@ import Select from "components/admin/element/select";
 import css from "styles/admin.module.scss";
 import Input from "components/admin/element/input";
 import Textarea from "components/admin/element/textarea";
-import { nanoid } from "@reduxjs/toolkit";
 import FilePicker from "components/admin/element/picker";
 import { bedSizeArray } from "constants/data/bed";
 import { useCreateNewBedVariant } from "network-requests/mutations";
 import { testpost, uploadBedImage } from "network-requests/api";
+import useAdd from "../../../components/admin/useAdd";
+import DynamicInput from "components/admin/dynamicinput";
 
 interface AddNewVarientsProps {
   id: string;
 }
 
 const AddNewVarients = ({ id }: AddNewVarientsProps) => {
-  const initialFields = {
-    id: "edasd3x",
-    name: "",
-    price: "",
-  };
-
-  const [colorInputs, setColorInputs] = React.useState<any>([
-    {
-      id: "EDF3x",
-      name: "",
-      image: "",
-    },
-  ]);
-  const colorDraft = [...colorInputs];
-  // CHANGE
-  const handleColorChange = (index: number, event: any) => {
-    if (event.target.name === "image") {
-      const file = event.target.files[0];
-      // const blob = URL.createObjectURL(file);
-      colorDraft[index][event.target.name] = file;
-      setColorInputs(colorDraft);
-    } else {
-      colorDraft[index][event.target.name] = event.target.value;
-      setColorInputs(colorDraft);
-    }
-  };
-  console.log({ colorInputs });
-  // ADD
-  const handleAddColor = () => {
-    const add = {
-      ...initialFields,
-      id: nanoid(4),
-    };
-    setColorInputs([...colorInputs, add]);
-  };
-  // REMOVE
-  const handleRemoveColor = (id: string) => {
-    if (id) {
-      const filter = colorDraft.filter((v) => v.id !== id);
-      setColorInputs(filter);
-    }
-  };
-  /**
- * Headboard
-Storage
-Feet
-Mattress
- */
-
-  const [HeadboardInputs, setHeadboardInputs] = React.useState<any>([]);
-  const headboardDraft = [...HeadboardInputs];
-  // CHANGE
-  const handleHeadboardChange = (index: number, event: any) => {
-    headboardDraft[index][event.target.name] = event.target.value;
-    setHeadboardInputs(headboardDraft);
-  };
-  // ADD
-  const handleAddHeadboard = () => {
-    const add = {
-      ...initialFields,
-      id: nanoid(4),
-    };
-    setHeadboardInputs([...HeadboardInputs, add]);
-  };
-  // REMOVE
-  const handleRemoveHeadboard = (id: string) => {
-    if (id) {
-      const filter = headboardDraft.filter((v) => v.id !== id);
-      setHeadboardInputs(filter);
-    }
-  };
-  const [StorageInputs, setStorageInputs] = React.useState<any>([]);
-  const storageDraft = [...StorageInputs];
-  // CHANGE
-  const handleStorageChange = (index: number, event: any) => {
-    storageDraft[index][event.target.name] = event.target.value;
-    setStorageInputs(storageDraft);
-  };
-  // ADD
-  const handleAddStorage = () => {
-    const add = {
-      ...initialFields,
-      id: nanoid(4),
-    };
-    setStorageInputs([...StorageInputs, add]);
-  };
-  // REMOVE
-  const handleRemoveStorage = (id: string) => {
-    if (id) {
-      const filter = storageDraft.filter((v) => v.id !== id);
-      setStorageInputs(filter);
-    }
-  };
-
-  /**
-   * Feet
-Mattress
-   */
-  const [FeetInputs, setFeetInputs] = React.useState<any>([]);
-  const feetDraft = [...FeetInputs];
-  // CHANGE
-  const handleFeetChange = (index: number, event: any) => {
-    feetDraft[index][event.target.name] = event.target.value;
-    setFeetInputs(feetDraft);
-  };
-  // ADD
-  const handleAddFeet = () => {
-    const add = {
-      ...initialFields,
-      id: nanoid(4),
-    };
-    setFeetInputs([...FeetInputs, add]);
-  };
-  // REMOVE
-  const handleRemoveFeet = (id: string) => {
-    if (id) {
-      const filter = feetDraft.filter((v) => v.id !== id);
-      setFeetInputs(filter);
-    }
-  };
-  const [MattressInputs, setMattressInputs] = React.useState<any>([]);
-  const mattressDraft = [...MattressInputs];
-  // CHANGE
-  const handleMattressChange = (index: number, event: any) => {
-    mattressDraft[index][event.target.name] = event.target.value;
-    setMattressInputs(mattressDraft);
-  };
-  // ADD
-  const handleAddMattress = () => {
-    const add = {
-      ...initialFields,
-      id: nanoid(4),
-    };
-    setMattressInputs([...MattressInputs, add]);
-  };
-  // REMOVE
-  const handleRemoveMattress = (id: string) => {
-    if (id) {
-      const filter = mattressDraft.filter((v) => v.id !== id);
-      setMattressInputs(filter);
-    }
-  };
-
   // API SECTION
   const { data, isFetched } = useFetchBedById(id);
 
@@ -183,24 +41,6 @@ Mattress
     };
     void handleSizeOption();
   }, [isFetched]);
-
-  const blobToBase64 = (blob: Blob) => {
-    if (!blob) {
-      return;
-    }
-    if (typeof blob !== "undefined") {
-      const url = URL.createObjectURL(blob);
-      return url;
-    }
-    // return new Promise((resolve, reject) => {
-    //   const reader = new FileReader();
-    //   reader.onerror = reject;
-    //   reader.onload = () => {
-    //     resolve(reader.result);
-    //   };
-    //   reader.readAsDataURL(blob);
-    // });
-  };
 
   const [currentInfo, setCurrentInfo] = React.useState({
     size: "",
@@ -306,214 +146,15 @@ Mattress
         />
       </div>
       {/* Dynamic Fields */}
-      <h4 className={css.heading}>Color</h4>
-      <div className={css.grid}>
-        {colorInputs.map((data: any, index: number) => {
-          return (
-            <React.Fragment key={index}>
-              <Select
-                name="name"
-                label="Color Name"
-                options={colorArray}
-                onChange={(e) => handleColorChange(index, e)}
-                value={data?.name}
-              />
-              <FilePicker
-                name="image"
-                type="file"
-                label="Color Image"
-                placeholder="Enter product name"
-                onChange={(e) => handleColorChange(index, e)}
-                deletable
-                onDelete={() => handleRemoveColor(data.id)}
-              />
-              <img
-                style={{
-                  height: "100px",
-                  borderRadius: "4px",
-                  objectFit: "contain",
-                }}
-                src={blobToBase64(data?.image)}
-                alt="selected-image"
-              />
-            </React.Fragment>
-          );
-        })}
-        <AddMoreButton onClick={handleAddColor} title="Add More Color" />
-      </div>
-
-      <h4 className={css.heading}>Headboard</h4>
-      {/* Headboard */}
-      <div className={css.grid}>
-        {HeadboardInputs.map((data: any, index: number) => {
-          return (
-            <React.Fragment key={index}>
-              <Select
-                name="ColorName"
-                label="Type"
-                options={[
-                  {
-                    text: "Color One",
-                    value: "Color One",
-                  },
-                  {
-                    text: "Color Two",
-                    value: "Color Two",
-                  },
-                  {
-                    text: "Color Three",
-                    value: "Color Three",
-                  },
-                  {
-                    text: "Color Four",
-                    value: "Color Four",
-                  },
-                ]}
-                onChange={(e) => handleHeadboardChange(index, e)}
-              />
-              <Input
-                name="productPrice"
-                type="number"
-                label="Price"
-                placeholder="Enter product name"
-                onChange={(e) => handleHeadboardChange(index, e)}
-                deletable
-                onDelete={() => handleRemoveHeadboard(data.id)}
-              />
-            </React.Fragment>
-          );
-        })}
-        <AddMoreButton
-          onClick={handleAddHeadboard}
-          title="Add More Headboard"
-        />
-      </div>
-      <h4 className={css.heading}>Storage</h4>
-      <div className={css.grid}>
-        {StorageInputs.map((data: any, index: number) => {
-          return (
-            <React.Fragment key={index}>
-              <Select
-                name="ColorName"
-                label="Type"
-                options={[
-                  {
-                    text: "Color One",
-                    value: "Color One",
-                  },
-                  {
-                    text: "Color Two",
-                    value: "Color Two",
-                  },
-                  {
-                    text: "Color Three",
-                    value: "Color Three",
-                  },
-                  {
-                    text: "Color Four",
-                    value: "Color Four",
-                  },
-                ]}
-                onChange={(e) => handleStorageChange(index, e)}
-              />
-              <Input
-                name="productPrice"
-                type="number"
-                label="Price"
-                placeholder="Enter product name"
-                deletable
-                onChange={(e) => handleStorageChange(index, e)}
-                onDelete={() => handleRemoveStorage(data.id)}
-              />
-            </React.Fragment>
-          );
-        })}
-        <AddMoreButton onClick={handleAddStorage} title="Add More Storage" />
-      </div>
-      <h4 className={css.heading}>Feet</h4>
-      <div className={css.grid}>
-        {FeetInputs.map((data: any, index: number) => {
-          return (
-            <React.Fragment key={index}>
-              <Select
-                name="ColorName"
-                label="Type"
-                options={[
-                  {
-                    text: "Color One",
-                    value: "Color One",
-                  },
-                  {
-                    text: "Color Two",
-                    value: "Color Two",
-                  },
-                  {
-                    text: "Color Three",
-                    value: "Color Three",
-                  },
-                  {
-                    text: "Color Four",
-                    value: "Color Four",
-                  },
-                ]}
-                onChange={(e) => handleFeetChange(index, e)}
-              />
-              <Input
-                name="productPrice"
-                type="number"
-                label="Price"
-                placeholder="Enter product name"
-                deletable
-                onChange={(e) => handleFeetChange(index, e)}
-                onDelete={() => handleRemoveFeet(data.id)}
-              />
-            </React.Fragment>
-          );
-        })}
-        <AddMoreButton onClick={handleAddFeet} title="Add More Feet" />
-      </div>
-      <h4 className={css.heading}>Mattress</h4>
-      <div className={css.grid}>
-        {MattressInputs.map((data: any, index: number) => {
-          return (
-            <React.Fragment key={index}>
-              <Select
-                name="ColorName"
-                label="Type"
-                options={[
-                  {
-                    text: "Color One",
-                    value: "Color One",
-                  },
-                  {
-                    text: "Color Two",
-                    value: "Color Two",
-                  },
-                  {
-                    text: "Color Three",
-                    value: "Color Three",
-                  },
-                  {
-                    text: "Color Four",
-                    value: "Color Four",
-                  },
-                ]}
-                onChange={(e) => handleMattressChange(index, e)}
-              />
-              <Input
-                name="productPrice"
-                type="number"
-                label="Price"
-                placeholder="Enter product name"
-                deletable
-                onDelete={() => handleRemoveMattress(data.id)}
-                onChange={(e) => handleMattressChange(index, e)}
-              />
-            </React.Fragment>
-          );
-        })}
-        <AddMoreButton onClick={handleAddMattress} title="Add More Mattress" />
-      </div>
+      <DynamicInput title="Color" options={colorArray} />
+      {/* Dynamic Fields */}
+      <DynamicInput title="Color" options={colorArray} />
+      {/* Dynamic Fields */}
+      <DynamicInput title="Color" options={colorArray} />
+      {/* Dynamic Fields */}
+      <DynamicInput title="Color" options={colorArray} />
+      {/* Dynamic Fields */}
+      <DynamicInput title="Color" options={colorArray} />
       <br />
       <AddMoreButton title="Submit Variant" onClick={handleProductUpload} />
       {/* {JSON.stringify(data)} */}
