@@ -78,6 +78,7 @@ ul.align-items-left {
   width: 100%  !important;
 
 }
+
 .lastfooter{
 p {
   position: relative;
@@ -87,5 +88,13 @@ p {
   white-space: nowrap;
   font-size: 7px;
 }
+}
+.footerimage {
+
+  img {
+    width: 200px;
+   
+  }
+  text-align: center;
 }
 }

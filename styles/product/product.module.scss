@@ -351,7 +351,7 @@ $mobile: 576px;
 
   .image {
     max-width: 100%;
-    min-height: 200px;
+    min-height: fit-content;
     object-fit: cover;
     width: 100%;
   }
