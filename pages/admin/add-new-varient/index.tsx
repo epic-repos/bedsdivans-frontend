@@ -1,30 +1,28 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useEffect } from "react";
-import { GetServerSideProps } from "next";
-import { isValidObjectId } from "mongoose";
-import AdminLayout from "../layout";
-import { useFetchBedById } from "network-requests/queries";
-import AddMoreButton from "components/admin/element/addmore";
-import Select from "components/admin/element/select";
-import css from "styles/admin.module.scss";
-import Input from "components/admin/element/input";
-import Textarea from "components/admin/element/textarea";
-import FilePicker from "components/admin/element/picker";
-import {
-  bedSizeArray,
-  FeetArray,
-  HeadboardArray,
-  MattressArray,
-  StorageArray,
-} from "constants/data/bed";
-import { useCreateNewBedVariant } from "network-requests/mutations";
-import { uploadBedImage } from "network-requests/api";
 import DynamicInput from "components/admin/dynamicinput";
-import pMap from "p-map";
-import ImageSelect from "components/admin/dyninput";
-import useIn from "components/admin/hooks/useIn";
-import SelectInput from "components/admin/element/selectinput";
+import AddMoreButton from "components/admin/element/addmore";
 import FieldInput from "components/admin/element/fieldinput";
+import Input from "components/admin/element/input";
+import FilePicker from "components/admin/element/picker";
+import Select from "components/admin/element/select";
+import Textarea from "components/admin/element/textarea";
+import useIn from "components/admin/hooks/useIn";
+import {
+    bedSizeArray,
+    FeetArray,
+    HeadboardArray,
+    MattressArray,
+    StorageArray
+} from "constants/data/bed";
+import { isValidObjectId } from "mongoose";
+import { uploadBedImage } from "network-requests/api";
+import { useCreateNewBedVariant } from "network-requests/mutations";
+import { useFetchBedById } from "network-requests/queries";
+import { GetServerSideProps } from "next";
+import pMap from "p-map";
+import React, { useEffect } from "react";
+import css from "styles/admin.module.scss";
+import AdminLayout from "../layout";
 
 interface AddNewVarientsProps {
   id: string;
@@ -36,6 +34,58 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
 
   const [sizeData, setSizeData] = React.useState(bedSizeArray);
   const [colorInput, setColorInput] = React.useState<any>([]);
+
+    const init: StateType[] = [
+        {
+            id: "7d24f79a",
+            name: "",
+            image: "",
+        },
+    ];
+
+    const initNameAndPrice: StateType[] = [
+        {
+            id: "7d24f79a",
+            name: "",
+            price: 0
+        },
+    ];
+
+    // HEAD BOARD
+  
+
+    const {
+        addInputs: addStorageInputs,
+        onChangeInputs: changeStorageInputs,
+        removeInputs: removeStorageInputs,
+        inputs: storageInputs,
+    } = useIn<StateType>(initNameAndPrice);
+
+    const {
+        addInputs: addFeetInputs,
+        onChangeInputs: changeFeetInputs,
+        removeInputs: removeFeetInputs,
+        inputs: feetInputs,
+    } = useIn<StateType>(initNameAndPrice);
+
+    const {
+        addInputs: addHeadboardInputs,
+        onChangeInputs: changeHeadboardInputs,
+        removeInputs: removeHeadboardInputs,
+        inputs: headboardInputs,
+    } = useIn<StateType>(initNameAndPrice);
+
+    const {
+        addInputs: addMattressInputs,
+        onChangeInputs: changeMattressInputs,
+        removeInputs: removeMattressInputs,
+        inputs: mattressInputs,
+    } = useIn<StateType>(initNameAndPrice);
+
+
+    console.log({ headboardInputs, storageInputs, feetInputs, mattressInputs })
+
+    
 
   useEffect(() => {
     const handleSizeOption = () => {
@@ -69,9 +119,6 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
     }
   };
 
-  // console.log({ currentInfo });
-
-  // console.log({ currentInfo });
   //API HANDLING
 
   const { mutate } = useCreateNewBedVariant(id);
@@ -121,50 +168,14 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
 
   interface StateType {
     id: string;
-    name: string;
-    image: string;
+    name?: string;
+      image?: string;
+      price?: number;
+      
   }
-  const init: StateType[] = [
-    {
-      id: "7d24f79a",
-      name: "",
-      image: "",
-    },
-  ];
 
-  // HEAD BOARD
-  const { addInputs, onChangeInputs, removeInputs, inputs } =
-    useIn<StateType>(init);
 
-  const {
-    addInputs: addStorageInputs,
-    onChangeInputs: changeStorageInputs,
-    removeInputs: removeStorageInputs,
-    inputs: storageInputs,
-  } = useIn<StateType>(init);
-
-  const {
-    addInputs: addFeetInputs,
-    onChangeInputs: changeFeetInputs,
-    removeInputs: removeFeetInputs,
-    inputs: feetInputs,
-  } = useIn<StateType>(init);
-
-  const {
-    addInputs: addHeadboardInputs,
-    onChangeInputs: changeHeadboardInputs,
-    removeInputs: removeHeadboardInputs,
-    inputs: headboardInputs,
-  } = useIn<StateType>(init);
-
-  const {
-    addInputs: addMattressInputs,
-    onChangeInputs: changeMattressInputs,
-    removeInputs: removeMattressInputs,
-    inputs: mattressInputs,
-  } = useIn<StateType>(init);
-
-  console.log({ inputs });
+     
 
   return (
     <AdminLayout>

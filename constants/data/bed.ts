@@ -33,51 +33,78 @@ export const bedSizeArray = [
 
 
 export const HeadboardArray = [
+    {
+        text: `No Headboard`,
+        value:``
+    },
   {
     text: `26 Inch Diamond Button Cube Headboard- £45`,
-    value: ``
+        get value() {
+            return this.text
+        }
   },
   {
     text: `26 Inch Matching Button Cube Headboard- £45`,
-    value: ``
+      get value() {
+          return this.text
+      }
   },
   {
     text: `48 Inch Floor Standing Diamond Cube Headboard- £125`,
-    value: ``
+      get value() {
+          return this.text
+      }
   },
   {
     text: `48 Inch Floor Standing Matching Button Cube Headboard- £125`,
-    value: ``
+      get value() {
+          return this.text
+      }
   },
 ]
 export const StorageArray = [
   {
     text: `No Drawers`,
-    value: ``
+        value: ``
+
   },
   {
     text: `2 Drawers – £45`,
-    value: ``
+      get value() {
+          return this.text
+      }
   },
 ]
 export const FeetArray = [
+
+    {
+        text: `No Feet`,
+        value: ``
+    },
   {
     text: `Free Castor Wheels`,
-    value: ``
+        get value(){
+            return this.text
+        }
   },
   {
     text: `Chrome Gliders – £10`,
-    value: ``
+      get value() {
+          return this.text
+      }
   }
 ]
 export const MattressArray = [
   {
     text: `No Mattress`,
-    value: ``
+        value: ``
+
   },
   {
     text: `2FT 6″ – Memory Foam Mattress – £89`,
-    value: ``
+      get value() {
+          return this.text
+      }
   },
 ]
 
