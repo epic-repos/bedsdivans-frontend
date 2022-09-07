@@ -31,7 +31,13 @@ const EditProductPage = () => {
             {data?.pages.map((page) =>
               page?.data?.map((idata: any, i: number) => {
                 return (
-                  <div key={i} className={css.item}>
+                  <div
+                    key={i}
+                    className={css.item}
+                    onClick={() =>
+                      router.push(`/admin/all-varients/${idata._id}`)
+                    }
+                  >
                     <div className={css.image}>
                       <img src="/image.png" alt="icon" />
                     </div>
@@ -50,7 +56,7 @@ const EditProductPage = () => {
                           router.push(`/admin/all-varients/${idata._id}`)
                         }
                       >
-                        Show All Variants
+                        Show All Created Sizes
                       </button>
                       <button
                         onClick={() =>
