@@ -6,7 +6,7 @@ import Styles from "styles/ECommerce/order.module.scss";
 import CommerceLayout from "components/admin/commerce/layout";
 // const [dropWDownload, dropWDownloadActive] = useState(false);
 
-function Order() {
+function Allproduct() {
   return (
     <CommerceLayout>
       <div className={Styles.rightsidebar}>
@@ -608,4 +608,4 @@ function Order() {
   );
 }
 
-export default Order;
+export default Allproduct;
