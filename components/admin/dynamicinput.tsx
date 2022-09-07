@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import Select from "./element/select";
 import FilePicker from "./element/picker";
@@ -39,7 +40,6 @@ const DynamicInput = ({
   getState,
   initialState,
 }: DynamicInputProps) => {
-  console.log({ initialState });
   const [inputs, setInputs] = React.useState<StateType[]>(init);
   const draft = [...(inputs as any)] as any;
 
@@ -100,7 +100,6 @@ const DynamicInput = ({
       <h4 className={css.heading}>{title}</h4>
       <div className={css.grid}>
         {inputs.map((data: any, index: number) => {
-          console.log({ data });
           return (
             <React.Fragment key={index}>
               <Select

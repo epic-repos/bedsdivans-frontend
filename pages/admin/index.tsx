@@ -14,7 +14,6 @@ const EditProductPage = () => {
   const { data, isLoading, isError, fetchNextPage, hasNextPage } =
     useFetchAllBeds();
 
-  console.log(data);
   const router = useRouter();
 
   return (
