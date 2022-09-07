@@ -14,6 +14,9 @@ import DynamicInput from "components/admin/dynamicinput";
 import pMap from "p-map";
 import Image from "next/image";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 interface AddNewVarientsProps {
   id: string;
 }
@@ -27,7 +30,7 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
     image: "" as any,
   });
 
-  console.log({ colorInput });
+  //TOAST PRODUCT UPDATE STATUS
 
   const currentInfoHandler = (e: any) => {
     const { name, value, files } = e.target;
@@ -43,7 +46,7 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
   // API SECTION
 
   const { data, isFetched } = useFetchBedVariantsById(id);
-  const { mutate } = useUpdateBedVariant(id);
+  const { mutate, isSuccess, isLoading } = useUpdateBedVariant(id);
 
   console.log({ data });
 
@@ -69,12 +72,10 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
 
   const handleProductUpload = async () => {
     const baseImage = !currentInfo.image
-      ? data?.image
+      ? data?.image || null
       : (await uploadBedImage(currentInfo.image as unknown as Blob)).url;
 
     const getImageUrlAndName = async (color: any) => {
-      console.log({ color: typeof color.image });
-
       if (color?.image instanceof File || color?.image instanceof Blob) {
         const imageUrl = (await uploadBedImage(color.image as Blob)).url;
 
@@ -91,21 +92,30 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
     };
     const colorWithUrlAndName = await pMap(colorInput, getImageUrlAndName);
 
-    mutate({
-      price: {
-        basePrice: currentInfo.basePrice,
-        salePrice: currentInfo.salePrice,
+    mutate(
+      {
+        price: {
+          basePrice: currentInfo.basePrice,
+          salePrice: currentInfo.salePrice,
+        },
+        image: baseImage as string,
+        accessories: {
+          color: colorWithUrlAndName as any,
+          // storage: StorageInputs,
+          // feet: FeetInputs,
+          // headboard: HeadboardInputs,
+          // mattress: MattressInputs,
+        },
       },
-      image: baseImage as string,
-      accessories: {
-        color: colorWithUrlAndName as any,
-        // storage: StorageInputs,
-        // feet: FeetInputs,
-        // headboard: HeadboardInputs,
-        // mattress: MattressInputs,
-      },
-    });
-    // console.log({ baseImage });
+      {
+        onSuccess: (data) => {
+          toast.success(data?.message || "Product Updated Successfully");
+        },
+        onError: () => {
+          toast.error("Something went wrong");
+        },
+      }
+    );
   };
 
   const handleImageURL = ({
@@ -193,6 +203,7 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
       <br />
       <AddMoreButton title="Submit Variant" onClick={handleProductUpload} />
       {/* {JSON.stringify(data)} */}
+      <ToastContainer />
     </AdminLayout>
   );
 };

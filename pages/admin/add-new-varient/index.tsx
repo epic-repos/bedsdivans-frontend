@@ -164,6 +164,8 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
     inputs: mattressInputs,
   } = useIn<StateType>(init);
 
+  console.log({ inputs });
+
   return (
     <AdminLayout>
       <h6>Add New Variant for ID : {id}</h6>
