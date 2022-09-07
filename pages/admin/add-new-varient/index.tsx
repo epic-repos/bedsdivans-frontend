@@ -45,7 +45,8 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
 
   const [currentInfo, setCurrentInfo] = React.useState({
     size: "",
-    price: "",
+    basePrice: 0,
+    salePrice: 0,
     image: null,
   });
 
@@ -57,6 +58,8 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
       setCurrentInfo({ ...currentInfo, [name]: value });
     }
   };
+
+  console.log({ currentInfo });
 
   // console.log({ currentInfo });
   //API HANDLING
@@ -89,10 +92,10 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
 
     mutate({
       price: {
-        basePrice: 100,
-        salePrice: 50,
+        basePrice: currentInfo.basePrice,
+        salePrice: currentInfo.salePrice,
       },
-      size: "3FT",
+      size: currentInfo.size,
       image: baseImage,
 
       accessories: {
@@ -147,9 +150,16 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
           options={sizeData}
         />
         <Input
-          name="price"
+          name="basePrice"
           type="number"
-          label="Product Price"
+          label="Base Price"
+          placeholder="Enter product name"
+          onChange={currentInfoHandler}
+        />
+        <Input
+          name="salePrice"
+          type="number"
+          label="Selling Price"
           placeholder="Enter product name"
           onChange={currentInfoHandler}
         />

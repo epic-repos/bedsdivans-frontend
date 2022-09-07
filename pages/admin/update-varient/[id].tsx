@@ -12,6 +12,7 @@ import { useUpdateBedVariant } from "network-requests/mutations";
 import { uploadBedImage } from "network-requests/api";
 import DynamicInput from "components/admin/dynamicinput";
 import pMap from "p-map";
+import Image from "next/image";
 
 interface AddNewVarientsProps {
   id: string;
@@ -21,10 +22,9 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
   const [colorInput, setColorInput] = React.useState<any>();
   const [apiColorInput, setApiColorInput] = React.useState<any>();
   const [currentInfo, setCurrentInfo] = React.useState({
-    // size: "",
     basePrice: 0,
     salePrice: 0,
-    image: null,
+    image: "" as any,
   });
 
   console.log({ colorInput });
@@ -69,10 +69,12 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
 
   const handleProductUpload = async () => {
     const baseImage = !currentInfo.image
-      ? null
+      ? data?.image
       : (await uploadBedImage(currentInfo.image as unknown as Blob)).url;
 
     const getImageUrlAndName = async (color: any) => {
+      console.log({ color: typeof color.image });
+
       if (color?.image instanceof File || color?.image instanceof Blob) {
         const imageUrl = (await uploadBedImage(color.image as Blob)).url;
 
@@ -84,7 +86,7 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
 
       return {
         name: color?.name,
-        image: color?.image instanceof String ? color?.image : null,
+        image: typeof color?.image === "string" ? color?.image : null,
       };
     };
     const colorWithUrlAndName = await pMap(colorInput, getImageUrlAndName);
@@ -94,7 +96,7 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
         basePrice: currentInfo.basePrice,
         salePrice: currentInfo.salePrice,
       },
-      image: baseImage,
+      image: baseImage as string,
       accessories: {
         color: colorWithUrlAndName as any,
         // storage: StorageInputs,
@@ -103,7 +105,26 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
         // mattress: MattressInputs,
       },
     });
-    console.log({ colorWithUrlAndName });
+    // console.log({ baseImage });
+  };
+
+  const handleImageURL = ({
+    local,
+    api,
+  }: {
+    local: File;
+    api: string | undefined | null;
+  }) => {
+    if (local) {
+      console.log({ local: "local" });
+      return URL.createObjectURL(local);
+    }
+
+    if (api) {
+      return api;
+    }
+
+    return "";
   };
 
   return (
@@ -128,14 +149,29 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
           onChange={currentInfoHandler}
           value={currentInfo.salePrice}
         />
-        <FilePicker
-          name="image"
-          type="file"
-          label="Color Image"
-          placeholder="Enter product name"
-          onChange={currentInfoHandler}
-          // value={currentInfo.image}
-        />
+
+        <div className="d-flex" style={{ alignItems: "center" }}>
+          {(currentInfo?.image || data?.image) && (
+            <Image
+              width={50}
+              height={50}
+              src={handleImageURL({
+                local: currentInfo?.image as File,
+                api: data?.image,
+              })}
+              objectFit={"contain"}
+              layout={"fixed"}
+            />
+          )}
+          <FilePicker
+            name="image"
+            type="file"
+            label="Color Image"
+            placeholder="Enter product name"
+            onChange={currentInfoHandler}
+            // value={currentInfo.image}
+          />
+        </div>
       </div>
       {/* Dynamic Fields */}
       {isFetched && (
