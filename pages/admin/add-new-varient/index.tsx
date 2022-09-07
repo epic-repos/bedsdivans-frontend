@@ -235,44 +235,37 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
       <FieldInput
         title={`Headboard`}
         options={HeadboardArray}
-        addInputs={addInputs}
-        removeInputs={removeInputs}
-        onChangeInputs={onChangeInputs}
-        initialState={inputs}
+        addInputs={addHeadboardInputs}
+        removeInputs={removeHeadboardInputs}
+        onChangeInputs={changeHeadboardInputs}
+        initialState={headboardInputs}
       />
       <FieldInput
         title={`Storage`}
         options={StorageArray}
-        addInputs={addInputs}
-        removeInputs={removeInputs}
-        onChangeInputs={onChangeInputs}
-        initialState={inputs}
+        addInputs={addStorageInputs}
+        removeInputs={removeStorageInputs}
+        onChangeInputs={changeStorageInputs}
+        initialState={storageInputs}
       />
       <FieldInput
         title={`Feet`}
         options={FeetArray}
-        addInputs={addInputs}
-        removeInputs={removeInputs}
-        onChangeInputs={onChangeInputs}
-        initialState={inputs}
+        addInputs={addFeetInputs}
+        removeInputs={removeFeetInputs}
+        onChangeInputs={changeFeetInputs}
+        initialState={feetInputs}
       />
 
       <FieldInput
         title={`Mattress`}
         options={MattressArray}
-        addInputs={addInputs}
-        removeInputs={removeInputs}
-        onChangeInputs={onChangeInputs}
-        initialState={inputs}
+        addInputs={addMattressInputs}
+        removeInputs={removeMattressInputs}
+        onChangeInputs={changeMattressInputs}
+        initialState={mattressInputs}
       />
-      {/* Dynamic Fields */}
-      {/* <DynamicInput title="Color" options={colorArray} /> */}
-      {/* Dynamic Fields */}
-      {/* <DynamicInput title="Color" options={colorArray} /> */}
-      {/* Dynamic Fields */}
-      {/* <DynamicInput title="Color" options={colorArray} /> */}
-      {/* Dynamic Fields */}
-      {/* <DynamicInput title="Color" options={colorArray} /> */}
+
       <br />
       <AddMoreButton title="Submit Variant" onClick={handleProductUpload} />
       {/* {JSON.stringify(data)} */}
