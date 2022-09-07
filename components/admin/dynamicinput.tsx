@@ -11,17 +11,20 @@ interface StateType {
   image: string;
 }
 
+interface OptionsTypes {
+  text: any;
+  value: any;
+}
 interface DynamicInputProps {
   title: string;
-  min: number;
-  max: number;
-  options: {
-    text: any;
-    value: any;
-  }[];
+  // min?: number;
+  // max?: number;
+  options: OptionsTypes[];
+  getState: (value: StateType[]) => void;
+  initialState?: StateType[];
 }
 
-const initialState: StateType[] = [
+const init: StateType[] = [
   {
     id: "7d24f79a",
     name: "",
@@ -29,8 +32,14 @@ const initialState: StateType[] = [
   },
 ];
 
-const DynamicInput = ({ options, title, max, min }: DynamicInputProps) => {
-  const [inputs, setInputs] = React.useState<StateType[]>(initialState);
+const DynamicInput = ({
+  options,
+  title,
+  getState,
+  initialState,
+}: DynamicInputProps) => {
+  console.log({ initialState });
+  const [inputs, setInputs] = React.useState<StateType[]>(initialState || init);
   const draft = [...(inputs as any)] as any;
   // CHANGE
   const onChangeInputs = (index: number, event: any) => {
@@ -47,25 +56,25 @@ const DynamicInput = ({ options, title, max, min }: DynamicInputProps) => {
   };
   // ADD
   const addInputs = () => {
-    if (inputs.length < max) {
-      const addFields = {
-        ...inputs,
-        id: id(4),
-      };
-      // @ts-expect-error
-      setInputs((draft) => [...draft, addFields]);
-    }
+    const addFields = {
+      id: id(4),
+      name: "",
+      image: "",
+    };
+
+    draft.push(addFields);
+    setInputs(draft);
   };
   // REMOVE
   const removeInputs = (id: string) => {
     if (id) {
-      const filter = draft.filter((v: StateType) => v.id !== id);
+      const filter = inputs.filter((v: StateType) => v.id !== id);
       setInputs(filter);
     }
   };
 
   React.useEffect(() => {
-    console.log(inputs);
+    if (getState) getState(inputs);
   }, [inputs]);
 
   return (

@@ -16,9 +16,6 @@ const EditProductPage = () => {
 
   console.log(data);
   const router = useRouter();
-  const goto = (id: string) => {
-    router.push(`/admin/add-new-varient?id=${id}`);
-  };
 
   return (
     <AdminLayout>
@@ -34,11 +31,7 @@ const EditProductPage = () => {
             {data?.pages.map((page) =>
               page?.data?.map((idata: any, i: number) => {
                 return (
-                  <div
-                    key={i}
-                    className={css.item}
-                    onClick={() => goto(idata._id)}
-                  >
+                  <div key={i} className={css.item}>
                     <div className={css.image}>
                       <img src="/image.png" alt="icon" />
                     </div>
@@ -50,6 +43,22 @@ const EditProductPage = () => {
                           <span key={i}>{c}</span>
                         ))}
                       </div>
+                    </div>
+                    <div>
+                      <button
+                        onClick={() =>
+                          router.push(`/admin/all-varients/${idata._id}`)
+                        }
+                      >
+                        Show All Variants
+                      </button>
+                      <button
+                        onClick={() =>
+                          router.push(`/admin/add-new-varient?id=${idata._id}`)
+                        }
+                      >
+                        Add Variants
+                      </button>
                     </div>
                   </div>
                 );
