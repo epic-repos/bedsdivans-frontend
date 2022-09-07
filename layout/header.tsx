@@ -801,7 +801,7 @@ const Header = () => {
                
                     <div className={Styles.wishlist}>
                     <img src="/image/search-icon.SVG" alt="icon" width={20} height={20}  className={Styles.iconstyle}/>
-                      <p className={Styles.pstyle}>search</p>
+                      <p className={Styles.pstyle}>Search</p>
                     </div>
                   
                     <div className={Styles.wishlist}>
@@ -819,7 +819,7 @@ const Header = () => {
                     </div>
                     <div className={Styles.wishlist}>
                       <img src="/image/menu-icon.svg"  alt="icon" width={20} height={20}    className={Styles.iconstyle}/>
-                      <p className={Styles.pstyle}>menu</p>
+                      <p className={Styles.pstyle}>Menu</p>
                     </div>
                  
               </div>
