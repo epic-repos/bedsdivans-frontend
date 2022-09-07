@@ -89,12 +89,12 @@ $mobile: 576px;
     margin-bottom: 0;
     text-transform: uppercase;
     li {
-        list-style: none;
-        font-size: 14px;
-        font-family: sans-serif;
-        font-weight: 600;
-        color: #626363;
-        line-height: 38px;
+      list-style: none;
+      font-size: 14px;
+      font-family: sans-serif;
+      font-weight: 600;
+      color: #626363;
+      line-height: 38px;
       p {
         color: #0f0b0a;
         cursor: pointer;
@@ -124,8 +124,8 @@ $mobile: 576px;
       list-style: none;
       .wishlist {
         p {
-            margin-left: -18px;
-            font-size: 14px;
+          margin-left: -18px;
+          font-size: 14px;
         }
       }
       img {
@@ -178,10 +178,10 @@ $mobile: 576px;
     text-align: initial;
     line-height: 20px;
     li {
-      a {        
+      a {
         color: #000 !important;
-    font-size: 12px;
-    font-weight: 500;   
+        font-size: 12px;
+        font-weight: 500;
       }
     }
   }
@@ -206,12 +206,12 @@ $mobile: 576px;
   color: red !important;
 }
 .dropmenulastfooter {
-    background-color: #1b344a;
-    height: 35px;
-    margin-top: 20px;
-    p {
-        color: #fff !important;
-    }
+  background-color: #1b344a;
+  height: 35px;
+  margin-top: 20px;
+  p {
+    color: #fff !important;
+  }
 }
 
 // .header2{
@@ -261,46 +261,43 @@ $mobile: 576px;
 // .wishlist{
 //   text-align: center;
 // }
-.mobileheadert{
+.mobileheadert {
   display: none;
 }
 
-
-
-
 @media (max-width: $mobile) {
-  .mobileheadert{
+  .mobileheadert {
     display: block;
   }
   .mydiv {
-   display: none;
-  }
-  .carticon{
     display: none;
   }
-  .searchbar{
+  .carticon {
     display: none;
   }
-  .mainmenu{
+  .searchbar {
     display: none;
   }
-  .mainlogo{
+  .mainmenu {
+    display: none;
+  }
+  .mainlogo {
     display: none;
   }
 
-  .header2{
+  .header2 {
     display: flex;
     justify-content: space-between;
-   padding: 20px 10px;
-   align-items: center;
-   background-color: #f2f2f2;
-   .header1{
-    .headerimage{
-      max-width: 100px;
-      margin-left: 3px;
+    padding: 0px 10px;
+    align-items: center;
+    background-color: #f2f2f2;
+    .header1 {
+      .headerimage {
+        max-width: 100px;
+        margin-left: 3px;
+      }
     }
-   }
-    .secondbox1{
+    .secondbox1 {
       display: flex;
       gap: 10px;
       font-size: 14px;
@@ -308,34 +305,30 @@ $mobile: 576px;
       font-weight: 600;
     }
   }
-  .ulstyle{
+  .ulstyle {
     margin: 0px;
   }
-  .iconstyle{
+  .iconstyle {
     margin-top: 0px !important;
   }
-  .cart3{
+  .cart3 {
     display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-right: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
-  .pstyle{
+  .pstyle {
     margin-bottom: 0px !important;
     white-space: nowrap;
     font-size: 12px;
   }
-  .carticon1{
+  .carticon1 {
     display: flex;
     gap: 15px;
   }
-  .wishlist{
+  .wishlist {
     text-align: center;
   }
-  
-
 }
-
