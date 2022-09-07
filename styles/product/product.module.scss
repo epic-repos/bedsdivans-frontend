@@ -344,6 +344,17 @@ $mobile: 576px;
     flex-wrap: nowrap;
   }
   .right {
+  }
+}
+.right {
+  width: 100%;
+}
+.imageContainer {
+  .image {
+    max-width: 100%;
+    min-height: fit-content;
+    object-fit: cover;
+
     width: 100%;
   }
   .imageContainer {

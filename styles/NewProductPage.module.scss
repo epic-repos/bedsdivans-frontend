@@ -456,6 +456,8 @@ $mobile: 576px;
   }
   .productcart {
     flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
   .productsimages {
     .box1 {
