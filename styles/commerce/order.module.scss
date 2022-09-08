@@ -83,6 +83,7 @@
   padding-left: 30px;
   align-items: center;
   top: 0;
+  z-index: 999;
   .leftside {
     .topsearch {
       width: 400px;
@@ -214,6 +215,7 @@
               }
             }
           }
+
           .customername {
             font-weight: 600;
           }
@@ -280,35 +282,34 @@
       }
     }
   }
-  .searchlistproduct {
+}
+.searchlistproduct {
+  max-width: 300px;
+  .box {
     max-width: 300px;
-    .box {
-      max-width: 300px;
-      position: relative;
-      input {
-        max-width: 330px;
-        flex: 1;
-        height: 40px;
-        padding: 10px;
-        font-size: 15px;
-        border: 1px solid #c5c5c5;
-        width: 300px;
-      }
-      button {
-        position: absolute;
-        right: 0;
-        width: 24px;
-        height: 24px;
-        border: none;
-        padding: 0;
-        background: transparent;
-        top: 50%;
-        transform: translate(-50%, -50%);
-      }
+    position: relative;
+    input {
+      max-width: 330px;
+      flex: 1;
+      height: 40px;
+      padding: 10px;
+      font-size: 15px;
+      border: 1px solid #c5c5c5;
+      width: 300px;
+    }
+    button {
+      position: absolute;
+      right: 0;
+      width: 24px;
+      height: 24px;
+      border: none;
+      padding: 0;
+      background: transparent;
+      top: 50%;
+      transform: translate(-50%, -50%);
     }
   }
 }
-
 // -----------------------------------------
 .singleorderpage {
   background: #fff;
@@ -407,5 +408,118 @@
         }
       }
     }
+  }
+}
+
+.findactionbtn {
+  display: flex;
+  gap: 15px;
+  .selectcategory {
+    select {
+      max-width: 330px;
+      flex: 1 1;
+      height: 40px;
+      padding: 0px 10px;
+      font-size: 15px;
+      border: 1px solid #c5c5c5;
+      width: 300px;
+      line-height: 35.6em;
+      outline: none;
+    }
+  }
+}
+
+.actionbtnlist {
+  .cpbtn {
+    display: block;
+    background: #1e293b;
+    color: #fff !important;
+    border-radius: 5px;
+    padding: 7px 30px;
+  }
+}
+
+// product table
+.allproducttable {
+  thead {
+    .topcheckbox {
+      display: flex;
+      gap: 15px;
+      p {
+        margin: 0px;
+      }
+    }
+  }
+  tbody {
+    tr:nth-child(odd) {
+      background: #d3d3d34a;
+    }
+
+    tr:nth-child(even) {
+      background: white;
+    }
+    tr {
+      td {
+        .checkbox {
+          position: relative;
+        }
+        .image {
+          position: relative;
+        }
+        .productrname {
+          position: relative;
+          h6 {
+            margin: 0px;
+          }
+        }
+        .price {
+          position: relative;
+        }
+        .ststus {
+          position: relative;
+        }
+
+        .date {
+          position: relative;
+        }
+
+        .actionbtn {
+          .actionbtnul {
+            display: flex;
+            gap: 10px;
+            margin: 0px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.productuploadtabbox {
+  display: flex;
+  padding: 1rem;
+  gap: 15px;
+  ul.productuploadtab {
+    width: 16rem;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    li {
+      width: 100%;
+      background-color: #f1f5f9;
+      padding: 10px;
+      font-size: 15px;
+      font-weight: 500;
+      border-radius: 5px;
+      cursor: pointer;
+      &.active {
+        background-color: #1e293b !important;
+        color: #fff;
+      }
+    }
+  }
+  .tabbox {
+    flex: 1;
   }
 }
