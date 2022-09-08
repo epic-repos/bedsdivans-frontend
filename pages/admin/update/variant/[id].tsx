@@ -13,7 +13,6 @@ import { useUpdateBedVariant } from "network-requests/mutations";
 import { uploadBedImage } from "network-requests/api";
 import DynamicInputWithImagePicker from "components/admin/element/dynamicpicker";
 import pMap from "p-map";
-import Image from "next/image";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import updateBedSlice from "components/admin/context/update";
@@ -24,7 +23,6 @@ import {
   StorageArray,
   colorArray,
 } from "constants/data/bed";
-import DynamicInputWithPrice from "components/admin/element/dynamicinput";
 import DynamicInputForm from "components/admin/element/dynamicInputForm";
 
 interface AddNewVarientsProps {
@@ -197,15 +195,15 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
 
         <div className="d-flex" style={{ alignItems: "center" }}>
           {(currentInfo?.image || data?.image) && (
-            <Image
+            <img
               width={50}
               height={50}
               src={handleImageURL({
                 local: currentInfo?.image as File,
                 api: data?.image,
               })}
-              objectFit={"contain"}
-              layout={"fixed"}
+              // objectFit={"contain"}
+              // layout={"fixed"}
             />
           )}
           <FilePicker

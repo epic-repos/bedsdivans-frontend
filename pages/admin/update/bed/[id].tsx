@@ -5,13 +5,12 @@ import Input from "components/admin/element/input";
 import Textarea from "components/admin/element/textarea";
 import ReactChipInput from "react-chip-input";
 import AddMoreButton from "components/admin/element/addmore";
-import { useCreateNewBed, useUpdateBed } from "network-requests/mutations";
+import { useUpdateBed } from "network-requests/mutations";
 import { useFetchBedById } from "network-requests/queries";
 import { dehydrate, QueryClient } from "react-query";
 import { GetServerSideProps } from "next";
 import { isValidObjectId } from "mongoose";
 import { ToastContainer, toast } from "react-toastify";
-
 import "react-toastify/dist/ReactToastify.css";
 
 interface Bed {
@@ -74,10 +73,9 @@ function UpdateNewBed({ id }: Props) {
 
   return (
     <AdminLayout>
-      <h6>Create New Bed</h6>
-
+      <h6>Update Bed with this ID : {id}</h6>
       <h4 className={styles.heading}>Price and Size</h4>
-      <div className={styles.grid3}>
+      <div className={styles.inputsBox}>
         <Input
           name="name"
           type="text"
@@ -86,6 +84,8 @@ function UpdateNewBed({ id }: Props) {
           value={bed.name}
           onChange={handleInputChange}
         />
+      </div>
+      <div className={styles.inputsBox}>
         <Textarea
           name="description"
           label="Product Description"

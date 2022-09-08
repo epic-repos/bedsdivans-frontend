@@ -40,7 +40,7 @@ const DynamicInputWithImagePicker = ({
   getState,
   initialState,
 }: DynamicInputProps) => {
-  const [inputs, setInputs] = React.useState<StateType[]>(initialState);
+  const [inputs, setInputs] = React.useState<StateType[]>(init);
   const draft = [...inputs] as any;
 
   //Change On Initial Input
