@@ -16,7 +16,7 @@ import { randomBytes } from "crypto";
 import { useRouter } from "next/router";
 
 const Home: NextPageWithLayout = ({ newData }: any) => {
-  console.log({ SIMPLE: newData.data[0]?.variants });
+  console.log({ SIMPLE: newData });
   const router = useRouter();
 
   const settings = {
@@ -911,13 +911,11 @@ export async function getServerSideProps(context: any) {
     //   value: sizes,
     // }
   );
+  // /get-bed-variant/6319ead0de5e53c2b794a8d1
+  //  6319ef182073c552e3b691ff
+  // const { data: newData } = await axios.get(`http://localhost:5000/beds/`);
   const { data: newData } = await axios.get(
-    // "https://staggingx.bedsdivans.co.uk/api/mattress",
-    `http://localhost:5000/beds/`
-    // {
-    //   method: "size",
-    //   value: sizes,
-    // }
+    `http://localhost:5000/beds/get-bed-variant/6319ef182073c552e3b691ff`
   );
 
   const response = await data.data.data;
