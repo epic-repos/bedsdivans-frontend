@@ -21,12 +21,12 @@ interface StateType {
 
 
 const init: BedType[] = [
-    // {
-    //     id: "7d24f79a",
-    //     name: "",
-    //     image: "",
-    //     price: 0
-    // },
+    {
+        id: "7d24f79a",
+        name: "",
+        image: "",
+        price: 0
+    },
 ];
 
 const initialState: StateType = {
@@ -51,21 +51,21 @@ const updateBedSlice = {
                     ...state,
                     headboard: action.payload
                 }
-            // case STORAGE:
-            //     return {
-            //         ...state,
-            //         storage: action.payload
-            //     }
-            // case FEET:
-            //     return {
-            //         ...state,
-            //         feet: action.payload
-            //     }
-            // case MATTRESS:
-            //     return {
-            //         ...state,
-            //         mattress: action.payload
-            //     }
+            case STORAGE:
+                return {
+                    ...state,
+                    storage: action.payload
+                }
+            case FEET:
+                return {
+                    ...state,
+                    feet: action.payload
+                }
+            case MATTRESS:
+                return {
+                    ...state,
+                    mattress: action.payload
+                }
 
             default:
                 return state
@@ -74,12 +74,12 @@ const updateBedSlice = {
     actions: {
         setHeadboardInputs:
             (payload: any) => ({ type: HEADBOARD, payload: payload }),
-        // setStorageInputs:
-        //     (payload: any) => ({ type: STORAGE, payload: payload }),
-        // setFeetInputs:
-        //     (payload: any) => ({ type: FEET, payload: payload }),
-        // setMattressInputs:
-        //     (payload: any) => ({ type: MATTRESS, payload: payload }),
+        setStorageInputs:
+            (payload: any) => ({ type: STORAGE, payload: payload }),
+        setFeetInputs:
+            (payload: any) => ({ type: FEET, payload: payload }),
+        setMattressInputs:
+            (payload: any) => ({ type: MATTRESS, payload: payload }),
     }
 };
 

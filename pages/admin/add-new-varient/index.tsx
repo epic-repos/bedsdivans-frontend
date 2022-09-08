@@ -1,12 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
-import DynamicInput from "components/admin/dynamicinput";
+import DynamicInputWithImagePicker from "components/admin/element/dynamicpicker";
 import AddMoreButton from "components/admin/element/addmore";
-import FieldInput from "components/admin/element/fieldinput";
 import Input from "components/admin/element/input";
 import FilePicker from "components/admin/element/picker";
 import Select from "components/admin/element/select";
 import Textarea from "components/admin/element/textarea";
-import useIn from "components/admin/hooks/useIn";
 import {
   bedSizeArray,
   FeetArray,
@@ -22,66 +20,26 @@ import { GetServerSideProps } from "next";
 import pMap from "p-map";
 import React, { useEffect } from "react";
 import css from "styles/admin.module.scss";
+import updateBedSlice from "../context/update";
 import AdminLayout from "../layout";
+import DynamicInputWithPrice from "components/admin/element/dynamicinput";
 
 interface AddNewVarientsProps {
   id: string;
 }
 
 const AddNewVarients = ({ id }: AddNewVarientsProps) => {
+  // REDUCER FOR REDUCE CODE
+
+  const { actions, reducer, initialState } = updateBedSlice;
+
+  // @ts-ignore
+  const [state, dispatch] = React.useReducer(reducer, initialState);
   // API SECTION
   const { data, isFetched } = useFetchBedById(id);
 
   const [sizeData, setSizeData] = React.useState(bedSizeArray);
   const [colorInput, setColorInput] = React.useState<any>([]);
-
-  const init: StateType[] = [
-    {
-      id: "7d24f79a",
-      name: "",
-      image: "",
-    },
-  ];
-
-  const initNameAndPrice: StateType[] = [
-    {
-      id: "7d24f79a",
-      name: "",
-      price: 0,
-    },
-  ];
-
-  // HEAD BOARD
-
-  const {
-    addInputs: addStorageInputs,
-    onChangeInputs: changeStorageInputs,
-    removeInputs: removeStorageInputs,
-    inputs: storageInputs,
-  } = useIn<StateType>(initNameAndPrice);
-
-  const {
-    addInputs: addFeetInputs,
-    onChangeInputs: changeFeetInputs,
-    removeInputs: removeFeetInputs,
-    inputs: feetInputs,
-  } = useIn<StateType>(initNameAndPrice);
-
-  const {
-    addInputs: addHeadboardInputs,
-    onChangeInputs: changeHeadboardInputs,
-    removeInputs: removeHeadboardInputs,
-    inputs: headboardInputs,
-  } = useIn<StateType>(initNameAndPrice);
-
-  const {
-    addInputs: addMattressInputs,
-    onChangeInputs: changeMattressInputs,
-    removeInputs: removeMattressInputs,
-    inputs: mattressInputs,
-  } = useIn<StateType>(initNameAndPrice);
-
-  console.log({ headboardInputs, storageInputs, feetInputs, mattressInputs });
 
   useEffect(() => {
     const handleSizeOption = () => {
@@ -232,12 +190,37 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
         />
       </div>
       {/* Dynamic Fields */}
-      <DynamicInput
+      <DynamicInputWithImagePicker
         title="Color"
         options={colorArray}
         getState={(value) => setColorInput(value)}
       />
-      <FieldInput
+      {/* NEWLY ADDED */}
+      <DynamicInputWithPrice
+        title="Headboard"
+        options={HeadboardArray}
+        initialState={state.headboard}
+        getState={(value) => dispatch(actions.setHeadboardInputs(value))}
+      />
+      <DynamicInputWithPrice
+        title="Storage"
+        options={StorageArray}
+        initialState={state.storage}
+        getState={(value) => dispatch(actions.setStorageInputs(value))}
+      />
+      <DynamicInputWithPrice
+        title="Feet"
+        options={FeetArray}
+        initialState={state.feet}
+        getState={(value) => dispatch(actions.setFeetInputs(value))}
+      />
+      <DynamicInputWithPrice
+        title="Mattress"
+        options={MattressArray}
+        initialState={state.mattress}
+        getState={(value) => dispatch(actions.setMattressInputs(value))}
+      />
+      {/* <FieldInput
         title={`Headboard`}
         options={HeadboardArray}
         addInputs={addHeadboardInputs}
@@ -268,7 +251,7 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
         removeInputs={removeMattressInputs}
         onChangeInputs={changeMattressInputs}
         initialState={mattressInputs}
-      />
+      /> */}
       <br />
       <AddMoreButton title="Submit Variant" onClick={handleProductUpload} />
       {/* {JSON.stringify(data)} */}

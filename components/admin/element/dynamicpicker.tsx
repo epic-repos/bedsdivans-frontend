@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from "react";
-import Select from "./element/select";
-import FilePicker from "./element/picker";
+import Select from "./select";
+import FilePicker from "./picker";
 import css from "styles/admin.module.scss";
-import AddMoreButton from "./element/addmore";
+import AddMoreButton from "./addmore";
 import id from "utils/id";
 import Image from "next/image";
 
@@ -34,7 +34,7 @@ const init: StateType[] = [
   },
 ];
 
-const DynamicInput = ({
+const DynamicInputWithImagePicker = ({
   options,
   title,
   getState,
@@ -104,7 +104,7 @@ const DynamicInput = ({
             <React.Fragment key={index}>
               <Select
                 name="name"
-                label="Color Name"
+                label={`${title} Name`}
                 options={options}
                 onChange={(e) => onChangeInputs(index, e)}
                 value={data?.name}
@@ -122,7 +122,7 @@ const DynamicInput = ({
                 <FilePicker
                   name="image"
                   type="file"
-                  label="Color Image"
+                  label={`${title} Image`}
                   placeholder="Enter product name"
                   onChange={(e) => onChangeInputs(index, e)}
                   deletable
@@ -138,4 +138,4 @@ const DynamicInput = ({
     </React.Fragment>
   );
 };
-export default DynamicInput;
+export default DynamicInputWithImagePicker;

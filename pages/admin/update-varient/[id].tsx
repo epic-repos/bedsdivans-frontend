@@ -11,13 +11,20 @@ import Input from "components/admin/element/input";
 import FilePicker from "components/admin/element/picker";
 import { useUpdateBedVariant } from "network-requests/mutations";
 import { uploadBedImage } from "network-requests/api";
-import DynamicInput from "components/admin/dynamicinput";
+import DynamicInputWithImagePicker from "components/admin/element/dynamicpicker";
 import pMap from "p-map";
 import Image from "next/image";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import updateBedSlice from "../context/update";
-import { HeadboardArray } from "constants/data/bed";
+import {
+  FeetArray,
+  HeadboardArray,
+  MattressArray,
+  StorageArray,
+  colorArray,
+} from "constants/data/bed";
+import DynamicInputWithPrice from "components/admin/element/dynamicinput";
 
 interface AddNewVarientsProps {
   id: string;
@@ -28,6 +35,7 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
 
   const { actions, reducer, initialState } = updateBedSlice;
 
+  // @ts-ignore
   const [state, dispatch] = React.useReducer(reducer, initialState);
 
   const [colorInput, setColorInput] = React.useState<any>();
@@ -60,25 +68,25 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
 
   // console.log({ data });
 
-  // useEffect(() => {
-  //   if (data) {
-  //     const newData = {
-  //       basePrice: (data && data?.price.basePrice) || 0,
-  //       salePrice: (data && data?.price.salePrice) || 0,
-  //     };
-  //     setCurrentInfo((prev: any) => ({
-  //       ...prev,
-  //       ...newData,
-  //     }));
+  useEffect(() => {
+    if (data) {
+      const newData = {
+        basePrice: (data && data?.price.basePrice) || 0,
+        salePrice: (data && data?.price.salePrice) || 0,
+      };
+      setCurrentInfo((prev: any) => ({
+        ...prev,
+        ...newData,
+      }));
 
-  //     const color = data?.accessories?.color?.map((color: any) => {
-  //       return { ...color, id: color._id };
-  //     });
+      const color = data?.accessories?.color?.map((color: any) => {
+        return { ...color, id: color._id };
+      });
 
-  //     console.log({ color });
-  //     setApiColorInput(color);
-  //   }
-  // }, []);
+      console.log({ color });
+      setApiColorInput(color);
+    }
+  }, []);
 
   const handleProductUpload = async () => {
     const baseImage = !currentInfo.image
@@ -196,17 +204,36 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
       {/* Dynamic Fields */}
       {isFetched && (
         <>
-          <DynamicInput
+          <DynamicInputWithImagePicker
             title="Color"
             options={colorArray}
             initialState={apiColorInput}
             getState={(value) => setColorInput(value)}
           />
-          <DynamicInput
+          {/* NEWLY ADDED */}
+          <DynamicInputWithPrice
             title="Headboard"
             options={HeadboardArray}
             initialState={state.headboard}
             getState={(value) => dispatch(actions.setHeadboardInputs(value))}
+          />
+          <DynamicInputWithPrice
+            title="Storage"
+            options={StorageArray}
+            initialState={state.storage}
+            getState={(value) => dispatch(actions.setStorageInputs(value))}
+          />
+          <DynamicInputWithPrice
+            title="Feet"
+            options={FeetArray}
+            initialState={state.feet}
+            getState={(value) => dispatch(actions.setFeetInputs(value))}
+          />
+          <DynamicInputWithPrice
+            title="Mattress"
+            options={MattressArray}
+            initialState={state.mattress}
+            getState={(value) => dispatch(actions.setMattressInputs(value))}
           />
         </>
       )}
@@ -240,26 +267,3 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 };
 
 // COLOR ARRAY
-
-const colorArray = [
-  {
-    text: "Select Bed Color",
-    value: "",
-  },
-  {
-    text: "Color One",
-    value: "Color One",
-  },
-  {
-    text: "Color Two",
-    value: "Color Two",
-  },
-  {
-    text: "Color Three",
-    value: "Color Three",
-  },
-  {
-    text: "Color Four",
-    value: "Color Four",
-  },
-];
