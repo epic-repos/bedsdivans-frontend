@@ -20,9 +20,11 @@ import { GetServerSideProps } from "next";
 import pMap from "p-map";
 import React, { useEffect } from "react";
 import css from "styles/admin.module.scss";
-import updateBedSlice from "../context/update";
-import AdminLayout from "../layout";
+import updateBedSlice from "components/admin/context/update";
+
+import AdminLayout from "layout/layout";
 import DynamicInputWithPrice from "components/admin/element/dynamicinput";
+import DynamicInputForm from "components/admin/element/dynamicInputForm";
 
 interface AddNewVarientsProps {
   id: string;
@@ -40,6 +42,11 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
 
   const [sizeData, setSizeData] = React.useState(bedSizeArray);
   const [colorInput, setColorInput] = React.useState<any>([]);
+
+  const [headboardInputs, setHeadboardInputs] = React.useState<any>([]);
+  const [feetInputs, setFeetInputs] = React.useState<any>([]);
+  const [mattressInputs, setMattressInputs] = React.useState<any>([]);
+  const [storageInputs, setStorageInputs] = React.useState<any>([]);
 
   useEffect(() => {
     const handleSizeOption = () => {
@@ -111,10 +118,10 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
 
       accessories: {
         color: colorWithUrlAndName as any,
-        // storage: storageInputs,
-        // feet: feetInputs,
-        // headboard: headboardInputs,
-        // mattress: mattressInputs,
+        storage: storageInputs as any,
+        feet: feetInputs as any,
+        headboard: headboardInputs as any,
+        mattress: mattressInputs as any,
       },
     });
     console.log({ colorWithUrlAndName });
@@ -196,29 +203,25 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
         getState={(value) => setColorInput(value)}
       />
       {/* NEWLY ADDED */}
-      <DynamicInputWithPrice
+      <DynamicInputForm
         title="Headboard"
         options={HeadboardArray}
-        initialState={state.headboard}
-        getState={(value) => dispatch(actions.setHeadboardInputs(value))}
+        getValue={(value) => setHeadboardInputs(value)}
       />
-      <DynamicInputWithPrice
+      <DynamicInputForm
         title="Storage"
         options={StorageArray}
-        initialState={state.storage}
-        getState={(value) => dispatch(actions.setStorageInputs(value))}
+        getValue={(value) => setStorageInputs(value)}
       />
-      <DynamicInputWithPrice
+      <DynamicInputForm
         title="Feet"
         options={FeetArray}
-        initialState={state.feet}
-        getState={(value) => dispatch(actions.setFeetInputs(value))}
+        getValue={(value) => setFeetInputs(value)}
       />
-      <DynamicInputWithPrice
+      <DynamicInputForm
         title="Mattress"
         options={MattressArray}
-        initialState={state.mattress}
-        getState={(value) => dispatch(actions.setMattressInputs(value))}
+        getValue={(value) => setMattressInputs(value)}
       />
       {/* <FieldInput
         title={`Headboard`}

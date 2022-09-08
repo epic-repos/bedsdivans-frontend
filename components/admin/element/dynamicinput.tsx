@@ -10,7 +10,7 @@ import Input from "./input";
 interface StateType {
   id: string;
   name: string;
-  image: string;
+  price: string;
 }
 
 interface OptionsTypes {
@@ -30,7 +30,7 @@ const init: StateType[] = [
   {
     id: "7d24f79a",
     name: "",
-    image: "",
+    price: "",
   },
 ];
 
@@ -41,7 +41,9 @@ const DynamicInputWithPrice = ({
   initialState,
 }: DynamicInputProps) => {
   const [inputs, setInputs] = React.useState<StateType[]>(init);
-  const draft = [...(inputs as any)] as any;
+  const draft = [...inputs] as any;
+
+  console.log({ draft });
 
   //Change On Initial Input
   React.useMemo(() => {
@@ -53,22 +55,15 @@ const DynamicInputWithPrice = ({
   // CHANGE
   const onChangeInputs = (index: number, event: any) => {
     draft[index][event.target.name] = event.target.value;
-    if (event.target.name === "image") {
-      const file = event.target.files[0];
-      // const blob = URL.createObjectURL(file);
-      draft[index][event.target.name] = file;
-      setInputs(draft);
-    } else {
-      draft[index][event.target.name] = event.target.value;
-      setInputs(draft);
-    }
+    setInputs(draft);
   };
+
   // ADD
   const addInputs = () => {
     const addFields = {
       id: id(4),
       name: "",
-      image: "",
+      price: 0,
     };
 
     draft.push(addFields);
@@ -85,14 +80,6 @@ const DynamicInputWithPrice = ({
   React.useEffect(() => {
     if (getState) getState(inputs);
   }, [inputs]);
-
-  const handleImageURL = (url: string | File) => {
-    if (url instanceof File) {
-      return URL.createObjectURL(url);
-    } else {
-      return url;
-    }
-  };
 
   return (
     <React.Fragment>
@@ -111,14 +98,6 @@ const DynamicInputWithPrice = ({
               />
 
               <div className="d-flex" style={{ alignItems: "center" }}>
-                {data?.image && (
-                  <Image
-                    width={50}
-                    height={50}
-                    src={handleImageURL(data?.image)}
-                    objectFit={"contain"}
-                  />
-                )}
                 <Input
                   name="price"
                   type="number"
