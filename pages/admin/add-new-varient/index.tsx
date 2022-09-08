@@ -8,11 +8,11 @@ import Select from "components/admin/element/select";
 import Textarea from "components/admin/element/textarea";
 import useIn from "components/admin/hooks/useIn";
 import {
-    bedSizeArray,
-    FeetArray,
-    HeadboardArray,
-    MattressArray,
-    StorageArray
+  bedSizeArray,
+  FeetArray,
+  HeadboardArray,
+  MattressArray,
+  StorageArray,
 } from "constants/data/bed";
 import { isValidObjectId } from "mongoose";
 import { uploadBedImage } from "network-requests/api";
@@ -35,57 +35,53 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
   const [sizeData, setSizeData] = React.useState(bedSizeArray);
   const [colorInput, setColorInput] = React.useState<any>([]);
 
-    const init: StateType[] = [
-        {
-            id: "7d24f79a",
-            name: "",
-            image: "",
-        },
-    ];
+  const init: StateType[] = [
+    {
+      id: "7d24f79a",
+      name: "",
+      image: "",
+    },
+  ];
 
-    const initNameAndPrice: StateType[] = [
-        {
-            id: "7d24f79a",
-            name: "",
-            price: 0
-        },
-    ];
+  const initNameAndPrice: StateType[] = [
+    {
+      id: "7d24f79a",
+      name: "",
+      price: 0,
+    },
+  ];
 
-    // HEAD BOARD
-  
+  // HEAD BOARD
 
-    const {
-        addInputs: addStorageInputs,
-        onChangeInputs: changeStorageInputs,
-        removeInputs: removeStorageInputs,
-        inputs: storageInputs,
-    } = useIn<StateType>(initNameAndPrice);
+  const {
+    addInputs: addStorageInputs,
+    onChangeInputs: changeStorageInputs,
+    removeInputs: removeStorageInputs,
+    inputs: storageInputs,
+  } = useIn<StateType>(initNameAndPrice);
 
-    const {
-        addInputs: addFeetInputs,
-        onChangeInputs: changeFeetInputs,
-        removeInputs: removeFeetInputs,
-        inputs: feetInputs,
-    } = useIn<StateType>(initNameAndPrice);
+  const {
+    addInputs: addFeetInputs,
+    onChangeInputs: changeFeetInputs,
+    removeInputs: removeFeetInputs,
+    inputs: feetInputs,
+  } = useIn<StateType>(initNameAndPrice);
 
-    const {
-        addInputs: addHeadboardInputs,
-        onChangeInputs: changeHeadboardInputs,
-        removeInputs: removeHeadboardInputs,
-        inputs: headboardInputs,
-    } = useIn<StateType>(initNameAndPrice);
+  const {
+    addInputs: addHeadboardInputs,
+    onChangeInputs: changeHeadboardInputs,
+    removeInputs: removeHeadboardInputs,
+    inputs: headboardInputs,
+  } = useIn<StateType>(initNameAndPrice);
 
-    const {
-        addInputs: addMattressInputs,
-        onChangeInputs: changeMattressInputs,
-        removeInputs: removeMattressInputs,
-        inputs: mattressInputs,
-    } = useIn<StateType>(initNameAndPrice);
+  const {
+    addInputs: addMattressInputs,
+    onChangeInputs: changeMattressInputs,
+    removeInputs: removeMattressInputs,
+    inputs: mattressInputs,
+  } = useIn<StateType>(initNameAndPrice);
 
-
-    console.log({ headboardInputs, storageInputs, feetInputs, mattressInputs })
-
-    
+  console.log({ headboardInputs, storageInputs, feetInputs, mattressInputs });
 
   useEffect(() => {
     const handleSizeOption = () => {
@@ -169,13 +165,9 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
   interface StateType {
     id: string;
     name?: string;
-      image?: string;
-      price?: number;
-      
+    image?: string;
+    price?: number;
   }
-
-
-     
 
   return (
     <AdminLayout>
@@ -269,7 +261,6 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
         onChangeInputs={changeFeetInputs}
         initialState={feetInputs}
       />
-
       <FieldInput
         title={`Mattress`}
         options={MattressArray}
@@ -278,7 +269,6 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
         onChangeInputs={changeMattressInputs}
         initialState={mattressInputs}
       />
-
       <br />
       <AddMoreButton title="Submit Variant" onClick={handleProductUpload} />
       {/* {JSON.stringify(data)} */}

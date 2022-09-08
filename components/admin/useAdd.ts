@@ -24,6 +24,8 @@ const useAdd = <T>(initialState: T) => {
             ...inputs,
             id: id(4),
         };
+        // @ts-ignore
+
         setInputs((draft) => [...draft, addFields]);
     };
     // REMOVE
