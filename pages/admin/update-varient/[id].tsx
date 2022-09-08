@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect } from "react";
 import { GetServerSideProps } from "next";
@@ -13,15 +14,22 @@ import { uploadBedImage } from "network-requests/api";
 import DynamicInput from "components/admin/dynamicinput";
 import pMap from "p-map";
 import Image from "next/image";
-
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import updateBedSlice from "../context/update";
+import { HeadboardArray } from "constants/data/bed";
 
 interface AddNewVarientsProps {
   id: string;
 }
 
 const AddNewVarients = ({ id }: AddNewVarientsProps) => {
+  // REDUCER FOR REDUCE CODE
+
+  const { actions, reducer, initialState } = updateBedSlice;
+
+  const [state, dispatch] = React.useReducer(reducer, initialState);
+
   const [colorInput, setColorInput] = React.useState<any>();
   const [apiColorInput, setApiColorInput] = React.useState<any>();
   const [currentInfo, setCurrentInfo] = React.useState({
@@ -29,6 +37,8 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
     salePrice: 0,
     image: "" as any,
   });
+
+  console.log({ state });
 
   //TOAST PRODUCT UPDATE STATUS
 
@@ -48,27 +58,27 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
   const { data, isFetched } = useFetchBedVariantsById(id);
   const { mutate, isSuccess, isLoading } = useUpdateBedVariant(id);
 
-  console.log({ data });
+  // console.log({ data });
 
-  useEffect(() => {
-    if (data) {
-      const newData = {
-        basePrice: (data && data?.price.basePrice) || 0,
-        salePrice: (data && data?.price.salePrice) || 0,
-      };
-      setCurrentInfo((prev: any) => ({
-        ...prev,
-        ...newData,
-      }));
+  // useEffect(() => {
+  //   if (data) {
+  //     const newData = {
+  //       basePrice: (data && data?.price.basePrice) || 0,
+  //       salePrice: (data && data?.price.salePrice) || 0,
+  //     };
+  //     setCurrentInfo((prev: any) => ({
+  //       ...prev,
+  //       ...newData,
+  //     }));
 
-      const color = data?.accessories?.color?.map((color: any) => {
-        return { ...color, id: color._id };
-      });
+  //     const color = data?.accessories?.color?.map((color: any) => {
+  //       return { ...color, id: color._id };
+  //     });
 
-      console.log({ color });
-      setApiColorInput(color);
-    }
-  }, [data]);
+  //     console.log({ color });
+  //     setApiColorInput(color);
+  //   }
+  // }, []);
 
   const handleProductUpload = async () => {
     const baseImage = !currentInfo.image
@@ -185,21 +195,22 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
       </div>
       {/* Dynamic Fields */}
       {isFetched && (
-        <DynamicInput
-          title="Color"
-          options={colorArray}
-          initialState={apiColorInput}
-          getState={(value) => setColorInput(value)}
-        />
+        <>
+          <DynamicInput
+            title="Color"
+            options={colorArray}
+            initialState={apiColorInput}
+            getState={(value) => setColorInput(value)}
+          />
+          <DynamicInput
+            title="Headboard"
+            options={HeadboardArray}
+            initialState={state.headboard}
+            getState={(value) => dispatch(actions.setHeadboardInputs(value))}
+          />
+        </>
       )}
-      {/* Dynamic Fields */}
-      {/* <DynamicInput title="Color" options={colorArray} /> */}
-      {/* Dynamic Fields */}
-      {/* <DynamicInput title="Color" options={colorArray} /> */}
-      {/* Dynamic Fields */}
-      {/* <DynamicInput title="Color" options={colorArray} /> */}
-      {/* Dynamic Fields */}
-      {/* <DynamicInput title="Color" options={colorArray} /> */}
+
       <br />
       <AddMoreButton title="Submit Variant" onClick={handleProductUpload} />
       {/* {JSON.stringify(data)} */}

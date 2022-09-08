@@ -44,7 +44,7 @@ const DynamicInput = ({
   const draft = [...(inputs as any)] as any;
 
   //Change On Initial Input
-  React.useEffect(() => {
+  React.useMemo(() => {
     if (initialState) {
       setInputs(initialState);
     }
