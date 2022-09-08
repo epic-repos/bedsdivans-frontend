@@ -1,20 +1,28 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useEffect } from "react";
-import { GetServerSideProps } from "next";
-import { isValidObjectId } from "mongoose";
-import AdminLayout from "../layout";
-import { useFetchBedById } from "network-requests/queries";
-import AddMoreButton from "components/admin/element/addmore";
-import Select from "components/admin/element/select";
-import css from "styles/admin.module.scss";
-import Input from "components/admin/element/input";
-import Textarea from "components/admin/element/textarea";
-import FilePicker from "components/admin/element/picker";
-import { bedSizeArray } from "constants/data/bed";
-import { useCreateNewBedVariant } from "network-requests/mutations";
-import { uploadBedImage } from "network-requests/api";
 import DynamicInput from "components/admin/dynamicinput";
+import AddMoreButton from "components/admin/element/addmore";
+import FieldInput from "components/admin/element/fieldinput";
+import Input from "components/admin/element/input";
+import FilePicker from "components/admin/element/picker";
+import Select from "components/admin/element/select";
+import Textarea from "components/admin/element/textarea";
+import useIn from "components/admin/hooks/useIn";
+import {
+    bedSizeArray,
+    FeetArray,
+    HeadboardArray,
+    MattressArray,
+    StorageArray
+} from "constants/data/bed";
+import { isValidObjectId } from "mongoose";
+import { uploadBedImage } from "network-requests/api";
+import { useCreateNewBedVariant } from "network-requests/mutations";
+import { useFetchBedById } from "network-requests/queries";
+import { GetServerSideProps } from "next";
 import pMap from "p-map";
+import React, { useEffect } from "react";
+import css from "styles/admin.module.scss";
+import AdminLayout from "../layout";
 
 interface AddNewVarientsProps {
   id: string;
@@ -26,6 +34,58 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
 
   const [sizeData, setSizeData] = React.useState(bedSizeArray);
   const [colorInput, setColorInput] = React.useState<any>([]);
+
+    const init: StateType[] = [
+        {
+            id: "7d24f79a",
+            name: "",
+            image: "",
+        },
+    ];
+
+    const initNameAndPrice: StateType[] = [
+        {
+            id: "7d24f79a",
+            name: "",
+            price: 0
+        },
+    ];
+
+    // HEAD BOARD
+  
+
+    const {
+        addInputs: addStorageInputs,
+        onChangeInputs: changeStorageInputs,
+        removeInputs: removeStorageInputs,
+        inputs: storageInputs,
+    } = useIn<StateType>(initNameAndPrice);
+
+    const {
+        addInputs: addFeetInputs,
+        onChangeInputs: changeFeetInputs,
+        removeInputs: removeFeetInputs,
+        inputs: feetInputs,
+    } = useIn<StateType>(initNameAndPrice);
+
+    const {
+        addInputs: addHeadboardInputs,
+        onChangeInputs: changeHeadboardInputs,
+        removeInputs: removeHeadboardInputs,
+        inputs: headboardInputs,
+    } = useIn<StateType>(initNameAndPrice);
+
+    const {
+        addInputs: addMattressInputs,
+        onChangeInputs: changeMattressInputs,
+        removeInputs: removeMattressInputs,
+        inputs: mattressInputs,
+    } = useIn<StateType>(initNameAndPrice);
+
+
+    console.log({ headboardInputs, storageInputs, feetInputs, mattressInputs })
+
+    
 
   useEffect(() => {
     const handleSizeOption = () => {
@@ -45,7 +105,8 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
 
   const [currentInfo, setCurrentInfo] = React.useState({
     size: "",
-    price: "",
+    basePrice: 0,
+    salePrice: 0,
     image: null,
   });
 
@@ -58,7 +119,6 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
     }
   };
 
-  // console.log({ currentInfo });
   //API HANDLING
 
   const { mutate } = useCreateNewBedVariant(id);
@@ -89,22 +149,33 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
 
     mutate({
       price: {
-        basePrice: 100,
-        salePrice: 50,
+        basePrice: currentInfo.basePrice,
+        salePrice: currentInfo.salePrice,
       },
-      size: "3FT",
+      size: currentInfo.size,
       image: baseImage,
 
       accessories: {
         color: colorWithUrlAndName as any,
-        // storage: StorageInputs,
-        // feet: FeetInputs,
-        // headboard: HeadboardInputs,
-        // mattress: MattressInputs,
+        // storage: storageInputs,
+        // feet: feetInputs,
+        // headboard: headboardInputs,
+        // mattress: mattressInputs,
       },
     });
     console.log({ colorWithUrlAndName });
   };
+
+  interface StateType {
+    id: string;
+    name?: string;
+      image?: string;
+      price?: number;
+      
+  }
+
+
+     
 
   return (
     <AdminLayout>
@@ -147,9 +218,16 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
           options={sizeData}
         />
         <Input
-          name="price"
+          name="basePrice"
           type="number"
-          label="Product Price"
+          label="Base Price"
+          placeholder="Enter product name"
+          onChange={currentInfoHandler}
+        />
+        <Input
+          name="salePrice"
+          type="number"
+          label="Selling Price"
           placeholder="Enter product name"
           onChange={currentInfoHandler}
         />
@@ -167,14 +245,40 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
         options={colorArray}
         getState={(value) => setColorInput(value)}
       />
-      {/* Dynamic Fields */}
-      {/* <DynamicInput title="Color" options={colorArray} /> */}
-      {/* Dynamic Fields */}
-      {/* <DynamicInput title="Color" options={colorArray} /> */}
-      {/* Dynamic Fields */}
-      {/* <DynamicInput title="Color" options={colorArray} /> */}
-      {/* Dynamic Fields */}
-      {/* <DynamicInput title="Color" options={colorArray} /> */}
+      <FieldInput
+        title={`Headboard`}
+        options={HeadboardArray}
+        addInputs={addHeadboardInputs}
+        removeInputs={removeHeadboardInputs}
+        onChangeInputs={changeHeadboardInputs}
+        initialState={headboardInputs}
+      />
+      <FieldInput
+        title={`Storage`}
+        options={StorageArray}
+        addInputs={addStorageInputs}
+        removeInputs={removeStorageInputs}
+        onChangeInputs={changeStorageInputs}
+        initialState={storageInputs}
+      />
+      <FieldInput
+        title={`Feet`}
+        options={FeetArray}
+        addInputs={addFeetInputs}
+        removeInputs={removeFeetInputs}
+        onChangeInputs={changeFeetInputs}
+        initialState={feetInputs}
+      />
+
+      <FieldInput
+        title={`Mattress`}
+        options={MattressArray}
+        addInputs={addMattressInputs}
+        removeInputs={removeMattressInputs}
+        onChangeInputs={changeMattressInputs}
+        initialState={mattressInputs}
+      />
+
       <br />
       <AddMoreButton title="Submit Variant" onClick={handleProductUpload} />
       {/* {JSON.stringify(data)} */}

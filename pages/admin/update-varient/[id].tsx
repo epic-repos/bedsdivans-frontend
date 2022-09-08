@@ -12,6 +12,10 @@ import { useUpdateBedVariant } from "network-requests/mutations";
 import { uploadBedImage } from "network-requests/api";
 import DynamicInput from "components/admin/dynamicinput";
 import pMap from "p-map";
+import Image from "next/image";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface AddNewVarientsProps {
   id: string;
@@ -21,13 +25,12 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
   const [colorInput, setColorInput] = React.useState<any>();
   const [apiColorInput, setApiColorInput] = React.useState<any>();
   const [currentInfo, setCurrentInfo] = React.useState({
-    // size: "",
     basePrice: 0,
     salePrice: 0,
-    image: null,
+    image: "" as any,
   });
 
-  console.log({ colorInput });
+  //TOAST PRODUCT UPDATE STATUS
 
   const currentInfoHandler = (e: any) => {
     const { name, value, files } = e.target;
@@ -43,7 +46,7 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
   // API SECTION
 
   const { data, isFetched } = useFetchBedVariantsById(id);
-  const { mutate } = useUpdateBedVariant(id);
+  const { mutate, isSuccess, isLoading } = useUpdateBedVariant(id);
 
   console.log({ data });
 
@@ -69,7 +72,7 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
 
   const handleProductUpload = async () => {
     const baseImage = !currentInfo.image
-      ? null
+      ? data?.image || null
       : (await uploadBedImage(currentInfo.image as unknown as Blob)).url;
 
     const getImageUrlAndName = async (color: any) => {
@@ -84,26 +87,54 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
 
       return {
         name: color?.name,
-        image: color?.image instanceof String ? color?.image : null,
+        image: typeof color?.image === "string" ? color?.image : null,
       };
     };
     const colorWithUrlAndName = await pMap(colorInput, getImageUrlAndName);
 
-    mutate({
-      price: {
-        basePrice: currentInfo.basePrice,
-        salePrice: currentInfo.salePrice,
+    mutate(
+      {
+        price: {
+          basePrice: currentInfo.basePrice,
+          salePrice: currentInfo.salePrice,
+        },
+        image: baseImage as string,
+        accessories: {
+          color: colorWithUrlAndName as any,
+          // storage: StorageInputs,
+          // feet: FeetInputs,
+          // headboard: HeadboardInputs,
+          // mattress: MattressInputs,
+        },
       },
-      image: baseImage,
-      accessories: {
-        color: colorWithUrlAndName as any,
-        // storage: StorageInputs,
-        // feet: FeetInputs,
-        // headboard: HeadboardInputs,
-        // mattress: MattressInputs,
-      },
-    });
-    console.log({ colorWithUrlAndName });
+      {
+        onSuccess: (data) => {
+          toast.success(data?.message || "Product Updated Successfully");
+        },
+        onError: () => {
+          toast.error("Something went wrong");
+        },
+      }
+    );
+  };
+
+  const handleImageURL = ({
+    local,
+    api,
+  }: {
+    local: File;
+    api: string | undefined | null;
+  }) => {
+    if (local) {
+      console.log({ local: "local" });
+      return URL.createObjectURL(local);
+    }
+
+    if (api) {
+      return api;
+    }
+
+    return "";
   };
 
   return (
@@ -128,14 +159,29 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
           onChange={currentInfoHandler}
           value={currentInfo.salePrice}
         />
-        <FilePicker
-          name="image"
-          type="file"
-          label="Color Image"
-          placeholder="Enter product name"
-          onChange={currentInfoHandler}
-          // value={currentInfo.image}
-        />
+
+        <div className="d-flex" style={{ alignItems: "center" }}>
+          {(currentInfo?.image || data?.image) && (
+            <Image
+              width={50}
+              height={50}
+              src={handleImageURL({
+                local: currentInfo?.image as File,
+                api: data?.image,
+              })}
+              objectFit={"contain"}
+              layout={"fixed"}
+            />
+          )}
+          <FilePicker
+            name="image"
+            type="file"
+            label="Color Image"
+            placeholder="Enter product name"
+            onChange={currentInfoHandler}
+            // value={currentInfo.image}
+          />
+        </div>
       </div>
       {/* Dynamic Fields */}
       {isFetched && (
@@ -157,6 +203,7 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
       <br />
       <AddMoreButton title="Submit Variant" onClick={handleProductUpload} />
       {/* {JSON.stringify(data)} */}
+      <ToastContainer />
     </AdminLayout>
   );
 };

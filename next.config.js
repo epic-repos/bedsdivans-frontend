@@ -9,7 +9,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    domains: ["www.bedsdivans.co.uk", "cdn.shopify.com"],
+    domains: ["www.bedsdivans.co.uk", "cdn.shopify.com", "localhost"],
   },
 };
 

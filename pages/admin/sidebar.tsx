@@ -6,7 +6,7 @@ const Sidebar = () => {
   return (
     <div className={css.sidebar}>
       <div className={css.controls}>
-        <Link href={`/admin/all`}>All</Link>
+        <Link href={`/admin`}>All</Link>
         <Link href={`/admin/add-new`}>Add New</Link>
       </div>
     </div>

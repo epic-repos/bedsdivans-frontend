@@ -1,9 +1,11 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import Select from "./element/select";
 import FilePicker from "./element/picker";
 import css from "styles/admin.module.scss";
 import AddMoreButton from "./element/addmore";
 import id from "utils/id";
+import Image from "next/image";
 
 interface StateType {
   id: string;
@@ -38,9 +40,16 @@ const DynamicInput = ({
   getState,
   initialState,
 }: DynamicInputProps) => {
-  console.log({ initialState });
-  const [inputs, setInputs] = React.useState<StateType[]>(initialState || init);
+  const [inputs, setInputs] = React.useState<StateType[]>(init);
   const draft = [...(inputs as any)] as any;
+
+  //Change On Initial Input
+  React.useEffect(() => {
+    if (initialState) {
+      setInputs(initialState);
+    }
+  }, [initialState]);
+
   // CHANGE
   const onChangeInputs = (index: number, event: any) => {
     draft[index][event.target.name] = event.target.value;
@@ -77,6 +86,14 @@ const DynamicInput = ({
     if (getState) getState(inputs);
   }, [inputs]);
 
+  const handleImageURL = (url: string | File) => {
+    if (url instanceof File) {
+      return URL.createObjectURL(url);
+    } else {
+      return url;
+    }
+  };
+
   return (
     <React.Fragment>
       {/* Dynamic Fields */}
@@ -92,15 +109,27 @@ const DynamicInput = ({
                 onChange={(e) => onChangeInputs(index, e)}
                 value={data?.name}
               />
-              <FilePicker
-                name="image"
-                type="file"
-                label="Color Image"
-                placeholder="Enter product name"
-                onChange={(e) => onChangeInputs(index, e)}
-                deletable
-                onDelete={() => removeInputs(data.id)}
-              />
+
+              <div className="d-flex" style={{ alignItems: "center" }}>
+                {data?.image && (
+                  <Image
+                    width={50}
+                    height={50}
+                    src={handleImageURL(data?.image)}
+                    objectFit={"contain"}
+                  />
+                )}
+                <FilePicker
+                  name="image"
+                  type="file"
+                  label="Color Image"
+                  placeholder="Enter product name"
+                  onChange={(e) => onChangeInputs(index, e)}
+                  deletable
+                  onDelete={() => removeInputs(data.id)}
+                  style={{ width: "100%" }}
+                />
+              </div>
             </React.Fragment>
           );
         })}

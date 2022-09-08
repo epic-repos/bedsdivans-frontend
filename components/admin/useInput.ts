@@ -9,8 +9,6 @@ import inputfieldSlice from './context/input';
 const useInput = () => {
     const { actions, initialState, reducer } = inputfieldSlice
     // const [state, dispatch] = React.useReducer(reducer, initialState);
-
-
     const [state, setState] = React.useState(initialState);
     // ADD HANDLER
 
