@@ -1,12 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import { isValidObjectId } from "mongoose";
-import { useFetchAllBeds, useFetchBedById } from "network-requests/queries";
+import { useFetchBedById } from "network-requests/queries";
 import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import React from "react";
-import context from "react-bootstrap/esm/AccordionContext";
-import InfiniteScroll from "react-infinite-scroll-component";
-import { dehydrate, QueryClient, useQuery } from "react-query";
+import { dehydrate, QueryClient } from "react-query";
 import css from "styles/admin.module.scss";
 import AdminLayout from "../layout";
 /**

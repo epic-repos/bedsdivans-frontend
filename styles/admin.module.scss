@@ -136,6 +136,12 @@
   grid-template-columns: repeat(3, 1fr);
   @include common-input();
 }
+.gridfour {
+  gap: 0.4rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  @include common-input();
+}
 
 .input,
 .textarea {

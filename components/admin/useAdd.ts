@@ -31,7 +31,7 @@ const useAdd = <T>(initialState: T) => {
     // REMOVE
     const removeInputs = (id: string) => {
         if (id) {
-            const filter = draft.filter((v) => v.id !== id);
+            const filter = draft.filter((v: { id: string; }) => v.id !== id);
             setInputs(filter);
         }
     };

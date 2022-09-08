@@ -40,8 +40,8 @@ const DynamicInputWithImagePicker = ({
   getState,
   initialState,
 }: DynamicInputProps) => {
-  const [inputs, setInputs] = React.useState<StateType[]>(init);
-  const draft = [...(inputs as any)] as any;
+  const [inputs, setInputs] = React.useState<StateType[]>(initialState);
+  const draft = [...inputs] as any;
 
   //Change On Initial Input
   React.useMemo(() => {
@@ -133,8 +133,9 @@ const DynamicInputWithImagePicker = ({
             </React.Fragment>
           );
         })}
-        <AddMoreButton onClick={addInputs} title="Add More Color" />
       </div>
+      <br />
+      <AddMoreButton onClick={addInputs} title="Add More Color" />
     </React.Fragment>
   );
 };

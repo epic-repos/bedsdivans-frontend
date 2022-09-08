@@ -30,11 +30,13 @@ interface AddNewVarientsProps {
 
 const AddNewVarients = ({ id }: AddNewVarientsProps) => {
   // REDUCER FOR REDUCE CODE
-
   const { actions, reducer, initialState } = updateBedSlice;
 
-  // @ts-ignore
   const [state, dispatch] = React.useReducer(reducer, initialState);
+
+  // React.useEffect(() => {
+  //   console.log(state);
+  // }, [state]);
   // API SECTION
   const { data, isFetched } = useFetchBedById(id);
 
@@ -117,15 +119,8 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
         // mattress: mattressInputs,
       },
     });
-    console.log({ colorWithUrlAndName });
+    // console.log({ colorWithUrlAndName });
   };
-
-  interface StateType {
-    id: string;
-    name?: string;
-    image?: string;
-    price?: number;
-  }
 
   return (
     <AdminLayout>
@@ -147,20 +142,18 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
           // onChange={onChangeInputs}
         />
       </div>
-      <h4>NOT AVAILABLE SIZES</h4>
-      <div className={css.grid}>
-        {data?.variants.map((variant) => {
-          return (
-            <div key={variant._id}>
-              <p>{variant?.size}</p>
-            </div>
-          );
-        })}
-      </div>
-      {/* <Select label={"Select Size"} options={sizeData} /> */}
+      {/* <h4>NOT AVAILABLE SIZES</h4> */}
+
+      {/* {data?.variants.map((variant) => {
+        return (
+          <div key={variant._id}>
+            <p>{variant?.size}</p>
+          </div>
+        );
+      })} */}
 
       <h4 className={css.heading}>Price and Size</h4>
-      <div className={css.grid3}>
+      <div className={css.gridfour}>
         <Select
           name="size"
           label="Product Size"
@@ -193,6 +186,7 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
       <DynamicInputWithImagePicker
         title="Color"
         options={colorArray}
+        initialState={colorInput}
         getState={(value) => setColorInput(value)}
       />
       {/* NEWLY ADDED */}
@@ -200,13 +194,13 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
         title="Headboard"
         options={HeadboardArray}
         initialState={state.headboard}
-        getState={(value) => dispatch(actions.setHeadboardInputs(value))}
+        getState={(value) => console.log(value)}
       />
       <DynamicInputWithPrice
         title="Storage"
         options={StorageArray}
         initialState={state.storage}
-        getState={(value) => dispatch(actions.setStorageInputs(value))}
+        getState={(value) => console.log(value)}
       />
       <DynamicInputWithPrice
         title="Feet"
@@ -220,38 +214,7 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
         initialState={state.mattress}
         getState={(value) => dispatch(actions.setMattressInputs(value))}
       />
-      {/* <FieldInput
-        title={`Headboard`}
-        options={HeadboardArray}
-        addInputs={addHeadboardInputs}
-        removeInputs={removeHeadboardInputs}
-        onChangeInputs={changeHeadboardInputs}
-        initialState={headboardInputs}
-      />
-      <FieldInput
-        title={`Storage`}
-        options={StorageArray}
-        addInputs={addStorageInputs}
-        removeInputs={removeStorageInputs}
-        onChangeInputs={changeStorageInputs}
-        initialState={storageInputs}
-      />
-      <FieldInput
-        title={`Feet`}
-        options={FeetArray}
-        addInputs={addFeetInputs}
-        removeInputs={removeFeetInputs}
-        onChangeInputs={changeFeetInputs}
-        initialState={feetInputs}
-      />
-      <FieldInput
-        title={`Mattress`}
-        options={MattressArray}
-        addInputs={addMattressInputs}
-        removeInputs={removeMattressInputs}
-        onChangeInputs={changeMattressInputs}
-        initialState={mattressInputs}
-      /> */}
+
       <br />
       <AddMoreButton title="Submit Variant" onClick={handleProductUpload} />
       {/* {JSON.stringify(data)} */}
