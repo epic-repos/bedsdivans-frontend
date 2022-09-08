@@ -39,8 +39,10 @@ const DynamicInputWithPrice = ({
   getState,
   initialState,
 }: DynamicInputProps) => {
-  const [inputs, setInputs] = React.useState<StateType[]>(initialState);
+  const [inputs, setInputs] = React.useState<StateType[]>(init);
   const draft = [...inputs] as any;
+
+  console.log({ draft });
 
   //Change On Initial Input
   React.useMemo(() => {
@@ -54,12 +56,13 @@ const DynamicInputWithPrice = ({
     draft[index][event.target.name] = event.target.value;
     setInputs(draft);
   };
+
   // ADD
   const addInputs = () => {
     const addFields = {
       id: id(4),
       name: "",
-      image: "",
+      price: 0,
     };
 
     draft.push(addFields);

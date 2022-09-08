@@ -6,7 +6,11 @@ import { useRouter } from "next/router";
 import React from "react";
 import { dehydrate, QueryClient } from "react-query";
 import css from "styles/admin.module.scss";
-import AdminLayout from "../layout";
+import AdminLayout from "layout/layout";
+import { useDeleteBedVariantById } from "network-requests/mutations";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 /**
  * Admin Panel
  */
@@ -16,10 +20,12 @@ interface EditProductPageProps {
 }
 
 const EditProductPage = ({ id }: EditProductPageProps) => {
-  const { data, isLoading, isError } = useFetchBedById(id);
+  const { data, isLoading, isError, refetch } = useFetchBedById(id);
 
   console.log(data);
   const router = useRouter();
+
+  const { mutate } = useDeleteBedVariantById();
 
   return (
     <AdminLayout>
@@ -44,10 +50,22 @@ const EditProductPage = ({ id }: EditProductPageProps) => {
                 <div>
                   <button
                     onClick={() =>
-                      router.push(`/admin/update-varient/${idata._id}`)
+                      router.push(`/admin/update/variant/${idata._id}`)
                     }
                   >
                     Update Variant
+                  </button>
+                  <button
+                    onClick={() =>
+                      mutate(idata._id, {
+                        onSuccess: () => {
+                          toast.success("Variant Deleted Successfully");
+                          refetch();
+                        },
+                      })
+                    }
+                  >
+                    Delete Variant
                   </button>
                 </div>
               </div>
@@ -55,6 +73,7 @@ const EditProductPage = ({ id }: EditProductPageProps) => {
           })}
         </div>
       </div>
+      <ToastContainer />
     </AdminLayout>
   );
 };
