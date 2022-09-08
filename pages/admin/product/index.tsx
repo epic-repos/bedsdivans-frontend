@@ -5,7 +5,7 @@ import Styles from "styles/commerce/order.module.scss";
 import CommerceLayout from "components/admin/commerce/layout";
 // const [dropWDownload, dropWDownloadActive] = useState(false);
 
-function Allproduct() {
+function AllProductPage() {
   return (
     <CommerceLayout>
       <div className={Styles.rightsidebar}>
@@ -60,9 +60,7 @@ function Allproduct() {
             <div className={Styles.mainheading}>Orders </div>
 
             <div className={` ${Styles.tablebox} ${Styles.mt2}`}>
-              <div className={Styles.tabletopheading}>
-                All Orders <span className={Styles.number}>442</span>
-              </div>
+              <div className={Styles.tabletopheading}>Products list</div>
 
               <div className={Styles.subsubsubactionbtnlist}>
                 <div className={Styles.actionbtnlist}>
@@ -607,4 +605,4 @@ function Allproduct() {
   );
 }
 
-export default Allproduct;
+export default AllProductPage;
