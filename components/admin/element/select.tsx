@@ -5,7 +5,7 @@ import { S } from "../types";
 const Select = ({ options, label, onDelete, deletable, error, ...rest }: S) => {
   return (
     <div className={css.input}>
-      <label>{label}</label>
+      {label && <label>{label}</label>}
       <div className={css.field}>
         <select {...rest}>
           {options?.map((d, i) => (
