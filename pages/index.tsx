@@ -15,7 +15,8 @@ import PerPageLayout from "layout/perpage";
 import { randomBytes } from "crypto";
 import { useRouter } from "next/router";
 
-const Home: NextPageWithLayout = (props: any) => {
+const Home: NextPageWithLayout = ({ newData }: any) => {
+  console.log({ SIMPLE: newData });
   const router = useRouter();
 
   const settings = {
@@ -910,6 +911,12 @@ export async function getServerSideProps(context: any) {
     //   value: sizes,
     // }
   );
+  // /get-bed-variant/6319ead0de5e53c2b794a8d1
+  //  6319ef182073c552e3b691ff
+  // const { data: newData } = await axios.get(`http://localhost:5000/beds/`);
+  const { data: newData } = await axios.get(
+    `http://localhost:5000/beds/get-bed-variant/6319ef182073c552e3b691ff`
+  );
 
   const response = await data.data.data;
 
@@ -922,7 +929,7 @@ export async function getServerSideProps(context: any) {
   // const responseX = await axios.get(`${process.env.API_URL}/beds`);
 
   return {
-    props: { response, response1, response2, response3 },
+    props: { response, response1, response2, response3, newData },
     // will be passed to the page component as props
   };
 }

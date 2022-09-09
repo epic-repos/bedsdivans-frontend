@@ -1,18 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
-import DynamicInput from "components/admin/dynamicinput";
+import DynamicInputWithImagePicker from "components/admin/element/dynamicpicker";
 import AddMoreButton from "components/admin/element/addmore";
-import FieldInput from "components/admin/element/fieldinput";
 import Input from "components/admin/element/input";
 import FilePicker from "components/admin/element/picker";
 import Select from "components/admin/element/select";
 import Textarea from "components/admin/element/textarea";
-import useIn from "components/admin/hooks/useIn";
 import {
-    bedSizeArray,
-    FeetArray,
-    HeadboardArray,
-    MattressArray,
-    StorageArray
+  bedSizeArray,
+  FeetArray,
+  HeadboardArray,
+  MattressArray,
+  StorageArray,
 } from "constants/data/bed";
 import { isValidObjectId } from "mongoose";
 import { uploadBedImage } from "network-requests/api";
@@ -22,70 +20,35 @@ import { GetServerSideProps } from "next";
 import pMap from "p-map";
 import React, { useEffect } from "react";
 import css from "styles/admin.module.scss";
-import AdminLayout from "../layout";
+import updateBedSlice from "components/admin/context/update";
+
+import AdminLayout from "layout/layout";
+import DynamicInputWithPrice from "components/admin/element/dynamicinput";
+import DynamicInputForm from "components/admin/element/dynamicInputForm";
 
 interface AddNewVarientsProps {
   id: string;
 }
 
 const AddNewVarients = ({ id }: AddNewVarientsProps) => {
+  // REDUCER FOR REDUCE CODE
+  const { actions, reducer, initialState } = updateBedSlice;
+
+  const [state, dispatch] = React.useReducer(reducer, initialState);
+
+  // React.useEffect(() => {
+  //   console.log(state);
+  // }, [state]);
   // API SECTION
   const { data, isFetched } = useFetchBedById(id);
 
   const [sizeData, setSizeData] = React.useState(bedSizeArray);
   const [colorInput, setColorInput] = React.useState<any>([]);
 
-    const init: StateType[] = [
-        {
-            id: "7d24f79a",
-            name: "",
-            image: "",
-        },
-    ];
-
-    const initNameAndPrice: StateType[] = [
-        {
-            id: "7d24f79a",
-            name: "",
-            price: 0
-        },
-    ];
-
-    // HEAD BOARD
-  
-
-    const {
-        addInputs: addStorageInputs,
-        onChangeInputs: changeStorageInputs,
-        removeInputs: removeStorageInputs,
-        inputs: storageInputs,
-    } = useIn<StateType>(initNameAndPrice);
-
-    const {
-        addInputs: addFeetInputs,
-        onChangeInputs: changeFeetInputs,
-        removeInputs: removeFeetInputs,
-        inputs: feetInputs,
-    } = useIn<StateType>(initNameAndPrice);
-
-    const {
-        addInputs: addHeadboardInputs,
-        onChangeInputs: changeHeadboardInputs,
-        removeInputs: removeHeadboardInputs,
-        inputs: headboardInputs,
-    } = useIn<StateType>(initNameAndPrice);
-
-    const {
-        addInputs: addMattressInputs,
-        onChangeInputs: changeMattressInputs,
-        removeInputs: removeMattressInputs,
-        inputs: mattressInputs,
-    } = useIn<StateType>(initNameAndPrice);
-
-
-    console.log({ headboardInputs, storageInputs, feetInputs, mattressInputs })
-
-    
+  const [headboardInputs, setHeadboardInputs] = React.useState<any>([]);
+  const [feetInputs, setFeetInputs] = React.useState<any>([]);
+  const [mattressInputs, setMattressInputs] = React.useState<any>([]);
+  const [storageInputs, setStorageInputs] = React.useState<any>([]);
 
   useEffect(() => {
     const handleSizeOption = () => {
@@ -157,25 +120,14 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
 
       accessories: {
         color: colorWithUrlAndName as any,
-        // storage: storageInputs,
-        // feet: feetInputs,
-        // headboard: headboardInputs,
-        // mattress: mattressInputs,
+        storage: storageInputs as any,
+        feet: feetInputs as any,
+        headboard: headboardInputs as any,
+        mattress: mattressInputs as any,
       },
     });
-    console.log({ colorWithUrlAndName });
+    // console.log({ colorWithUrlAndName });
   };
-
-  interface StateType {
-    id: string;
-    name?: string;
-      image?: string;
-      price?: number;
-      
-  }
-
-
-     
 
   return (
     <AdminLayout>
@@ -197,20 +149,18 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
           // onChange={onChangeInputs}
         />
       </div>
-      <h4>NOT AVAILABLE SIZES</h4>
-      <div className={css.grid}>
-        {data?.variants.map((variant) => {
-          return (
-            <div key={variant._id}>
-              <p>{variant?.size}</p>
-            </div>
-          );
-        })}
-      </div>
-      {/* <Select label={"Select Size"} options={sizeData} /> */}
+      {/* <h4>NOT AVAILABLE SIZES</h4> */}
+
+      {/* {data?.variants.map((variant) => {
+        return (
+          <div key={variant._id}>
+            <p>{variant?.size}</p>
+          </div>
+        );
+      })} */}
 
       <h4 className={css.heading}>Price and Size</h4>
-      <div className={css.grid3}>
+      <div className={css.gridfour}>
         <Select
           name="size"
           label="Product Size"
@@ -240,43 +190,32 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
         />
       </div>
       {/* Dynamic Fields */}
-      <DynamicInput
+      <DynamicInputWithImagePicker
         title="Color"
         options={colorArray}
+        initialState={colorInput}
         getState={(value) => setColorInput(value)}
       />
-      <FieldInput
-        title={`Headboard`}
+      {/* NEWLY ADDED */}
+      <DynamicInputForm
+        title="Headboard"
         options={HeadboardArray}
-        addInputs={addHeadboardInputs}
-        removeInputs={removeHeadboardInputs}
-        onChangeInputs={changeHeadboardInputs}
-        initialState={headboardInputs}
+        getValue={(value) => setHeadboardInputs(value)}
       />
-      <FieldInput
-        title={`Storage`}
+      <DynamicInputForm
+        title="Storage"
         options={StorageArray}
-        addInputs={addStorageInputs}
-        removeInputs={removeStorageInputs}
-        onChangeInputs={changeStorageInputs}
-        initialState={storageInputs}
+        getValue={(value) => setStorageInputs(value)}
       />
-      <FieldInput
-        title={`Feet`}
+      <DynamicInputForm
+        title="Feet"
         options={FeetArray}
-        addInputs={addFeetInputs}
-        removeInputs={removeFeetInputs}
-        onChangeInputs={changeFeetInputs}
-        initialState={feetInputs}
+        getValue={(value) => setFeetInputs(value)}
       />
-
-      <FieldInput
-        title={`Mattress`}
+      <DynamicInputForm
+        title="Mattress"
         options={MattressArray}
-        addInputs={addMattressInputs}
-        removeInputs={removeMattressInputs}
-        onChangeInputs={changeMattressInputs}
-        initialState={mattressInputs}
+        getValue={(value) => setMattressInputs(value)}
       />
 
       <br />

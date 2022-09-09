@@ -13,8 +13,8 @@ type E = React.ChangeEvent<HTMLSelectElement | HTMLInputElement>;
 interface StateType {
   id: string;
   name?: string;
-    image?: string;
-    price?: number;
+  image?: string;
+  price?: number;
 }
 
 interface OptionsTypes {

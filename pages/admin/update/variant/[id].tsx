@@ -1,8 +1,9 @@
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect } from "react";
 import { GetServerSideProps } from "next";
 import { isValidObjectId } from "mongoose";
-import AdminLayout from "../layout";
+import AdminLayout from "layout/layout";
 import { useFetchBedVariantsById } from "network-requests/queries";
 import AddMoreButton from "components/admin/element/addmore";
 import css from "styles/admin.module.scss";
@@ -10,25 +11,54 @@ import Input from "components/admin/element/input";
 import FilePicker from "components/admin/element/picker";
 import { useUpdateBedVariant } from "network-requests/mutations";
 import { uploadBedImage } from "network-requests/api";
-import DynamicInput from "components/admin/dynamicinput";
+import DynamicInputWithImagePicker from "components/admin/element/dynamicpicker";
 import pMap from "p-map";
-import Image from "next/image";
-
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import updateBedSlice from "components/admin/context/update";
+import {
+  FeetArray,
+  HeadboardArray,
+  MattressArray,
+  StorageArray,
+  colorArray,
+} from "constants/data/bed";
+import DynamicInputForm from "components/admin/element/dynamicInputForm";
 
 interface AddNewVarientsProps {
   id: string;
 }
 
 const AddNewVarients = ({ id }: AddNewVarientsProps) => {
-  const [colorInput, setColorInput] = React.useState<any>();
-  const [apiColorInput, setApiColorInput] = React.useState<any>();
+  // REDUCER FOR REDUCE CODE
+
+  const { actions, reducer, initialState } = updateBedSlice;
+
+  // @ts-ignore
+  const [state, dispatch] = React.useReducer(reducer, initialState);
   const [currentInfo, setCurrentInfo] = React.useState({
     basePrice: 0,
     salePrice: 0,
     image: "" as any,
   });
+
+  //LOCAL DATA
+  const [colorInput, setColorInput] = React.useState<any>();
+
+  const [headboardInputs, setHeadboardInputs] = React.useState<any>([]);
+  const [feetInputs, setFeetInputs] = React.useState<any>([]);
+  const [mattressInputs, setMattressInputs] = React.useState<any>([]);
+  const [storageInputs, setStorageInputs] = React.useState<any>([]);
+
+  //API DATA
+  const [apiColorInput, setApiColorInput] = React.useState<any>();
+
+  const [apiHeadboardInputs, setApiHeadboardInputs] = React.useState<any>([]);
+  const [apiFeetInputs, setApiFeetInputs] = React.useState<any>([]);
+  const [apiMattressInputs, setApiMattressInputs] = React.useState<any>([]);
+  const [apiStorageInputs, setApiStorageInputs] = React.useState<any>([]);
+
+  console.log({ state });
 
   //TOAST PRODUCT UPDATE STATUS
 
@@ -48,7 +78,7 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
   const { data, isFetched } = useFetchBedVariantsById(id);
   const { mutate, isSuccess, isLoading } = useUpdateBedVariant(id);
 
-  console.log({ data });
+  // console.log({ data });
 
   useEffect(() => {
     if (data) {
@@ -65,7 +95,10 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
         return { ...color, id: color._id };
       });
 
-      console.log({ color });
+      setApiHeadboardInputs(data?.accessories?.headboard);
+      setApiFeetInputs(data?.accessories?.feet);
+      setApiMattressInputs(data?.accessories?.mattress);
+      setApiStorageInputs(data?.accessories?.storage);
       setApiColorInput(color);
     }
   }, [data]);
@@ -101,15 +134,15 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
         image: baseImage as string,
         accessories: {
           color: colorWithUrlAndName as any,
-          // storage: StorageInputs,
-          // feet: FeetInputs,
-          // headboard: HeadboardInputs,
-          // mattress: MattressInputs,
+          storage: storageInputs as any,
+          feet: feetInputs as any,
+          headboard: headboardInputs as any,
+          mattress: mattressInputs as any,
         },
       },
       {
         onSuccess: (data) => {
-          toast.success(data?.message || "Product Updated Successfully");
+          toast.success(data?.message || "Bed Varient Updated Successfully");
         },
         onError: () => {
           toast.error("Something went wrong");
@@ -162,15 +195,15 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
 
         <div className="d-flex" style={{ alignItems: "center" }}>
           {(currentInfo?.image || data?.image) && (
-            <Image
+            <img
               width={50}
               height={50}
               src={handleImageURL({
                 local: currentInfo?.image as File,
                 api: data?.image,
               })}
-              objectFit={"contain"}
-              layout={"fixed"}
+              // objectFit={"contain"}
+              // layout={"fixed"}
             />
           )}
           <FilePicker
@@ -185,21 +218,41 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
       </div>
       {/* Dynamic Fields */}
       {isFetched && (
-        <DynamicInput
-          title="Color"
-          options={colorArray}
-          initialState={apiColorInput}
-          getState={(value) => setColorInput(value)}
-        />
+        <>
+          <DynamicInputWithImagePicker
+            title="Color"
+            options={colorArray}
+            initialState={apiColorInput}
+            getState={(value) => setColorInput(value)}
+          />
+          {/* NEWLY ADDED */}
+          <DynamicInputForm
+            title="Headboard"
+            options={HeadboardArray}
+            initialValue={apiHeadboardInputs}
+            getValue={(value) => setHeadboardInputs(value)}
+          />
+          <DynamicInputForm
+            title="Storage"
+            options={StorageArray}
+            initialValue={apiStorageInputs}
+            getValue={(value) => setStorageInputs(value)}
+          />
+          <DynamicInputForm
+            title="Feet"
+            options={FeetArray}
+            initialValue={apiFeetInputs}
+            getValue={(value) => setFeetInputs(value)}
+          />
+          <DynamicInputForm
+            title="Mattress"
+            options={MattressArray}
+            initialValue={apiMattressInputs}
+            getValue={(value) => setMattressInputs(value)}
+          />
+        </>
       )}
-      {/* Dynamic Fields */}
-      {/* <DynamicInput title="Color" options={colorArray} /> */}
-      {/* Dynamic Fields */}
-      {/* <DynamicInput title="Color" options={colorArray} /> */}
-      {/* Dynamic Fields */}
-      {/* <DynamicInput title="Color" options={colorArray} /> */}
-      {/* Dynamic Fields */}
-      {/* <DynamicInput title="Color" options={colorArray} /> */}
+
       <br />
       <AddMoreButton title="Submit Variant" onClick={handleProductUpload} />
       {/* {JSON.stringify(data)} */}
@@ -229,26 +282,3 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 };
 
 // COLOR ARRAY
-
-const colorArray = [
-  {
-    text: "Select Bed Color",
-    value: "",
-  },
-  {
-    text: "Color One",
-    value: "Color One",
-  },
-  {
-    text: "Color Two",
-    value: "Color Two",
-  },
-  {
-    text: "Color Three",
-    value: "Color Three",
-  },
-  {
-    text: "Color Four",
-    value: "Color Four",
-  },
-];

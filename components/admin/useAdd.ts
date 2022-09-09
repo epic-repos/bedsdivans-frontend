@@ -24,12 +24,14 @@ const useAdd = <T>(initialState: T) => {
             ...inputs,
             id: id(4),
         };
+        // @ts-ignore
+
         setInputs((draft) => [...draft, addFields]);
     };
     // REMOVE
     const removeInputs = (id: string) => {
         if (id) {
-            const filter = draft.filter((v) => v.id !== id);
+            const filter = draft.filter((v: { id: string; }) => v.id !== id);
             setInputs(filter);
         }
     };

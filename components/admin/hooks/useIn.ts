@@ -42,6 +42,7 @@ const useIn = <T>(initialState: T[]) => {
     // REMOVE
     const removeInputs = (id: string) => {
         if (id) {
+            // @ts-ignore
             const filter = inputs.filter((v: T) => v.id !== id);
             setInputs(filter);
         }
