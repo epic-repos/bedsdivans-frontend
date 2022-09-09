@@ -11,9 +11,10 @@ interface ProductDataTypes {
 }
 interface BedSizeProps {
     value: any;
-    items: ProductDataTypes[];
+    items: any;
     onClickItem: (value: ProductDataTypes) => void;
 }
+
 
 
 interface CartProductTypes {

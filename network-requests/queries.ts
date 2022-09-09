@@ -1,11 +1,25 @@
 import { useInfiniteQuery, useQuery } from "react-query";
-import { getAllBeds, getBedById, getBedVariantById } from "./api";
-import { Bed, BedResponse, VariantsTypes } from "./types";
+import { getAllBeds, getAllBedsWithImage, getBedById, getBedVariantById } from "./api";
+import { Bed, BedResponse, BedWithImage, VariantsTypes } from "./types";
 
 export const useFetchAllBeds = () =>
   useInfiniteQuery(
     "beds",
     ({ pageParam = 1 }): Promise<BedResponse> => getAllBeds({ pageParam }),
+    {
+      refetchOnMount: true,
+      getNextPageParam: (lastPage: any) => {
+        if (lastPage.nextPage <= lastPage.totalPages) return lastPage.nextPage;
+        return undefined;
+      },
+    }
+  );
+
+
+export const useFetchAllBedsWithImage = () =>
+  useInfiniteQuery(
+    "beds",
+    ({ pageParam = 1 }): Promise<BedResponse> => getAllBedsWithImage({ pageParam }),
     {
       refetchOnMount: true,
       getNextPageParam: (lastPage: any) => {
@@ -21,5 +35,13 @@ export const useFetchBedById = (id: string) =>
 export const useFetchBedVariantsById = (id: string) =>
   useQuery(
     ["bed-variant", id],
-    (): Promise<VariantsTypes> => getBedVariantById(id)
+    (): Promise<BedWithImage> => getBedVariantById(id)
+  );
+
+export const useFetchBedVariantsByIdAndSize = (id: string, size: string) =>
+  useQuery(
+    ["bed-variant", id, size],
+    (): Promise<BedWithImage> => getBedVariantById(id, size), {
+    refetchOnMount: true
+  }
   );

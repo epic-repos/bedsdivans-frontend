@@ -14,9 +14,14 @@ import { NextPageWithLayout } from "typings/layout";
 import PerPageLayout from "layout/perpage";
 import { randomBytes } from "crypto";
 import { useRouter } from "next/router";
+import { BedWithImage, VariantsTypes } from "network-requests/types";
 
 const Home: NextPageWithLayout = ({ newData }: any) => {
-  console.log({ SIMPLE: newData });
+  // const images = newData?.data.map((item) => {
+  //   return item?.variants[0]?.accessories.color;
+  // });
+
+  console.log({ newData });
   const router = useRouter();
 
   const settings = {
@@ -312,58 +317,23 @@ const Home: NextPageWithLayout = ({ newData }: any) => {
             <h2>Best-seller of the season</h2>
           </div>
           <div className="row">
-            {products.map((item, index) => {
+            {newData?.data?.map((item: BedWithImage, index: number) => {
+              console.log({ item });
               return (
-                <div
-                  className="col-3"
+                <ProductItem
+                  name={item?.name}
+                  price={item?.price}
+                  image={item?.image}
                   key={index}
-                  onClick={() =>
-                    router.push(
-                      `/products/${item.heading}`
-                        .replaceAll(" ", "-")
-                        .toLowerCase()
-                    )
+                  onClickProduct={() =>
+                    router.push({
+                      pathname: `/products/${item._id}`,
+                      query: {
+                        size: item?.variants && item?.variants[0]?.size,
+                      },
+                    })
                   }
-                >
-                  <div className={Style.box1}>
-                    <div className={Style.productimage}>
-                      <Image
-                        src={item.imageUrl}
-                        alt="img"
-                        width="600"
-                        height="500"
-                      />
-                      <ul>
-                        <li>
-                          <img
-                            src="bedscolor/1.jpg"
-                            alt="img"
-                            width="50"
-                            height="50"
-                          />
-                        </li>
-                        <li>
-                          <img
-                            src="bedscolor/2.jpg"
-                            alt="img"
-                            width="50"
-                            height="50"
-                          />
-                        </li>
-                      </ul>
-                    </div>
-                    <h2 className={Style.productname}>{item.heading}</h2>
-                    <div className={Style.trustpilot}>
-                      <img src="/image/tru.png" alt="img" />
-                    </div>
-                    <p className={Style.price}>
-                      {"£" + item.price}
-                      <del>£800.00</del>
-                      <span>10%off</span>
-                    </p>
-                    {/* <p>{item.description}</p> */}
-                  </div>
-                </div>
+                />
               );
             })}
 
@@ -915,8 +885,11 @@ export async function getServerSideProps(context: any) {
   //  6319ef182073c552e3b691ff
   // const { data: newData } = await axios.get(`http://localhost:5000/beds/`);
   const { data: newData } = await axios.get(
-    `http://localhost:5000/beds/get-bed-variant/6319ef182073c552e3b691ff`
+    `http://localhost:5000/beds/get-all-beds-with-base-image`
   );
+  // const { data: newData } = await axios.get(
+  //   `http://localhost:5000/beds/get-bed-variant/6319ef182073c552e3b691ff`
+  // );
 
   const response = await data.data.data;
 
@@ -977,3 +950,59 @@ const products = [
                   on your side and prevents the head from sinking.`,
   },
 ];
+
+interface ProductItemProps extends BedWithImage {
+  onClickProduct: () => void;
+  // price:
+}
+const ProductItem = ({
+  name,
+  price,
+  image,
+  onClickProduct,
+}: ProductItemProps) => {
+  const getPercentage = (
+    base: number | undefined,
+    sale: number | undefined
+  ) => {
+    const dif = Number(base) - Number(sale);
+    if (base) return (dif / base) * 100;
+  };
+
+  const percentage = getPercentage(price?.basePrice, price?.salePrice)?.toFixed(
+    0
+  );
+
+  return (
+    <div className="col-3" onClick={onClickProduct}>
+      <div className={Style.box1}>
+        <div className={Style.productimage}>
+          <Image
+            src={image || "/fake.png"}
+            alt="img"
+            width="600"
+            height="500"
+          />
+          <ul>
+            <li>
+              <img src="bedscolor/1.jpg" alt="img" width="50" height="50" />
+            </li>
+            <li>
+              <img src="bedscolor/2.jpg" alt="img" width="50" height="50" />
+            </li>
+          </ul>
+        </div>
+        <h2 className={Style.productname}>{name}</h2>
+        <div className={Style.trustpilot}>
+          <img src="/image/tru.png" alt="img" />
+        </div>
+        <p className={Style.price}>
+          {`£ ${price?.salePrice}`}
+          <del>{`£${price?.salePrice}`}</del>
+          <span>{percentage}% off</span>
+        </p>
+        {/* <p>{item.description}</p> */}
+      </div>
+    </div>
+  );
+};
