@@ -506,6 +506,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
+    align-content: start;
     li {
       width: 100%;
       background-color: #f1f5f9;
@@ -522,5 +523,16 @@
   }
   .tabbox {
     flex: 1;
+  }
+}
+
+.buttonsection {
+  display: flex;
+  justify-content: end;
+  border-radius: 5px;
+  button {
+    background: #1e293b;
+    font-size: 15px;
+    padding: 10px 15px;
   }
 }

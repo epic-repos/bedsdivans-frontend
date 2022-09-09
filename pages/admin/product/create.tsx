@@ -7,6 +7,10 @@ import CommerceLayout from "components/admin/commerce/layout";
 import DeleteIcon from "icons/delete";
 import ViewIcon from "icons/view";
 import EditIcon from "icons/edit";
+import Select from "components/admin/element/select";
+import Input from "components/admin/element/input";
+import Textarea from "components/admin/element/textarea";
+import AddMoreButton from "components/admin/element/addmore";
 // const [dropWDownload, dropWDownloadActive] = useState(false);
 
 function CreateProduct() {
@@ -85,7 +89,10 @@ function CreateProduct() {
                   );
                 })}
               </ul>
-              <div className={Styles.tabbox}>{activeTab}</div>
+              <div className={Styles.tabbox}>
+                {/* {activeTab} */}
+                <TabsRender tabName={activeTab} />
+              </div>
             </div>
           </div>
         </main>
@@ -95,6 +102,96 @@ function CreateProduct() {
 }
 
 export default CreateProduct;
+
+const TabsRender = ({ tabName }: any) => {
+  switch (tabName) {
+    case "General":
+      return (
+        <div className="tabcontantinner">
+          <h1>General</h1>
+          <div className="box">
+            <ul>
+              <li>
+                <Input type="text" label={"Product Name"} />
+              </li>
+              <li>
+                <Textarea label="Product Description" />
+              </li>
+              <li>
+                <Input type="file" label={"Featured Image"} />
+              </li>
+              <li>
+                <Select
+                  // multiple
+                  options={[
+                    { text: "Select", value: "" },
+                    { text: "Hello", value: "Bye" },
+                    { text: "Hello", value: "Bye" },
+                    { text: "Hello", value: "Bye" },
+                    { text: "Hello", value: "Bye" },
+                    { text: "Hello", value: "Bye" },
+                  ]}
+                  label={"Select Category"}
+                />
+              </li>
+              <li>
+                <div className="row">
+                  <div className="col-md-6">
+                    <Input type="text" label={"Base Price"} />
+                  </div>
+                  <div className="col-md-6">
+                    <Input type="text" label={"Price"} />
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <div className={Styles.buttonsection}>
+              <AddMoreButton title="Next" />
+            </div>
+          </div>
+        </div>
+      );
+    case "Size":
+      return (
+        <div className="tabcontantinner">
+          <h1>Size</h1>
+        </div>
+      );
+    case "Color":
+      return (
+        <div className="tabcontantinner">
+          <h1>Color</h1>
+        </div>
+      );
+    case "HeadBoard":
+      return (
+        <div className="tabcontantinner">
+          <h1>HeadBoard</h1>
+        </div>
+      );
+    case "Storage":
+      return (
+        <div className="tabcontantinner">
+          <h1>Storage</h1>
+        </div>
+      );
+    case "Feet":
+      return (
+        <div className="tabcontantinner">
+          <h1>Feet</h1>
+        </div>
+      );
+    case "Mattress":
+      return (
+        <div className="tabcontantinner">
+          <h1>Mattress</h1>
+        </div>
+      );
+
+    default:
+      return null;
+  }
+};
 
 const TabArray = [
   {
