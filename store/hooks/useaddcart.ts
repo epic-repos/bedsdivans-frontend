@@ -1,37 +1,47 @@
-
-
-import React from 'react';
-import useAppDispatch from './usedispatch';
-import useAppSelector from './useselector';
-import addToCartSlice from 'store/slices/addtocart';
-import { useRouter } from 'next/router';
+import React from "react";
+import useAppDispatch from "./usedispatch";
+import useAppSelector from "./useselector";
+import addToCartSlice from "store/slices/addtocart";
+import { useRouter } from "next/router";
 
 /**
  * Custom Hook For Add To Cart
- * @returns 
+ * @returns
  */
 const useAddCart = () => {
     const dispatch = useAppDispatch();
 
-    const { push } = useRouter()
-    const cartState = useAppSelector((state) => state.addToCart)
+    const { push } = useRouter();
+    const cartState = useAppSelector((state) => state.addToCart);
     // ADD FROM CART
-    const addToCart = React.useCallback((data: any) => {
-        dispatch(addToCartSlice.actions.addToCart(data))
-        push(`/cart`)
-    }, [dispatch])
+    const addToCart = React.useCallback(
+        (data: any) => {
+            dispatch(addToCartSlice.actions.addToCart(data));
+            push(`/cart`);
+        },
+        [dispatch, push]
+    );
     // ADD FROM CART
-    const increaseQuantity = React.useCallback((id: any) => {
-        dispatch(addToCartSlice.actions.increaseQuantity(id))
-    }, [dispatch])
+    const increaseQuantity = React.useCallback(
+        (id: any) => {
+            dispatch(addToCartSlice.actions.increaseQuantity(id));
+        },
+        [dispatch]
+    );
     // ADD FROM CART
-    const decreaseQuantity = React.useCallback((id: any) => {
-        dispatch(addToCartSlice.actions.decreaseQuantity(id))
-    }, [dispatch])
+    const decreaseQuantity = React.useCallback(
+        (id: any) => {
+            dispatch(addToCartSlice.actions.decreaseQuantity(id));
+        },
+        [dispatch]
+    );
     // REMOVE FROM CART
-    const removeFromCart = React.useCallback((id: any) => {
-        dispatch(addToCartSlice.actions.removeFromCart(id))
-    }, [dispatch])
+    const removeFromCart = React.useCallback(
+        (id: any) => {
+            dispatch(addToCartSlice.actions.removeFromCart(id));
+        },
+        [dispatch]
+    );
 
     // Return Values
     return {
@@ -39,8 +49,7 @@ const useAddCart = () => {
         addToCart,
         increaseQuantity,
         decreaseQuantity,
-        removeFromCart
-    }
-
-}
+        removeFromCart,
+    };
+};
 export default useAddCart;
