@@ -15,32 +15,26 @@ import PerPageLayout from "layout/perpage";
 import productsPayload from "data/products";
 import useAddCart from "store/hooks/useaddcart";
 import { NextPageWithLayout } from "typings/layout";
+import { GetServerSideProps } from "next";
+import { isValidObjectId } from "mongoose";
+import { dehydrate, QueryClient } from "react-query";
+import redirect404 from "constants/redirects";
+import { useFetchBedVariantsByIdAndSize } from "network-requests/queries";
+import { BedWithImage, VariantsTypes } from "network-requests/types";
 
 /**
  * NEW PRODUCT PAGE
  * @returns
  */
-const NewProductPage: NextPageWithLayout = () => {
+const NewProductPage: NextPageWithLayout = ({ id, size }: any) => {
   const router = useRouter();
 
   // @ts-expect-error
   const dynamicData = productsPayload[router?.query?.id];
 
-  console.log({ dynamicData });
-
   const { addToCart, cartState } = useAddCart();
   const [tabs, setTabs] = React.useState("BedSize");
   const { bedState } = useSelectBed();
-
-  // const [currentBed, setCurrentBed] = React.useState<any>({});
-
-  // React.useEffect(() => {
-  //   const currentProduct = cartState.cartItems.find(
-  //     (item) => Number(item.id) === Number(router.query.id)
-  //   );
-  //   setCurrentBed(currentProduct);
-  //   // console.log({ currentBed });
-  // }, [cartState]);
 
   const onTabSelect = React.useCallback(
     (value: string) => {
@@ -48,6 +42,18 @@ const NewProductPage: NextPageWithLayout = () => {
     },
     [tabs]
   );
+
+  const { data } = useFetchBedVariantsByIdAndSize(id, size);
+  const [currentBed, setCurrentBed] = React.useState<VariantsTypes>();
+  const [currentImage, setCurrentImage] = React.useState<string>("");
+
+  React.useEffect(() => {
+    if (!(data?.variants && data?.variants?.length > 0)) return;
+    setCurrentBed(data?.variants[0]);
+    setCurrentImage(data?.variants[0].image || "/fake.png");
+  }, [data]);
+
+  console.log({ currentBed });
 
   const [tabIndex, settabIndex] = React.useState(
     tabsArray.findIndex((data) => data.title === tabs)
@@ -85,6 +91,11 @@ const NewProductPage: NextPageWithLayout = () => {
     },
   };
 
+  console.log(
+    productsPayload[
+      "dbzbeds-black-crushed-divan-bed-set-with-3-panel-headboard"
+    ].options.bedSize[0].bedHeadBoard
+  );
   // console.log(bedState.selectedBedData.imageUrl);
 
   return (
@@ -92,9 +103,9 @@ const NewProductPage: NextPageWithLayout = () => {
       <NextSEO title={`Dbz Beds`} />
       {/* Gufran  */}
       <div className={styles.imageContainer}>
-        <img src={bedState.bedImage} alt="Bed Image" className={styles.image} />
+        <img src={currentImage} alt="Bed Image" className={styles.image} />
         <div className={styles.container}>
-          <h3 className={styles.productName}>{dynamicData?.name}</h3>
+          <h3 className={styles.productName}>{data?.name}</h3>
           <div className={styles.item1}>
             <div className={styles.left}>
               {tabsArray.map((data, index) => (
@@ -113,7 +124,11 @@ const NewProductPage: NextPageWithLayout = () => {
                 onClickNext={onClickNext}
               />
               {/* DYNAMIC TABS  */}
-              <BedsTabs productsPayload={dynamicData} tabName={tabs} />
+              <BedsTabs
+                productsPayload={data}
+                tabName={tabs}
+                onColorChange={(value) => setCurrentImage(value.image)}
+              />
             </div>
           </div>
           <div className={styles.item2}>
@@ -184,15 +199,36 @@ const tabsArray = [
     // icon:'P'
   },
 ];
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { id, size } = context.query;
 
-// export async function getServerSideProps({ query }: GetServerSidePropsContext) {
-//   const id = query.id;
-//   const forbed = await axios.get(`http://localhost:5000/beds`);
+  if (!isValidObjectId(id)) {
+    return redirect404();
+  }
 
-//   // const response = await data.data.data;
-//   console.log({ SIMPLE: forbed.data });
-//   return {
-//     props: { response: forbed.data },
-//     // will be passed to the page component as props
-//   };
-// }
+  const getBed = async () => {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/beds/${id}?size=${size}`
+    );
+
+    if (response.status !== 200) {
+      return redirect404();
+    } else {
+      return response.json();
+    }
+  };
+
+  const queryClient = new QueryClient();
+  await queryClient.prefetchQuery(
+    ["bed-variant", id, size],
+    async () => await getBed()
+  );
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+      id,
+      size,
+    },
+  };
+};

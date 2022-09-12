@@ -1,5 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-import { useFetchAllBeds } from "network-requests/queries";
+import {
+  useFetchAllBeds,
+  useFetchAllBedsWithImage,
+} from "network-requests/queries";
 import { useRouter } from "next/router";
 import React from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -7,22 +10,21 @@ import { useQuery } from "react-query";
 import css from "styles/admin.module.scss";
 import AdminLayout from "layout/layout";
 import { useDeleteBedById } from "network-requests/mutations";
-
 import { ToastContainer, toast } from "react-toastify";
-
 import "react-toastify/dist/ReactToastify.css";
 /**
  * Admin Panel
  */
 
-const EditProductPage = () => {
+const AllProducts = () => {
   const { data, isLoading, isError, fetchNextPage, hasNextPage, refetch } =
-    useFetchAllBeds();
+    useFetchAllBedsWithImage();
 
   const { mutate } = useDeleteBedById();
 
   const router = useRouter();
 
+  console.log({ data: data?.pages });
   return (
     <AdminLayout>
       <div className={css.content}>
@@ -39,11 +41,13 @@ const EditProductPage = () => {
                 return (
                   <div key={i} className={css.item}>
                     <div className={css.image}>
-                      <img src="/image.png" alt="icon" />
+                      <img src={idata?.image || "/image.png"} alt="icon" />
                     </div>
                     <div className={css.text}>
                       <h4>{idata.name}</h4>
                       <p>{idata.description}</p>
+                      <p>Price</p>
+                      {JSON.stringify(idata?.price, null, 4)}
                       <div className={css.category}>
                         {idata?.categories?.map((c: string, i: number) => (
                           <span key={i}>{c}</span>
@@ -96,4 +100,4 @@ const EditProductPage = () => {
     </AdminLayout>
   );
 };
-export default EditProductPage;
+export default AllProducts;

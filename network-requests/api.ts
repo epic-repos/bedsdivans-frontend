@@ -4,6 +4,7 @@ import {
   Bed,
   BedRequestPayload,
   BedResponse,
+  BedWithImage,
   CreateBedVariantResponse,
   GetAllBedsParams,
   UploadBedImage,
@@ -21,6 +22,15 @@ export const getAllBeds = ({
     .catch((error) => {
       throw error;
     });
+export const getAllBedsWithImage = ({
+  pageParam = 1,
+}: GetAllBedsParams): Promise<BedResponse> =>
+  axios
+    .get<BedResponse>(`/beds/get-all-beds-with-base-image?page=${pageParam}`)
+    .then((response) => response.data)
+    .catch((error) => {
+      throw error;
+    });
 
 export const getBedById = (id: string): Promise<Bed> =>
   axios
@@ -30,13 +40,22 @@ export const getBedById = (id: string): Promise<Bed> =>
       throw error;
     });
 
-export const getBedVariantById = (id: string): Promise<VariantsTypes> =>
-  axios
-    .get<VariantsTypes>(`/beds/get-bed-variant/${id}`)
-    .then((response) => response.data)
-    .catch((error) => {
-      throw error;
-    });
+export const getBedVariantById = (id: string, size?: string | undefined): Promise<BedWithImage> => {
+  if (size)
+    return axios
+      .get<BedWithImage>(`/beds/get-bed-variant/${id}?size=${size}`)
+      .then((response) => response.data)
+      .catch((error) => {
+        throw error;
+      });
+  else
+    return axios
+      .get<BedWithImage>(`/beds/get-bed-variant/${id}`)
+      .then((response) => response.data)
+      .catch((error) => {
+        throw error;
+      });
+}
 
 //POST REQUESTS
 export const createBed = (

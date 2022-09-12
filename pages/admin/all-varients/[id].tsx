@@ -22,7 +22,7 @@ interface EditProductPageProps {
 const EditProductPage = ({ id }: EditProductPageProps) => {
   const { data, isLoading, isError, refetch } = useFetchBedById(id);
 
-  console.log(data);
+  console.log({ data });
   const router = useRouter();
 
   const { mutate } = useDeleteBedVariantById();
@@ -33,10 +33,11 @@ const EditProductPage = ({ id }: EditProductPageProps) => {
         <h1>All Product</h1>
         <div className={css.products}>
           {data?.variants?.map((idata: any, i: number) => {
+            console.log({ idata });
             return (
               <div key={i} className={css.item}>
                 <div className={css.image}>
-                  <img src="/image.png" alt="icon" />
+                  <img src={idata?.image || "/image.png"} alt="icon" />
                 </div>
                 <div className={css.text}>
                   <h4>{idata.size}</h4>

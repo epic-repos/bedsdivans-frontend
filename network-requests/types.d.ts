@@ -1,4 +1,6 @@
-export type GetAllBedsParams = {
+import React from 'react';
+
+type GetAllBedsParams = {
   pageParam: number;
 };
 
@@ -26,7 +28,7 @@ interface VariantsTypes {
   accessories?: AccessoriesTypes;
 }
 
-export type Bed = {
+type Bed = {
   _id: string;
   name: string;
   description: string;
@@ -43,19 +45,37 @@ interface BedRequestPayload {
   categories: string[];
 }
 
-export type BedResponse = {
+type BedResponse = {
   data: Bed[];
   totalPages: number;
   nextPage: number;
 };
 
-export type CreateBedVariantResponse = {
+type CreateBedVariantResponse = {
   message: string;
   data: VariantsTypes;
 };
 
-export type UploadBedImage = {
+type UploadBedImage = {
   success: boolean;
   message: string;
   url: string;
 };
+
+type BedWithImage = {
+  size?: string;
+  _id?: string;
+  name?: string;
+  description?: string;
+  variants?: VariantsTypes[];
+  categories?: string[];
+  createdAt?: string;
+  updatedAt?: string;
+  image?: string;
+  price?: {
+    basePrice: number
+    salePrice: number
+  }
+  // __v: number;
+};
+
