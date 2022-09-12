@@ -5,36 +5,29 @@ import styles from "styles/home.module.scss";
 
 const CategoryContainer = () => {
   return (
-    <section className={styles.qualityproducts}>
-      <div className="container">
-        <div className="row">
-          <div className="col-12">
-            <div className={styles.qualityheading}>
-              <h2>Our Quality Products</h2>
-              <p>Get up Refresh Every day</p>
-            </div>
-          </div>
-        </div>
-        <div className="row">
-          {categoryArray.map((data, index) => {
-            return (
-              <div key={index} className="col-3">
-                <div className={styles.box2}>
-                  <img src={data.imageUrl} alt="image" />
-                  <h3>Beds</h3>
-                  <p>
-                    Our range of beds come in single, double, king and super
-                    king sizes are crafted with superior memory foam that
-                    cradles your head and keeps your head and neck aligned even
-                    while you sleep on your side and prevents the head from
-                    sinking.
-                  </p>
-                  <button>Buy now</button>
-                </div>
+    <section className={styles.category}>
+      <div className={styles.row}>
+        {categoryArray.map((data, index) => {
+          return (
+            <div key={index} className={styles.item}>
+              <div className={styles.image}>
+                <img src={data.imageUrl} alt="image" />
               </div>
-            );
-          })}
-        </div>
+              <div className={styles.text}>
+                <h1>Beds</h1>
+                <p>
+                  Our range of beds come in single, double, king and super king
+                  sizes are crafted with superior memory foam that cradles your
+                  head and keeps your head and neck aligned even while you sleep
+                  on your side and prevents the head from sinking.
+                </p>
+              </div>
+              <div className={styles.controls}>
+                <button>Buy now</button>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </section>
   );

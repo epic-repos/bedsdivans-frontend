@@ -14,14 +14,9 @@ import { NextPageWithLayout } from "typings/layout";
 import PerPageLayout from "layout/perpage";
 import { randomBytes } from "crypto";
 import { useRouter } from "next/router";
-import { BedWithImage, VariantsTypes } from "network-requests/types";
+import { BedWithImage } from "network-requests/types";
 
 const Home: NextPageWithLayout = ({ newData }: any) => {
-  // const images = newData?.data.map((item) => {
-  //   return item?.variants[0]?.accessories.color;
-  // });
-
-  console.log({ newData });
   const router = useRouter();
 
   const settings = {

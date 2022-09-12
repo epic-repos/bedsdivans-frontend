@@ -44,7 +44,7 @@ const FeatureSlider = () => {
 
   return (
     <div className={styles.featuredslider}>
-      <h2>Featured</h2>
+      {/* <h2>Featured</h2> */}
       <Slider {...settings}>
         <div className={styles.slideimg}>
           <img src="/image/2.jpg" alt="Pink" />
