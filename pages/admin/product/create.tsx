@@ -117,8 +117,21 @@ const TabsRender = ({ tabName }: any) => {
               <li>
                 <Textarea label="Product Description" />
               </li>
-              <li>
-                <Input type="file" label={"Featured Image"} />
+              <li className="row">
+                <Select
+                  // multiple
+                  options={[
+                    { text: "Available Sizes", value: "" },
+                    { text: "2 Feet", value: "Bye" },
+                    { text: "3 Feet", value: "Bye" },
+                    { text: "4 Feet", value: "Bye" },
+                    { text: "5 Feet", value: "Bye" },
+                    { text: "6 Feet", value: "Bye" },
+                    { text: "9 Feet", value: "Bye" },
+                  ]}
+                  label={"Select Size"}
+                />
+                <Input type="file" label={"Featured Image"} accept="image/*" />
               </li>
               <li>
                 <Select
@@ -151,16 +164,53 @@ const TabsRender = ({ tabName }: any) => {
           </div>
         </div>
       );
-    case "Size":
-      return (
-        <div className="tabcontantinner">
-          <h1>Size</h1>
-        </div>
-      );
+    // case "Size":
+    //   return (
+    //     <div className="tabcontantinner">
+    //       <h1>Size</h1>
+    //       <div className="box">
+    //         <ul>
+    //           <li>
+    //             <Select
+    //               // multiple
+    //               options={[
+    //                 { text: "Select", value: "" },
+    //                 { text: "Hello", value: "Bye" },
+    //                 { text: "Hello", value: "Bye" },
+    //                 { text: "Hello", value: "Bye" },
+    //                 { text: "Hello", value: "Bye" },
+    //                 { text: "Hello", value: "Bye" },
+    //               ]}
+    //               label={"Select Category"}
+    //             />
+    //           </li>
+    //         </ul>
+    //       </div>
+    //     </div>
+    //   );
     case "Color":
       return (
         <div className="tabcontantinner">
           <h1>Color</h1>
+          <div className="box">
+            <ul>
+              <li className="row">
+                <Select
+                  // multiple
+                  options={[
+                    { text: "Select", value: "" },
+                    { text: "Hello", value: "Bye" },
+                    { text: "Hello", value: "Bye" },
+                    { text: "Hello", value: "Bye" },
+                    { text: "Hello", value: "Bye" },
+                    { text: "Hello", value: "Bye" },
+                  ]}
+                  label={"Select Category"}
+                />
+                <Input type="file" label={"Featured Image"} accept="image/*" />
+              </li>
+            </ul>
+          </div>
         </div>
       );
     case "HeadBoard":
@@ -197,9 +247,9 @@ const TabArray = [
   {
     value: "General",
   },
-  {
-    value: "Size",
-  },
+  // {
+  //   value: "Size",
+  // },
   {
     value: "Color",
   },
