@@ -1,5 +1,69 @@
 // SIZE ARRAY
+// COLOR ARRAY
 
+// 'black crushed.png',
+// 'black leather.png',
+// 'black linen.png',
+// 'blue plush.png',
+// 'champain crushed.png',
+// 'cream chenille.png',
+// 'grey linen.png',
+// 'grey plush.png',
+// 'gun grey.png',
+// 'pink crushed.png',
+// 'silver crushed.png',
+// 'white crushed.png'
+
+
+
+export const colorArrayWithImages = [
+  {
+    "colorName": "Grey Linen",
+    value: "grey linen",
+    "imageUrl": "https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img/https://www.bedsdivans.co.uk/wp-content/uploads/2021/01/index-150x150.png"
+  },
+  {
+    "colorName": "Silver Crushed",
+    value: "silver crushed",
+    "imageUrl": "https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img/https://www.bedsdivans.co.uk/wp-content/uploads/2021/01/silver-chrushed-valvet-150x150.png"
+  },
+  {
+    "colorName": "White Crushed",
+    "imageUrl": "https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img/https://www.bedsdivans.co.uk/wp-content/uploads/2021/02/41N4mADNGvL._AC_-150x150.jpg"
+  },
+  {
+    "colorName": "Blue Plush Velvet",
+    "imageUrl": "https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img/https://www.bedsdivans.co.uk/wp-content/uploads/2021/01/blue-plush-velvet-150x150.jpg"
+  },
+  {
+    "colorName": "Steel Plush Velvet",
+    "imageUrl": "https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img/https://www.bedsdivans.co.uk/wp-content/uploads/2021/01/Steel-Plush-Velvet-3-150x150.jpg"
+  },
+  {
+    "colorName": "Charcoal Chenille",
+    "imageUrl": "https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img/https://www.bedsdivans.co.uk/wp-content/uploads/2021/01/charcoal-chenille-150x150.jpg"
+  },
+  {
+    "colorName": "Cream Chenille",
+    "imageUrl": "https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img/https://www.bedsdivans.co.uk/wp-content/uploads/2021/01/cream-chenille-150x150.jpg"
+  },
+  {
+    "colorName": "Black Leather",
+    "imageUrl": "https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img/https://www.bedsdivans.co.uk/wp-content/uploads/2021/01/black-leather-150x150.jpg"
+  },
+  {
+    "colorName": "Black Crushed Velvet",
+    "imageUrl": "https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img/https://www.bedsdivans.co.uk/wp-content/uploads/2021/01/black-crushed-velvet-150x150.jpg"
+  },
+  {
+    "colorName": "Champagne Crushed",
+    "imageUrl": "https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img/https://www.bedsdivans.co.uk/wp-content/uploads/2021/01/cream-crushed-velvet-150x150.jpg"
+  },
+  {
+    "colorName": "Pink Crushed Velvet",
+    "imageUrl": "https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img/https://www.bedsdivans.co.uk/wp-content/uploads/2022/05/Light-Pink-And-Pale-Pink-Crushed-Velour-Fabric-Stretch-Material.jpg"
+  }
+]
 
 export const colorArray = [
   {
@@ -7,22 +71,77 @@ export const colorArray = [
     value: "",
   },
   {
-    text: "Color One",
-    value: "Color One",
+    text: "Black Crushed",
+    value: "black crushed",
   },
   {
-    text: "Color Two",
-    value: "Color Two",
+    text: "Black Leather",
+    value: "black leather",
   },
   {
-    text: "Color Three",
-    value: "Color Three",
+    text: "Black Linen",
+    value: "black linen",
   },
   {
-    text: "Color Four",
-    value: "Color Four",
+    text: "Blue Plush",
+    value: "blue plush",
+  },
+  {
+    text: "Champain Crushed",
+    value: "champain crushed",
+  },
+  {
+    text: "Cream Chenille",
+    value: "cream chenille",
+  },
+  {
+    text: "Grey Linen",
+    value: "grey linen",
+  },
+  {
+    text: "Grey Plush",
+    value: "grey plush",
+  },
+  {
+    text: "Gun Grey",
+    value: "gun grey",
+  },
+  {
+    text: "Pink Crushed",
+    value: "pink crushed",
+  },
+  {
+    text: "Silver Crushed",
+    value: "silver crushed",
+  },
+  {
+    text: "White Crushed",
+    value: "white crushed",
   },
 ];
+
+// export const colorArray = [
+//   {
+//     text: "Select Bed Color",
+//     value: "",
+//   },
+//   {
+//     text: "Color One",
+//     value: "Color One",
+//   },
+//   {
+//     text: "Color Two",
+//     value: "Color Two",
+//   },
+//   {
+//     text: "Color Three",
+//     value: "Color Three",
+//   },
+//   {
+//     text: "Color Four",
+//     value: "Color Four",
+//   },
+// ];
 
 
 export const bedSizeArray = [
@@ -159,5 +278,4 @@ export const MattressArray = [
 //     value: 6,
 //   },
 // ];
-
 
