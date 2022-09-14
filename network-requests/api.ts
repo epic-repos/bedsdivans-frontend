@@ -114,6 +114,28 @@ export const uploadBedImage = async (image: Blob): Promise<UploadBedImage> => {
         });
 };
 
+//CREATE COLOR ICON
+
+export const createColorIcon = async (
+    image: Blob,
+    label: string,
+    value: string
+): Promise<UploadBedImage> => {
+    const formdata = new FormData();
+    formdata.append("label", label);
+    formdata.append("value", value);
+    formdata.append("image", image);
+
+    return await axios
+        .postForm<UploadBedImage>(`/icons/colors`, formdata)
+        .then((response) => {
+            return response.data;
+        })
+        .catch((error) => {
+            throw error;
+        });
+};
+
 //PATCH REQUESTS
 export const updateBedVariantById = (
     id: string,
