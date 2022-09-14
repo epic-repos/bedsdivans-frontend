@@ -97,7 +97,7 @@ const DynamicInputWithImagePicker = ({
   return (
     <React.Fragment>
       {/* Dynamic Fields */}
-      <h4 className={css.heading}>{title}</h4>
+      <h1 className={css.heading}>{title}</h1>
       <div className={css.grid}>
         {inputs.map((data: any, index: number) => {
           return (
@@ -110,7 +110,10 @@ const DynamicInputWithImagePicker = ({
                 value={data?.name}
               />
 
-              <div className="d-flex" style={{ alignItems: "center" }}>
+              <div
+                className="d-flex"
+                style={{ alignItems: "end", gap: "15px" }}
+              >
                 {data?.image && (
                   <Image
                     width={50}

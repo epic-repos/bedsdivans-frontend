@@ -6,7 +6,6 @@ import {
 import { useRouter } from "next/router";
 import React from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { useQuery } from "react-query";
 import css from "styles/admin.module.scss";
 import AdminLayout from "layout/layout";
 import { useDeleteBedById } from "network-requests/mutations";

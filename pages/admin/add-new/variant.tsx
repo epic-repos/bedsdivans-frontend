@@ -20,10 +20,8 @@ import { GetServerSideProps } from "next";
 import pMap from "p-map";
 import React, { useEffect } from "react";
 import css from "styles/admin.module.scss";
-import updateBedSlice from "components/admin/context/update";
 
 import AdminLayout from "layout/layout";
-import DynamicInputWithPrice from "components/admin/element/dynamicinput";
 import DynamicInputForm from "components/admin/element/dynamicInputForm";
 
 interface AddNewVarientsProps {
@@ -32,9 +30,9 @@ interface AddNewVarientsProps {
 
 const AddNewVarients = ({ id }: AddNewVarientsProps) => {
   // REDUCER FOR REDUCE CODE
-  const { actions, reducer, initialState } = updateBedSlice;
+  // const { actions, reducer, initialState } = updateBedSlice;
 
-  const [state, dispatch] = React.useReducer(reducer, initialState);
+  // const [state, dispatch] = React.useReducer(reducer, initialState);
 
   // React.useEffect(() => {
   //   console.log(state);
@@ -89,9 +87,7 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
   const handleProductUpload = async () => {
     const baseImage = !currentInfo.image
       ? null
-      : await (
-          await uploadBedImage(currentInfo.image as unknown as Blob)
-        ).url;
+      : (await uploadBedImage(currentInfo.image as unknown as Blob)).url;
 
     const getImageUrlAndName = async (color: any) => {
       if (color.image) {

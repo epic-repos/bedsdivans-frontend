@@ -12,6 +12,7 @@ interface InputFields {
 interface DynamicInputProps {
   title: string;
   options: any[];
+  label: string;
   getValue: (value: InputFields[]) => void;
   initialValue?: InputFields[];
 }
@@ -21,6 +22,7 @@ function DynamicInputForm({
   options,
   getValue,
   initialValue,
+  label,
 }: DynamicInputProps) {
   const [inputFields, setInputFields] = useState<InputFields[]>([
     { name: "", price: "" },
@@ -59,14 +61,14 @@ function DynamicInputForm({
   return (
     <React.Fragment>
       {/* Dynamic Fields */}
-      <h4 className={styles.heading}>{title}</h4>
+      {title && <h1 className={styles.heading}>{title}</h1>}
       <div className={styles.grid}>
         {inputFields.map((data: any, index: number) => {
           return (
             <React.Fragment key={index}>
               <Select
                 name="name"
-                label={`${title} Name`}
+                label={`${label} Name`}
                 options={options}
                 onChange={(e) => handleFormChange(index, e)}
                 value={data?.name}
@@ -76,7 +78,7 @@ function DynamicInputForm({
                 <Input
                   name="price"
                   type="number"
-                  label={`${title} Price`}
+                  label={`${label} Price`}
                   placeholder="Enter product price"
                   value={data?.price}
                   onChange={(e) => handleFormChange(index, e)}
@@ -88,7 +90,7 @@ function DynamicInputForm({
             </React.Fragment>
           );
         })}
-        <AddMoreButton onClick={addFields} title={`Add More ${title}`} />
+        <AddMoreButton onClick={addFields} title={`Add More ${label}`} />
       </div>
     </React.Fragment>
   );

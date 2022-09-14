@@ -14,6 +14,7 @@
     "@stripe/stripe-js": "^1.35.0",
     "axios": "^0.27.2",
     "bootstrap": "^5.2.1",
+    "mini-state": "^1.12.0",
     "mongoose": "^6.5.5",
     "next": "12.2.5",
     "p-map": "^5.5.0",
