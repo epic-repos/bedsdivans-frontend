@@ -2,12 +2,12 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Styles from "styles/commerce/order.module.scss";
-import CommerceLayout from "components/admin/commerce/layout";
+import ProductUploadSidebar from "components/admin/product/upload";
 // const [dropWDownload, dropWDownloadActive] = useState(false);
 
 function AllProductPage() {
   return (
-    <CommerceLayout>
+    <ProductUploadSidebar>
       <div className={Styles.rightsidebar}>
         <div className={Styles.topheaderdashboard}>
           <div className={Styles.leftside}>
@@ -601,7 +601,7 @@ function AllProductPage() {
           </div>
         </main>
       </div>
-    </CommerceLayout>
+    </ProductUploadSidebar>
   );
 }
 

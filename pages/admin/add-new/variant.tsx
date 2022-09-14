@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import DynamicInputWithImagePicker from "components/admin/element/dynamicpicker";
 import AddMoreButton from "components/admin/element/addmore";
 import Input from "components/admin/element/input";
 import FilePicker from "components/admin/element/picker";
@@ -7,6 +6,8 @@ import Select from "components/admin/element/select";
 import Textarea from "components/admin/element/textarea";
 import {
   bedSizeArray,
+  colorArray,
+  colorArrayWithImages,
   FeetArray,
   HeadboardArray,
   MattressArray,
@@ -23,12 +24,14 @@ import css from "styles/admin.module.scss";
 
 import AdminLayout from "layout/layout";
 import DynamicInputForm from "components/admin/element/dynamicInputForm";
+import DynamicImageForm from "components/admin/element/dynamicImageForm";
 
 interface AddNewVarientsProps {
   id: string;
 }
 
 const AddNewVarients = ({ id }: AddNewVarientsProps) => {
+<<<<<<< HEAD
   // REDUCER FOR REDUCE CODE
   // const { actions, reducer, initialState } = updateBedSlice;
 
@@ -38,15 +41,18 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
   //   console.log(state);
   // }, [state]);
   // API SECTION
+=======
+>>>>>>> 5d586b15337dd32585db97a3a5dd32dd9a433c10
   const { data, isFetched } = useFetchBedById(id);
 
   const [sizeData, setSizeData] = React.useState(bedSizeArray);
   const [colorInput, setColorInput] = React.useState<any>([]);
-
   const [headboardInputs, setHeadboardInputs] = React.useState<any>([]);
   const [feetInputs, setFeetInputs] = React.useState<any>([]);
   const [mattressInputs, setMattressInputs] = React.useState<any>([]);
   const [storageInputs, setStorageInputs] = React.useState<any>([]);
+
+  console.log({ colorInput });
 
   useEffect(() => {
     const handleSizeOption = () => {
@@ -91,6 +97,7 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
 
     const getImageUrlAndName = async (color: any) => {
       if (color.image) {
+        console.log({ first: color.image });
         const imageUrl = (await uploadBedImage(color.image as Blob)).url;
 
         return {
@@ -186,12 +193,33 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
         />
       </div>
       {/* Dynamic Fields */}
-      <DynamicInputWithImagePicker
+      <DynamicImageForm
         title="Color"
         options={colorArray}
-        initialState={colorInput}
-        getState={(value) => setColorInput(value)}
+        getValue={(value) => setColorInput(value)}
       />
+
+      <div
+        style={{
+          padding: "10px",
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr",
+          gap: "10px",
+        }}
+      >
+        {colorArrayWithImages.map((data, index) => {
+          return (
+            <img
+              key={index}
+              title={data.colorName}
+              src={data.imageUrl}
+              alt={data.colorName}
+              height={60}
+              width={60}
+            />
+          );
+        })}
+      </div>
       {/* NEWLY ADDED */}
       <DynamicInputForm
         title="Headboard"
@@ -216,7 +244,6 @@ const AddNewVarients = ({ id }: AddNewVarientsProps) => {
 
       <br />
       <AddMoreButton title="Submit Variant" onClick={handleProductUpload} />
-      {/* {JSON.stringify(data)} */}
     </AdminLayout>
   );
 };
@@ -240,28 +267,3 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     };
   }
 };
-
-// COLOR ARRAY
-
-const colorArray = [
-  {
-    text: "Select Bed Color",
-    value: "",
-  },
-  {
-    text: "Color One",
-    value: "Color One",
-  },
-  {
-    text: "Color Two",
-    value: "Color Two",
-  },
-  {
-    text: "Color Three",
-    value: "Color Three",
-  },
-  {
-    text: "Color Four",
-    value: "Color Four",
-  },
-];

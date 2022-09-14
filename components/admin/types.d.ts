@@ -8,7 +8,10 @@ interface Common {
     deletable?: boolean
 }
 
-interface I extends Common, React.ComponentPropsWithoutRef<"input"> { }
+interface I extends Common, React.ComponentPropsWithoutRef<"input"> {
+
+    imageUrl?: string;
+}
 
 interface T extends Common, React.ComponentPropsWithoutRef<"textarea"> { }
 

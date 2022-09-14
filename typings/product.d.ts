@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-type Both = string | number
+type Both = string | number;
 // TYPES FOR BED SIZE
 interface ProductDataTypes {
     id?: Both;
@@ -8,38 +8,54 @@ interface ProductDataTypes {
     iconUrl?: string;
     imageUrl?: string;
     price: Both;
+    image?: string;
+    name: string;
 }
 interface BedSizeProps {
     value: any;
     items: any;
     onClickItem: (value: ProductDataTypes) => void;
 }
+interface BedTypes {
+    bed: {
+        id: string;
+        size: string;
+        name: string;
+        image: string;
+        price: number;
+    };
 
-
+    accessories: {
+        color: {
+            name: string;
+            image: string;
+        };
+        storage: {
+            name: string;
+            price: number;
+        };
+        feet: {
+            name: string;
+            price: number;
+        };
+        headboard: {
+            name: string;
+            price: number;
+        };
+        mattress: {
+            name: string;
+            price: number;
+        };
+    };
+    total: number;
+    quantity: number;
+}
 
 interface CartProductTypes {
-    cartItems: {
-        id: number | string;
-        name: string;
-        description: string;
-        categories: string[];
-        quantity: number;
-        price: number;
-        totalPrice: number
-        options: {
-            image: string;
-            size: string;
-            color: string;
-            headBoard: string;
-            storage: string;
-            feet: string;
-            matters: string;
-        };
-    }[];
+    cartItems: BedTypes[];
     cartTotalQuantity: number;
     cartTotalAmount: number;
 }
-
 
 interface ProductProperties {
     price: string | number;
@@ -49,19 +65,18 @@ interface ProductProperties {
     iconUrl: string;
 }
 
-
 // PRODUCT API DATA TYPES
 interface SingleProductTypes {
     name: string;
     description: string;
     category: string;
     options: {
-        bedSize: ProductProperties[]
-        bedColor: ProductProperties[]
+        bedSize: ProductProperties[];
+        bedColor: ProductProperties[];
         // NO Need Image URL
-        bedHeadBoard: ProductProperties[]
-        bedStorage: ProductProperties[]
-        bedFeet: ProductProperties[]
-        bedMatters: ProductProperties[]
+        bedHeadBoard: ProductProperties[];
+        bedStorage: ProductProperties[];
+        bedFeet: ProductProperties[];
+        bedMatters: ProductProperties[];
     };
 }

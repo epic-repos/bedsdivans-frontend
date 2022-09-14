@@ -130,6 +130,13 @@
   grid-template-columns: 1fr 1fr;
   @include common-input();
 }
+.button {
+  @include common-input();
+  button {
+    min-width: 150px;
+  }
+}
+
 .grid3 {
   gap: 0.4rem;
   display: grid;
@@ -199,5 +206,17 @@
     font-size: 0.8rem;
     background-color: #666;
     border-radius: 6px;
+  }
+}
+
+.fileupload {
+  display: flex;
+  align-items: center;
+  img {
+    border-radius: 5px;
+    height: 50px;
+    width: 100%;
+    max-width: 150px;
+    object-fit: cover;
   }
 }
