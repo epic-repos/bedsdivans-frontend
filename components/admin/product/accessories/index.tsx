@@ -5,47 +5,42 @@ import AddHeadBoard from "./create/headBoard";
 import AddMattress from "./create/mattress";
 import AddSize from "./create/size";
 import AddStorage from "./create/storage";
-// FOR UPDATE
-import UpdateColor from "./create/color";
-import UpdateFeet from "./update/feet";
-import UpdateHeadBoard from "./update/headBoard";
-import UpdateMattress from "./update/mattress";
-import UpdateSize from "./update/size";
-import UpdateStorage from "./update/storage";
+import IconList from "./list";
 
 export const AddAccessoriesTabs = ({ tabName }: any) => {
-  switch (tabName) {
-    case "Color":
-      return <AddColor />;
-    case "Size":
-      return <AddSize />;
-    case "HeadBoard":
-      return <AddHeadBoard />;
-    case "Storage":
-      return <AddStorage />;
-    case "Feet":
-      return <AddFeet />;
-    case "Mattress":
-      return <AddMattress />;
-    default:
-      return null;
-  }
+    switch (tabName) {
+        case "Color":
+            return <AddColor />;
+        case "Size":
+            return <AddSize />;
+        case "HeadBoard":
+            return <AddHeadBoard />;
+        case "Storage":
+            return <AddStorage />;
+        case "Feet":
+            return <AddFeet />;
+        case "Mattress":
+            return <AddMattress />;
+        default:
+            return null;
+    }
 };
-export const UpdateAccessoriesTabs = ({ tabName }: any) => {
-  switch (tabName) {
-    case "Color":
-      return <UpdateColor />;
-    case "Size":
-      return <UpdateSize />;
-    case "HeadBoard":
-      return <UpdateHeadBoard />;
-    case "Storage":
-      return <UpdateStorage />;
-    case "Feet":
-      return <UpdateFeet />;
-    case "Mattress":
-      return <UpdateMattress />;
-    default:
-      return null;
-  }
+
+export const ListAccessoriesTabs = ({ tabName }: any) => {
+    switch (tabName) {
+        case "Color":
+            return <IconList type="COLOR" />;
+        case "Size":
+            return <IconList type="SIZE" />;
+        case "HeadBoard":
+            return <IconList type="HEADBOARD" />;
+        case "Storage":
+            return <IconList type="STORAGE" />;
+        case "Feet":
+            return <IconList type="FEET" />;
+        case "Mattress":
+            return <IconList type="MATTRESS" />;
+        default:
+            return null;
+    }
 };

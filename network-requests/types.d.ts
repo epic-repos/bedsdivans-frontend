@@ -96,4 +96,20 @@ type ColorIcon = {
     label: string;
     value: string;
     image: File;
+    type: string;
 };
+type UpdateColorIcon = {
+    id: string;
+    label: string;
+    value: string;
+    image: File;
+    type: string;
+};
+
+interface Accessories {
+    _id: string;
+    label: string;
+    value: string;
+    type: string;
+    image: string;
+}

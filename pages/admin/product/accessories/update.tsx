@@ -1,53 +1,200 @@
-/* eslint-disable @next/next/no-img-element */
 import React from "react";
-import Styles from "styles/commerce/order.module.scss";
+import Image from "next/image";
+import styles from "styles/commerce/order.module.scss";
 import CommerceLayout from "components/admin/commerce/layout";
-import { UpdateAccessoriesTabs } from "components/admin/product/accessories";
-import accessoriesTabArray from "components/admin/product/accessories/tabarray";
+import Select from "components/admin/element/select";
+import Input from "components/admin/element/input";
+import Textarea from "components/admin/element/textarea";
+import AddMoreButton from "components/admin/element/addmore";
+import { productSideTab } from "constants/sidetab";
+import extraSpace from "utils/extraspace";
+import replacer from "utils/replacer";
+import { toast, ToastContainer } from "react-toastify";
+import handleImageURL from "utils/image2url";
+import Button from "components/admin/element/button";
+import {
+    useCreateBedColor,
+    useUpdateAccessoriesIcon,
+} from "network-requests/mutations";
+import { useFetchIconById } from "network-requests/queries";
+import { useRouter } from "next/router";
+import { GetServerSideProps } from "next";
+import "react-toastify/dist/ReactToastify.css";
 
-/**
- * AddBedAccessories
- * @returns
- */
-function AddBedAccessories() {
-  const [activeTab, setActiveTab] = React.useState("Color");
+// const [dropWDownload, dropWDownloadActive] = useState(false);
 
-  const onActiveTab = (value: string) => {
-    setActiveTab(value);
-  };
-
-  return (
-    <CommerceLayout>
-      <div className={Styles.rightsidebar}>
-        {/* <DashboardHeader /> */}
-        <main className={Styles.main}>
-          <div className={Styles.containerbox}>
-            <div className={Styles.mainheading}>Update {activeTab}</div>
-            <div
-              className={` ${Styles.tablebox} ${Styles.mt2} ${Styles.productuploadtabbox}`}
-            >
-              <ul className={Styles.productuploadtab}>
-                {accessoriesTabArray.map(({ value }, index) => {
-                  return (
-                    <li
-                      key={index}
-                      onClick={() => onActiveTab(value)}
-                      className={value === activeTab ? Styles.active : ""}
-                    >
-                      {value}
-                    </li>
-                  );
-                })}
-              </ul>
-              <div className={Styles.tabbox}>
-                <UpdateAccessoriesTabs tabName={activeTab} />
-              </div>
-            </div>
-          </div>
-        </main>
-      </div>
-    </CommerceLayout>
-  );
+interface InputTypes {
+    type: string;
+    label: string;
+    value: string;
+    image: File;
 }
 
-export default AddBedAccessories;
+interface Props {
+    id: string;
+}
+export default function UpdateProduct({ id }: Props) {
+    //API POST
+
+    const { data } = useFetchIconById(id as string);
+    const { mutate } = useUpdateAccessoriesIcon();
+
+    const [inputValue, setInputValue] = React.useState<InputTypes>({
+        type: "COLOR",
+        label: "",
+        value: "",
+        image: "" as any,
+    });
+
+    const onChangeInputs = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.name === "image") {
+            if (!e.target.files) return;
+            return setInputValue({
+                ...inputValue,
+                [e.target.name]: e.target.files[0],
+            });
+        } else {
+            setInputValue({ ...inputValue, [e.target.name]: e.target.value });
+        }
+    };
+
+    const handleIconUpdate = () => {
+        if (!inputValue.label || !inputValue.value) return;
+        mutate(
+            { ...inputValue, id },
+            {
+                onSuccess: (data) => {
+                    toast.success(
+                        data?.message || "Color Icon Updated Successfully"
+                    );
+                },
+                onError: () => {
+                    toast.error("Something went wrong");
+                },
+            }
+        );
+    };
+
+    React.useEffect(() => {
+        setInputValue((prev) => ({
+            ...prev,
+            value: replacer(inputValue.label),
+        }));
+    }, [inputValue.label]);
+
+    React.useEffect(() => {
+        if (data) {
+            setInputValue((prev) => ({
+                ...prev,
+                label: data?.label,
+                value: data?.value,
+                type: data?.type,
+            }));
+        }
+    }, [data]);
+
+    return (
+        <CommerceLayout>
+            <div className={styles.rightsidebar}>
+                <div className={styles.topheaderdashboard}>
+                    <div className={styles.leftside}>
+                        <div className={styles.topsearch}>
+                            <input type="text" placeholder="Type Hare...." />
+                            <button>
+                                <Image
+                                    src="/icons/search-line.svg"
+                                    alt="search"
+                                    width={24}
+                                    height={24}
+                                />
+                            </button>
+                        </div>
+                    </div>
+                    <div className={styles.rightside}>
+                        <div className={styles.dropdownaction}>
+                            <div className={styles.userimagewithtext}>
+                                <div className={styles.image}>
+                                    <Image
+                                        src="/icons/user-line.svg"
+                                        alt="search"
+                                        width={24}
+                                        height={24}
+                                    />
+                                </div>
+                                <div className={styles.text}>Acme Inc.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <main className={styles.main}>
+                    <div className={styles.containerbox}>
+                        <div className={styles.mainheading}>
+                            Update {data?.type.toLowerCase()} Icon
+                        </div>
+
+                        <div
+                            className={` ${styles.tablebox} ${styles.mt2} ${styles.productuploadtabbox}`}
+                        >
+                            <div className="tabcontantinner">
+                                <div className="box">
+                                    <ul>
+                                        <li>
+                                            <Input
+                                                name="label"
+                                                type="text"
+                                                label={"Name"}
+                                                placeholder="Enter Name"
+                                                value={extraSpace(
+                                                    inputValue.label
+                                                )}
+                                                onChange={onChangeInputs}
+                                            />
+                                        </li>
+                                        <li>
+                                            <Input
+                                                value={inputValue.value}
+                                                type="text"
+                                                name="value"
+                                                label={"Value"}
+                                                placeholder="auto-generated"
+                                                onChange={onChangeInputs}
+                                            />
+                                        </li>
+                                        <li>
+                                            <Input
+                                                name="image"
+                                                type="file"
+                                                label={"Image"}
+                                                onChange={onChangeInputs}
+                                                imageUrl={
+                                                    inputValue.image
+                                                        ? handleImageURL(
+                                                              inputValue.image
+                                                          )
+                                                        : data?.image
+                                                }
+                                            />
+                                        </li>
+                                    </ul>
+                                    <div>
+                                        <Button onClick={handleIconUpdate}>
+                                            Submit
+                                        </Button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+            <ToastContainer />
+        </CommerceLayout>
+    );
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+    const { id } = context.query;
+    return {
+        props: { id },
+    };
+};

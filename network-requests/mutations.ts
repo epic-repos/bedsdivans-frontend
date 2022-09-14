@@ -5,6 +5,7 @@ import {
     createColorIcon,
     deleteBedById,
     deleteBedVariantById,
+    updateAccessoriesIcon,
     updateBedById,
     updateBedVariantById,
 } from "./api";
@@ -15,6 +16,7 @@ import {
     BedRequestPayload,
     ColorIcon,
     CreateBedVariantResponse,
+    UpdateColorIcon,
     UploadBedImage,
     VariantsTypes,
 } from "./types";
@@ -35,7 +37,12 @@ export const useCreateNewBedVariant = (id: string) =>
 export const useCreateBedColor = () =>
     useMutation(
         (payload: ColorIcon): Promise<UploadBedImage> =>
-            createColorIcon(payload.image, payload.label, payload.value)
+            createColorIcon(
+                payload.image,
+                payload.label,
+                payload.value,
+                payload.type
+            )
     );
 
 //UPDATE MUTATIONS
@@ -49,6 +56,18 @@ export const useUpdateBed = (id: string) =>
     useMutation(
         (props: BedRequestPayload): Promise<CreateBedVariantResponse> =>
             updateBedById(id, props)
+    );
+
+export const useUpdateAccessoriesIcon = () =>
+    useMutation(
+        (payload: UpdateColorIcon): Promise<UploadBedImage> =>
+            updateAccessoriesIcon(
+                payload.id,
+                payload.label,
+                payload.value,
+                payload.type,
+                payload?.image
+            )
     );
 
 //DELETE MUTATION

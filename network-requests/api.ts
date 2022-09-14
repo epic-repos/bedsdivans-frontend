@@ -1,5 +1,6 @@
 import axios from "./axios";
 import {
+    Accessories,
     AccessoriesTypes,
     Bed,
     BedRequestPayload,
@@ -78,6 +79,22 @@ export const getBedVariantById = (
             });
 };
 
+export const getIconsByType = (type: string): Promise<Accessories[]> =>
+    axios
+        .get<Accessories[]>(`/icons/accessories/${type}`)
+        .then((response) => response.data)
+        .catch((error) => {
+            throw error;
+        });
+
+export const getIconById = (id: string): Promise<Accessories> =>
+    axios
+        .get<Accessories>(`/icons/${id}`)
+        .then((response) => response.data)
+        .catch((error) => {
+            throw error;
+        });
+
 //POST REQUESTS
 export const createBed = (
     payload: BedRequestPayload
@@ -115,19 +132,20 @@ export const uploadBedImage = async (image: Blob): Promise<UploadBedImage> => {
 };
 
 //CREATE COLOR ICON
-
 export const createColorIcon = async (
     image: Blob,
     label: string,
-    value: string
+    value: string,
+    type: string
 ): Promise<UploadBedImage> => {
     const formdata = new FormData();
     formdata.append("label", label);
     formdata.append("value", value);
+    formdata.append("type", type);
     formdata.append("image", image);
 
     return await axios
-        .postForm<UploadBedImage>(`/icons/colors`, formdata)
+        .postForm<UploadBedImage>(`/icons/accessories`, formdata)
         .then((response) => {
             return response.data;
         })
@@ -161,6 +179,29 @@ export const updateBedById = (
         .catch((error) => {
             throw error;
         });
+
+export const updateAccessoriesIcon = async (
+    id: string,
+    label: string,
+    value: string,
+    type: string,
+    image?: Blob
+): Promise<UploadBedImage> => {
+    const formdata = new FormData();
+    formdata.append("label", label);
+    formdata.append("value", value);
+    formdata.append("type", type);
+    image && formdata.append("image", image);
+
+    return await axios
+        .patchForm<UploadBedImage>(`/icons/update/${id}`, formdata)
+        .then((response) => {
+            return response.data;
+        })
+        .catch((error) => {
+            throw error;
+        });
+};
 
 //DELETE REQUESTS
 export const deleteBedById = (id: string): Promise<CreateBedVariantResponse> =>

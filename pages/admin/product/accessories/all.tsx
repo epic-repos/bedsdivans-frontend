@@ -2,7 +2,10 @@
 import React from "react";
 import Styles from "styles/commerce/order.module.scss";
 import CommerceLayout from "components/admin/commerce/layout";
-import { AddAccessoriesTabs } from "components/admin/product/accessories";
+import {
+    AddAccessoriesTabs,
+    ListAccessoriesTabs,
+} from "components/admin/product/accessories";
 import accessoriesTabArray from "components/admin/product/accessories/tabarray";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -11,7 +14,7 @@ import "react-toastify/dist/ReactToastify.css";
  * AddBedAccessories
  * @returns
  */
-function AddBedAccessories() {
+function AllAccessories() {
     const [activeTab, setActiveTab] = React.useState("Color");
 
     const onActiveTab = (value: string) => {
@@ -48,7 +51,7 @@ function AddBedAccessories() {
                                 })}
                             </ul>
                             <div className={Styles.tabbox}>
-                                <AddAccessoriesTabs tabName={activeTab} />
+                                <ListAccessoriesTabs tabName={activeTab} />
                             </div>
                         </div>
                     </div>
@@ -59,4 +62,4 @@ function AddBedAccessories() {
     );
 }
 
-export default AddBedAccessories;
+export default AllAccessories;

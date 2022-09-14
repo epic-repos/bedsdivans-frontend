@@ -5,8 +5,11 @@ import {
     getAllBedsWithImageAdmin,
     getBedById,
     getBedVariantById,
+    getIconById,
+    getIconsByType,
 } from "./api";
 import {
+    Accessories,
     Bed,
     BedResponse,
     BedWithImage,
@@ -74,3 +77,17 @@ export const useFetchBedVariantsByIdAndSize = (id: string, size: string) =>
             refetchOnMount: true,
         }
     );
+
+export const useFetchIconsByType = (type: string) =>
+    useQuery(
+        ["icons", type],
+        (): Promise<Accessories[]> => getIconsByType(type),
+        {
+            refetchOnMount: true,
+        }
+    );
+
+export const useFetchIconById = (id: string) =>
+    useQuery(["icon", id], (): Promise<Accessories> => getIconById(id), {
+        refetchOnMount: true,
+    });
