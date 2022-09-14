@@ -91,3 +91,9 @@ type BedWithSize = {
     __v: number;
     availabeSizes: string[];
 };
+
+type ColorIcon = {
+    label: string;
+    value: string;
+    image: File;
+};

@@ -130,6 +130,16 @@
   grid-template-columns: 1fr 1fr;
   @include common-input();
 }
+.button{
+  
+  @include common-input();
+  button{
+    min-width: 150px;
+
+  }
+
+}
+
 .grid3 {
   gap: 0.4rem;
   display: grid;
