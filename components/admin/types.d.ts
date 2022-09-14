@@ -10,8 +10,8 @@ interface Common {
 
 interface I extends Common, React.ComponentPropsWithoutRef<"input"> {
 
-    ImageElement?: React.ReactNode | React.ReactNode[];
- }
+    imageUrl?: string;
+}
 
 interface T extends Common, React.ComponentPropsWithoutRef<"textarea"> { }
 

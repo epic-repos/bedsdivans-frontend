@@ -1,16 +1,12 @@
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
-import Styles from "styles/commerce/order.module.scss";
-
+import styles from "styles/commerce/order.module.scss";
 import CommerceLayout from "components/admin/commerce/layout";
-import DeleteIcon from "icons/delete";
-import ViewIcon from "icons/view";
-import EditIcon from "icons/edit";
 import Select from "components/admin/element/select";
 import Input from "components/admin/element/input";
 import Textarea from "components/admin/element/textarea";
 import AddMoreButton from "components/admin/element/addmore";
+import { productSideTab } from "constants/sidetab";
 // const [dropWDownload, dropWDownloadActive] = useState(false);
 
 function CreateProduct() {
@@ -22,10 +18,10 @@ function CreateProduct() {
 
   return (
     <CommerceLayout>
-      <div className={Styles.rightsidebar}>
-        <div className={Styles.topheaderdashboard}>
-          <div className={Styles.leftside}>
-            <div className={Styles.topsearch}>
+      <div className={styles.rightsidebar}>
+        <div className={styles.topheaderdashboard}>
+          <div className={styles.leftside}>
+            <div className={styles.topsearch}>
               <input type="text" placeholder="Type Hare...." />
               <button>
                 <Image
@@ -37,10 +33,10 @@ function CreateProduct() {
               </button>
             </div>
           </div>
-          <div className={Styles.rightside}>
-            <div className={Styles.dropdownaction}>
-              <div className={Styles.userimagewithtext}>
-                <div className={Styles.image}>
+          <div className={styles.rightside}>
+            <div className={styles.dropdownaction}>
+              <div className={styles.userimagewithtext}>
+                <div className={styles.image}>
                   <Image
                     src="/icons/user-line.svg"
                     alt="search"
@@ -48,7 +44,7 @@ function CreateProduct() {
                     height={24}
                   />
                 </div>
-                <div className={Styles.text}>Acme Inc.</div>
+                <div className={styles.text}>Acme Inc.</div>
               </div>
               {/* <ul className="dropnav">
                   <li>
@@ -69,27 +65,27 @@ function CreateProduct() {
             </div>
           </div>
         </div>
-        <main className={Styles.main}>
-          <div className={Styles.containerbox}>
-            <div className={Styles.mainheading}>Create Product</div>
+        <main className={styles.main}>
+          <div className={styles.containerbox}>
+            <div className={styles.mainheading}>Create Product</div>
 
             <div
-              className={` ${Styles.tablebox} ${Styles.mt2} ${Styles.productuploadtabbox}`}
+              className={` ${styles.tablebox} ${styles.mt2} ${styles.productuploadtabbox}`}
             >
-              <ul className={Styles.productuploadtab}>
-                {TabArray.map(({ value }, index) => {
+              <ul className={styles.productuploadtab}>
+                {productSideTab.map(({ value }, index) => {
                   return (
                     <li
                       key={index}
                       onClick={() => onActiveTab(value)}
-                      className={value === activeTab ? Styles.active : ""}
+                      className={value === activeTab ? styles.active : ""}
                     >
                       {value}
                     </li>
                   );
                 })}
               </ul>
-              <div className={Styles.tabbox}>
+              <div className={styles.tabbox}>
                 {/* {activeTab} */}
                 <TabsRender tabName={activeTab} />
               </div>
@@ -145,7 +141,7 @@ const TabsRender = ({ tabName }: any) => {
                 </div>
               </li>
             </ul>
-            <div className={Styles.buttonsection}>
+            <div className={styles.buttonsection}>
               <AddMoreButton title="Next" />
             </div>
           </div>
@@ -192,27 +188,3 @@ const TabsRender = ({ tabName }: any) => {
       return null;
   }
 };
-
-const TabArray = [
-  {
-    value: "General",
-  },
-  {
-    value: "Size",
-  },
-  {
-    value: "Color",
-  },
-  {
-    value: "HeadBoard",
-  },
-  {
-    value: "Storage",
-  },
-  {
-    value: "Feet",
-  },
-  {
-    value: "Mattress",
-  },
-];

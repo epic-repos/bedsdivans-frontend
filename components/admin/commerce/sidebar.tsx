@@ -6,6 +6,7 @@ import Styles from "styles/commerce/order.module.scss";
 import LinkIcon from "icons/LinkIcon";
 
 interface CommerceSidebarProps {}
+
 const CommerceSidebar = (props: CommerceSidebarProps) => {
   return (
     <div className={Styles.sidebar}>

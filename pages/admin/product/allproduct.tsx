@@ -2,15 +2,11 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Styles from "styles/commerce/order.module.scss";
-
 import CommerceLayout from "components/admin/commerce/layout";
 import DeleteIcon from "icons/delete";
 import ViewIcon from "icons/view";
 import EditIcon from "icons/edit";
 // const [dropWDownload, dropWDownloadActive] = useState(false);
-
-
-
 
 function Allproduct() {
   return (

@@ -1,6 +1,6 @@
 import { nanoid } from '@reduxjs/toolkit';
 import React from 'react';
-import inputfieldSlice from './context/input';
+import inputfieldSlice from '../context/input';
 
 
 /**
