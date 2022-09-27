@@ -34,12 +34,13 @@ const BedsTabs = ({
     // LIKE API DATA
 
     // RENDER TABS
+    console.log({ bedstate: bedState });
     const RenderTabs = React.useMemo(() => {
         switch (tabName) {
             case "BedSize":
                 return (
                     <CommonForBed
-                        items={{ bedIcons, productsPayload, type: "BED" }}
+                        items={{ productsPayload, type: "BED" }}
                         value={bedState.bed.size} // LIKE ISACTIVE
                         onClickItem={(value) => {
                             console.log(value);
@@ -49,7 +50,7 @@ const BedsTabs = ({
             case "Color":
                 return (
                     <CommonForBed
-                        items={{ colorIcons, productsPayload, type: "COLOR" }}
+                        items={{ productsPayload, type: "COLOR" }}
                         value={bedState.accessories.color.name} // LIKE ISACTIVE
                         onClickItem={(data: any) => {
                             setBedColor({ name: data.name, image: data.image });
@@ -60,11 +61,7 @@ const BedsTabs = ({
             case "HeadBoard":
                 return (
                     <CommonForBed
-                        items={{
-                            headBoardIcons,
-                            productsPayload,
-                            type: "HEADBOARD",
-                        }}
+                        items={{ productsPayload, type: "HEADBOARD" }}
                         value={bedState.accessories.headboard.name} // LIKE ISACTIVE
                         onClickItem={(data) => {
                             setBedHeadBoard({
@@ -78,7 +75,6 @@ const BedsTabs = ({
                 return (
                     <CommonForBed
                         items={{
-                            storageIcons,
                             productsPayload,
                             type: "STORAGE",
                         }}
@@ -94,7 +90,7 @@ const BedsTabs = ({
             case "Feet":
                 return (
                     <CommonForBed
-                        items={{ feetIcons, productsPayload, type: "FEET" }}
+                        items={{ productsPayload, type: "FEET" }}
                         value={bedState.accessories.feet.name} // LIKE ISACTIVE
                         onClickItem={(data) => {
                             setBedFeet({
@@ -108,7 +104,6 @@ const BedsTabs = ({
                 return (
                     <CommonForBed
                         items={{
-                            mattressIcons,
                             productsPayload,
                             type: "MATTRESS",
                         }}
