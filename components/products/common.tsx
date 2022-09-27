@@ -5,122 +5,64 @@ import styles from "styles/NewProductPage.module.scss";
 import { useRouter } from "next/router";
 
 const CommonForBed = (props: BedSizeProps) => {
+    const router = useRouter();
+
     const { value, items, onClickItem } = props;
-    const [icons, setIcons] = useState<any>();
+    const [icons, setIcons] = useState<any>([]);
 
     useEffect(() => {
         if (!items) return;
         switch (items.type) {
             case "BED":
-                if (!items?.bedIcons && !items?.productsPayload) return;
-                var temp: any = [];
-                items?.bedIcons?.map((item: any) => {
-                    if (
-                        items?.productsPayload?.availabeSizes?.includes(
-                            String(item.size)
-                        )
-                    ) {
-                        temp.push(item);
-                    }
-                });
+                setIcons(items?.productsPayload?.availabeSizes);
                 break;
             case "COLOR":
-                if (!items?.colorIcons && !items?.productsPayload) return;
-                console.log("CASE COLOR", items?.productsPayload?.variants[0]);
-
-                var temp: any = [];
-                items?.colorIcons?.map((item: any) => {
+                const colors =
                     items?.productsPayload?.variants[0]?.accessories?.color?.map(
-                        (color: any) => {
-                            console.log({
-                                item: item.content,
-                                color: color.name,
-                            });
-                            if (item.content == color.name) temp.push(item);
-                        }
+                        (item: any) => item.name
                     );
-                });
+
+                setIcons(colors);
 
                 break;
             case "HEADBOARD":
-                if (!items?.headBoardIcons && !items?.productsPayload) return;
-                console.log("CASE COLOR", items?.productsPayload?.variants[0]);
-
-                var temp: any = [];
-                items?.headBoardIcons?.map((item: any) => {
+                const headboards =
                     items?.productsPayload?.variants[0]?.accessories?.headboard?.map(
-                        (color: any) => {
-                            console.log({
-                                item: item.content,
-                                color: color.name,
-                            });
-                            if (item.content == color.name) temp.push(item);
-                        }
+                        (item: any) => item.name
                     );
-                });
+
+                setIcons(headboards);
+
                 break;
             case "STORAGE":
-                if (!items?.storageIcons && !items?.productsPayload) return;
-                console.log("CASE COLOR", items?.productsPayload?.variants[0]);
-
-                var temp: any = [];
-                items?.storageIcons?.map((item: any) => {
+                const storages =
                     items?.productsPayload?.variants[0]?.accessories?.storage?.map(
-                        (color: any) => {
-                            console.log({
-                                item: item.content,
-                                color: color.name,
-                            });
-                            if (item.content == color.name) temp.push(item);
-                        }
+                        (item: any) => item.name
                     );
-                });
+
+                setIcons(storages);
                 break;
             case "FEET":
-                if (!items?.feetIcons && !items?.productsPayload) return;
-                console.log("CASE COLOR", items?.productsPayload?.variants[0]);
-
-                var temp: any = [];
-                items?.feetIcons?.map((item: any) => {
+                const feet =
                     items?.productsPayload?.variants[0]?.accessories?.feet?.map(
-                        (color: any) => {
-                            console.log({
-                                item: item.content,
-                                color: color.name,
-                            });
-                            if (item.content == color.name) temp.push(item);
-                        }
+                        (item: any) => item.name
                     );
-                });
+
+                setIcons(feet);
                 break;
             case "MATTRESS":
-                if (!items?.mattressIcons && !items?.productsPayload) return;
-                console.log("CASE COLOR", items?.productsPayload?.variants[0]);
-
-                var temp: any = [];
-                items?.mattressIcons?.map((item: any) => {
+                const mattress =
                     items?.productsPayload?.variants[0]?.accessories?.mattress?.map(
-                        (color: any) => {
-                            console.log({
-                                item: item.content,
-                                color: color.name,
-                            });
-                            if (item.content == color.name) temp.push(item);
-                        }
+                        (item: any) => item.name
                     );
-                });
+
+                setIcons(mattress);
                 break;
 
             default:
                 break;
         }
-
-        setIcons(temp);
     }, [items]);
-
-    console.log({ icons });
-
-    const router = useRouter();
 
     const handleClick = (data: any) => {
         if (!items) return;
@@ -128,20 +70,21 @@ const CommonForBed = (props: BedSizeProps) => {
             case "BED":
                 router.push({
                     pathname: `/products/${items?.productsPayload?._id}`,
-                    query: { size: data.size },
+                    query: { size: data.value },
                 });
                 break;
             case "COLOR":
                 var findColor =
-                    items?.productsPayload?.variants[0]?.accessories?.color?.find(
-                        (color: any) => color.name == data.content
+                    items?.productsPayload?.variants[0]?.accessories?.color.find(
+                        (item: any) => item.name.value == data.value
                     );
                 onClickItem(findColor);
                 break;
+
             case "HEADBOARD":
                 var findHeadboard =
-                    items?.productsPayload?.variants[0]?.accessories?.headboard?.find(
-                        (color: any) => color.name == data.content
+                    items?.productsPayload?.variants[0]?.accessories?.headboard.find(
+                        (item: any) => item.name.value == data.value
                     );
                 console.log({ findHeadboard: findHeadboard?.price });
                 onClickItem(findHeadboard);
@@ -149,9 +92,10 @@ const CommonForBed = (props: BedSizeProps) => {
 
             case "STORAGE":
                 var findStorage =
-                    items?.productsPayload?.variants[0]?.accessories?.storage?.find(
-                        (color: any) => color.name == data.content
+                    items?.productsPayload?.variants[0]?.accessories?.storage.find(
+                        (item: any) => item.name.value == data.value
                     );
+
                 console.log({ findStorage: findStorage?.price });
                 onClickItem(findStorage);
 
@@ -159,9 +103,10 @@ const CommonForBed = (props: BedSizeProps) => {
 
             case "FEET":
                 var findFeet =
-                    items?.productsPayload?.variants[0]?.accessories?.feet?.find(
-                        (color: any) => color.name == data.content
+                    items?.productsPayload?.variants[0]?.accessories?.feet.find(
+                        (item: any) => item.name.value == data.value
                     );
+
                 console.log({ findFeet: findFeet?.price });
                 onClickItem(findFeet);
 
@@ -169,9 +114,10 @@ const CommonForBed = (props: BedSizeProps) => {
 
             case "MATTRESS":
                 var findMattress =
-                    items?.productsPayload?.variants[0]?.accessories?.mattress?.find(
-                        (color: any) => color.name == data.content
+                    items?.productsPayload?.variants[0]?.accessories?.mattress.find(
+                        (item: any) => item.name.value == data.value
                     );
+
                 console.log({ findMattress: findMattress?.price });
                 onClickItem(findMattress);
 
@@ -181,6 +127,8 @@ const CommonForBed = (props: BedSizeProps) => {
                 break;
         }
     };
+
+    console.log({ icons, payload: items.productsPayload.availabeSizes });
 
     return (
         <React.Fragment>
@@ -192,20 +140,20 @@ const CommonForBed = (props: BedSizeProps) => {
                             onClick={() => handleClick(data)}
                             style={{
                                 border: `2px solid ${
-                                    value === data?.content
+                                    value === data?.value
                                         ? "#20323e"
                                         : "transparent"
                                 }`,
                             }}
                         >
                             <Image
-                                src={data?.iconUrl}
+                                src={"/image.png"}
                                 width={100}
                                 height={56}
                                 alt=""
                             />
                             <span className={styles.name}>
-                                {data.content}{" "}
+                                {data.label}{" "}
                                 <span className={styles.price}>
                                     {data.price}
                                 </span>

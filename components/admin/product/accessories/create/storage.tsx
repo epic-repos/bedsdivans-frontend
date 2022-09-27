@@ -59,6 +59,13 @@ const AddStorage = () => {
                     image: "" as any,
                 });
             },
+            onError: (error: any) => {
+                toast.error(
+                    error?.response?.data?.message ||
+                        error?.message ||
+                        "Something went wrong"
+                );
+            },
         });
     };
 

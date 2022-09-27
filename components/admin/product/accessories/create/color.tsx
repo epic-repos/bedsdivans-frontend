@@ -9,6 +9,7 @@ import extraSpace from "utils/extraspace";
 import replacer from "utils/replacer";
 import { ToastContainer, toast } from "react-toastify";
 import handleImageURL from "utils/image2url";
+import { AxiosError } from "axios";
 
 interface InputTypes {
     type: string;
@@ -51,8 +52,12 @@ const UpdateColor = () => {
                     image: "" as any,
                 });
             },
-            onError: () => {
-                toast.error("Something went wrong");
+            onError: (error: any) => {
+                toast.error(
+                    error?.response?.data?.message ||
+                        error?.message ||
+                        "Something went wrong"
+                );
             },
         });
     };
