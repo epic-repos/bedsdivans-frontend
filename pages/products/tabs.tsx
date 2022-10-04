@@ -75,7 +75,6 @@ const BedsTabs = ({
                 return (
                     <CommonForBed
                         items={{
-                            storageIcons,
                             productsPayload,
                             type: "STORAGE",
                         }}
@@ -91,7 +90,7 @@ const BedsTabs = ({
             case "Feet":
                 return (
                     <CommonForBed
-                        items={{ feetIcons, productsPayload, type: "FEET" }}
+                        items={{ productsPayload, type: "FEET" }}
                         value={bedState.accessories.feet.name} // LIKE ISACTIVE
                         onClickItem={(data) => {
                             setBedFeet({
@@ -105,7 +104,6 @@ const BedsTabs = ({
                 return (
                     <CommonForBed
                         items={{
-                            mattressIcons,
                             productsPayload,
                             type: "MATTRESS",
                         }}
