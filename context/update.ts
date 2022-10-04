@@ -1,4 +1,3 @@
-
 interface ActionType {
     type: string;
     payload: string;
@@ -18,73 +17,72 @@ interface TT {
     mattress: InputType[];
 }
 
-
-const OB: InputType[] = [{
-    id: 'NX9IF9',
-    image: 'fake//',
-    name: 'hello',
-    price: 0
-}]
+const OB: InputType[] = [
+    {
+        id: "NX9IF9",
+        image: "fake//",
+        name: "hello",
+        price: 0,
+    },
+];
 const initialState: TT = {
     headboard: OB,
     storage: OB,
     feet: OB,
     mattress: OB,
-}
+};
 
-const HEADBOARD = 'HEADBOARD'
-const STORAGE = 'STORAGE'
-const FEET = 'FEET'
-const MATTRESS = 'MATTRESS'
-
+const HEADBOARD = "HEADBOARD";
+const STORAGE = "STORAGE";
+const FEET = "FEET";
+const MATTRESS = "MATTRESS";
 
 const reducer = (state: TT, action: ActionType) => {
     switch (action.type) {
         case HEADBOARD:
             return {
                 ...state,
-                headboard: action.payload
-            }
+                headboard: action.payload,
+            };
         case STORAGE:
             return {
                 ...state,
-                storage: action.payload
-            }
+                storage: action.payload,
+            };
         case FEET:
             return {
                 ...state,
-                feet: action.payload
-            }
+                feet: action.payload,
+            };
         case MATTRESS:
             return {
                 ...state,
-                mattress: action.payload
-            }
+                mattress: action.payload,
+            };
         default:
-            return state
+            return state;
     }
-}
-
+};
 
 const actions = {
-    setHeadboardInputs:
-        (payload: any) => ({ type: HEADBOARD, payload: payload }),
-    setStorageInputs:
-        (payload: any) => ({ type: HEADBOARD, payload: payload }),
-    setFeetInputs:
-        (payload: any) => ({ type: HEADBOARD, payload: payload }),
-    setMattressInputs:
-        (payload: any) => ({ type: HEADBOARD, payload: payload }),
-}
+    setHeadboardInputs: (payload: any) => ({
+        type: HEADBOARD,
+        payload: payload,
+    }),
+    setStorageInputs: (payload: any) => ({ type: HEADBOARD, payload: payload }),
+    setFeetInputs: (payload: any) => ({ type: HEADBOARD, payload: payload }),
+    setMattressInputs: (payload: any) => ({
+        type: HEADBOARD,
+        payload: payload,
+    }),
+};
 const updateBedSlice = {
     initialState,
     reducer,
-    actions
-}
-export default updateBedSlice
+    actions,
+};
 
-
-
+export default updateBedSlice;
 
 // interface StateType {
 //     headboard: BedType[];
@@ -92,7 +90,6 @@ export default updateBedSlice
 //     feet: BedType[];
 //     mattress: BedType[];
 // }
-
 
 // const init: BedType[] = [
 //     {
@@ -109,7 +106,6 @@ export default updateBedSlice
 //     feet: init,
 //     mattress: init,
 // }
-
 
 // const HEADBOARD = 'HEADBOARD'
 // const STORAGE = 'STORAGE'
@@ -156,6 +152,5 @@ export default updateBedSlice
 //             (payload: any) => ({ type: MATTRESS, payload: payload }),
 //     }
 // };
-
 
 // export default updateBedSlice
