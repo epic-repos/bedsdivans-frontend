@@ -7,7 +7,7 @@ import { Button } from "react-bootstrap";
 import { toast } from "react-toastify";
 import Styles from "styles/commerce/order.module.scss";
 import extraSpace from "utils/extraspace";
-import handleImageURL from "utils/image2url";
+import imageToUrl from "utils/image2url";
 import replacer from "utils/replacer";
 
 interface InputTypes {
@@ -108,7 +108,7 @@ const AddHeadBoard = () => {
                             type="file"
                             label={"Image"}
                             onChange={onChangeInputs}
-                            imageUrl={handleImageURL(inputValue.image)}
+                            imageUrl={imageToUrl(inputValue.image)}
                         />
                     </li>
                 </ul>

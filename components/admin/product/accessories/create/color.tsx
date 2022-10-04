@@ -8,7 +8,7 @@ import Styles from "styles/commerce/order.module.scss";
 import extraSpace from "utils/extraspace";
 import replacer from "utils/replacer";
 import { ToastContainer, toast } from "react-toastify";
-import handleImageURL from "utils/image2url";
+import imageToUrl from "utils/image2url";
 import { AxiosError } from "axios";
 
 interface InputTypes {
@@ -100,7 +100,7 @@ const UpdateColor = () => {
                             type="file"
                             label={"Image"}
                             onChange={onChangeInputs}
-                            imageUrl={handleImageURL(inputValue.image)}
+                            imageUrl={imageToUrl(inputValue.image)}
                         />
                     </li>
                 </ul>
