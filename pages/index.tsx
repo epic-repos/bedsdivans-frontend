@@ -325,7 +325,7 @@ const Home: NextPageWithLayout = ({ newData }: any) => {
                         <h2>Best-seller of the season</h2>
                     </div>
                     <div className="row">
-                        {data?.pages?.map((product, index) => {
+                        {data?.pages?.map((product) => {
                             return product.data.map((item, index) => {
                                 return (
                                     <ProductItem
