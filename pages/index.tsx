@@ -15,9 +15,13 @@ import PerPageLayout from "layout/perpage";
 import { randomBytes } from "crypto";
 import { useRouter } from "next/router";
 import { BedWithImage } from "network-requests/types";
+import { dehydrate, QueryClient } from "react-query";
+import { useFetchAllBedsWithImage } from "network-requests/queries";
 
 const Home: NextPageWithLayout = ({ newData }: any) => {
     const router = useRouter();
+
+    const { data } = useFetchAllBedsWithImage();
 
     const settings = {
         dots: true,
@@ -321,26 +325,27 @@ const Home: NextPageWithLayout = ({ newData }: any) => {
                         <h2>Best-seller of the season</h2>
                     </div>
                     <div className="row">
-                        {newData?.data?.map((item: any, index: number) => {
-                            console.log({ item });
-                            return (
-                                <ProductItem
-                                    name={item?.name}
-                                    price={item?.price}
-                                    image={item?.image}
-                                    key={index}
-                                    onClickProduct={() =>
-                                        router.push({
-                                            pathname: `/products/${item._id}`,
-                                            query: {
-                                                size:
-                                                    item?.variants &&
-                                                    item?.variants[0]?.size,
-                                            },
-                                        })
-                                    }
-                                />
-                            );
+                        {data?.pages?.map((product, index) => {
+                            return product.data.map((item, index) => {
+                                return (
+                                    <ProductItem
+                                        name={item?.name}
+                                        price={item?.price}
+                                        image={item?.image}
+                                        key={index}
+                                        onClickProduct={() =>
+                                            router.push({
+                                                pathname: `/products/${item._id}`,
+                                                query: {
+                                                    size:
+                                                        item?.variants &&
+                                                        item?.variants[0]?.size,
+                                                },
+                                            })
+                                        }
+                                    />
+                                );
+                            });
                         })}
 
                         {/* {props.response.map((item: any, index: any) => {
@@ -922,68 +927,36 @@ https://aspirestore.co.uk/49144-home_default/presley-fabric-ottoman-bed.jpg
 export default Home;
 
 Home.getLayout = PerPageLayout;
-export async function getServerSideProps(context: any) {
-    const { req } = context;
-    const size = req?.__NEXT_INIT_QUERY?.size;
-    let sizes = "";
 
-    size ? (sizes = size) : (sizes = "2FT 6");
-    const data = await axios.get(
-        `${process.env.BASE_URL}/api/products/homepageApi`
-        //  {
-        //   method: "size",
-        //   value: sizes,
-        // }
+export const getServerSideProps = async (context: any) => {
+    const queryClient = new QueryClient();
+    await queryClient.prefetchQuery(
+        ["beds-image"],
+        async () =>
+            await fetch(
+                `${process.env.NEXT_PUBLIC_API_URL}/api/beds/get-all-beds-with-base-image`,
+                {
+                    credentials: "same-origin",
+                    headers: {
+                        Cookie: context.req.headers.cookie,
+                    },
+                }
+            ).then((res) => {
+                const response = res.json() as any;
+                if (response.success === false) {
+                    return {
+                        redirect: {
+                            permanent: false,
+                            destination: "/",
+                        },
+                    };
+                } else {
+                    return response;
+                }
+            })
     );
-    const data1 = await axios.get(
-        //"https://staggingx.bedsdivans.co.uk/api/headboard",
-        `${process.env.BASE_URL}/api/headboard/bestproducts`
-        // {
-        //   method: "size",
-        //   value: sizes,
-        // }
-    );
-    const data2 = await axios.get(
-        //"https://staggingx.bedsdivans.co.uk/api/gardenfurniture",
-        `${process.env.BASE_URL}/api/gardenfurniture/bestproducts`
-        // {
-        //   method: "size",
-        //   value: sizes,
-        // }
-    );
-    const data3 = await axios.get(
-        // "https://staggingx.bedsdivans.co.uk/api/mattress",
-        `${process.env.BASE_URL}/api/mattress/bestproducts`
-        // {
-        //   method: "size",
-        //   value: sizes,
-        // }
-    );
-    // /get-bed-variant/6319ead0de5e53c2b794a8d1
-    //  6319ef182073c552e3b691ff
-    // const { data: newData } = await axios.get(`http://localhost:5000/beds/`);
-    const { data: newData } = await axios.get(
-        `http://localhost:5000/beds/get-all-beds-with-base-image`
-    );
-    // const { data: newData } = await axios.get(
-    //   `http://localhost:5000/beds/get-bed-variant/6319ef182073c552e3b691ff`
-    // );
-
-    const response = await data.data.data;
-
-    const response1 = await data1.data.data;
-
-    const response2 = await data2.data.data;
-
-    const response3 = await data3.data.data;
-
-    // const responseX = await axios.get(`${process.env.API_URL}/beds`);
-
-    return {
-        props: { response, response1, response2, response3, newData },
-        // will be passed to the page component as props
-    };
-}
+    return { props: { dehydratedState: dehydrate(queryClient) } };
+};
 
 const products = [
     {
