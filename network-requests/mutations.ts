@@ -5,17 +5,18 @@ import {
     createColorIcon,
     deleteBedById,
     deleteBedVariantById,
+    login,
     updateAccessoriesIcon,
     updateBedById,
     updateBedVariantById,
 } from "./api";
-import axios from "./axios";
 import {
     AccessoriesTypes,
     Bed,
     BedRequestPayload,
     ColorIcon,
     CreateBedVariantResponse,
+    Login,
     UpdateColorIcon,
     UploadBedImage,
     VariantsTypes,
@@ -81,3 +82,6 @@ export const useDeleteBedVariantById = () =>
         (id: string): Promise<CreateBedVariantResponse> =>
             deleteBedVariantById(id)
     );
+
+
+export const useLogin = () => useMutation(({ email, password }: Login) => login(email, password))

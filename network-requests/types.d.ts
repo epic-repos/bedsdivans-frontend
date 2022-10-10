@@ -113,3 +113,9 @@ interface Accessories {
     type: string;
     image: string;
 }
+
+
+interface Login {
+    email: string;
+    password: string;
+}

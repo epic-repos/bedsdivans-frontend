@@ -182,7 +182,7 @@ Home.getLayout = PerPageLayout;
 
 export async function getServerSideProps(context: any) {
   const { data: products } = await axios.get(
-    `http://localhost:5000/beds/get-all-beds-with-base-image`
+    `http://localhost:5000/api/beds/get-all-beds-with-base-image`
   );
 
   return {
