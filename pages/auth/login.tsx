@@ -42,6 +42,7 @@ const LoginPage = () => {
                     onChange={onChangeInputs}
                 />
                 <Input
+                    name="password"
                     type="password"
                     label={"Password"}
                     placeholder="Enter your password"

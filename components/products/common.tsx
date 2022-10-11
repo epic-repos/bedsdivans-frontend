@@ -147,7 +147,7 @@ const CommonForBed = (props: BedSizeProps) => {
                             }}
                         >
                             <Image
-                                src={"/image.png"}
+                                src={data?.image || "/image.png"}
                                 width={100}
                                 height={56}
                                 alt=""

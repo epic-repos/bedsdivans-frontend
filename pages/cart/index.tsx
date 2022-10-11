@@ -8,9 +8,10 @@ import useAddCart from "store/hooks/useaddcart";
 import style from "styles/product/cart.module.scss";
 import router, { useRouter } from "next/router";
 import { loadStripe } from "@stripe/stripe-js";
-import axios from "axios";
+
 import { NextPageWithLayout } from "typings/layout";
 import PerPageLayout from "layout/perpage";
+import axios from "network-requests/axios";
 
 const publishableKey = `pk_live_51KUB2yLggtF42pbGuboggv7Gkpsk4f4pkcG72iqva8Eo74OxcMmmWzcnsluD3z7eAbqRTcQGyNgJwYjwoaOkVDbE00f3Pfgrim
 `;
@@ -29,31 +30,27 @@ const CartPage: NextPageWithLayout = () => {
 
     console.log({ cartItems });
 
-    const [loading, setLoading] = React.useState(false);
+    let cartArray: any = [];
 
-    const [item, setItem] = React.useState({
-        name: "Apple AirPods",
-        description: "Latest Apple AirPods.",
-        image: "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80",
-        quantity: 0,
-        price: 999,
+    cartItems.map((item) => {
+        let data = {
+            name: item?.bed?.name,
+            images: [item?.bed?.image],
+            amount: Math.round(item.bed.price * 100),
+            currency: "usd",
+            quantity: item?.quantity,
+        };
+        cartArray.push(data);
     });
 
-    // const publishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
-    const stripePromise = loadStripe(publishableKey);
     const createCheckOutSession = async () => {
-        setLoading(true);
-        const stripe = await stripePromise;
-        const checkoutSession = await axios.post("/api/checkout", {
-            item: item,
+        const { data } = await axios.post("/payment", {
+            line_items: cartArray,
         });
-        const result = await stripe?.redirectToCheckout({
-            sessionId: checkoutSession.data.id,
-        });
-        if (result?.error) {
-            alert(result.error.message);
+
+        if (data) {
+            router.push(data.session.url);
         }
-        setLoading(false);
     };
 
     return (
@@ -161,23 +158,23 @@ interface ProductItemProps {
     intialQuantity?: number;
     accessories: {
         color: {
-            name: string;
-            image: string;
+            name: any;
+            image: any;
         };
         storage: {
-            name: string;
+            name: any;
             price: number;
         };
         feet: {
-            name: string;
+            name: any;
             price: number;
         };
         headboard: {
-            name: string;
+            name: any;
             price: number;
         };
         mattress: {
-            name: string;
+            name: any;
             price: number;
         };
     };
@@ -210,16 +207,19 @@ const ProductItem = ({
                                 <li>Selected Size : {size}</li>
                                 <li>
                                     Selected Storage:{" "}
-                                    {accessories?.storage?.name}
+                                    {accessories?.storage?.name?.label}
                                 </li>
                                 <li>
                                     Selected Headboard :{" "}
-                                    {accessories?.headboard?.name}
+                                    {accessories?.headboard?.name?.label}
                                 </li>
-                                <li>Select Feet : {accessories?.feet?.name}</li>
+                                <li>
+                                    Select Feet :{" "}
+                                    {accessories?.feet?.name?.label}
+                                </li>
                                 <li>
                                     Selected Mattress :{" "}
-                                    {accessories?.mattress?.name}
+                                    {accessories?.mattress?.name?.label}
                                 </li>
                             </ul>
                             {/* <div className={style.productsize}>Size: 3ft Single</div>

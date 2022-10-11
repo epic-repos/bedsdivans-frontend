@@ -79,7 +79,7 @@ export const getBedVariantById = (
 ): Promise<BedWithSize> => {
     if (size)
         return axios
-            .get<BedWithSize>(`/beds/get-bed-variant/${id}?size=${size}`)
+            .get<BedWithSize>(`/beds/${id}?size=${size}`)
             .then((response) => response.data)
             .catch((error) => {
                 throw error;
