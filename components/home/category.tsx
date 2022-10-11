@@ -1,11 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
-import { randomBytes } from "crypto";
 import React from "react";
+import { randomBytes } from "crypto";
 import styles from "styles/home.module.scss";
 
-const CategoryContainer = () => {
+/**
+ * Category Container
+ * @returns
+ */
+
+interface CategoryContainerProps {}
+const CategoryContainer = ({}: CategoryContainerProps) => {
   return (
-    <section className={styles.category}>
+    <section className={`container ${styles.category}`}>
       <div className={styles.row}>
         {categoryArray.map((data, index) => {
           return (

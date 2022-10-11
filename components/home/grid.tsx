@@ -19,7 +19,7 @@ interface ProductsGridProps {
 const ProductsGrid = ({ swipe, left, right }: ProductsGridProps) => {
   return (
     <section className={css.cover}>
-      <div className={css.container}>
+      <div className={`container ${css.container}`}>
         <div className={css.boxLeft} style={{ order: swipe ? 2 : 1 }}>
           <div className={css.image}>
             <img src={left.image} alt={left.heading} />

@@ -1,15 +1,15 @@
 import React from "react";
-import styles from "styles/home.module.scss";
 import Image from "next/image";
+import styles from "styles/home.module.scss";
 
 const QuickInfo = () => {
   return (
     <div className="award-section-destop">
-      <div className={styles.banner_bottom_style}>
+      <div className={styles["banner-bottom"]}>
         <div className="container">
-          <div className="row">
-            <div className="col-3">
-              <div className={styles.banner_bottom_ineerbox}>
+          <div className={styles["row"]}>
+            <div className={`${styles["item-card"]}  col-3`}>
+              <div className={styles["innerbox"]}>
                 <ul>
                   <li>
                     <Image
@@ -28,8 +28,8 @@ const QuickInfo = () => {
                 </ul>
               </div>
             </div>
-            <div className="col-3">
-              <div className={styles.banner_bottom_ineerbox}>
+            <div className={`${styles["item-card"]}   col-3`}>
+              <div className={styles["innerbox"]}>
                 <ul>
                   <li>
                     <Image
@@ -48,8 +48,8 @@ const QuickInfo = () => {
                 </ul>
               </div>
             </div>
-            <div className="col-3">
-              <div className={styles.banner_bottom_ineerbox}>
+            <div className={`${styles["item-card"]} ${styles["d-none"]} col-3`}>
+              <div className={styles["innerbox"]}>
                 <ul>
                   <li>
                     <Image
@@ -68,8 +68,8 @@ const QuickInfo = () => {
                 </ul>
               </div>
             </div>
-            <div className="col-3">
-              <div className={styles.banner_bottom_ineerbox}>
+            <div className={`${styles["item-card"]} ${styles["d-none"]} col-3`}>
+              <div className={styles["innerbox"]}>
                 <ul>
                   <li>
                     <Image

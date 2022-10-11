@@ -1,19 +1,19 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
-import Slider from "react-slick";
+import Slider, { Settings } from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "styles/home.module.scss";
 
 const FeatureSlider = () => {
-  const settings = {
+  const settings: Settings = {
     dots: true,
-    nav: true,
     infinite: false,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,
     initialSlide: 0,
+    arrows: false,
     responsive: [
       {
         breakpoint: 1024,
@@ -30,6 +30,8 @@ const FeatureSlider = () => {
           slidesToShow: 2,
           slidesToScroll: 2,
           initialSlide: 2,
+          dots: false,
+          arrows: false,
         },
       },
       {
@@ -37,13 +39,20 @@ const FeatureSlider = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          dots: false,
+          arrows: false,
+          centerMode: true,
+          centerPadding: "20px",
+          infinite: true,
+          autoplay: true,
+          initialSlide: 2,
         },
       },
     ],
   };
 
   return (
-    <div className={styles.featuredslider}>
+    <div className={`container ${styles.featuredslider}`}>
       {/* <h2>Featured</h2> */}
       <Slider {...settings}>
         <div className={styles.slideimg}>

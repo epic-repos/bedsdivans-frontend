@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import styles from "styles/divanbed.module.scss";
 import Image from "next/image";

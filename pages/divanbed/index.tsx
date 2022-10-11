@@ -2,9 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import styles from "styles/header.module.scss";
-import Image from "next/image";
 import NextSEO from "layout/nextseo";
-import Header from "layout/header";
 import axios from "axios";
 import PerPageLayout from "layout/perpage";
 import { NextPageWithLayout } from "typings/layout";

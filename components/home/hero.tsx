@@ -6,13 +6,11 @@ const HeroImageContainer = () => {
     window.scrollBy({ behavior: "smooth", top: 500 });
   };
   return (
-    <div className={styles.swiper_wrapper}>
+    <div className={styles["hero-container"]}>
       <div className={`${styles.slider_height} d-flex`}>
         <div className={`${styles.center} container"`}>
-          <div className={styles.bannerheadingmiddle}>
-            <h1 className="HeadingForM">
-              <strong>Divan Beds</strong>
-            </h1>
+          <div className={styles.heading}>
+            <h1 className="HeadingForM">Divan Beds</h1>
             <p>Save upto 60% with Divan Beds</p>
             <div className={styles.bannerButton}>
               <button onClick={scrollSmooth}>

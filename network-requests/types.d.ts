@@ -63,6 +63,7 @@ type UploadBedImage = {
 };
 
 type BedWithImage = {
+    variants: any;
     size?: string;
     _id?: string;
     name?: string;

@@ -4,11 +4,11 @@ import Footer from "./footer";
 
 const Layout = ({ children }: React.PropsWithChildren<{}>) => {
   return (
-    <div>
+    <React.Fragment>
       <Header />
       {children}
       <Footer />
-    </div>
+    </React.Fragment>
   );
 };
 export default Layout;

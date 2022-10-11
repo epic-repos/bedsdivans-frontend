@@ -35,7 +35,7 @@
     h1 {
       font-family: inherit;
       font-weight: 700;
-      font-size: 32px;
+      font-size: 2rem;
       color: #212121;
     }
     p {
@@ -64,9 +64,9 @@
       width: 100%;
       font-size: 0.9rem;
       font-weight: 500;
-      color: rgb(0, 0, 0);
+      color: rgb(255, 255, 255);
       backdrop-filter: blur(10px);
-      background: rgba(255, 255, 255, 0.4);
+      background: rgba(0, 0, 0, 0.4);
     }
   }
 }
@@ -74,11 +74,22 @@
 @media screen and (max-width: 768px) {
   .container {
     grid-template-columns: 1fr;
+    padding: 1rem;
   }
   .boxLeft {
     order: 1 !important;
+    .text {
+      h1 {
+        font-size: 1.4rem;
+      }
+    }
   }
   .boxRight {
     order: 2 !important;
+    .item {
+      span {
+        font-size: 0.75rem;
+      }
+    }
   }
 }
