@@ -8,6 +8,7 @@ const Select = ({
   onDelete,
   deletable,
   error,
+
   ...rest
 }: SelectProps) => {
   return (

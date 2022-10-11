@@ -1,12 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
-import Head from "next/head";
-import axios from "axios";
-import Style from "../../styles/gardenFurniture/gardenFurniture.module.scss";
 import PerPageLayout from "layout/perpage";
 import { NextPageWithLayout } from "typings/layout";
+import Style from "styles/gardenFurniture/gardenFurniture.module.scss";
 
 const GardenFurniture: NextPageWithLayout = (props: any) => {
   return (
@@ -492,24 +489,3 @@ const GardenFurniture: NextPageWithLayout = (props: any) => {
 export default GardenFurniture;
 
 GardenFurniture.getLayout = PerPageLayout;
-export async function getServerSideProps(context: any) {
-  const { req } = context;
-  const size = req?.__NEXT_INIT_QUERY?.size;
-  const category = req?.__NEXT_INIT_QUERY?.category;
-  let sizes = "";
-  let categories = "";
-
-  size ? (sizes = size) : (sizes = "2FT 6");
-  category ? (categories = category) : (categories = "Teak color");
-  const data = await axios.post(
-    `${process.env.BASE_URL}/api/gardenfurniture/getbeds`,
-    {
-      method: "wood color",
-      Value: "Teak color",
-    }
-  );
-  const response = data.data.data;
-  return {
-    props: { response }, // will be passed to the page component as props
-  };
-}

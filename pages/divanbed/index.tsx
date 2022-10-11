@@ -1,14 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
-import styles from "styles/header.module.scss";
 import NextSEO from "layout/nextseo";
-import axios from "axios";
+import styles from "styles/header.module.scss";
 import PerPageLayout from "layout/perpage";
 import { NextPageWithLayout } from "typings/layout";
 
-const DivanBeds: NextPageWithLayout = (props: any) => {
-  console.log(props.response);
+const DivanBeds: NextPageWithLayout = () => {
   return (
     <>
       <div>
@@ -217,7 +215,7 @@ const DivanBeds: NextPageWithLayout = (props: any) => {
         <section className={styles.productsimages}>
           <div className="container">
             <div className="row">
-              {props.response.map((item: any, index: any) => {
+              {/* {props.response.map((item: any, index: any) => {
                 return (
                   <div className="col-3" key={index}>
                     <div className={styles.box1}>
@@ -241,7 +239,7 @@ const DivanBeds: NextPageWithLayout = (props: any) => {
                     </div>
                   </div>
                 );
-              })}
+              })} */}
               <div className="col-3">
                 <div className={styles.box1}>
                   <img
@@ -633,26 +631,3 @@ const DivanBeds: NextPageWithLayout = (props: any) => {
 export default DivanBeds;
 
 DivanBeds.getLayout = PerPageLayout;
-
-export async function getServerSideProps(context: any) {
-  const { query } = context;
-  const size = query?.size;
-
-  const minPrice = query?.minPrice ? query.minPrice : "";
-  const maxPrice = query?.maxPrice ? query.maxPrice : "";
-  const images = query?.images ? query.images : "";
-
-  const data = await axios.post(
-    `${process.env.BASE_URL}/api/products/getbeds`,
-    // `${process.env.BASE_URL}/api/products/bestproducts?size=${size}&minPrice=${minPrice}&maxPrice=${maxPrice}&color=${images}`,
-    {
-      method: "size",
-      value: "2FT 6",
-    }
-  );
-
-  const response = data.data.data;
-  return {
-    props: { response }, // will be passed to the page component as props
-  };
-}

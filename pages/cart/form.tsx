@@ -1,7 +1,39 @@
 import React from "react";
+import useInputs from "hooks/useInputs";
 import css from "styles/cart.module.scss";
+import Input from "components/element/input";
+import Select from "components/element/select";
+import Button from "components/element/button";
+import Textarea from "components/element/textarea";
 
 const ContactForm = () => {
+  const { inputs, onChangeInputs } = useInputs({
+    firstName: "",
+    lastName: "",
+    country: "",
+    companyName: "",
+    houseNumber: "",
+    townCity: "",
+    postcode: "",
+    phone: "",
+    email: "",
+    orderNotes: "",
+  });
+
+  console.log(inputs);
+
+  //   const xxxx={
+  //     "firstName": "simple",
+  //     "lastName": "neeraj",
+  //     "country": "UK",
+  //     "companyName": "Epic",
+  //     "houseNumber": "520",
+  //     "townCity": "meerut",
+  //     "postcode": "250401",
+  //     "phone": "9012023242",
+  //     "email": "simpleneeraj@gmail.com",
+  //     "orderNotes": "Hello Worpd sdjkghjh"
+  // }
   return (
     <div className={css.item1}>
       <div className={css.billformbox}>
@@ -11,24 +43,56 @@ const ContactForm = () => {
             <li>
               <div className="row">
                 <div className="col-md-6">
-                  <label htmlFor="name">Name:</label>
-                  <input name="tittle" id="name" type="text" required />
+                  <Input
+                    name="firstName"
+                    type="text"
+                    placeholder="Enter your first name"
+                    label="First Name"
+                    onChange={onChangeInputs}
+                  />
                 </div>
                 <div className="col-md-6">
-                  <label htmlFor="lname">Last Name</label>
-                  <input id="lname" type="text" />
+                  <Input
+                    name="lastName"
+                    type="text"
+                    placeholder="Enter your last name"
+                    label="Last Name"
+                    onChange={onChangeInputs}
+                  />
                 </div>
               </div>
             </li>
             <li>
               <div className="row">
                 <div className="col-md-6">
-                  <label htmlFor="cname">Company Name (optional)</label>
-                  <input type="text" id="cname" />
+                  {/* <label htmlFor="cname">Company Name (optional)</label>
+                  <input type="text" id="cname" /> */}
+                  <Input
+                    onChange={onChangeInputs}
+                    name="companyName"
+                    type="text"
+                    placeholder="Enter your company name"
+                    label="Company Name (optional)"
+                  />
                 </div>
                 <div className="col-md-6">
-                  <label htmlFor="country">Country / Region *</label>
-                  <p className={css.countryname}>United Kingdom (UK)</p>
+                  {/* <label htmlFor="country">Country / Region *</label>
+                  <p className={css.countryname}>United Kingdom (UK)</p> */}
+                  <Select
+                    name="country"
+                    label="Country / Region *"
+                    onChange={onChangeInputs}
+                    options={[
+                      {
+                        label: "Not Selected",
+                        value: "",
+                      },
+                      {
+                        label: "United Kingdom (UK)",
+                        value: "UK",
+                      },
+                    ]}
+                  />
                 </div>
               </div>
             </li>
@@ -36,21 +100,65 @@ const ContactForm = () => {
             <li>
               <div className="row">
                 <div className="col-md-12">
-                  <label htmlFor="streetaddf">Street address *</label>
+                  {/* <label htmlFor="streetaddf">Street address *</label>
                   <input
                     type="text"
                     name=""
-                    id="streetaddf"
                     placeholder="House number and street name"
-                  />
-                </div>
-
-                <div className="col-md-12">
-                  <input
+                  /> */}
+                  <Input
                     type="text"
-                    name=""
-                    id="streetadds"
-                    placeholder="Apartment,suite,unit,etc. (Optional) "
+                    name="houseNumber"
+                    placeholder="House number and street name"
+                    label="Street address *"
+                    onChange={onChangeInputs}
+                  />
+                </div>
+              </div>
+            </li>
+            <li>
+              <div className="row">
+                <Input
+                  id="town"
+                  type="text"
+                  name="townCity"
+                  label="Town / City *"
+                  onChange={onChangeInputs}
+                />
+              </div>
+            </li>
+            <li>
+              <div className="row">
+                <div className="col-md-6">
+                  <Input
+                    type="text"
+                    name="postcode"
+                    id="country"
+                    placeholder="Enter your postcode"
+                    label="Postcode *"
+                    onChange={onChangeInputs}
+                  />
+                </div>
+                <div className="col-md-6">
+                  <Input
+                    type="number"
+                    name="phone"
+                    id="country"
+                    label="Phone *"
+                    onChange={onChangeInputs}
+                  />
+                </div>
+              </div>
+            </li>
+            <li>
+              <div className="row">
+                <div className="col-md-12">
+                  <Input
+                    name="email"
+                    label="Email"
+                    id="email"
+                    type="email"
+                    onChange={onChangeInputs}
                   />
                 </div>
               </div>
@@ -58,49 +166,21 @@ const ContactForm = () => {
 
             <li>
               <div className="row">
-                <div className="col-md-6">
-                  <label htmlFor="town">Town / City *</label>
-                  <input type="text" name="" id="town" />
-                </div>
-                <div className="col-md-6">
-                  <label htmlFor="country">County (optional)</label>
-                  <input type="text" name="" id="country" />
-                </div>
-              </div>
-            </li>
-
-            <li>
-              <div className="row">
-                <div className="col-md-6">
-                  <label htmlFor="postcode">Postcode *</label>
-                  <input type="text" name="" id="postcode" />
-                </div>
-                <div className="col-md-6">
-                  <label htmlFor="phone">Phone *</label>
-                  <input type="tel" id="phone" />
-                </div>
-              </div>
-            </li>
-
-            <li>
-              <div className="row">
                 <div className="col-md-12">
-                  <label htmlFor="email">Email:</label>
-                  <input id="email" type="email" />
-                </div>
-              </div>
-            </li>
-
-            <li>
-              <div className="row">
-                <div className="col-md-12">
-                  <label htmlFor="textare">order notes(optional)</label>
-                  <textarea className={css.text_area} id="message" rows={4} />
+                  {/* <label htmlFor="textare">order notes(optional)</label>
+                  <textarea className={css.text_area} id="message" rows={4} /> */}
+                  <Textarea
+                    name="orderNotes"
+                    onChange={onChangeInputs}
+                    label="Order notes (optional)"
+                    placeholder="Notes about your order, e.g. special notes for delivery."
+                  />
                 </div>
               </div>
             </li>
           </ul>
-          <button type="submit">Send</button>
+          {/* <button type="submit">Send</button> */}
+          <Button type="submit">Send</Button>
         </div>
       </div>
     </div>

@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -7,9 +9,7 @@ import axios from "axios";
 import { NextPageWithLayout } from "typings/layout";
 import PerPageLayout from "layout/perpage";
 
-
-const MattressPage:NextPageWithLayout = (props: any) => {
-  
+const MattressPage: NextPageWithLayout = (props: any) => {
   return (
     <div>
       <div className={Style.mtrsBannr}>
@@ -314,28 +314,27 @@ const MattressPage:NextPageWithLayout = (props: any) => {
             </p>
           </div>
           <div className="row">
-          
             <section className={Style.productsimages}>
               <div className="container">
                 <div className="row">
-                {props.response.map((item:any,index:any)=> {
-                  return(
-                  <div className="col-3" key={index}>
-                    <div className={Style.box1}>
-                      <img
-                        // src={item?.images[0]?item?.images[0]:"/"}
-                        alt="img"
-                        width={258}
-                        height="210"
-                      />
-                      <h2 className={Style.productname}>
-                      {item.product_name}
-                      </h2>
-                      <p className={Style.price}>{item.price}</p>
-                    </div>
-                  </div>
-                  );
-                })}
+                  {props.response.map((item: any, index: any) => {
+                    return (
+                      <div className="col-3" key={index}>
+                        <div className={Style.box1}>
+                          <img
+                            // src={item?.images[0]?item?.images[0]:"/"}
+                            alt="img"
+                            width={258}
+                            height="210"
+                          />
+                          <h2 className={Style.productname}>
+                            {item.product_name}
+                          </h2>
+                          <p className={Style.price}>{item.price}</p>
+                        </div>
+                      </div>
+                    );
+                  })}
                   <div className="col-3">
                     <div className={Style.box1}>
                       <img
@@ -479,30 +478,25 @@ const MattressPage:NextPageWithLayout = (props: any) => {
 };
 export default MattressPage;
 
-MattressPage.getLayout=PerPageLayout
+MattressPage.getLayout = PerPageLayout;
 
-
-export async function getServerSideProps(context:any) {
+export async function getServerSideProps(context: any) {
   const { query } = context;
-  const size = query?.size 
+  const size = query?.size;
 
   const minPrice = query?.minPrice ? query.minPrice : "";
   const maxPrice = query?.maxPrice ? query.maxPrice : "";
   const images = query?.images ? query.images : "";
-
-
-
-
 
   const data = await axios.post(
     `${process.env.BASE_URL}/api/mattress/getbeds`,
     // `${process.env.BASE_URL}/api/products/bestproducts?size=${size}&minPrice=${minPrice}&maxPrice=${maxPrice}&color=${images}`,
     {
       method: "size",
-    value: "2FT 6" ,
+      value: "2FT 6",
     }
   );
-  
+
   const response = data.data.data;
   return {
     props: { response }, // will be passed to the page component as props

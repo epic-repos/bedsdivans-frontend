@@ -36,7 +36,7 @@ const CartPage: NextPageWithLayout = () => {
         let data = {
             name: item?.bed?.name,
             images: [item?.bed?.image],
-            amount: Math.round(item.bed.price * 100),
+            amount: Math.round(cartTotalAmount * 100),
             currency: "usd",
             quantity: item?.quantity,
         };
@@ -52,7 +52,6 @@ const CartPage: NextPageWithLayout = () => {
             router.push(data.session.url);
         }
     };
-
     return (
         <div className={style.sectioncart}>
             <div className="container">
@@ -131,8 +130,6 @@ export default CartPage;
 
 CartPage.getLayout = PerPageLayout;
 
-CartPage.getLayout = PerPageLayout;
-
 const TableHead = () => {
     return (
         <thead>
@@ -159,7 +156,7 @@ interface ProductItemProps {
     accessories: {
         color: {
             name: any;
-            image: any;
+            image: string;
         };
         storage: {
             name: any;
