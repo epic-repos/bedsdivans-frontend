@@ -6,8 +6,9 @@ import Select from "components/element/select";
 import Button from "components/element/button";
 import Textarea from "components/element/textarea";
 
+type EFORM = React.ChangeEvent<HTMLFormElement>;
 const ContactForm = () => {
-  const { inputs, onChangeInputs } = useInputs({
+  const initialState = {
     firstName: "",
     lastName: "",
     country: "",
@@ -18,27 +19,23 @@ const ContactForm = () => {
     phone: "",
     email: "",
     orderNotes: "",
-  });
+  };
 
-  console.log(inputs);
+  const { inputs, onChangeInputs } = useInputs(initialState);
+  // GET INPUT VALUES IN REALTIME
 
-  //   const xxxx={
-  //     "firstName": "simple",
-  //     "lastName": "neeraj",
-  //     "country": "UK",
-  //     "companyName": "Epic",
-  //     "houseNumber": "520",
-  //     "townCity": "meerut",
-  //     "postcode": "250401",
-  //     "phone": "9012023242",
-  //     "email": "simpleneeraj@gmail.com",
-  //     "orderNotes": "Hello Worpd sdjkghjh"
-  // }
+  const onSubmit = React.useCallback(
+    (e: EFORM) => {
+      e.preventDefault();
+      console.log(inputs);
+    },
+    [inputs]
+  );
   return (
     <div className={css.item1}>
       <div className={css.billformbox}>
         <h3>Billing Details</h3>
-        <div className={css.billform}>
+        <form className={css.billform} onSubmit={onSubmit}>
           <ul>
             <li>
               <div className="row">
@@ -181,7 +178,7 @@ const ContactForm = () => {
           </ul>
           {/* <button type="submit">Send</button> */}
           <Button type="submit">Send</Button>
-        </div>
+        </form>
       </div>
     </div>
   );
