@@ -1,22 +1,16 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
-import styles from "styles/divanbed.module.scss";
-import Image from "next/image";
 import NextSEO from "layout/nextseo";
-import Header from "layout/header";
-import axios from "axios";
-import { type } from "os";
-import { NextPageWithLayout } from "typings/layout";
 import PerPageLayout from "layout/perpage";
+import { NextPageWithLayout } from "typings/layout";
+import styles from "styles/divanbed.module.scss";
 
-const Divanbed: NextPageWithLayout = (props: any) => {
-  console.log(props.response);
+const Divanbed: NextPageWithLayout = () => {
   return (
     <>
       <div>
         <NextSEO title={"DBZBEDS"} />
-
         <section className={styles.mydiv}>
           <div className="container">
             <div className="row">
@@ -348,31 +342,3 @@ const Divanbed: NextPageWithLayout = (props: any) => {
 export default Divanbed;
 
 Divanbed.getLayout = PerPageLayout;
-
-interface dataType {
-  value: any;
-  size: string;
-}
-
-export async function getServerSideProps(context: any) {
-  const { query } = context;
-  const size = query?.size as string;
-
-  const minPrice = query?.minPrice ? query.minPrice : "";
-  const maxPrice = query?.maxPrice ? query.maxPrice : "";
-  const images = query?.images ? query.images : "";
-
-  const data = await axios.post(
-    `${process.env.BASE_URL}/api/products/getbeds`,
-    // `${process.env.BASE_URL}/api/products/bestproducts?size=${size}&minPrice=${minPrice}&maxPrice=${maxPrice}&color=${images}`,
-    {
-      method: "size",
-      value: size,
-    }
-  );
-
-  const response = data.data.data;
-  return {
-    props: { response }, // will be passed to the page component as props
-  };
-}

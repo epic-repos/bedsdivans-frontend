@@ -45,7 +45,7 @@ const FeatureSlider = () => {
           centerPadding: "20px",
           infinite: true,
           autoplay: true,
-          initialSlide: 2,
+          initialSlide: 3,
         },
       },
     ],
