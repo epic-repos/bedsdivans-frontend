@@ -1,6 +1,12 @@
 import React from "react";
-import CommonForBed from "components/products/common";
 import useSelectBed from "store/hooks/useselectbed";
+import BedSizeTab from "components/products/tabs/bedSize";
+import { useRouter } from "next/router";
+import BedColorTab from "components/products/tabs/bedColor";
+import BedHeadBoardTab from "components/products/tabs/bedHeadBoard";
+import BedStorageTab from "components/products/tabs/bedStorage";
+import BedFeetTab from "components/products/tabs/bedFeet";
+import BedMattressTab from "components/products/tabs/bedMattress";
 
 interface BedsTabsProps {
   tabName: string;
@@ -13,6 +19,8 @@ const BedsTabs = ({
   productsPayload,
   onColorChange,
 }: BedsTabsProps) => {
+  const router = useRouter();
+
   const {
     bedState,
     setBed,
@@ -26,23 +34,30 @@ const BedsTabs = ({
   // LIKE API DATA
 
   // RENDER TABS
-  console.log({ bedstate: bedState });
+
+  console.log({ productsPayload });
   const RenderTabs = React.useMemo(() => {
     switch (tabName) {
       case "BedSize":
         return (
-          <CommonForBed
-            items={{ productsPayload, type: "BED" }}
+          <BedSizeTab
+            items={productsPayload?.availabeSizes}
             value={bedState.bed.size} // LIKE ISACTIVE
-            onClickItem={(value) => {
-              console.log(value);
+            onClickItem={(data) => {
+              router.push({
+                pathname: `/products/${data?._id}`,
+                query: { size: data?.value },
+              });
+              // setBed(data);
             }}
           />
         );
+
       case "Color":
+        // productsPayload.variants[0].accessories.color
         return (
-          <CommonForBed
-            items={{ productsPayload, type: "COLOR" }}
+          <BedColorTab
+            items={productsPayload?.variants[0]?.accessories?.color}
             value={bedState.accessories.color.name} // LIKE ISACTIVE
             onClickItem={(data: any) => {
               setBedColor({ name: data.name, image: data.image });
@@ -50,10 +65,11 @@ const BedsTabs = ({
             }}
           />
         );
+
       case "HeadBoard":
         return (
-          <CommonForBed
-            items={{ productsPayload, type: "HEADBOARD" }}
+          <BedHeadBoardTab
+            items={productsPayload?.variants[0]?.accessories?.headboard}
             value={bedState.accessories.headboard.name} // LIKE ISACTIVE
             onClickItem={(data) => {
               setBedHeadBoard({
@@ -63,13 +79,11 @@ const BedsTabs = ({
             }}
           />
         );
+
       case "Storage":
         return (
-          <CommonForBed
-            items={{
-              productsPayload,
-              type: "STORAGE",
-            }}
+          <BedStorageTab
+            items={productsPayload?.variants[0]?.accessories?.storage}
             value={bedState.accessories.storage.name} // LIKE ISACTIVE
             onClickItem={(data) => {
               setBedStorage({
@@ -81,8 +95,8 @@ const BedsTabs = ({
         );
       case "Feet":
         return (
-          <CommonForBed
-            items={{ productsPayload, type: "FEET" }}
+          <BedFeetTab
+            items={productsPayload?.variants[0]?.accessories?.feet}
             value={bedState.accessories.feet.name} // LIKE ISACTIVE
             onClickItem={(data) => {
               setBedFeet({
@@ -94,11 +108,8 @@ const BedsTabs = ({
         );
       case "Mattress":
         return (
-          <CommonForBed
-            items={{
-              productsPayload,
-              type: "MATTRESS",
-            }}
+          <BedMattressTab
+            items={productsPayload?.variants[0]?.accessories?.mattress}
             value={bedState.accessories.mattress.name} // LIKE ISACTIVE
             onClickItem={(data) => {
               setBedMatters({

@@ -3,11 +3,13 @@ import React from "react";
 type Both = string | number;
 // TYPES FOR BED SIZE
 interface ProductDataTypes {
+    _id?: any;
+    value?: string | number | boolean | readonly string[] | readonly number[] | readonly boolean[] | null | undefined;
     id?: Both;
-    content: any;
+    content?: any;
     iconUrl?: string;
     imageUrl?: string;
-    price: Both;
+    price?: Both;
     image?: string;
     name: string;
 }

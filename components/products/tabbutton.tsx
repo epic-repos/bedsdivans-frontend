@@ -1,4 +1,3 @@
-import ScaleIcon from "icons/scale";
 import React from "react";
 import styles from "styles/NewProductPage.module.scss";
 
@@ -12,8 +11,8 @@ const SideTabButton = (props: TabButtonProps) => {
   };
   const color = props.isactive ? "#000" : "#fff";
   return (
-    <div style={styleActive} className={styles.imageicon}  {...props}>
-     {/* {props.icon|| <ScaleIcon fill={color} />} */}
+    <div style={styleActive} className={styles.imageicon} {...props}>
+      {/* {props.icon|| <ScaleIcon fill={color} />} */}
       <span style={{ color: color }}>{props.title}</span>
     </div>
   );

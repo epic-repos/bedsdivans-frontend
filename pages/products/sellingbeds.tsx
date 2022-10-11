@@ -2,7 +2,6 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @next/next/no-img-element */
 import React, { useState } from "react";
-import Style from "styles/home.module.scss";
 import styles from "styles/NewProductPage.module.scss";
 import ProductDetailTab from "components/detailtab";
 import AddIcon from "icons/add";
@@ -80,7 +79,7 @@ const BestSellingBeds = () => {
                 Pink Crushed Velvet single divan beds
               </h2>
               <div className={styles.trustpilot}>
-              <img src="/image/tru.png" alt="img" />
+                <img src="/image/tru.png" alt="img" />
               </div>
               <p className={styles.price}>
                 £600.00<del>£800.00</del>
@@ -94,7 +93,7 @@ const BestSellingBeds = () => {
                 Pink Crushed Velvet single divan bed
               </h2>
               <div className={styles.trustpilot}>
-              <img src="/image/tru.png" alt="img" />
+                <img src="/image/tru.png" alt="img" />
               </div>
               <p className={styles.price}>
                 £600.00<del>£800.00</del>
@@ -108,7 +107,7 @@ const BestSellingBeds = () => {
                 Pink Crushed Velvet single divan bed
               </h2>
               <div className={styles.trustpilot}>
-              <img src="/image/tru.png" alt="img" />
+                <img src="/image/tru.png" alt="img" />
               </div>
               <p className={styles.price}>
                 £600.00<del>£800.00</del>
@@ -121,7 +120,7 @@ const BestSellingBeds = () => {
                 Pink Crushed Velvet single divan bed
               </h2>
               <div className={styles.trustpilot}>
-              <img src="/image/tru.png" alt="img" />
+                <img src="/image/tru.png" alt="img" />
               </div>
               <p className={styles.price}>
                 £600.00<del>£800.00</del>

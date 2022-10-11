@@ -37,10 +37,10 @@ const useSelectBed = () => {
         dispatch(
             selectbedSlice.actions.setTotalPrice(
                 Number(headboard.price) +
-                    Number(storage.price) +
-                    Number(feet.price) +
-                    Number(mattress.price) +
-                    Number(price)
+                Number(storage.price) +
+                Number(feet.price) +
+                Number(mattress.price) +
+                Number(price)
             )
         );
     }, [headboard, storage, feet, mattress, price, dispatch]);
