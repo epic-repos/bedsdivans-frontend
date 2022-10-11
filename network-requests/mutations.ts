@@ -6,9 +6,11 @@ import {
     deleteBedById,
     deleteBedVariantById,
     login,
+    register,
     updateAccessoriesIcon,
     updateBedById,
     updateBedVariantById,
+    verifyToken,
 } from "./api";
 import {
     AccessoriesTypes,
@@ -17,6 +19,7 @@ import {
     ColorIcon,
     CreateBedVariantResponse,
     Login,
+    Register,
     UpdateColorIcon,
     UploadBedImage,
     VariantsTypes,
@@ -83,5 +86,13 @@ export const useDeleteBedVariantById = () =>
             deleteBedVariantById(id)
     );
 
+export const useLogin = () =>
+    useMutation(({ email, password }: Login) => login(email, password));
 
-export const useLogin = () => useMutation(({ email, password }: Login) => login(email, password))
+export const useRegister = () =>
+    useMutation(({ email, password, name }: Register) =>
+        register({ name, email, password })
+    );
+
+export const useVerifyToken = () =>
+    useMutation((token: string) => verifyToken(token));

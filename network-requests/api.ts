@@ -9,14 +9,24 @@ import {
     BedWithSize,
     CreateBedVariantResponse,
     GetAllBedsParams,
+    Register,
     UploadBedImage,
     VariantsTypes,
 } from "./types";
 
-// LOGIN API
+// AUTH APIS
 export const login = (email: string, password: string) => {
     return axios.post("/auth/login", { email, password });
 };
+
+export const register = ({ email, password, name }: Register) => {
+    return axios.post("/auth/register", { email, password, name });
+};
+
+export const verifyToken = (token: string) => {
+    return axios.post("/auth/verify-token", { token });
+};
+
 //GET REQUESTS
 
 export const getAllBeds = ({
