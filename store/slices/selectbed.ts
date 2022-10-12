@@ -12,24 +12,24 @@ interface BedTypes {
 
     accessories: {
         color: {
-            name: string;
+            name: string | any;
             image: string;
         };
         storage: {
-            name: string;
-            price: number;
+            name: string | any;
+            price: number | any;
         };
         feet: {
-            name: string;
+            name: string | any;
             price: number;
         };
         headboard: {
-            name: string;
-            price: number;
+            name: string | any;
+            price: number | any;
         };
         mattress: {
-            name: string;
-            price: number;
+            name: string | any;
+            price: number | any;
         };
     };
     total: number;

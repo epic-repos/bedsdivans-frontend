@@ -31,11 +31,12 @@ const BedsTabs = ({
     setBedStorage,
   } = useSelectBed();
 
-  // LIKE API DATA
+  // FROM API DATA
+
+  // FROM REDUX
+  const { color, feet, headboard, mattress, storage } = bedState.accessories;
 
   // RENDER TABS
-
-  console.log({ productsPayload });
   const RenderTabs = React.useMemo(() => {
     switch (tabName) {
       case "BedSize":
@@ -58,7 +59,7 @@ const BedsTabs = ({
         return (
           <BedColorTab
             items={productsPayload?.variants[0]?.accessories?.color}
-            value={bedState.accessories.color.name} // LIKE ISACTIVE
+            value={color.name.value} // LIKE ISACTIVE
             onClickItem={(data: any) => {
               setBedColor({ name: data.name, image: data.image });
               onColorChange(data);
@@ -70,7 +71,7 @@ const BedsTabs = ({
         return (
           <BedHeadBoardTab
             items={productsPayload?.variants[0]?.accessories?.headboard}
-            value={bedState.accessories.headboard.name} // LIKE ISACTIVE
+            value={headboard.price} // LIKE ISACTIVE
             onClickItem={(data) => {
               setBedHeadBoard({
                 name: data.name,
@@ -84,7 +85,7 @@ const BedsTabs = ({
         return (
           <BedStorageTab
             items={productsPayload?.variants[0]?.accessories?.storage}
-            value={bedState.accessories.storage.name} // LIKE ISACTIVE
+            value={storage.price} // LIKE ISACTIVE
             onClickItem={(data) => {
               setBedStorage({
                 name: data.name,
@@ -97,7 +98,7 @@ const BedsTabs = ({
         return (
           <BedFeetTab
             items={productsPayload?.variants[0]?.accessories?.feet}
-            value={bedState.accessories.feet.name} // LIKE ISACTIVE
+            value={feet.price} // LIKE ISACTIVE
             onClickItem={(data) => {
               setBedFeet({
                 name: data.name,
@@ -110,7 +111,7 @@ const BedsTabs = ({
         return (
           <BedMattressTab
             items={productsPayload?.variants[0]?.accessories?.mattress}
-            value={bedState.accessories.mattress.name} // LIKE ISACTIVE
+            value={mattress.price} // LIKE ISACTIVE
             onClickItem={(data) => {
               setBedMatters({
                 name: data.name,

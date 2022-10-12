@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { BedSizeProps } from "typings/product";
-import styles from "styles/NewProductPage.module.scss";
+import styles from "styles/new-product.module.scss";
 import { useRouter } from "next/router";
 
 // bedSize

@@ -33,7 +33,7 @@ const NewProductPage: NextPageWithLayout = ({ id, size }: any) => {
     setTabs(value);
   }, []);
 
-  console.log({ bedState });
+  // console.log({ bedState });
 
   const { data } = useFetchBedVariantsByIdAndSize(id, size);
   const [currentBed, setCurrentBed] = React.useState<VariantsTypes>();

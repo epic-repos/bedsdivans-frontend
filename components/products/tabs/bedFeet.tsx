@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { BedSizeProps } from "typings/product";
-import styles from "styles/NewProductPage.module.scss";
+import styles from "styles/new-product.module.scss";
 
 const BedFeetTab = ({ items, onClickItem, value }: BedSizeProps) => {
   return (
@@ -13,12 +13,12 @@ const BedFeetTab = ({ items, onClickItem, value }: BedSizeProps) => {
             onClick={() =>
               onClickItem({
                 name: data.name,
-                image: data.image,
+                price: data.price,
               })
             }
             style={{
               border: `2px solid ${
-                value === data?.name?.value ? "#20323e" : "transparent"
+                value === Number(data?.price) ? "#20323e" : "transparent"
               }`,
             }}
           >
@@ -30,7 +30,7 @@ const BedFeetTab = ({ items, onClickItem, value }: BedSizeProps) => {
             />
             <span className={styles.name}>
               {data?.name?.label}{" "}
-              <span className={styles.price}>{data.price}</span>
+              <span className={styles.price}>₤{data.price}</span>
             </span>
           </li>
         ))}

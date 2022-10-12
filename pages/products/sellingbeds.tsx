@@ -2,7 +2,7 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @next/next/no-img-element */
 import React, { useState } from "react";
-import styles from "styles/NewProductPage.module.scss";
+import styles from "styles/new-product.module.scss";
 import ProductDetailTab from "components/detailtab";
 import AddIcon from "icons/add";
 import useOnClickOutside from "hooks/useclick";

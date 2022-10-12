@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { BedSizeProps } from "typings/product";
-import styles from "styles/NewProductPage.module.scss";
+import styles from "styles/new-product.module.scss";
 
 const BedSizeTab = ({ items, onClickItem, value }: BedSizeProps) => {
   return (
@@ -24,7 +24,7 @@ const BedSizeTab = ({ items, onClickItem, value }: BedSizeProps) => {
               alt=""
             />
             <span className={styles.name}>
-              {data.label} <span className={styles.price}>{data.price}</span>
+              {data.label} <span className={styles.price}>₤{data.price}</span>
             </span>
           </li>
         ))}

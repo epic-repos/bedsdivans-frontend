@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "styles/NewProductPage.module.scss";
+import styles from "styles/new-product.module.scss";
 
 interface TabButtonProps extends React.ComponentPropsWithoutRef<"div"> {
   isactive?: boolean;
