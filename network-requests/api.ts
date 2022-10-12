@@ -27,6 +27,19 @@ export const verifyToken = (token: string) => {
     return axios.post("/auth/verify-token", { token });
 };
 
+export const logout = () => {
+    return axios.post("/auth/logout");
+};
+
+//USER APIS
+
+export const getUser = () => {
+    return axios
+        .get("/user")
+        .then((res) => res.data)
+        .catch((err) => err);
+};
+
 //GET REQUESTS
 
 export const getAllBeds = ({

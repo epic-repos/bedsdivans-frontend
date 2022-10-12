@@ -6,6 +6,7 @@ import {
     deleteBedById,
     deleteBedVariantById,
     login,
+    logout,
     register,
     updateAccessoriesIcon,
     updateBedById,
@@ -88,6 +89,8 @@ export const useDeleteBedVariantById = () =>
 
 export const useLogin = () =>
     useMutation(({ email, password }: Login) => login(email, password));
+
+export const useLogout = () => useMutation(() => logout());
 
 export const useRegister = () =>
     useMutation(({ email, password, name }: Register) =>

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export const config = {
-    matcher: ["/cart"],
+    matcher: ["/account/:path*"],
 };
 
 const authPages = ["/login", "signup"];

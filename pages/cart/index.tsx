@@ -13,9 +13,6 @@ import { NextPageWithLayout } from "typings/layout";
 import PerPageLayout from "layout/perpage";
 import axios from "network-requests/axios";
 
-const publishableKey = `pk_live_51KUB2yLggtF42pbGuboggv7Gkpsk4f4pkcG72iqva8Eo74OxcMmmWzcnsluD3z7eAbqRTcQGyNgJwYjwoaOkVDbE00f3Pfgrim
-`;
-
 const iconColor = "#777";
 
 const CartPage: NextPageWithLayout = () => {
@@ -36,7 +33,7 @@ const CartPage: NextPageWithLayout = () => {
         let data = {
             name: item?.bed?.name,
             images: [item?.bed?.image],
-            amount: Math.round(cartTotalAmount * 100),
+            amount: Math.round(item?.total * 100),
             currency: "usd",
             quantity: item?.quantity,
         };

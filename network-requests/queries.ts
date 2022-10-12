@@ -7,6 +7,7 @@ import {
     getBedVariantById,
     getIconById,
     getIconsByType,
+    getUser,
 } from "./api";
 import {
     Accessories,
@@ -89,5 +90,11 @@ export const useFetchIconsByType = (type: string) =>
 
 export const useFetchIconById = (id: string) =>
     useQuery(["icon", id], (): Promise<Accessories> => getIconById(id), {
+        refetchOnMount: true,
+    });
+
+//GET USER DATA
+export const useFetchUser = () =>
+    useQuery("user", getUser, {
         refetchOnMount: true,
     });

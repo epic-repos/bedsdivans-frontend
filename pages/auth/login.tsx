@@ -5,6 +5,7 @@ import Button from "components/element/button";
 import css from "styles/auth.module.scss";
 import { useLogin } from "network-requests/mutations";
 import useInputs from "hooks/useInputs";
+import Link from "next/link";
 
 const LoginPage = () => {
     const { inputs, onChangeInputs } = useInputs({
@@ -49,6 +50,14 @@ const LoginPage = () => {
                     value={inputs.password}
                     onChange={onChangeInputs}
                 />
+                <p>
+                    Dont have an account?{" "}
+                    <Link href="/auth/signup">
+                        <a style={{ fontWeight: 600, color: "blueviolet" }}>
+                            Register
+                        </a>
+                    </Link>
+                </p>
                 <div className={css.controls}>
                     <Button>Submit</Button>
                 </div>
