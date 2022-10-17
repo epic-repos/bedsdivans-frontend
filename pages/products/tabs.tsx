@@ -45,10 +45,14 @@ const BedsTabs = ({
                         items={productsPayload?.availabeSizes}
                         value={bedState.bed.size} // LIKE ISACTIVE
                         onClickItem={(data) => {
-                            router.push({
-                                pathname: `/products/${productsPayload._id}`,
-                                query: { size: data?.value },
-                            });
+                            router.push(
+                                {
+                                    pathname: `/products/${productsPayload._id}`,
+                                    query: { size: data?.value },
+                                },
+                                undefined,
+                                { scroll: false }
+                            );
                             // setBed(data);
                         }}
                     />
