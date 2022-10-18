@@ -49,6 +49,7 @@ const CartPage: NextPageWithLayout = () => {
             router.push(data.session.url);
         }
     };
+
     return (
         <div className={style.sectioncart}>
             <div className="container">
