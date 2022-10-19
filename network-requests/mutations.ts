@@ -3,6 +3,7 @@ import {
     createBed,
     createBedVariantById,
     createColorIcon,
+    createOrder,
     deleteBedById,
     deleteBedVariantById,
     login,
@@ -20,6 +21,7 @@ import {
     ColorIcon,
     CreateBedVariantResponse,
     Login,
+    OrderRequestPayload,
     Register,
     UpdateColorIcon,
     UploadBedImage,
@@ -99,3 +101,8 @@ export const useRegister = () =>
 
 export const useVerifyToken = () =>
     useMutation((token: string) => verifyToken(token));
+
+export const useCreateOrder = () =>
+    useMutation(
+        (payload: OrderRequestPayload): Promise<any> => createOrder(payload)
+    );

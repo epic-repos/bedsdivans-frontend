@@ -123,6 +123,14 @@ export const getIconById = (id: string): Promise<Accessories> =>
         });
 
 //POST REQUESTS
+export const createOrder = (data: any) =>
+    axios
+        .post("/order", data)
+        .then((res) => res.data)
+        .catch((error) => {
+            throw error;
+        });
+
 export const createBed = (
     payload: BedRequestPayload
 ): Promise<CreateBedVariantResponse> =>

@@ -125,3 +125,49 @@ interface Register {
     email: string;
     password: string;
 }
+
+interface OrderRequestPayload {
+    user: {
+        firstName: string;
+        lastName: string;
+        email: string;
+        phone: string;
+    };
+    orderItems: {
+        name: string;
+        size: string;
+        quantity: number;
+        accessories: any[];
+        price: number;
+        image: string;
+    }[];
+    shippingAddress?:
+        | {
+              address?: string | undefined;
+              townCity?: string | undefined;
+              postalCode?: string | undefined;
+              country?: string | undefined;
+              companyName?: string | undefined;
+          }
+        | undefined;
+    totalPrice: number;
+
+    payment?:
+        | {
+              paymentMethod: string;
+              paymentResult?:
+                  | {
+                        id?: string | undefined;
+                        status?: string | undefined;
+                        update_time?: string | undefined;
+                        email_address?: string | undefined;
+                    }
+                  | undefined;
+          }
+        | undefined;
+
+    orderNotes?: string | undefined;
+
+    isDelivered?: boolean | undefined;
+    deliveredAt?: string | undefined;
+}

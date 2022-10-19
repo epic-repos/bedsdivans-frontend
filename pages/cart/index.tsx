@@ -40,14 +40,8 @@ const CartPage: NextPageWithLayout = () => {
         cartArray.push(data);
     });
 
-    const createCheckOutSession = async () => {
-        const { data } = await axios.post("/payment", {
-            line_items: cartArray,
-        });
-
-        if (data) {
-            router.push(data.session.url);
-        }
+    const goToCheckoutPage = async () => {
+        router.push("/cart/checkout");
     };
 
     return (
@@ -114,7 +108,7 @@ const CartPage: NextPageWithLayout = () => {
                     </div>
                     {/* PROMOCODE BOX */}
                     <PromoCode
-                        onCheckout={createCheckOutSession}
+                        onCheckout={goToCheckoutPage}
                         totalItems={cartTotalQuantity}
                         totalPrice={cartTotalAmount}
                     />
