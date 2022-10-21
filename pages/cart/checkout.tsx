@@ -89,15 +89,15 @@ const Checkout: NextPageWithLayout = () => {
 
     const createCheckOutSession = async () => {
         mutate(orderPayload as any, {
-            // onSuccess: async () => {
-            //     const { data } = await axios.post("/payment", {
-            //         line_items: cartArray,
-            //     });
+            onSuccess: async () => {
+                const { data } = await axios.post("/payment", {
+                    line_items: cartArray,
+                });
 
-            //     if (data) {
-            //         router.push(data.session.url);
-            //     }
-            // },
+                if (data) {
+                    router.push(data.session.url);
+                }
+            },
             onError: (error) => {
                 console.log(error);
             },
