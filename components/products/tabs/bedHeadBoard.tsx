@@ -11,12 +11,7 @@ const BedHeadBoardTab = ({ items, onClickItem, value }: BedSizeProps) => {
                 {items?.map((data: any, index: number) => (
                     <li
                         key={index}
-                        onClick={() =>
-                            onClickItem({
-                                name: data.name,
-                                price: data.price,
-                            })
-                        }
+                        onClick={() => onClickItem(data)}
                         style={{
                             border: `2px solid ${
                                 value === data?.name?.value

@@ -33,10 +33,7 @@ const NewProductPage: NextPageWithLayout = ({ id, size }: any) => {
         setTabs(value);
     }, []);
 
-    // console.log({ bedState });
-
     const { data } = useFetchBedVariantsByIdAndSize(id, size);
-    const [currentBed, setCurrentBed] = React.useState<VariantsTypes>();
     const [currentImage, setCurrentImage] = React.useState<string>("");
 
     React.useEffect(() => {
@@ -46,7 +43,8 @@ const NewProductPage: NextPageWithLayout = ({ id, size }: any) => {
         setBed({
             price: data.variants[0].price.salePrice,
             name: data.name as any,
-            id: data._id,
+            id: data.variants[0]._id as any,
+            bedId: data._id as any,
             size: data.variants[0].size as any,
             image: data.variants[0].image as any,
         });

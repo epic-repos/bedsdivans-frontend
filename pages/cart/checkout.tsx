@@ -50,12 +50,14 @@ const Checkout: NextPageWithLayout = () => {
     const orderPayload = useMemo(() => {
         const orderItems = cartItems.map((item) => {
             return {
-                name: item?.bed?.name,
-                size: item?.bed?.size,
+                _id: item?.bed?.id,
+                bedId: item?.bed?.bedId,
+                color: item?.accessories?.color?._id,
+                headboard: item?.accessories?.headboard?._id,
+                mattress: item?.accessories?.mattress?._id,
+                feet: item?.accessories?.feet?._id,
+                storage: item?.accessories?.storage?._id,
                 quantity: item?.quantity,
-                accessories: item?.accessories,
-                image: item?.bed?.image,
-                price: item?.bed?.price,
             };
         });
 
@@ -66,10 +68,7 @@ const Checkout: NextPageWithLayout = () => {
                 email: formData.email,
                 phone: formData.phone,
             },
-
             orderItems: orderItems,
-
-            totalPrice: cartTotalAmount,
 
             shippingAddress: {
                 address: formData.houseNumber,
@@ -84,19 +83,21 @@ const Checkout: NextPageWithLayout = () => {
                 paymentMethod: "stripe",
             },
         };
-    }, [formData, cartItems, cartTotalAmount]);
+    }, [formData, cartItems]);
+
+    console.log({ orderPayload, cartItems });
 
     const createCheckOutSession = async () => {
         mutate(orderPayload as any, {
-            onSuccess: async () => {
-                const { data } = await axios.post("/payment", {
-                    line_items: cartArray,
-                });
+            // onSuccess: async () => {
+            //     const { data } = await axios.post("/payment", {
+            //         line_items: cartArray,
+            //     });
 
-                if (data) {
-                    router.push(data.session.url);
-                }
-            },
+            //     if (data) {
+            //         router.push(data.session.url);
+            //     }
+            // },
             onError: (error) => {
                 console.log(error);
             },

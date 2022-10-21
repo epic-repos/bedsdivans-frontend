@@ -4,6 +4,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 interface BedTypes {
     bed: {
+        id: string;
+        bedId: string;
         size: string;
         name: string;
         image: string;
@@ -37,6 +39,8 @@ interface BedTypes {
 
 const initialState: BedTypes = {
     bed: {
+        id: "",
+        bedId: "",
         size: "",
         name: "",
         image: "",

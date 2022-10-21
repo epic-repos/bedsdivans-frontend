@@ -67,7 +67,7 @@ const BedsTabs = ({
                         }
                         value={color?.name?.value} // LIKE ISACTIVE
                         onClickItem={(data: any) => {
-                            setBedColor({ name: data.name, image: data.image });
+                            setBedColor(data);
                             onColorChange(data);
                         }}
                     />
@@ -85,7 +85,8 @@ const BedsTabs = ({
                             setBedHeadBoard({
                                 name: data.name,
                                 price: Number(data.price),
-                            });
+                                _id: data._id,
+                            } as any);
                         }}
                     />
                 );
@@ -101,7 +102,8 @@ const BedsTabs = ({
                             setBedStorage({
                                 name: data.name,
                                 price: Number(data.price),
-                            });
+                                _id: data._id,
+                            } as any);
                         }}
                     />
                 );
@@ -114,7 +116,8 @@ const BedsTabs = ({
                             setBedFeet({
                                 name: data.name,
                                 price: Number(data.price),
-                            });
+                                _id: data._id,
+                            } as any);
                         }}
                     />
                 );
@@ -129,7 +132,8 @@ const BedsTabs = ({
                             setBedMatters({
                                 name: data.name,
                                 price: Number(data.price),
-                            });
+                                _id: data._id,
+                            } as any);
                         }}
                     />
                 );

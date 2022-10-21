@@ -10,6 +10,7 @@ import selectbedSlice from "store/slices/selectbed";
 
 interface Bed {
     id: string;
+    bedId: string;
     size?: "";
     name?: "";
     image?: "";
@@ -37,10 +38,10 @@ const useSelectBed = () => {
         dispatch(
             selectbedSlice.actions.setTotalPrice(
                 Number(headboard.price) +
-                Number(storage.price) +
-                Number(feet.price) +
-                Number(mattress.price) +
-                Number(price)
+                    Number(storage.price) +
+                    Number(feet.price) +
+                    Number(mattress.price) +
+                    Number(price)
             )
         );
     }, [headboard, storage, feet, mattress, price, dispatch]);

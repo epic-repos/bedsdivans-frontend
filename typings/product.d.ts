@@ -4,7 +4,15 @@ type Both = string | number;
 // TYPES FOR BED SIZE
 interface ProductDataTypes {
     _id?: any;
-    value?: string | number | boolean | readonly string[] | readonly number[] | readonly boolean[] | null | undefined;
+    value?:
+        | string
+        | number
+        | boolean
+        | readonly string[]
+        | readonly number[]
+        | readonly boolean[]
+        | null
+        | undefined;
     id?: Both;
     content?: any;
     iconUrl?: string;
@@ -20,7 +28,9 @@ interface BedSizeProps {
 }
 interface BedTypes {
     bed: {
+        _id: any;
         id: string;
+        bedId: string;
         size: string;
         name: string;
         image: string;
@@ -29,22 +39,27 @@ interface BedTypes {
 
     accessories: {
         color: {
+            _id: string;
             name: string;
             image: string;
         };
         storage: {
+            _id: string;
             name: string;
             price: number;
         };
         feet: {
+            _id: string;
             name: string;
             price: number;
         };
         headboard: {
+            _id: string;
             name: string;
             price: number;
         };
         mattress: {
+            _id: string;
             name: string;
             price: number;
         };
