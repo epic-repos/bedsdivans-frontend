@@ -22,6 +22,7 @@ const BedsTabs = ({
   const router = useRouter();
 
   const {
+    setBed,
     bedState,
     setBedColor,
     setBedFeet,
@@ -50,6 +51,7 @@ const BedsTabs = ({
             items={productsPayload?.availabeSizes}
             value={bedState.bed.size} // LIKE ISACTIVE
             onClickItem={(data) => {
+              setBed(data);
               sizeHandler(`/products/${productsPayload._id}`, data?.value);
             }}
           />
