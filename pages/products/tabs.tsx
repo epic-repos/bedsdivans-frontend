@@ -35,6 +35,12 @@ const BedsTabs = ({
   // FROM REDUX
   const { color, feet, headboard, mattress, storage } = bedState.accessories;
 
+  const sizeHandler = (pathname: string, size: any) => {
+    router.push({ pathname: pathname, query: { size } }, undefined, {
+      scroll: false,
+    });
+  };
+
   // RENDER TABS
   const RenderTabs = React.useMemo(() => {
     switch (tabName) {
@@ -44,15 +50,7 @@ const BedsTabs = ({
             items={productsPayload?.availabeSizes}
             value={bedState.bed.size} // LIKE ISACTIVE
             onClickItem={(data) => {
-              router.push(
-                {
-                  pathname: `/products/${productsPayload._id}`,
-                  query: { size: data?.value },
-                },
-                // @ts-ignore
-                { scroll: false }
-              );
-              // setBed(data);
+              sizeHandler(`/products/${productsPayload._id}`, data?.value);
             }}
           />
         );
@@ -71,7 +69,6 @@ const BedsTabs = ({
         );
 
       case "HeadBoard":
-        console.log({ headboard });
         return (
           <BedHeadBoardTab
             items={productsPayload?.variants[0]?.accessories?.headboard}

@@ -1,3 +1,5 @@
+import TitleHeader from "components/title-header";
+import CoupanIcon from "icons/coupan";
 import PerPageLayout from "layout/perpage";
 import axios from "network-requests/axios";
 import { useCreateOrder } from "network-requests/mutations";
@@ -11,6 +13,8 @@ import ContactForm from "./form";
 
 const Checkout: NextPageWithLayout = () => {
   const router = useRouter();
+
+  const [isValidForm, setValidForm] = React.useState(true);
 
   const {
     cartState: { cartItems },
@@ -84,34 +88,68 @@ const Checkout: NextPageWithLayout = () => {
 
   // console.log({ orderPayload, cartItems });
 
-  const createCheckOutSession = async () => {
-    mutate(orderPayload as any, {
-      onSuccess: async () => {
-        const { data } = await axios.post("/payment", {
-          line_items: cartArray,
-        });
+  React.useEffect(() => {
+    if (
+      formData.country &&
+      formData.houseNumber &&
+      formData.townCity &&
+      formData.postcode &&
+      formData.phone
+    ) {
+      setValidForm(true);
+    }
+  }, [formData]);
 
-        if (data) {
-          router.push(data.session.url);
-        }
-      },
-      onError: (error) => {
-        console.log(error);
-      },
-    });
-  };
+  const createCheckOutSession = React.useCallback(() => {
+    if (isValidForm) {
+      mutate(orderPayload as any, {
+        onSuccess: async () => {
+          const { data } = await axios.post("/payment", {
+            line_items: cartArray,
+          });
+
+          if (data) {
+            router.push(data.session.url);
+          }
+        },
+        onError: (error) => {
+          console.log(error);
+        },
+      });
+    } else {
+      alert("First You need to complete the form");
+    }
+  }, [cartArray, formData, orderPayload, isValidForm]);
 
   const haveSomethingInCart = cartItems.length > 0;
 
+  console.log(formData);
+
+  const [coupanInput, setCoupanInput] = React.useState(false);
+
   return (
-    <div>
-      <div className={css.text_center}>
-        <div className={css.cart_heading}>
-          <h1>Your basket and service options</h1>
-        </div>
-      </div>
+    <React.Fragment>
+      <TitleHeader title="Checkout" />
       <div className={css.item}>
         <div className="container">
+          <div className={css["coupan-container"]}>
+            <div className={css["coupan-text"]}>
+              <CoupanIcon />
+              Have a coupon?
+              <strong onClick={() => setCoupanInput(!coupanInput)}>
+                Click here to enter your code
+              </strong>
+            </div>
+            {coupanInput && (
+              <div className={css["coupan-input"]}>
+                <label>If you have a coupon code, please apply it below.</label>
+                <div className={css["inputs"]}>
+                  <input placeholder="Coupan Code" type="text" />
+                  <button>Apply coupon</button>
+                </div>
+              </div>
+            )}
+          </div>
           <div className={css.row}>
             {/* FORM */}
             <ContactForm onChange={(value) => setFormData(value)} />
@@ -136,7 +174,12 @@ const Checkout: NextPageWithLayout = () => {
                       />
                     );
                   })}
-                  <TotalSummary onCheckout={createCheckOutSession} />
+
+                  <TotalSummary
+                    isDisable={!isValidForm}
+                    defaultPaymentType="stripe"
+                    onCheckout={createCheckOutSession}
+                  />
                 </div>
               ) : (
                 <div className={css.item2}>
@@ -152,7 +195,7 @@ const Checkout: NextPageWithLayout = () => {
       </div>
       {/* CONTACT END */}
       <Recommendation />
-    </div>
+    </React.Fragment>
   );
 };
 export default Checkout;
@@ -160,15 +203,23 @@ export default Checkout;
 Checkout.getLayout = PerPageLayout;
 
 interface TotalSummaryProps {
+  isDisable?: boolean;
   onCheckout: () => void;
+  defaultPaymentType: string;
+  getPaymentType?: (value: string) => string;
 }
 
-const TotalSummary = ({ onCheckout }: TotalSummaryProps) => {
+const TotalSummary = ({
+  onCheckout,
+  defaultPaymentType,
+  getPaymentType,
+  isDisable,
+}: TotalSummaryProps) => {
   const {
     cartState: { cartTotalAmount },
   } = useAddCart();
 
-  const [paymentType, setPaymentType] = React.useState("stripe");
+  const [paymentType, setPaymentType] = React.useState(defaultPaymentType);
 
   const paymentTypeArray = [
     {
@@ -183,30 +234,19 @@ const TotalSummary = ({ onCheckout }: TotalSummaryProps) => {
     },
   ];
 
-  // Based on Type You Can Change
-  const PaymentButton = React.useMemo(() => {
-    switch (paymentType) {
-      case "stripe":
-        return (
-          <button className={css.checkpro} onClick={onCheckout}>
-            Pay via Stripe Checkout
-          </button>
-        );
-      case "cash-on-delivery":
-        return (
-          <button className={css.checkpro} onClick={onCheckout}>
-            Place Order
-          </button>
-        );
+  React.useEffect(() => {
+    if (getPaymentType) {
+      getPaymentType(paymentType);
     }
-  }, [onCheckout, paymentType]);
+  }, [paymentType]);
+  // Based on Type You Can Change
 
   return (
     <div className={css.checkform}>
       <div className={css.items}>
         <p>Price Summary </p>
         <div className={css.price}>
-          <p>Total MRP (Incl.of taxes) </p>
+          <p>Sub Total (Incl.of taxes) </p>
           <p>£{cartTotalAmount?.toFixed(2)}</p>
         </div>
         <div className={css.price}>
@@ -245,10 +285,62 @@ const TotalSummary = ({ onCheckout }: TotalSummaryProps) => {
             </React.Fragment>
           ))}
         </div>
-        <div>{PaymentButton}</div>
+        <div>
+          <PaymentButton
+            title={isDisable ? "Full Fill the Form" : ""}
+            disable={isDisable}
+            onCashOnDelivery={() => console.log("Hello")}
+            onStripeCheckout={onCheckout}
+            paymentType={paymentType}
+          />
+        </div>
       </div>
     </div>
   );
+};
+
+interface PaymentButtonProps extends React.ComponentPropsWithoutRef<"button"> {
+  disable?: boolean;
+  paymentType: string;
+  onStripeCheckout: () => void;
+  onCashOnDelivery: () => void;
+}
+
+const PaymentButton = ({
+  paymentType,
+  onStripeCheckout,
+  onCashOnDelivery,
+  disable,
+  ...rest
+}: PaymentButtonProps) => {
+  const router = useRouter();
+  switch (paymentType) {
+    case "stripe":
+      return (
+        <button
+          disabled={disable}
+          className={`${css.checkpro} ${disable ? css.disable : ""}`}
+          onClick={onStripeCheckout}
+          {...rest}
+        >
+          Pay via Stripe Checkout
+        </button>
+      );
+    case "cash-on-delivery":
+      return (
+        <button
+          disabled={disable}
+          className={`${css.checkpro} ${disable ? css.disable : ""}`}
+          onClick={() => router.push("/order/success")}
+          {...rest}
+        >
+          Place Order
+        </button>
+      );
+
+    default:
+      return null;
+  }
 };
 
 interface ItemsSummaryProps {
@@ -265,26 +357,42 @@ const BagItemsSummary = ({ accessories, bed, onRemove }: ItemsSummaryProps) => {
           <h4 className={css["product-name"]}>{bed?.name}</h4>
           <ul>
             <li>
-              <span>Bed Size : {bed?.size} </span>
+              <span>Bed Size </span>
+              <span>:</span>
+              <span>{bed?.size}</span>
             </li>
             <li>
-              <span>Bed Color : {accessories?.color?.name?.label} </span>
+              <span>Bed Color </span>
+              <span>:</span>
+              <span>{accessories?.color?.name?.label}</span>
             </li>
             <li>
-              <span>Storage : {accessories?.storage?.name?.label}</span>
+              <span>Storage </span>
+              <span>:</span>
+              <span>{accessories?.storage?.name?.label}</span>
             </li>
             <li>
-              <span>Headboard : {accessories?.headboard?.name?.label}</span>
+              <span>Headboard </span>
+              <span>:</span>
+              <span>{accessories?.headboard?.name?.label}</span>
             </li>
             <li>
-              <span>Feet : {accessories?.feet?.name?.label}</span>
+              <span>Feet </span>
+              <span>:</span>
+              <span>{accessories?.feet?.name?.label}</span>
             </li>
             <li>
-              <span>Mattressess : {accessories?.mattress?.name?.label}</span>
+              <span>Mattressess </span>
+              <span>:</span>
+              <span>{accessories?.mattress?.name?.label}</span>
             </li>
           </ul>
         </div>
-        <h5> Price £{bed?.price}</h5>
+        <div className={css["price-summary"]}>
+          <h5>
+            <span> Price</span> <span>£{bed?.price}</span>
+          </h5>
+        </div>
         <div className={css.CartItems_buttons}>
           <button onClick={onRemove} className={css.removebutton}>
             Remove

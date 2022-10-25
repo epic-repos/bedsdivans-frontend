@@ -9,6 +9,7 @@ import style from "styles/product/cart.module.scss";
 import { useRouter } from "next/router";
 import { NextPageWithLayout } from "typings/layout";
 import PerPageLayout from "layout/perpage";
+import TitleHeader from "components/title-header";
 
 const iconColor = "#777";
 
@@ -20,9 +21,6 @@ const CartPage: NextPageWithLayout = () => {
     increaseQuantity,
   } = useAddCart();
   const router = useRouter();
-  const { status } = router.query;
-
-  console.log({ cartItems });
 
   let cartArray: any = [];
 
@@ -42,57 +40,61 @@ const CartPage: NextPageWithLayout = () => {
   };
 
   return (
-    <div className={style.sectioncart}>
-      <div className="container">
-        <div className="row">
-          <div className="col-md-12">
-            <h1 className={style.cartheading}>Shopping Cart</h1>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-md-8">
-            <div className={style.productlistboxouter}>
-              <table className={style.productcarlist}>
-                {cartItems.length <= 0 ? (
-                  <h3>No Item in Your Cart</h3>
-                ) : (
-                  <React.Fragment>
-                    <TableHead />
-                    {cartItems.map((data, index) => {
-                      return (
-                        <ProductItem
-                          intialQuantity={data.quantity}
-                          key={index}
-                          name="Side Opening Storage Ottoman Mocha Linen CLEARANCE DEAL"
-                          imageUrl={data.bed.image}
-                          price={`£${data.total}`}
-                          totalPrice={`£${data.total}`}
-                          onAddQuantity={() => increaseQuantity(data.bed.id)}
-                          onRemoveQuantity={() => decreaseQuantity(data.bed.id)}
-                          onDeleteItem={() => removeFromCart(data.bed.id)}
-                          accessories={data.accessories}
-                          size={data.bed.size}
-                        />
-                      );
-                    })}
-                  </React.Fragment>
-                )}
-              </table>
+    <>
+      <TitleHeader
+        background={`https://images.unsplash.com/photo-1561715276-a2d087060f1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80`}
+        title="Shopping Cart"
+      />
+      <br />
+      <div className={style.sectioncart}>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-8">
+              <div className={style.productlistboxouter}>
+                <table className={style.productcarlist}>
+                  {cartItems.length <= 0 ? (
+                    <h3>No Item in Your Cart</h3>
+                  ) : (
+                    <React.Fragment>
+                      <TableHead />
+                      {cartItems.map((data, index) => {
+                        return (
+                          <ProductItem
+                            intialQuantity={data.quantity}
+                            key={index}
+                            name="Side Opening Storage Ottoman Mocha Linen CLEARANCE DEAL"
+                            imageUrl={data.bed.image}
+                            price={`£${data.total}`}
+                            totalPrice={`£${data.total}`}
+                            onAddQuantity={() => increaseQuantity(data.bed.id)}
+                            onRemoveQuantity={() =>
+                              decreaseQuantity(data.bed.id)
+                            }
+                            onDeleteItem={() => removeFromCart(data.bed.id)}
+                            accessories={data.accessories}
+                            size={data.bed.size}
+                          />
+                        );
+                      })}
+                    </React.Fragment>
+                  )}
+                </table>
+              </div>
+              {/* BUTTON */}
+              <div className={style.continueshopping}>
+                <a onClick={() => router.back()}> Continue shopping</a>
+              </div>
             </div>
-            {/* BUTTON */}
-            <div className={style.continueshopping}>
-              <a onClick={() => router.back()}> Continue shopping</a>
-            </div>
+            {/* PROMOCODE BOX */}
+            <PromoCode
+              onCheckout={goToCheckoutPage}
+              totalItems={cartTotalQuantity}
+              totalPrice={cartTotalAmount}
+            />
           </div>
-          {/* PROMOCODE BOX */}
-          <PromoCode
-            onCheckout={goToCheckoutPage}
-            totalItems={cartTotalQuantity}
-            totalPrice={cartTotalAmount}
-          />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
