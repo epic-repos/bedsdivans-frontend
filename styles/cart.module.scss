@@ -348,13 +348,28 @@
     gap: 6px;
     display: flex;
     color: #fff;
-    padding: 20px 0;
+    padding: 16px 0;
     align-items: center;
-    border-bottom: 1px solid #e0e0e0;
+    // border-bottom: 1px solid #e0e0e0;
   }
   input[type="radio"] {
     accent-color: #000;
     height: 1rem;
     width: 1rem;
+  }
+}
+
+.payment .description {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: all 200ms ease-in;
+  p {
+    margin: 0;
+    padding: 0.6rem;
+    background: #fff;
+    border-radius: 8px;
+    color: #000;
+    font-size: 0.9rem;
   }
 }

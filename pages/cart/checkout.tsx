@@ -224,19 +224,30 @@ const TotalSummary = ({ onCheckout }: TotalSummaryProps) => {
         </div>
         <div className={css.payment}>
           {paymentTypeArray.map((data, index) => (
-            <div
-              className={css["radio-box"]}
-              key={index}
-              onClick={() => setPaymentType(data.type)}
-            >
-              <input
-                type="radio"
-                id={data.type}
-                name={data.type}
-                checked={paymentType === data.type}
-              />
-              <label htmlFor={data.type}>{data.title}</label>
-            </div>
+            <React.Fragment key={index}>
+              <div
+                className={css["radio-box"]}
+                onClick={() => setPaymentType(data.type)}
+              >
+                <input
+                  type="radio"
+                  id={data.type}
+                  name={data.type}
+                  checked={paymentType === data.type}
+                />
+                <label htmlFor={data.type}>{data.title}</label>
+              </div>
+              {
+                <div
+                  className={css["description"]}
+                  style={{
+                    maxHeight: paymentType === data.type ? "50px" : "0px",
+                  }}
+                >
+                  <p>{data.description}</p>
+                </div>
+              }
+            </React.Fragment>
           ))}
         </div>
         <div>{PaymentButton}</div>
