@@ -15,7 +15,10 @@ const CategoryContainer = ({}: CategoryContainerProps) => {
       <div className={styles.row}>
         {categoryArray.map((data, index) => {
           return (
-            <div key={index} className={styles.item}>
+            <div
+              key={index}
+              className={` ${styles.item} ${styles.categorygesign}`}
+            >
               <div className={styles.image}>
                 <img src={data.imageUrl} alt="image" />
               </div>
@@ -23,14 +26,12 @@ const CategoryContainer = ({}: CategoryContainerProps) => {
                 <h1>Beds</h1>
                 <p>
                   Our range of beds come in single, double, king and super king
-                  sizes are crafted with superior memory foam that cradles your
-                  head and keeps your head and neck aligned even while you sleep
-                  on your side and prevents the head from sinking.
+                  sizes are crafted with superior memory
                 </p>
               </div>
-              <div className={styles.controls}>
+              {/* <div className={styles.controls}>
                 <button>Buy now</button>
-              </div>
+              </div> */}
             </div>
           );
         })}
