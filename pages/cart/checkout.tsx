@@ -86,6 +86,7 @@ const Checkout: NextPageWithLayout = () => {
   // console.log({ orderPayload, cartItems });
 
   const createCheckOutSession = async () => {
+    console.log("Hello");
     mutate(orderPayload as any, {
       onSuccess: async () => {
         const { data } = await axios.post("/payment", {
@@ -203,7 +204,7 @@ const TotalSummary = ({ onCheckout }: TotalSummaryProps) => {
           </button>
         );
     }
-  }, [paymentType]);
+  }, [onCheckout, paymentType]);
 
   return (
     <div className={css.checkform}>
