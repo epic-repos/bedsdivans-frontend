@@ -83,7 +83,7 @@ const Checkout: NextPageWithLayout = () => {
     };
   }, [formData, cartItems]);
 
-  console.log({ orderPayload, cartItems });
+  // console.log({ orderPayload, cartItems });
 
   const createCheckOutSession = async () => {
     mutate(orderPayload as any, {
@@ -102,6 +102,8 @@ const Checkout: NextPageWithLayout = () => {
     });
   };
 
+  const haveSomethingInCart = cartItems.length > 0;
+
   return (
     <div>
       <div className={css.text_center}>
@@ -115,140 +117,42 @@ const Checkout: NextPageWithLayout = () => {
             {/* FORM */}
             <ContactForm onChange={(value) => setFormData(value)} />
             <div className={css.button}>
-              <div className={css.item2}>
-                <p>Your Cart is Empty</p>
-                <div className={css.shopping_page}>
-                  <a>Continue Shopping</a>
+              {haveSomethingInCart ? (
+                <div className={css["summary"]}>
+                  <p className={css["bag-item"]}>
+                    My Bag have{" "}
+                    <strong className={css.colorchange}>
+                      {" "}
+                      {cartItems?.length}
+                    </strong>{" "}
+                    item (s)
+                  </p>
+                  {cartItems.map((data, index) => {
+                    // console.log(data);
+                    return (
+                      <BagItemsSummary
+                        onRemove={() => removeFromCart(data.bed.id)}
+                        {...data}
+                        key={index}
+                      />
+                    );
+                  })}
+                  <TotalSummary onCheckout={createCheckOutSession} />
                 </div>
-              </div>
-              <div>
-                {cartItems.map((data, index) => {
-                  // console.log(data);
-                  return <BagItemsSummary {...data} key={index} />;
-                })}
-              </div>
-
-              <div className={css.checkform}>
-                <div>
-                  <div>
-                    <p>Price Summary </p>
-                    <div className={css.price}>
-                      <p>Total MRP (Incl.of taxes) </p>
-                      <p>£55.00</p>
-                    </div>
-                    <div className={css.price}>
-                      <p>Delivery Fee </p>
-                      <p>FREE</p>
-                    </div>
-                    <div className={css.price}>
-                      <p>Bag Discount </p>
-                      <p>£1024</p>
-                    </div>
-
-                    <div className={css.price}>
-                      <p>Subtotal </p>
-                      <p>£55.00</p>
-                    </div>
-
-                    <div className={css.checkord}>
-                      You are saving £ 3090 on this order
-                    </div>
-                    <div className={css.Cart_finalCheckout}>
-                      <div className={css.Cart_price}>
-                        <p>Total</p>
-                        <p>£55.00</p>
-                      </div>
-                      <div>
-                        <button
-                          className={css.checkpro}
-                          type="submit"
-                          onClick={createCheckOutSession}
-                        >
-                          Proceed To Checkout
-                        </button>
-                      </div>
-                    </div>
+              ) : (
+                <div className={css.item2}>
+                  <p>Your Cart is Empty</p>
+                  <div className={css.shopping_page}>
+                    <a>Continue Shopping</a>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>
       </div>
       {/* CONTACT END */}
-      <div
-        className={css.container_fluid}
-        style={{ background: "rgb(243, 243, 248)" }}
-      >
-        <div className="container ">
-          <div className="row">
-            <div className={css.first_boxcart}>
-              <div className={css.item3}>
-                <h5>Services recommended for you</h5>
-                <div className={`${css.bg_white}  ${css.boxfirst_cart}`}>
-                  <h4>Mattress and bed frame recycling service</h4>
-                  <p>
-                    For peace of mind, add this to your order today – we’ll
-                    collect and recycle your old bed during the delivery of your
-                    new bed.
-                  </p>
-                  <ul className={css.boxfirst_cartul}>
-                    <li>
-                      All recyclable materials are reused, and waste is turned
-                      into green energy
-                    </li>
-                    <li>
-                      Ensure you have dismantled any furniture items prior to
-                      delivery
-                    </li>
-                    <li>
-                      We’ll provide you with a green bag to wrap your item in
-                      before delivery
-                    </li>
-                    <li>
-                      All recyclable materials are reused, and waste is turned
-                      into green energy
-                    </li>
-                  </ul>
-                </div>
-
-                <div className={`${css.bg_white}  ${css.boxfirst_cart}`}>
-                  <h4>Bed frame assembly</h4>
-                  <p>
-                    Fancy sitting back and relaxing while we assemble your new
-                    bed?
-                  </p>
-                  <ul className={css.boxfirst_cartul}>
-                    <li>Our team are fully trained in bed building</li>
-                    <li>
-                      We offer a quick and tidy service – all packaging is taken
-                      away
-                    </li>
-                  </ul>
-                </div>
-                <div className={`${css.bg_white}  ${css.boxfirst_cart}`}>
-                  <h4>Bedcover service plan</h4>
-                  <p>
-                    Be rest assured by adding insurance to your purchase. We’ll
-                    then provide:
-                  </p>
-                  <ul className={css.boxfirst_cartul}>
-                    <li>Structural defect cover for 8 years*</li>
-                    <li>Accidental cosmetic damage cover for 5 years</li>
-                    <li>
-                      A FREE mattress protector with each mattress added to the
-                      service plan
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className={css.item4}>
-              <div></div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Recommendation />
     </div>
   );
 };
@@ -256,24 +160,103 @@ export default Checkout;
 
 Checkout.getLayout = PerPageLayout;
 
+interface TotalSummaryProps {
+  onCheckout: () => void;
+}
+
+const TotalSummary = ({ onCheckout }: TotalSummaryProps) => {
+  const {
+    cartState: { cartItems, cartTotalAmount, cartTotalQuantity },
+    removeFromCart,
+    decreaseQuantity,
+    increaseQuantity,
+  } = useAddCart();
+
+  const [paymentType, setPaymentType] = React.useState("stripe");
+
+  const paymentTypeArray = [
+    {
+      title: "Credit card/Debit card",
+      type: "stripe",
+      description: "Secure payment via Stripe Checkout.",
+    },
+    {
+      title: "Cash on delivery",
+      type: "cash-on-delivery",
+      description: "Pay with cash upon delivery.",
+    },
+  ];
+
+  // Based on Type You Can Change
+  const PaymentButton = React.useMemo(() => {
+    switch (paymentType) {
+      case "stripe":
+        return (
+          <button className={css.checkpro} onClick={onCheckout}>
+            Pay via Stripe Checkout
+          </button>
+        );
+      case "cash-on-delivery":
+        return (
+          <button className={css.checkpro} onClick={onCheckout}>
+            Place Order
+          </button>
+        );
+    }
+  }, [paymentType]);
+
+  return (
+    <div className={css.checkform}>
+      <div className={css.items}>
+        <p>Price Summary </p>
+        <div className={css.price}>
+          <p>Total MRP (Incl.of taxes) </p>
+          <p>£{cartTotalAmount?.toFixed(2)}</p>
+        </div>
+        <div className={css.price}>
+          <p>Shipping</p>
+          <p>FREE</p>
+        </div>
+        <div className={css.price}>
+          <p>Total</p>
+          <p>£{cartTotalAmount?.toFixed(2)}</p>
+        </div>
+        <div className={css.payment}>
+          {paymentTypeArray.map((data, index) => (
+            <div
+              className={css["radio-box"]}
+              key={index}
+              onClick={() => setPaymentType(data.type)}
+            >
+              <input
+                type="radio"
+                id={data.type}
+                name={data.type}
+                checked={paymentType === data.type}
+              />
+              <label htmlFor={data.type}>{data.title}</label>
+            </div>
+          ))}
+        </div>
+        <div>{PaymentButton}</div>
+      </div>
+    </div>
+  );
+};
+
 interface ItemsSummaryProps {
   bed: any;
   accessories: any;
+  onRemove: () => void;
 }
 
-const BagItemsSummary = ({ accessories, bed }: ItemsSummaryProps) => {
-  const {
-    cartState: { cartTotalAmount },
-  } = useAddCart();
+const BagItemsSummary = ({ accessories, bed, onRemove }: ItemsSummaryProps) => {
   return (
     <React.Fragment>
-      <p className={css.bagitem}>
-        My Bag <strong className={css.colorchange}>1</strong> item (s)
-      </p>
-      <div className={css.check}>
-        <div className={css.check1}>
-          <h4>${cartTotalAmount.toFixed(2)}</h4>
-          <ul className="checkout-ul">
+      <div className={css["summary-container"]}>
+        <div className={css["summary-items"]}>
+          <h6 className={css["product-name"]}>{bed?.name}</h6>
+          <ul>
             <li>
               <span>Bed Size = {bed?.size} </span>
             </li>
@@ -284,59 +267,90 @@ const BagItemsSummary = ({ accessories, bed }: ItemsSummaryProps) => {
               <span>Storage = {accessories?.storage?.name?.label}</span>
             </li>
             <li>
-              <span>Storage-Price = {accessories?.storage?.price}</span>
-            </li>
-            <li>
               <span>Headboard = {accessories?.headboard?.name?.label}</span>
-            </li>
-            <li>
-              <span>Headboard-Price = {accessories?.headboard?.price}</span>
             </li>
             <li>
               <span>Feet = {accessories?.feet?.name?.label}</span>
             </li>
             <li>
-              <span>Feet-Price = {accessories?.feet?.price}</span>
-            </li>
-            <li>
               <span>Mattressess = {accessories?.mattress?.name?.label}</span>
             </li>
-            <li>
-              <span>Mattressess-Price = {accessories?.mattress?.price}</span>
-            </li>
           </ul>
-          <svg
-            className={`${css.MuiSvgIcon_root} ${css.MuiSvgIcon_fontSizeSmall}`}
-            focusable="false"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path d="M19 13H5v-2h14v2z"></path>
-          </svg>
-          <select className={css.dropdown}>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-          </select>
-          <svg
-            className={`${css.MuiSvgIcon_root} ${css.MuiSvgIcon_fontSizeSmall}`}
-            focusable="false"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
-          </svg>
         </div>
         <div className={css.CartItems_buttons}>
-          <div className={css.CartItems_buttons1}>
-            <button type="submit" className={css.removebutton}>
-              Remove
-            </button>
-          </div>
-          {/* <button type="submit">Buy Now</button> */}
+          <button onClick={onRemove} className={css.removebutton}>
+            Remove
+          </button>
         </div>
       </div>
     </React.Fragment>
+  );
+};
+
+const Recommendation = () => {
+  return (
+    <div className={css["fluid-container"]}>
+      <div className="container">
+        <div className={css.first_boxcart}>
+          <div className={css.item3}>
+            <h5>Services recommended for you</h5>
+            <div className={`${css.bg_white}  ${css.boxfirst_cart}`}>
+              <h4>Mattress and bed frame recycling service</h4>
+              <p>
+                For peace of mind, add this to your order today – we’ll collect
+                and recycle your old bed during the delivery of your new bed.
+              </p>
+              <ul className={css.boxfirst_cartul}>
+                <li>
+                  All recyclable materials are reused, and waste is turned into
+                  green energy
+                </li>
+                <li>
+                  Ensure you have dismantled any furniture items prior to
+                  delivery
+                </li>
+                <li>
+                  We’ll provide you with a green bag to wrap your item in before
+                  delivery
+                </li>
+                <li>
+                  All recyclable materials are reused, and waste is turned into
+                  green energy
+                </li>
+              </ul>
+            </div>
+
+            <div className={`${css.bg_white}  ${css.boxfirst_cart}`}>
+              <h4>Bed frame assembly</h4>
+              <p>
+                Fancy sitting back and relaxing while we assemble your new bed?
+              </p>
+              <ul className={css.boxfirst_cartul}>
+                <li>Our team are fully trained in bed building</li>
+                <li>
+                  We offer a quick and tidy service – all packaging is taken
+                  away
+                </li>
+              </ul>
+            </div>
+            <div className={`${css.bg_white}  ${css.boxfirst_cart}`}>
+              <h4>Bedcover service plan</h4>
+              <p>
+                Be rest assured by adding insurance to your purchase. We’ll then
+                provide:
+              </p>
+              <ul className={css.boxfirst_cartul}>
+                <li>Structural defect cover for 8 years*</li>
+                <li>Accidental cosmetic damage cover for 5 years</li>
+                <li>
+                  A FREE mattress protector with each mattress added to the
+                  service plan
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };

@@ -2,7 +2,7 @@ $mobile: 576px;
 @import "./variable.scss";
 // @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.6.3/css/all.min.css");
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 :root {
   --primary-color: #212121;
@@ -77,30 +77,6 @@ img {
 * {
   box-sizing: border-box;
 }
-
-// @font-face {
-//   font-family: "Inter", sans-serif;
-//   src: url(/fonts/Poppins-Regular.ttf);
-//   font-weight: 400;
-// }
-
-// @font-face {
-//   font-family: "Inter", sans-serif;
-//   src: url(/fonts/Poppins-Medium.ttf);
-//   font-weight: 500;
-// }
-
-// @font-face {
-//   font-family: "Inter", sans-serif;
-//   src: url(/fonts/Poppins-SemiBold.ttf);
-//   font-weight: 600;
-// }
-
-// @font-face {
-//   font-family: "Inter", sans-serif;
-//   src: url(/fonts/Poppins-Bold.ttf);
-//   font-weight: 700;
-// }
 
 .bg-black {
   background-color: #000;
