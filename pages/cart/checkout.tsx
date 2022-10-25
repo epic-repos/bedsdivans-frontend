@@ -1,6 +1,7 @@
 import PerPageLayout from "layout/perpage";
 import axios from "network-requests/axios";
 import { useCreateOrder } from "network-requests/mutations";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useMemo } from "react";
 import useAddCart from "store/hooks/useaddcart";
@@ -12,10 +13,8 @@ const Checkout: NextPageWithLayout = () => {
   const router = useRouter();
 
   const {
-    cartState: { cartItems, cartTotalAmount, cartTotalQuantity },
+    cartState: { cartItems },
     removeFromCart,
-    decreaseQuantity,
-    increaseQuantity,
   } = useAddCart();
 
   const { mutate } = useCreateOrder();
@@ -86,7 +85,6 @@ const Checkout: NextPageWithLayout = () => {
   // console.log({ orderPayload, cartItems });
 
   const createCheckOutSession = async () => {
-    console.log("Hello");
     mutate(orderPayload as any, {
       onSuccess: async () => {
         const { data } = await axios.post("/payment", {
@@ -144,7 +142,7 @@ const Checkout: NextPageWithLayout = () => {
                 <div className={css.item2}>
                   <p>Your Cart is Empty</p>
                   <div className={css.shopping_page}>
-                    <a>Continue Shopping</a>
+                    <Link href={"/"}>Continue Shopping</Link>
                   </div>
                 </div>
               )}
@@ -167,10 +165,7 @@ interface TotalSummaryProps {
 
 const TotalSummary = ({ onCheckout }: TotalSummaryProps) => {
   const {
-    cartState: { cartItems, cartTotalAmount, cartTotalQuantity },
-    removeFromCart,
-    decreaseQuantity,
-    increaseQuantity,
+    cartState: { cartTotalAmount },
   } = useAddCart();
 
   const [paymentType, setPaymentType] = React.useState("stripe");
@@ -267,28 +262,29 @@ const BagItemsSummary = ({ accessories, bed, onRemove }: ItemsSummaryProps) => {
     <React.Fragment>
       <div className={css["summary-container"]}>
         <div className={css["summary-items"]}>
-          <h6 className={css["product-name"]}>{bed?.name}</h6>
+          <h4 className={css["product-name"]}>{bed?.name}</h4>
           <ul>
             <li>
-              <span>Bed Size = {bed?.size} </span>
+              <span>Bed Size : {bed?.size} </span>
             </li>
             <li>
-              <span>Bed Color = {accessories?.color?.name?.label} </span>
+              <span>Bed Color : {accessories?.color?.name?.label} </span>
             </li>
             <li>
-              <span>Storage = {accessories?.storage?.name?.label}</span>
+              <span>Storage : {accessories?.storage?.name?.label}</span>
             </li>
             <li>
-              <span>Headboard = {accessories?.headboard?.name?.label}</span>
+              <span>Headboard : {accessories?.headboard?.name?.label}</span>
             </li>
             <li>
-              <span>Feet = {accessories?.feet?.name?.label}</span>
+              <span>Feet : {accessories?.feet?.name?.label}</span>
             </li>
             <li>
-              <span>Mattressess = {accessories?.mattress?.name?.label}</span>
+              <span>Mattressess : {accessories?.mattress?.name?.label}</span>
             </li>
           </ul>
         </div>
+        <h5> Price £{bed?.price}</h5>
         <div className={css.CartItems_buttons}>
           <button onClick={onRemove} className={css.removebutton}>
             Remove
