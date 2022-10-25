@@ -122,9 +122,10 @@ const Checkout: NextPageWithLayout = () => {
                 </div>
               </div>
               <div>
-                {cartItems.map((data, index) => (
-                  <BagItemsSummary key={index} />
-                ))}
+                {cartItems.map((data, index) => {
+                  // console.log(data);
+                  return <BagItemsSummary {...data} key={index} />;
+                })}
               </div>
 
               <div className={css.checkform}>
@@ -255,7 +256,15 @@ export default Checkout;
 
 Checkout.getLayout = PerPageLayout;
 
-const BagItemsSummary = () => {
+interface ItemsSummaryProps {
+  bed: any;
+  accessories: any;
+}
+
+const BagItemsSummary = ({ accessories, bed }: ItemsSummaryProps) => {
+  const {
+    cartState: { cartTotalAmount },
+  } = useAddCart();
   return (
     <React.Fragment>
       <p className={css.bagitem}>
@@ -263,38 +272,37 @@ const BagItemsSummary = () => {
       </p>
       <div className={css.check}>
         <div className={css.check1}>
-          {/* <h4>${cartTotalAmount.toFixed(2)}</h4> */}
-
+          <h4>${cartTotalAmount.toFixed(2)}</h4>
           <ul className="checkout-ul">
             <li>
-              <span>Bed Size = </span>
+              <span>Bed Size = {bed?.size} </span>
             </li>
             <li>
-              <span>Bed Color = </span>
+              <span>Bed Color = {accessories?.color?.name?.label} </span>
             </li>
             <li>
-              <span>Storage = </span>
+              <span>Storage = {accessories?.storage?.name?.label}</span>
             </li>
             <li>
-              <span>Storage-Price = </span>
+              <span>Storage-Price = {accessories?.storage?.price}</span>
             </li>
             <li>
-              <span>Headboard = </span>
+              <span>Headboard = {accessories?.headboard?.name?.label}</span>
             </li>
             <li>
-              <span>Headboard-Price = </span>
+              <span>Headboard-Price = {accessories?.headboard?.price}</span>
             </li>
             <li>
-              <span>Feet = </span>
+              <span>Feet = {accessories?.feet?.name?.label}</span>
             </li>
             <li>
-              <span>Feet-Price = </span>
+              <span>Feet-Price = {accessories?.feet?.price}</span>
             </li>
             <li>
-              <span>Mattressess = </span>
+              <span>Mattressess = {accessories?.mattress?.name?.label}</span>
             </li>
             <li>
-              <span>Mattressess-Price = </span>
+              <span>Mattressess-Price = {accessories?.mattress?.price}</span>
             </li>
           </ul>
           <svg
@@ -326,7 +334,7 @@ const BagItemsSummary = () => {
               Remove
             </button>
           </div>
-          <button type="submit">Buy Now</button>
+          {/* <button type="submit">Buy Now</button> */}
         </div>
       </div>
     </React.Fragment>

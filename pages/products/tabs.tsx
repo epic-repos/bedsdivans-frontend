@@ -9,140 +9,131 @@ import BedFeetTab from "components/products/tabs/bedFeet";
 import BedMattressTab from "components/products/tabs/bedMattress";
 
 interface BedsTabsProps {
-    tabName: string;
-    productsPayload: any;
-    onColorChange: (value: any) => void;
+  tabName: string;
+  productsPayload: any;
+  onColorChange: (value: any) => void;
 }
 
 const BedsTabs = ({
-    tabName,
-    productsPayload,
-    onColorChange,
+  tabName,
+  productsPayload,
+  onColorChange,
 }: BedsTabsProps) => {
-    const router = useRouter();
+  const router = useRouter();
 
-    const {
-        bedState,
-        setBed,
-        setBedColor,
-        setBedFeet,
-        setBedHeadBoard,
-        setBedMatters,
-        setBedStorage,
-    } = useSelectBed();
+  const {
+    bedState,
+    setBedColor,
+    setBedFeet,
+    setBedHeadBoard,
+    setBedMatters,
+    setBedStorage,
+  } = useSelectBed();
 
-    // FROM API DATA
+  // FROM API DATA
 
-    // FROM REDUX
-    const { color, feet, headboard, mattress, storage } = bedState.accessories;
+  // FROM REDUX
+  const { color, feet, headboard, mattress, storage } = bedState.accessories;
 
-    // RENDER TABS
-    const RenderTabs = React.useMemo(() => {
-        switch (tabName) {
-            case "BedSize":
-                return (
-                    <BedSizeTab
-                        items={productsPayload?.availabeSizes}
-                        value={bedState.bed.size} // LIKE ISACTIVE
-                        onClickItem={(data) => {
-                            router.push(
-                                {
-                                    pathname: `/products/${productsPayload._id}`,
-                                    query: { size: data?.value },
-                                },
-                                undefined,
-                                { scroll: false }
-                            );
-                            // setBed(data);
-                        }}
-                    />
-                );
+  // RENDER TABS
+  const RenderTabs = React.useMemo(() => {
+    switch (tabName) {
+      case "BedSize":
+        return (
+          <BedSizeTab
+            items={productsPayload?.availabeSizes}
+            value={bedState.bed.size} // LIKE ISACTIVE
+            onClickItem={(data) => {
+              router.push(
+                {
+                  pathname: `/products/${productsPayload._id}`,
+                  query: { size: data?.value },
+                },
+                // @ts-ignore
+                { scroll: false }
+              );
+              // setBed(data);
+            }}
+          />
+        );
 
-            case "Color":
-                // productsPayload.variants[0].accessories.color
-                return (
-                    <BedColorTab
-                        items={
-                            productsPayload?.variants?.["0"]?.accessories?.color
-                        }
-                        value={color?.name?.value} // LIKE ISACTIVE
-                        onClickItem={(data: any) => {
-                            setBedColor(data);
-                            onColorChange(data);
-                        }}
-                    />
-                );
+      case "Color":
+        // productsPayload.variants[0].accessories.color
+        return (
+          <BedColorTab
+            items={productsPayload?.variants?.["0"]?.accessories?.color}
+            value={color?.name?.value} // LIKE ISACTIVE
+            onClickItem={(data: any) => {
+              setBedColor(data);
+              onColorChange(data);
+            }}
+          />
+        );
 
-            case "HeadBoard":
-                console.log({ headboard });
-                return (
-                    <BedHeadBoardTab
-                        items={
-                            productsPayload?.variants[0]?.accessories?.headboard
-                        }
-                        value={headboard?.name?.value} // LIKE ISACTIVE
-                        onClickItem={(data) => {
-                            setBedHeadBoard({
-                                name: data.name,
-                                price: Number(data.price),
-                                _id: data._id,
-                            } as any);
-                        }}
-                    />
-                );
+      case "HeadBoard":
+        console.log({ headboard });
+        return (
+          <BedHeadBoardTab
+            items={productsPayload?.variants[0]?.accessories?.headboard}
+            value={headboard?.name?.value} // LIKE ISACTIVE
+            onClickItem={(data) => {
+              setBedHeadBoard({
+                name: data.name,
+                price: Number(data.price),
+                _id: data._id,
+              } as any);
+            }}
+          />
+        );
 
-            case "Storage":
-                return (
-                    <BedStorageTab
-                        items={
-                            productsPayload?.variants[0]?.accessories?.storage
-                        }
-                        value={storage.price} // LIKE ISACTIVE
-                        onClickItem={(data) => {
-                            setBedStorage({
-                                name: data.name,
-                                price: Number(data.price),
-                                _id: data._id,
-                            } as any);
-                        }}
-                    />
-                );
-            case "Feet":
-                return (
-                    <BedFeetTab
-                        items={productsPayload?.variants[0]?.accessories?.feet}
-                        value={feet.price} // LIKE ISACTIVE
-                        onClickItem={(data) => {
-                            setBedFeet({
-                                name: data.name,
-                                price: Number(data.price),
-                                _id: data._id,
-                            } as any);
-                        }}
-                    />
-                );
-            case "Mattress":
-                return (
-                    <BedMattressTab
-                        items={
-                            productsPayload?.variants[0]?.accessories?.mattress
-                        }
-                        value={mattress.price} // LIKE ISACTIVE
-                        onClickItem={(data) => {
-                            setBedMatters({
-                                name: data.name,
-                                price: Number(data.price),
-                                _id: data._id,
-                            } as any);
-                        }}
-                    />
-                );
-            default:
-                return null;
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [bedState, bedState, tabName]);
+      case "Storage":
+        return (
+          <BedStorageTab
+            items={productsPayload?.variants[0]?.accessories?.storage}
+            value={storage.price} // LIKE ISACTIVE
+            onClickItem={(data) => {
+              setBedStorage({
+                name: data.name,
+                price: Number(data.price),
+                _id: data._id,
+              } as any);
+            }}
+          />
+        );
+      case "Feet":
+        return (
+          <BedFeetTab
+            items={productsPayload?.variants[0]?.accessories?.feet}
+            value={feet.price} // LIKE ISACTIVE
+            onClickItem={(data) => {
+              setBedFeet({
+                name: data.name,
+                price: Number(data.price),
+                _id: data._id,
+              } as any);
+            }}
+          />
+        );
+      case "Mattress":
+        return (
+          <BedMattressTab
+            items={productsPayload?.variants[0]?.accessories?.mattress}
+            value={mattress.price} // LIKE ISACTIVE
+            onClickItem={(data) => {
+              setBedMatters({
+                name: data.name,
+                price: Number(data.price),
+                _id: data._id,
+              } as any);
+            }}
+          />
+        );
+      default:
+        return null;
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [bedState, bedState, tabName]);
 
-    return RenderTabs;
+  return RenderTabs;
 };
 export default BedsTabs;
