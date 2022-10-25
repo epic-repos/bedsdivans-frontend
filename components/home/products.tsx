@@ -67,7 +67,12 @@ const ProductItem = ({ name, price, image, onClick }: ProductItemProps) => {
     <div className="col-3" onClick={onClick}>
       <div className={styles.box1}>
         <div className={styles.productimage}>
-          <img alt="img" height="200" src={image || "/fake.png"} />
+          <img
+            alt="img"
+            height="200"
+            src={image || "/fake.png"}
+            className={styles.productimh}
+          />
           <ul>
             <li>
               <img src="bedscolor/1.jpg" alt="img" width="50" height="50" />
@@ -78,15 +83,16 @@ const ProductItem = ({ name, price, image, onClick }: ProductItemProps) => {
           </ul>
         </div>
         <h2 className={styles.productname}>{name}</h2>
-        <div className={styles.trustpilot}>
-          <img src="/image/tru.png" alt="img" />
-        </div>
+
         <p className={styles.price}>
           {`£ ${price?.salePrice}`}
           <del>{`£${price?.salePrice}`}</del>
           <span>{percentage}% off</span>
         </p>
         {/* <p>{item.description}</p> */}
+        <div className={styles.trustpilot}>
+          <img src="/image/tru.png" alt="img" />
+        </div>
       </div>
     </div>
   );
