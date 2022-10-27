@@ -330,7 +330,7 @@ const PaymentButton = ({
           onClick={onStripeCheckout}
           {...rest}
         >
-          Pay via Stripe Checkout
+          Pay via Checkout
         </button>
       );
     case "cash-on-delivery":
