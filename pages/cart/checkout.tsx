@@ -15,6 +15,7 @@ const Checkout: NextPageWithLayout = () => {
   const router = useRouter();
 
   const [isValidForm, setValidForm] = React.useState(true);
+  const [paymentMethod, setPaymentMethod] = React.useState<string>("stripe");
 
   const {
     cartState: { cartItems },
@@ -81,10 +82,10 @@ const Checkout: NextPageWithLayout = () => {
 
       orderNotes: formData.orderNotes,
       payment: {
-        paymentMethod: "stripe",
+        paymentMethod: paymentMethod,
       },
     };
-  }, [formData, cartItems]);
+  }, [formData, cartItems, paymentMethod]);
 
   // console.log({ orderPayload, cartItems });
 
@@ -104,12 +105,15 @@ const Checkout: NextPageWithLayout = () => {
     if (isValidForm) {
       mutate(orderPayload as any, {
         onSuccess: async () => {
-          const { data } = await axios.post("/payment", {
-            line_items: cartArray,
-          });
-
-          if (data) {
-            router.push(data.session.url);
+          if (paymentMethod === "stripe") {
+            const { data } = await axios.post("/payment", {
+              line_items: cartArray,
+            });
+            if (data) {
+              router.push(data.session.url);
+            }
+          } else {
+            router.push("/order/success");
           }
         },
         onError: (error) => {
@@ -119,11 +123,9 @@ const Checkout: NextPageWithLayout = () => {
     } else {
       alert("First You need to complete the form");
     }
-  }, [cartArray, formData, orderPayload, isValidForm]);
+  }, [cartArray, orderPayload, isValidForm, mutate, router, paymentMethod]);
 
   const haveSomethingInCart = cartItems.length > 0;
-
-  console.log(formData);
 
   const [coupanInput, setCoupanInput] = React.useState(false);
 
@@ -177,8 +179,10 @@ const Checkout: NextPageWithLayout = () => {
 
                   <TotalSummary
                     isDisable={!isValidForm}
-                    defaultPaymentType="stripe"
-                    onCheckout={createCheckOutSession}
+                    defaultPaymentType={paymentMethod}
+                    onStripeCheckout={createCheckOutSession}
+                    onCashOnDelivery={createCheckOutSession}
+                    getPaymentType={(value) => setPaymentMethod(value) as any}
                   />
                 </div>
               ) : (
@@ -204,13 +208,15 @@ Checkout.getLayout = PerPageLayout;
 
 interface TotalSummaryProps {
   isDisable?: boolean;
-  onCheckout: () => void;
+  onStripeCheckout: () => void;
+  onCashOnDelivery: () => void;
   defaultPaymentType: string;
   getPaymentType?: (value: string) => string;
 }
 
 const TotalSummary = ({
-  onCheckout,
+  onStripeCheckout,
+  onCashOnDelivery,
   defaultPaymentType,
   getPaymentType,
   isDisable,
@@ -238,6 +244,7 @@ const TotalSummary = ({
     if (getPaymentType) {
       getPaymentType(paymentType);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [paymentType]);
   // Based on Type You Can Change
 
@@ -289,8 +296,8 @@ const TotalSummary = ({
           <PaymentButton
             title={isDisable ? "Full Fill the Form" : ""}
             disable={isDisable}
-            onCashOnDelivery={() => console.log("Hello")}
-            onStripeCheckout={onCheckout}
+            onStripeCheckout={onStripeCheckout}
+            onCashOnDelivery={onCashOnDelivery}
             paymentType={paymentType}
           />
         </div>
@@ -323,7 +330,7 @@ const PaymentButton = ({
           onClick={onStripeCheckout}
           {...rest}
         >
-          Pay via Checkout
+          Pay via Stripe Checkout
         </button>
       );
     case "cash-on-delivery":
@@ -331,7 +338,7 @@ const PaymentButton = ({
         <button
           disabled={disable}
           className={`${css.checkpro} ${disable ? css.disable : ""}`}
-          onClick={() => router.push("/order/success")}
+          onClick={onCashOnDelivery}
           {...rest}
         >
           Place Order
