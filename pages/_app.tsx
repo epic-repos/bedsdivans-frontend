@@ -17,7 +17,7 @@ function RootApp({ Component, pageProps }: AppPropsWithLayout) {
                     queries: {
                         refetchOnReconnect: true,
                         retry: false,
-                        refetchOnMount: false,
+                        refetchOnMount: true,
                         refetchOnWindowFocus: false,
                     },
                 },
