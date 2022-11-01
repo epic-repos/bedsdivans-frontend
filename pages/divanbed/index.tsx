@@ -215,82 +215,10 @@ const DivanBeds: NextPageWithLayout = () => {
         <section className={styles.productsimages}>
           <div className="container">
             <div className="row">
-              {/* {props.response.map((item: any, index: any) => {
-                return (
-                  <div className="col-3" key={index}>
-                    <div className={styles.box1}>
-                      <img
-                        src={
-                          item?.images[0]?.color1.base_url
-                            ? item?.images[0]?.color1.base_url
-                            : "/"
-                        }
-                        alt="img"
-                        width={258}
-                        height="210"
-                      />
-                      <h2 className={styles.productname}>
-                        {item.product_name}
-                      </h2>
-                      <div className={styles.trustpilot}>
-                        <img src="/image/tru.png" alt="img" />
-                      </div>
-                      <p className={styles.price}>{item.price}</p>
-                    </div>
-                  </div>
-                );
-              })} */}
-              <div className="col-3">
-                <div className={styles.box1}>
-                  <img
-                    src="https://aspirestore.co.uk/49826-home_default/garland-fabric-ottoman-bed.jpg"
-                    alt="img"
-                    width={258}
-                    height="210"
-                  />
-                  <h2 className={styles.productname}>
-                    Garland Fabric Ottoman Bed
-                  </h2>
-                  <div className={styles.trustpilot}>
-                    <img src="/image/tru.png" alt="img" />
-                  </div>
-                  <p className={styles.price}>£600.00</p>
-                </div>
-              </div>
-              <div className="col-3">
-                <div className={styles.box1}>
-                  <img
-                    src="https://aspirestore.co.uk/49144-home_default/presley-fabric-ottoman-bed.jpg"
-                    alt="img"
-                    width={258}
-                    height="210"
-                  />
-                  <h2 className={styles.productname}>
-                    Presley Fabric Ottoman Bed
-                  </h2>
-                  <div className={styles.trustpilot}>
-                    <img src="/image/tru.png" alt="img" />
-                  </div>
-                  <p className={styles.price}>£600.00</p>
-                </div>
-              </div>
-              <div className="col-3">
-                <div className={styles.box1}>
-                  <img
-                    src="https://aspirestore.co.uk/49308-home_default/grant-upholstered-ottoman-bed.jpg"
-                    alt="img"
-                    width={258}
-                    height="210"
-                  />
-                  <h2 className={styles.productname}>
-                    Grant Upholstered Ottoman Bed
-                  </h2>
-                  <div className={styles.trustpilot}>
-                    <img src="/image/tru.png" alt="img" />
-                  </div>
-                  <p className={styles.price}>£675.00</p>
-                </div>
-              </div>
+              <ProductCard />
+              <ProductCard />
+              <ProductCard />
+              <ProductCard />
             </div>
           </div>
         </section>
@@ -298,74 +226,10 @@ const DivanBeds: NextPageWithLayout = () => {
         <section className={styles.productsimages}>
           <div className="container">
             <div className="row">
-              <div className="col-3">
-                <div className={styles.box1}>
-                  <img
-                    src="https://aspirestore.co.uk/26322-home_default/kelly-upholstered-ottoman-bed.jpg"
-                    alt="img"
-                    width={258}
-                    height="210"
-                  />
-                  <h2 className={styles.productname}>
-                    Kelly Upholstered Ottoman Bed
-                  </h2>
-                  <div className={styles.trustpilot}>
-                    <img src="/image/tru.png" alt="img" />
-                  </div>
-                  <p className={styles.price}>£600.00</p>
-                </div>
-              </div>
-              <div className="col-3">
-                <div className={styles.box1}>
-                  <img
-                    src="https://aspirestore.co.uk/48980-home_default/caine-fabric-ottoman-bed.jpg"
-                    alt="img"
-                    width={258}
-                    height="210"
-                  />
-                  <h2 className={styles.productname}>
-                    Caine Fabric Ottoman Bed
-                  </h2>
-                  <div className={styles.trustpilot}>
-                    <img src="/image/tru.png" alt="img" />
-                  </div>
-                  <p className={styles.price}>£650.00</p>
-                </div>
-              </div>
-              <div className="col-3">
-                <div className={styles.box1}>
-                  <img
-                    src="https://aspirestore.co.uk/26404-home_default/monroe-upholstered-ottoman-bed.jpg"
-                    alt="img"
-                    width={258}
-                    height="210"
-                  />
-                  <h2 className={styles.productname}>
-                    Monroe Upholstered Ottoman Bed
-                  </h2>
-                  <div className={styles.trustpilot}>
-                    <img src="/image/tru.png" alt="img" />
-                  </div>
-                  <p className={styles.price}>£650.00</p>
-                </div>
-              </div>
-              <div className="col-3">
-                <div className={styles.box1}>
-                  <img
-                    src="https://aspirestore.co.uk/25912-home_default/sinatra-fabric-ottoman-bed.jpg"
-                    alt="img"
-                    width={258}
-                    height="210"
-                  />
-                  <h2 className={styles.productname}>
-                    Sinatra Fabric Ottoman Bed
-                  </h2>
-                  <div className={styles.trustpilot}>
-                    <img src="/image/tru.png" alt="img" />
-                  </div>
-                  <p className={styles.price}>£600.00</p>
-                </div>
-              </div>
+              <ProductCard />
+              <ProductCard />
+              <ProductCard />
+              <ProductCard />
             </div>
           </div>
         </section>
@@ -373,75 +237,10 @@ const DivanBeds: NextPageWithLayout = () => {
         <section className={styles.productsimages}>
           <div className="container">
             <div className="row">
-              <div className="col-3">
-                <div className={styles.box1}>
-                  <img
-                    src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
-                    alt="img"
-                    width={258}
-                    height="210"
-                  />
-                  <h2 className={styles.productname}>
-                    Hepburn Fabric Ottoman Bed
-                  </h2>
-                  <div className={styles.trustpilot}>
-                    <img src="/image/tru.png" alt="img" />
-                  </div>
-                  <p className={styles.price}>£600.00</p>
-                </div>
-              </div>
-              <div className="col-3">
-                <div className={styles.box1}>
-                  <img
-                    src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
-                    alt="img"
-                    width={258}
-                    height="210"
-                  />
-                  <h2 className={styles.productname}>
-                    Pacific Solid Wood White Bed Frame - Single to Super King
-                    Sizes
-                  </h2>
-                  <div className={styles.trustpilot}>
-                    <img src="/image/tru.png" alt="img" />
-                  </div>
-                  <p className={styles.price}>£110.00</p>
-                </div>
-              </div>
-              <div className="col-3">
-                <div className={styles.box1}>
-                  <img
-                    src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
-                    alt="img"
-                    width={258}
-                    height="210"
-                  />
-                  <h2 className={styles.productname}>
-                    Solid Wood White Bed Frame - Single to Super King Sizes
-                  </h2>
-                  <div className={styles.trustpilot}>
-                    <img src="/image/tru.png" alt="img" />
-                  </div>
-                  <p className={styles.price}>£110.00</p>
-                </div>
-              </div>
-              <div className="col-3">
-                <div className={styles.box1}>
-                  <img
-                    src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
-                    alt="img"
-                    width={258}
-                    height="210"
-                  />
-                  <h2 className={styles.productname}>
-                    Footstool Sofa Bed - Foldaway Single Guest Bed with Mattress
-                  </h2>
-                  <div className={styles.trustpilot}>
-                    <img src="/image/tru.png" alt="img" />
-                  </div>
-                  <p className={styles.price}>£229.00</p>
-                </div>
-              </div>
+              <ProductCard />
+              <ProductCard />
+              <ProductCard />
+              <ProductCard />
             </div>
           </div>
         </section>
@@ -449,178 +248,10 @@ const DivanBeds: NextPageWithLayout = () => {
         <section className={styles.productsimages}>
           <div className="container">
             <div className="row">
-              <div className="col-3">
-                <div className={styles.box1}>
-                  <img
-                    src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
-                    alt="img"
-                    width={258}
-                    height="210"
-                  />
-                  <h2 className={styles.productname}>
-                    Side Opening Storage Ottoman Bed Available in Grey Linen,
-                    Steel Plush Velvet or Silver...
-                  </h2>
-                  <div className={styles.trustpilot}>
-                    <img src="/image/tru.png" alt="img" />
-                  </div>
-                  <p className={styles.price}>£370.00</p>
-                </div>
-              </div>
-              <div className="col-3">
-                <div className={styles.box1}>
-                  <img
-                    src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
-                    alt="img"
-                    width={258}
-                    height="210"
-                  />
-                  <h2 className={styles.productname}>
-                    Storage Ottoman Bed Available in Grey, Black or Natural
-                    Linen Fabrics
-                  </h2>
-                  <div className={styles.trustpilot}>
-                    <img src="/image/tru.png" alt="img" />
-                  </div>
-                  <p className={styles.price}>£325.00</p>
-                </div>
-              </div>
-              <div className="col-3">
-                <div className={styles.box1}>
-                  <img
-                    src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
-                    alt="img"
-                    width={258}
-                    height="210"
-                  />
-                  <h2 className={styles.productname}>
-                    Grey Velvet Scroll Top Chesterfield Ottoman Storage Bed
-                  </h2>
-                  <div className={styles.trustpilot}>
-                    <img src="/image/tru.png" alt="img" />
-                  </div>
-                  <p className={styles.price}>£525.00</p>
-                </div>
-              </div>
-              <div className="col-3">
-                <div className={styles.box1}>
-                  <img
-                    src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
-                    alt="img"
-                    width={258}
-                    height="210"
-                  />
-                  <h2 className={styles.productname}>
-                    Laurence Llewelyn-Bowen Luna Velvet Fabric Ottoman Bed
-                  </h2>
-                  <div className={styles.trustpilot}>
-                    <img src="/image/tru.png" alt="img" />
-                  </div>
-                  <p className={styles.price}>£545.00</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className={styles.productsimages}>
-          <div className="container">
-            <div className="row">
-              <div className="col-3">
-                <div className={styles.box1}>
-                  <img
-                    src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
-                    alt="img"
-                    width={258}
-                    height="210"
-                  />
-                  <h2 className={styles.productname}>
-                    Laurence Llewelyn-Bowen Hesper Velvet Fabric Ottoman Bed
-                  </h2>
-                  <div className={styles.trustpilot}>
-                    <img src="/image/tru.png" alt="img" />
-                  </div>
-                  <p className={styles.price}>£545.00</p>
-                </div>
-              </div>
-              <div className="col-3">
-                <div className={styles.box1}>
-                  <img
-                    src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
-                    alt="img"
-                    width={258}
-                    height="210"
-                  />
-                  <h2 className={styles.productname}>
-                    Laurence Llewelyn-Bowen Estella Velvet Fabric Ottoman Bed
-                  </h2>
-                  <div className={styles.trustpilot}>
-                    <img src="/image/tru.png" alt="img" />
-                  </div>
-                  <p className={styles.price}>£549.00</p>
-                </div>
-              </div>
-              <div className="col-3">
-                <div className={styles.box1}>
-                  <img
-                    src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
-                    alt="img"
-                    width={258}
-                    height="210"
-                  />
-                  <h2 className={styles.productname}>
-                    Laurence Llewelyn-Bowen Seren Velvet Fabric Ottoman Bed
-                  </h2>
-                  <div className={styles.trustpilot}>
-                    <img src="/image/tru.png" alt="img" />
-                  </div>
-                  <p className={styles.price}>£549.00</p>
-                </div>
-              </div>
-              <div className="col-3">
-                <div className={styles.box1}>
-                  <img
-                    src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
-                    alt="img"
-                    width={258}
-                    height="210"
-                  />
-                  <h2 className={styles.productname}>
-                    Catherine Lansfield Boutique Divan Bed Set
-                  </h2>
-                  <div className={styles.trustpilot}>
-                    <img src="/image/tru.png" alt="img" />
-                  </div>
-                  <p className={styles.price}>£210.00</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className={styles.productsimages}>
-          <div className="container">
-            <div className="row">
-              <div className="col-3">
-                <div className={styles.box1}>
-                  <img
-                    src="https://aspirestore.co.uk/49062-home_default/olivier-fabric-ottoman-bed.jpg"
-                    alt="img"
-                    width={258}
-                    height="210"
-                  />
-                  <h2 className={styles.productname}>
-                    Catherine Lansfield Soho Divan Bed
-                  </h2>
-                  <div className={styles.trustpilot}>
-                    <img src="/image/tru.png" alt="img" />
-                  </div>
-                  <p className={styles.price}>£210.00</p>
-                </div>
-              </div>
-              <div className="col-3"></div>
-              <div className="col-3"></div>
-              <div className="col-3"></div>
+              <ProductCard />
+              <ProductCard />
+              <ProductCard />
+              <ProductCard />
             </div>
           </div>
         </section>
@@ -631,3 +262,23 @@ const DivanBeds: NextPageWithLayout = () => {
 export default DivanBeds;
 
 DivanBeds.getLayout = PerPageLayout;
+
+const ProductCard = () => {
+  return (
+    <div className="col-3">
+      <div className={styles.box1}>
+        <img
+          src="https://aspirestore.co.uk/49826-home_default/garland-fabric-ottoman-bed.jpg"
+          alt="img"
+          width={258}
+          height="210"
+        />
+        <h2 className={styles.productname}>Garland Fabric Ottoman Bed</h2>
+        <div className={styles.trustpilot}>
+          <img src="/image/tru.png" alt="img" />
+        </div>
+        <p className={styles.price}>£600.00</p>
+      </div>
+    </div>
+  );
+};
