@@ -556,4 +556,30 @@ img.NewProductPage_bannerimage___OEjc {
 
     margin-bottom: 0px;
   }
+  .home_productsimages__NjvEz .row {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 10px;
+    column-gap: 10px;
+    padding: 0 5px;
+  }
+
+  .home_productsimages__NjvEz .row .home_box1__YhbL3 {
+    width: 100%;
+  }
+
+  .home_productsimages__NjvEz .row .col-3 {
+    padding: 0 !important;
+    width: 100%;
+    flex: 1;
+  }
+
+  .home_productsimages__NjvEz
+    .row
+    .home_box1__YhbL3
+    img.home_productimh__XySYt {
+    height: 150px;
+    object-fit: cover !important;
+    object-position: -35px;
+  }
 }
