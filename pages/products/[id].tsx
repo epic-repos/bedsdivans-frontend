@@ -18,23 +18,29 @@ import { isValidObjectId } from "mongoose";
 import { dehydrate, QueryClient } from "react-query";
 import redirect404 from "constants/redirects";
 import { useFetchBedVariantsByIdAndSize } from "network-requests/queries";
+import { useRouter } from "next/router";
 
 /**
  * NEW PRODUCT PAGE
  * @returns
  */
 
-const NewProductPage: NextPageWithLayout = ({ id, size }: any) => {
-  const { addToCart, cartState } = useAddCart();
-  const [tabs, setTabs] = React.useState("BedSize");
-  const { bedState, setBed } = useSelectBed();
+const NewProductPage: NextPageWithLayout = () => {
+    const router = useRouter();
+    const { addToCart, cartState } = useAddCart();
+    const [tabs, setTabs] = React.useState("BedSize");
+    const { bedState, setBed } = useSelectBed();
 
   const onTabSelect = React.useCallback((value: string) => {
     setTabs(value);
   }, []);
 
-  const { data } = useFetchBedVariantsByIdAndSize(id, size);
-  const [currentImage, setCurrentImage] = React.useState<string>("");
+    const { data } = useFetchBedVariantsByIdAndSize(
+        router?.query?.id as string,
+        router?.query?.size as string
+    );
+
+    const [currentImage, setCurrentImage] = React.useState<string>("");
 
   React.useEffect(() => {
     if (!(data?.variants && data?.variants?.length > 0)) return;
@@ -168,6 +174,7 @@ const tabsArray = [
     // icon:'P'
   },
 ];
+
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { id, size } = context.query;
 
@@ -175,29 +182,28 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     return redirect404();
   }
 
-  const getBed = async () => {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/beds/${id}?size=${size}`
+    const queryClient = new QueryClient();
+    await queryClient.prefetchQuery(
+        ["bed-variant", id, size],
+        async () =>
+            await fetch(
+                `${process.env.NEXT_PUBLIC_BASE_URL}/api/beds/${id}?size=${size}`
+            ).then((res) => {
+                const response = res.json() as any;
+                if (response.success === false) {
+                    return {
+                        redirect: {
+                            permanent: false,
+                            destination: "/",
+                        },
+                    };
+                } else {
+                    return response;
+                }
+            })
     );
 
-    if (response.status !== 200) {
-      return redirect404();
-    } else {
-      return response.json();
-    }
-  };
-
-  const queryClient = new QueryClient();
-  await queryClient.prefetchQuery(
-    ["bed-variant", id, size],
-    async () => await getBed()
-  );
-
-  return {
-    props: {
-      dehydratedState: dehydrate(queryClient),
-      id,
-      size,
-    },
-  };
+    return {
+        props: { dehydratedState: dehydrate(queryClient) },
+    };
 };

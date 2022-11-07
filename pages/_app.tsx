@@ -1,16 +1,18 @@
 import "styles/globals.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
-import React from "react";
+
 import { Provider } from "react-redux";
 import store from "store";
 import { AppPropsWithLayout } from "typings/layout";
 import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
+import { useState } from "react";
 
 // import 'bootstrap/dist/css/bootstrap.min.css'
 function RootApp({ Component, pageProps }: AppPropsWithLayout) {
     const getLayout = Component.getLayout ?? ((page) => page);
-    const [queryClient] = React.useState(
+    //REACT QUERY
+    const [queryClient] = useState(
         () =>
             new QueryClient({
                 defaultOptions: {
