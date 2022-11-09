@@ -10,8 +10,13 @@ const SideTabButton = (props: TabButtonProps) => {
     background: props.isactive ? "#fff" : "#0e3f70",
   };
   const color = props.isactive ? "#000" : "#fff";
+  const activeClass = props.isactive ? styles.active : styles;
   return (
-    <div style={styleActive} className={styles.imageicon} {...props}>
+    <div
+      style={styleActive}
+      className={`${activeClass} ${styles.imageicon}`}
+      {...props}
+    >
       {/* {props.icon|| <ScaleIcon fill={color} />} */}
       <span style={{ color: color }}>{props.title}</span>
     </div>

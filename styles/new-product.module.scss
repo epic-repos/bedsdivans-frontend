@@ -61,7 +61,6 @@ $mobile: 576px;
   background: #0e3f70;
   user-select: none;
   cursor: pointer;
-
   span {
     font-size: small;
   }
@@ -485,10 +484,11 @@ $mobile: 576px;
     text-align: center;
   }
   .imageicon {
-    padding: 10px 15px;
+    padding: 2px 15px;
 
     span {
       font-size: small;
+      line-height: 25px;
     }
   }
   .color {
@@ -526,5 +526,14 @@ $mobile: 576px;
   }
   .productsimages {
     display: none;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .active {
+    background: #fff;
+    border-radius: 4px;
+    font-weight: 500;
+    color: #0e3f70;
   }
 }
