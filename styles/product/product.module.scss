@@ -432,8 +432,9 @@ $mobile: 576px;
   }
   .imageContainer {
     .image {
-      height: 220px;
-      object-position: -50px;
+      height: 200px;
+      -o-object-position: -50px;
+      object-position: left;
     }
   }
 }
