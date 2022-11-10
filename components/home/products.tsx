@@ -64,7 +64,7 @@ const ProductItem = ({ name, price, image, onClick }: ProductItemProps) => {
   );
 
   return (
-    <div className="col-3" onClick={onClick}>
+    <div className="col-3" style={{ cursor: "pointer" }} onClick={onClick}>
       <div className={styles.box1}>
         <div className={styles.productimage}>
           <img
@@ -75,10 +75,10 @@ const ProductItem = ({ name, price, image, onClick }: ProductItemProps) => {
           />
           <ul>
             <li>
-              <img src="bedscolor/1.jpg" alt="img" width="50" height="50" />
+              <img src="/bedscolor/1.jpg" alt="img" width="50" height="50" />
             </li>
             <li>
-              <img src="bedscolor/2.jpg" alt="img" width="50" height="50" />
+              <img src="/bedscolor/2.jpg" alt="img" width="50" height="50" />
             </li>
           </ul>
         </div>

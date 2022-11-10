@@ -6,8 +6,11 @@ import styles from "styles/header.module.scss";
 import PerPageLayout from "layout/perpage";
 import { NextPageWithLayout } from "typings/layout";
 import ProductCard from "components/beds/product-card";
+import ProductListing from "components/home/products";
+import { useFetchAllBedsWithImage } from "network-requests/queries";
 
 const DivanBeds: NextPageWithLayout = () => {
+  const { data } = useFetchAllBedsWithImage();
   return (
     <>
       <div>
@@ -16,7 +19,7 @@ const DivanBeds: NextPageWithLayout = () => {
           <div className="container">
             <div className="row">
               <div className="col-12">
-                <h1 className={styles.headingh1}>Beds</h1>
+                <h1 className={styles.headingh1}>DIVAN BEDS</h1>
                 <p className={styles.paragraphp}>
                   Relax and unwind in comfort with our high-quality beds. From
                   natural materials to luxe velvet, we have a fantastic
@@ -213,48 +216,8 @@ const DivanBeds: NextPageWithLayout = () => {
           </div>
         </section>
 
-        <section className={styles.productsimages}>
-          <div className="container">
-            <div className="row">
-              <ProductCard />
-              <ProductCard />
-              <ProductCard />
-              <ProductCard />
-            </div>
-          </div>
-        </section>
-
-        <section className={styles.productsimages}>
-          <div className="container">
-            <div className="row">
-              <ProductCard />
-              <ProductCard />
-              <ProductCard />
-              <ProductCard />
-            </div>
-          </div>
-        </section>
-
-        <section className={styles.productsimages}>
-          <div className="container">
-            <div className="row">
-              <ProductCard />
-              <ProductCard />
-              <ProductCard />
-              <ProductCard />
-            </div>
-          </div>
-        </section>
-
-        <section className={styles.productsimages}>
-          <div className="container">
-            <div className="row">
-              <ProductCard />
-              <ProductCard />
-              <ProductCard />
-              <ProductCard />
-            </div>
-          </div>
+        <section>
+          <ProductListing productList={data?.pages?.["0"]?.data || []} />
         </section>
       </div>
     </>

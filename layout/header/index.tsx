@@ -23,7 +23,7 @@ const Header = () => {
               <div className={css.mainmenu}>
                 <ul>
                   <li>
-                    <Link href="/divanbed">
+                    <Link href="/beds/divan-beds">
                       <a>Divan Beds</a>
                     </Link>
                     <ul>
@@ -43,32 +43,32 @@ const Header = () => {
                                 <h2>Shop BY Type</h2>
                                 <ul>
                                   <li>
-                                    <Link href="/divanbed">
+                                    <Link href="/beds/divan-beds/linen-fabric-divan-beds">
                                       <a>Linen Fabric Divan Beds</a>
                                     </Link>
                                   </li>
                                   <li>
-                                    <Link href="/divanbed">
+                                    <Link href="/beds/divan-beds/velvet-fabric-divan-beds">
                                       <a>Velvet Fabric Divan Beds</a>
                                     </Link>
                                   </li>
                                   <li>
-                                    <Link href="/divanbed">
+                                    <Link href="/beds/divan-beds/chennile-fabric-divan-beds">
                                       <a>Chennile Fabric Divan Bed</a>
                                     </Link>
                                   </li>
                                   <li>
-                                    <Link href="/divanbed">
+                                    <Link href="/beds/divan-beds/suede-divan-beds">
                                       <a>Suede Fabric Divan Bed</a>
                                     </Link>
                                   </li>
                                   <li>
-                                    <Link href="/divanbed">
+                                    <Link href="/beds/divan-beds/low-divan-beds">
                                       <a>Low Divan Beds</a>
                                     </Link>
                                   </li>
                                   <li>
-                                    <Link href="/divanbed">
+                                    <Link href="/beds/divan-beds/leather-divan-beds">
                                       <a>Leather Divan Beds</a>
                                     </Link>
                                   </li>
@@ -774,7 +774,9 @@ const LogoAndSearchBar = () => {
           </div>
           <div className={css["logo"]}>
             <Link href="/">
-              <img src="/image/1.png" alt="imge" />
+              <a>
+                <img src="/image/1.png" alt="imge" />
+              </a>
             </Link>
           </div>
           <div className={css["controls"]}>
