@@ -32,11 +32,11 @@ export const useFetchAllBeds = () =>
         }
     );
 
-export const useFetchAllBedsWithImage = () =>
+export const useFetchAllBedsWithImage = (category?: string) =>
     useInfiniteQuery(
-        "beds-image",
+        ["beds-image", category],
         ({ pageParam = 1 }): Promise<BedResponse> =>
-            getAllBedsWithImage({ pageParam }),
+            getAllBedsWithImage({ pageParam, category }),
         {
             refetchOnMount: true,
             getNextPageParam: (lastPage: any) => {

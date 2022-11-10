@@ -24,7 +24,6 @@ import { useFetchAllBedsWithImage } from "network-requests/queries";
 const Home: NextPageWithLayout = () => {
     const { data } = useFetchAllBedsWithImage();
 
-    console.log({ data });
     return (
         <React.Fragment>
             <NextSEO title={"DBZBeds | Home"} />

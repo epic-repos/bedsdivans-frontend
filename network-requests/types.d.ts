@@ -2,6 +2,7 @@ import React from "react";
 
 type GetAllBedsParams = {
     pageParam: number;
+    category?: string;
 };
 
 interface ProductType {

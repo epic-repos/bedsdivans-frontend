@@ -55,10 +55,13 @@ export const getAllBeds = ({
 //Beds With No Variants is not Returned Here
 export const getAllBedsWithImage = ({
     pageParam = 1,
+    category,
 }: GetAllBedsParams): Promise<BedResponse> =>
     axios
         .get<BedResponse>(
-            `/beds/get-all-beds-with-base-image?page=${pageParam}`
+            `/beds/get-all-beds-with-base-image?page=${pageParam}${
+                category && `&category=${category}`
+            }`
         )
         .then((response) => response.data)
         .catch((error) => {
