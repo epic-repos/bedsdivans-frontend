@@ -397,3 +397,44 @@ $mobile: 576px;
     transform: translateY(-50%) scale(0.5) !important;
   }
 }
+
+@media (max-width: $mobile) {
+  .container {
+    transform: none !important;
+    position: static !important;
+  }
+  .item2 {
+    border-bottom: 7px solid #f5f5f5;
+  }
+  .productName {
+    font-size: 18px;
+    max-width: 435px;
+    color: #233645;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  .productName {
+    padding: 11px 11px !important;
+    margin-bottom: 0px !important;
+  }
+
+  .left {
+    background: #203546;
+
+    // padding: 2px
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .left {
+    padding: 4px;
+    background: #0e3f70;
+  }
+  .imageContainer {
+    .image {
+      height: 200px;
+      -o-object-position: -50px;
+      object-position: left;
+    }
+  }
+}
