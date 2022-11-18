@@ -4,7 +4,7 @@ import styles from "styles/home.module.scss";
 
 const QuickInfo = () => {
   return (
-    <div className="award-section-destop">
+    <div className={styles["award-section-destop"]}>
       <div className={styles["banner-bottom"]}>
         <div className="container">
           <div className={styles["row"]}>

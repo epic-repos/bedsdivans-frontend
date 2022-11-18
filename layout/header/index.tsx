@@ -2,14 +2,18 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import Link from "next/link";
+import UserIcon from "icons/UserIcon";
 import css from "styles/layout.module.scss";
 import TrustPilotAndContact from "./trust-pilot";
 import HeartIcon from "icons/HeartIcon";
 import CartIcon from "icons/CartIcon";
 import MapIcon from "icons/MapIcon";
+import Router from "next/router";
 import MenuIcon from "icons/MenuIcon";
 import CloseIcon from "icons/CloseIcon";
 import useOnClickOutside from "hooks/useclick";
+import MailIcon from "icons/MailIcon";
+import DownArrow from "icons/downarrow";
 
 const Header = () => {
   return (
@@ -27,125 +31,11 @@ const Header = () => {
                       <a>Divan Beds</a>
                     </Link>
                     <ul>
-                      <section className="drop">
-                        <div className="container">
-                          <div className="row">
-                            <div className="col-md-3">
-                              <div className={css.dropdownmenu}>
-                                <img
-                                  src="/image/bettersleepimage.webp"
-                                  alt="img"
-                                />
-                              </div>
-                            </div>
-                            <div className="col-md-3">
-                              <div className={css.dropdownmenu}>
-                                <h2>Shop BY Type</h2>
-                                <ul>
-                                  <li>
-                                    <Link href="/beds/divan-beds/linen-fabric-divan-beds">
-                                      <a>Linen Fabric Divan Beds</a>
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link href="/beds/divan-beds/velvet-fabric-divan-beds">
-                                      <a>Velvet Fabric Divan Beds</a>
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link href="/beds/divan-beds/chennile-fabric-divan-beds">
-                                      <a>Chennile Fabric Divan Bed</a>
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link href="/beds/divan-beds/suede-divan-beds">
-                                      <a>Suede Fabric Divan Bed</a>
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link href="/beds/divan-beds/low-divan-beds">
-                                      <a>Low Divan Beds</a>
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link href="/beds/divan-beds/leather-divan-beds">
-                                      <a>Leather Divan Beds</a>
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link href="/divanbed">
-                                      <a> Divan Bed Base</a>
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link href="/divanbed">
-                                      <p>View All</p>
-                                    </Link>
-                                  </li>
-                                </ul>
-                              </div>
-                            </div>
-                            <div className="col-md-3">
-                              <div className={css.dropdownmenu}>
-                                <h2>Shop BY Size</h2>
-                                <ul>
-                                  <li>
-                                    <Link href="/divanbed">
-                                      <a>Small Single (2'6ft)</a>
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link href="/divanbed">
-                                      <a>Single (3ft)</a>
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link href="/divanbed">
-                                      <a>Small Double (4ft)</a>
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link href="/divanbed">
-                                      <a>Double (4'6ft)</a>
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link href="/divanbed">
-                                      <a>King (5ft)</a>
-                                    </Link>
-                                  </li>
-                                  <li>
-                                    <Link href="/divanbed">
-                                      <a>Super King (6ft)</a>
-                                    </Link>
-                                  </li>
-                                </ul>
-                              </div>
-                            </div>
-                            <div className="col-md-3">
-                              <div className={css.dropdownmenu}>
-                                <h2>Divan Beds Complete Set</h2>
-                                <ul>
-                                  <li>
-                                    <Link href="/divanbed">
-                                      <a>Linen Fabric Divan Beds</a>
-                                    </Link>
-                                  </li>
-                                </ul>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <section className={css.dropmenulastfooter}>
-                          <div className="container">
-                            <div className="row">
-                              <div className="col-4"></div>
-                              <div className="col-4"></div>
-                              <div className="col-4"></div>
-                            </div>
-                          </div>
-                        </section>
-                      </section>
+                      <li>House Fabric Divan Beds</li>
+                      <li>Crushed Velvet Beds</li>
+                      <li>Suede Fabric Divan Bed</li>
+                      <li>Low Divan Beds</li>
+                      <li>Divan bases</li>
                     </ul>
                   </li>
 
@@ -650,11 +540,6 @@ const Header = () => {
                       </section>
                     </ul>
                   </li>
-                  <li>
-                    <Link href="/divanbed">
-                      <a className={css.active}>Sale</a>
-                    </Link>
-                  </li>
                 </ul>
               </div>
             </div>
@@ -766,36 +651,43 @@ const LogoAndSearchBar = () => {
               <MenuIcon size={20} />
             </button>
           </div>
+          <div className={css["logo"]}>
+            <Link href="/">
+              <a>
+                <img src="/image/wplogo.webp" alt="imge" />
+              </a>
+            </Link>
+          </div>
           <div className={css["searchbar"]}>
             <input type="text" placeholder="search for products" />
             <button>
               <img src="/image/SEARCH.SVG" alt="" />
             </button>
           </div>
-          <div className={css["logo"]}>
-            <Link href="/">
-              <a>
-                <img src="/image/1.png" alt="imge" />
-              </a>
-            </Link>
-          </div>
           <div className={css["controls"]}>
             <ul>
-              <li>
-                <HeartIcon />
-                <p>My shortlist</p>
-              </li>
               <li>
                 <Link href={"/cart"}>
                   <a>
                     <CartIcon />
-                    <p>My Cart</p>
+                    <span className={css["texts"]}>My Cart</span>
                   </a>
                 </Link>
               </li>
               <li>
+                <span>
+                  <UserIcon size={14} />
+                </span>
+                <span
+                  className={css["texts"]}
+                  onClick={() => Router.push("/account")}
+                >
+                 My Account
+                </span>
+              </li>
+              <li>
                 <MapIcon />
-                <p>My basket</p>
+                <span className={css["texts"]}>My basket</span>
               </li>
             </ul>
           </div>

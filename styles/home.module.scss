@@ -3,7 +3,7 @@
 .hero-container {
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url(../public/image/i.png);
+  background-image: url(../public/image/fridaybanner.webp);
 }
 .slider_height {
   min-height: 500px;
@@ -829,4 +829,7 @@ section.qualityproducts {
       }
     }
   }
+}
+.award-section-destop {
+  display: none;
 }

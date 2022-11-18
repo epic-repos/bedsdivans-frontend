@@ -1,9 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
+import MailIcon from "icons/MailIcon";
 import PhoneIcon from "icons/PhoneIcon";
 import UserIcon from "icons/UserIcon";
 import Router from "next/router";
 import React from "react";
 import css from "styles/layout.module.scss";
+
 
 const TrustPilotAndContact = () => {
     return (
@@ -11,32 +13,34 @@ const TrustPilotAndContact = () => {
             <div className="container">
                 <div className={css["row"]}>
                     <div className={css["image-container"]}>
-                        <img src="/image/w.png" alt="img" />
-                        <img src="/image/e.png" alt="img" />
+                        <ul>
+                            <li>ABOUT US</li>
+                            <li>CONTACT US</li>
+                        </ul>
                     </div>
                     <div className={css["contact-container"]}>
                         <ul>
-                            <li>Customer service : 0343 798 3687</li>
-                            <li>Sales : 0190 240 5535</li>
+                            <li>Trustpilot</li>
+                            <li><img src="/image/trustpilot.webp" alt="logo" /></li>
                         </ul>
                     </div>
                     <div className={css["account-container"]}>
                         <ul>
                             <li>
                                 <span>
-                                    <PhoneIcon size={14} />
+                                    <MailIcon size={18} />
                                 </span>
-                                <span className={css["text"]}>Contact Us</span>
+                                <span className={css["text"]}>info@bedsdivans.co.uk</span>
                             </li>
                             <li>
                                 <span>
-                                    <UserIcon size={14} />
+                                   <PhoneIcon size={14} />
                                 </span>
                                 <span
                                     className={css["text"]}
                                     onClick={() => Router.push("/account")}
                                 >
-                                    My account
+                                    01902405535
                                 </span>
                             </li>
                         </ul>

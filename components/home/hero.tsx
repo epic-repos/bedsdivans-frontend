@@ -10,17 +10,16 @@ const HeroImageContainer = () => {
       <div className={`${styles.slider_height} d-flex`}>
         <div className={`${styles.center} container"`}>
           <div className={styles.heading}>
-            <h1 className="HeadingForM">Divan Beds</h1>
+            {/* <h1 className="HeadingForM">Divan Beds</h1>
             <p>Save upto 60% with Divan Beds</p>
             <div className={styles.bannerButton}>
               <button onClick={scrollSmooth}>
                 <b>SHOP NOW</b>
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
       </div>
-    </div>
   );
 };
 export default HeroImageContainer;
