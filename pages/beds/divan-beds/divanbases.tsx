@@ -9,8 +9,9 @@ import ProductCard from "components/beds/product-card";
 import ProductListing from "components/home/products";
 import { useFetchAllBedsWithImage } from "network-requests/queries";
 
-const LowDivanBed: NextPageWithLayout = () => {
+const Divanbase: NextPageWithLayout = () => {
   const { data } = useFetchAllBedsWithImage("Velvet-fabric");
+
   return (
     <>
       <NextSEO title={"DBZBEDS"} />
@@ -18,7 +19,7 @@ const LowDivanBed: NextPageWithLayout = () => {
         <div className={` ${styles.section_first} container-fluid`}>
           <div className="row">
             <div className="col-12">
-              <h1 className={styles.headingh1}>Low Divan Beds</h1>
+              <h1 className={styles.headingh1}>Divan Bases</h1>
             </div>
           </div>
         </div>
@@ -95,6 +96,6 @@ const LowDivanBed: NextPageWithLayout = () => {
     </>
   );
 };
-export default LowDivanBed;
+export default Divanbase;
 
-LowDivanBed.getLayout = PerPageLayout;
+Divanbase.getLayout = PerPageLayout;
