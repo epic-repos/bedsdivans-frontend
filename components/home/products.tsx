@@ -18,7 +18,7 @@ const ProductListing = ({
   ...rest
 }: ProductListingProps) => {
   const router = useRouter();
-  console.log(itemClassName);
+
   return (
     <div className={styles.divans}>
       <section

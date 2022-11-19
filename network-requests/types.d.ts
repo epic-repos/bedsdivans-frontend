@@ -64,7 +64,7 @@ type UploadBedImage = {
 };
 
 type BedWithImage = {
-    variants: any;
+    variants?: any;
     size?: string;
     _id?: string;
     name?: string;
@@ -143,29 +143,29 @@ interface OrderRequestPayload {
         image: string;
     }[];
     shippingAddress?:
-        | {
-              address?: string | undefined;
-              townCity?: string | undefined;
-              postalCode?: string | undefined;
-              country?: string | undefined;
-              companyName?: string | undefined;
-          }
-        | undefined;
+    | {
+        address?: string | undefined;
+        townCity?: string | undefined;
+        postalCode?: string | undefined;
+        country?: string | undefined;
+        companyName?: string | undefined;
+    }
+    | undefined;
     totalPrice: number;
 
     payment?:
+    | {
+        paymentMethod: string;
+        paymentResult?:
         | {
-              paymentMethod: string;
-              paymentResult?:
-                  | {
-                        id?: string | undefined;
-                        status?: string | undefined;
-                        update_time?: string | undefined;
-                        email_address?: string | undefined;
-                    }
-                  | undefined;
-          }
+            id?: string | undefined;
+            status?: string | undefined;
+            update_time?: string | undefined;
+            email_address?: string | undefined;
+        }
         | undefined;
+    }
+    | undefined;
 
     orderNotes?: string | undefined;
 

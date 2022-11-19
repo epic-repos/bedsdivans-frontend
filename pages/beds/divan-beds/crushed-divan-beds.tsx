@@ -8,6 +8,8 @@ import { NextPageWithLayout } from "typings/layout";
 import ProductCard from "components/beds/product-card";
 import ProductListing from "components/home/products";
 import { useFetchAllBedsWithImage } from "network-requests/queries";
+import GridWrapper from "components/grid-card";
+import { BedWithImage } from "network-requests/types";
 
 const CrushedBed: NextPageWithLayout = () => {
   const { data } = useFetchAllBedsWithImage("Leather-beds");
@@ -73,11 +75,26 @@ const CrushedBed: NextPageWithLayout = () => {
                 </li>
               </ul>
               <section className={styles["divan-ProductCard"]}>
-                <ProductListing
+                {/* <ProductListing
                   itemClassName="col-4"
                   productList={data?.pages?.["0"]?.data || []}
                   background="#ffffff"
-                />
+                /> */}
+                <GridWrapper grid="3">
+                  {data?.pages?.["0"]?.data?.map(
+                    (item: BedWithImage, index) => {
+                      return (
+                        <ProductCard
+                          name={item?.name}
+                          price={item?.price}
+                          image={item?.image}
+                          key={index}
+                          coversControls
+                        />
+                      );
+                    }
+                  )}
+                </GridWrapper>
                 <p className={styles.paragraphp}>
                   Relax and unwind in comfort with our high-quality beds. From
                   natural materials to luxe velvet, we have a fantastic

@@ -5,7 +5,6 @@ import NextSEO from "layout/nextseo";
 import styles from "styles/home.module.scss";
 import Image from "next/image";
 import Link from "next/link";
-import axios from "axios";
 import React from "react";
 import { NextPageWithLayout } from "typings/layout";
 import PerPageLayout from "layout/perpage";
@@ -20,10 +19,15 @@ import HeroImageContainer from "components/home/hero";
 import CategoryContainer from "components/home/category";
 import { dehydrate, QueryClient } from "react-query";
 import { useFetchAllBedsWithImage } from "network-requests/queries";
+import GridWrapper from "components/grid-card";
+import ProductCard from "components/grid-card/card";
+import { BedWithImage } from "network-requests/types";
+import { useRouter } from "next/router";
 
 const Home: NextPageWithLayout = () => {
   const { data } = useFetchAllBedsWithImage();
 
+  const router = useRouter();
   return (
     <React.Fragment>
       <NextSEO title={"DBZBeds | Home"} />
@@ -60,30 +64,6 @@ const Home: NextPageWithLayout = () => {
         }}
       />
       <CategoryContainer />
-      {/* <section className={styles.qualityproducts}>
-        <div className="container">
-          <div className="row">
-            {products.map((data, index) => {
-              return (
-                <div key={index} className="col-3">
-                  <div className={styles.itemCard}>
-                    <img src={data.imageUrl} alt="image" />
-                    <h3>Beds</h3>
-                    <p>
-                      Our range of beds come in single, double, king and super
-                      king sizes are crafted with superior memory foam that
-                      cradles your head and keeps your head and neck aligned
-                      even while you sleep on your side and prevents the head
-                      from sinking.
-                    </p>
-                    <button>Buy now</button>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section> */}
 
       <section className={styles.box3}>
         <div className="container">
@@ -103,10 +83,40 @@ const Home: NextPageWithLayout = () => {
         title="Best-seller of the season"
         description="Get up Refresh Every day"
       />
-      <ProductListing
+      {/* <ProductListing
         productList={data?.pages?.["0"]?.data || []}
         itemClassName="col-3"
-      />
+      /> */}
+      <div
+        style={{
+          background: "#f5f5f5",
+          padding: "2rem 0",
+        }}
+      >
+        <div className="container">
+          <GridWrapper grid="4" gap="2rem">
+            {data?.pages?.["0"]?.data?.map((item: BedWithImage, index) => {
+              return (
+                <ProductCard
+                  name={item?.name}
+                  price={item?.price}
+                  image={item?.image}
+                  key={index}
+                  coversControls
+                  onClick={() =>
+                    router.push({
+                      pathname: `/products/${item._id}`,
+                      query: {
+                        size: item?.variants && item?.variants[0]?.size,
+                      },
+                    })
+                  }
+                />
+              );
+            })}
+          </GridWrapper>
+        </div>
+      </div>
       <Title title="Featured" />
       <FeatureSlider />
       <TitleWIthBackground
@@ -255,86 +265,3 @@ const gridImages = {
     },
   ],
 };
-{
-  /* <ProductsGrid swipe={true} /> */
-}
-{
-  /* <section className={Style.imgcontainer}>
-        <div className="container">
-          <div className="row">
-            <div className="col-6">
-              <div className={Style.bigbed1}>
-                <img src="/images/z.png" alt="img" />
-              </div>
-              <div className={Style.heading1}>
-                <h1>There's No Place Like A Bed</h1>
-                <p>
-                  Lord bless the person who invented beds! Choose from a wide
-                  variety to suit your needs and preferences.
-                </p>
-              </div>
-            </div>
-            <div className="col-6">
-              <div className="row">
-                <div className="col-6">
-                  <img src="/images/x.png" alt="img" />
-                  <h2>Kings size beds</h2>
-                </div>
-                <div className="col-6">
-                  <img src="/images/c.png" alt="img" />
-                  <h2>Single Beds</h2>
-                </div>
-                <div className="col-6">
-                  <img src="/images/o.png" alt="img" />
-                  <h2>Queen size beds</h2>
-                </div>
-                <div className="col-6">
-                  <img src="/images/v.png" alt="img" />
-                  <h2>Storage beds</h2>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className={Style.imgcontainer2}>
-        <div className="container">
-          <div className="row">
-            <div className="col-6">
-              <div className="row">
-                <div className="col-6 ">
-                  <img src="/images/b.png" alt="img" />
-                  <h2>Orthopedic mattress</h2>
-                </div>
-                <div className="col-6">
-                  <img src="/images/m.png" alt="img" />
-                  <h2>Tinsel top matrress</h2>
-                </div>
-                <div className="col-6">
-                  <img src="/images/n.png" alt="img" />
-                  <h2>Memory foam mattress</h2>
-                </div>
-                <div className="col-6">
-                  <img src="/images/g.png" alt="img" />
-                  <h2>Pillow top mattress</h2>
-                </div>
-              </div>
-            </div>
-            <div className="col-6">
-              <div className={Style.bigbed2}>
-                <img src="/images/u.png" alt="img" />
-              </div>
-              <div className={Style.heading2}>
-                <h1>Secret To Good Sleep</h1>
-                <p>
-                  Your mattress plays a major role iin one's sleep cycle. The
-                  right mattress will ensure you get a good night's sleep every
-                  night
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */
-}

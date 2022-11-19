@@ -1,0 +1,107 @@
+// GRID WRAPPER STYLE
+
+// GRID CARD STYLE
+
+.container {
+  padding-bottom: 10px;
+  background-color: #fff;
+  border: 2px solid #ebe9e9;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.image {
+  position: relative;
+}
+
+.image .cover {
+  object-fit: cover;
+  object-position: -60px;
+}
+
+.image .controls {
+  gap: 8px;
+  bottom: 0;
+  right: 15px;
+  z-index: 99;
+  display: flex;
+  position: absolute;
+  li {
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+// PRODUCT DETAILS
+.details {
+  display: flex;
+  flex-direction: column;
+  .name {
+    padding: 10px;
+    background: #e1e1e11f;
+    display: flex;
+    h2 {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+      font-size: 14px;
+      color: #000;
+      font-weight: 600;
+      font-style: normal;
+    }
+  }
+
+  .price {
+    color: #000;
+    display: flex;
+    font-size: 1rem;
+    font-weight: 700;
+    position: relative;
+    font-style: normal;
+    align-items: center;
+    padding: 5px 10px 0 10px;
+    justify-content: space-between;
+  }
+  .price del {
+    opacity: 0.5;
+    font-size: 14px;
+    margin-left: 8px;
+  }
+  .price .offer {
+    color: #fff;
+    font-weight: 500;
+    padding-left: 4px;
+    background: #4ecb4e;
+    border-radius: 5px;
+    font-size: 12px;
+    padding: 2px 9px;
+  }
+  // TRUSTPILOT RATINGS
+  .trustpilot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 65%;
+    }
+  }
+}
+// RESPONSIVE VIEW OF CARD
+// BREAKPOINTS
+// 768
+// 425
+// 375
+// 320
+// 280
