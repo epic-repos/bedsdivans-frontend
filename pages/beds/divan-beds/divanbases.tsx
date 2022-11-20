@@ -5,9 +5,11 @@ import NextSEO from "layout/nextseo";
 import styles from "styles/header.module.scss";
 import PerPageLayout from "layout/perpage";
 import { NextPageWithLayout } from "typings/layout";
-import ProductCard from "components/beds/product-card";
-import ProductListing from "components/home/products";
+
 import { useFetchAllBedsWithImage } from "network-requests/queries";
+import GridWrapper from "components/grid-card";
+import { BedWithImage } from "network-requests/types";
+import ProductCard from "components/grid-card/card";
 
 const Divanbase: NextPageWithLayout = () => {
   const { data } = useFetchAllBedsWithImage("Velvet-fabric");
@@ -74,11 +76,39 @@ const Divanbase: NextPageWithLayout = () => {
                 </li>
               </ul>
               <section className={styles["divan-ProductCard"]}>
-                <ProductListing
+                {/* <ProductListing
                   itemClassName="col-4"
                   productList={data?.pages?.["0"]?.data || []}
                   background="#ffffff"
-                />
+                /> */}
+                <GridWrapper grid="3">
+                  {data?.pages?.["0"]?.data?.map(
+                    (item: BedWithImage, index) => {
+                      return (
+                        <ProductCard
+                          name={item?.name}
+                          price={item?.price}
+                          image={item?.image}
+                          key={index}
+                          coversControls
+                        />
+                      );
+                    }
+                  )}
+                  {data?.pages?.["0"]?.data?.map(
+                    (item: BedWithImage, index) => {
+                      return (
+                        <ProductCard
+                          name={item?.name}
+                          price={item?.price}
+                          image={item?.image}
+                          key={index}
+                          coversControls
+                        />
+                      );
+                    }
+                  )}
+                </GridWrapper>
                 <p className={styles.paragraphp}>
                   Relax and unwind in comfort with our high-quality beds. From
                   natural materials to luxe velvet, we have a fantastic

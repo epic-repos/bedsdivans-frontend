@@ -103,17 +103,21 @@ $tab: 768px;
   flex: 1;
   position: relative;
   display: flex;
-  padding-left: 10px;
-  border: 1px solid rgba(128, 128, 128, 0.4509803922);
-  height: 50px;
+  // padding-left: 10px;
+  // height: 50px;
+  border-radius: 6px;
+  // overflow: hidden;
   input[type="text"] {
-    border: 0px;
+    border: 2px solid rgba(128, 128, 128, 0.3);
+    border-right: none;
     padding: 0px;
     outline: none;
     width: 100%;
     max-width: 100%;
-    font-size: 0.9rem;
-    border-radius: 44px 0px 0px 44px;
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 6px 0 0 6px;
+    // border-radius: 44px 0px 0px 44px;
     &::placeholder {
       font-size: 12px;
       font-weight: 500;
@@ -121,9 +125,10 @@ $tab: 768px;
     }
   }
   button {
-    padding: 10px;
     border: 0px;
+    padding: 10px;
     padding: 0px 16px;
+    border-radius: 0 6px 6px 0;
     background: #222178;
   }
 }
@@ -140,31 +145,26 @@ $tab: 768px;
   justify-content: flex-end;
   ul {
     display: flex;
-    // gap: 10px;
-    li {
-      // min-width: 70px;
-    }
-    li,
-    a {
-      display: grid;
-      justify-content: center;
-      align-content: center;
-      justify-items: center;
-      //   padding: 0.4rem;
-      gap: 2px;
-      cursor: pointer;
-      flex: 1;
-    }
-    p,
-    a {
-      margin: 0;
-      font-size: 0.7rem;
-      color: var(--primary-color);
-    }
-    svg {
-      height: 32px;
-      width: 53px;
-    }
+    gap: 10px;
+  }
+  ul li {
+    min-width: 55px;
+  }
+  li,
+  a {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    gap: 2px;
+    cursor: pointer;
+    flex: 1;
+  }
+  p,
+  a {
+    margin: 0;
+    font-size: 0.7rem;
+    color: var(--primary-color);
   }
 }
 
@@ -422,11 +422,30 @@ $tab: 768px;
   font-size: 15px;
 }
 .controls ul li {
-  margin-left: 20px;
+  // margin-left: 20px;
+  position: relative;
 }
 .texts {
   font-size: 9px;
 }
+
+// STYLE FOR BADGE
+.badge {
+  position: absolute;
+  font-style: normal;
+  height: 18px;
+  width: 18px;
+  background: #222178;
+  border-radius: 100px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  top: -6px;
+  right: -2px;
+}
+
 /***********************************************
  FOOTER STYLE
 ***********************************************/

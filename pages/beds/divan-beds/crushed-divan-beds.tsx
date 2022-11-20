@@ -5,11 +5,11 @@ import NextSEO from "layout/nextseo";
 import styles from "styles/header.module.scss";
 import PerPageLayout from "layout/perpage";
 import { NextPageWithLayout } from "typings/layout";
-import ProductCard from "components/beds/product-card";
-import ProductListing from "components/home/products";
+
 import { useFetchAllBedsWithImage } from "network-requests/queries";
 import GridWrapper from "components/grid-card";
 import { BedWithImage } from "network-requests/types";
+import ProductCard from "components/grid-card/card";
 
 const CrushedBed: NextPageWithLayout = () => {
   const { data } = useFetchAllBedsWithImage("Leather-beds");
@@ -38,7 +38,7 @@ const CrushedBed: NextPageWithLayout = () => {
         <div className="container">
           <div className="row">
             <div className={` ${styles.left_filter} col-2`}>
-              <h3>PRODUCT CATEGORIES</h3>
+              <h3>CATEGORIES</h3>
               <ul>
                 <li>Divan Bed</li>
                 <li>Divan Bed</li>
@@ -81,6 +81,19 @@ const CrushedBed: NextPageWithLayout = () => {
                   background="#ffffff"
                 /> */}
                 <GridWrapper grid="3">
+                  {data?.pages?.["0"]?.data?.map(
+                    (item: BedWithImage, index) => {
+                      return (
+                        <ProductCard
+                          name={item?.name}
+                          price={item?.price}
+                          image={item?.image}
+                          key={index}
+                          coversControls
+                        />
+                      );
+                    }
+                  )}
                   {data?.pages?.["0"]?.data?.map(
                     (item: BedWithImage, index) => {
                       return (

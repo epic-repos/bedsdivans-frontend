@@ -5,15 +5,10 @@ import Link from "next/link";
 import UserIcon from "icons/UserIcon";
 import css from "styles/layout.module.scss";
 import TrustPilotAndContact from "./trust-pilot";
-import HeartIcon from "icons/HeartIcon";
-import CartIcon from "icons/CartIcon";
-import MapIcon from "icons/MapIcon";
-import Router from "next/router";
 import MenuIcon from "icons/MenuIcon";
 import CloseIcon from "icons/CloseIcon";
 import useOnClickOutside from "hooks/useclick";
-import MailIcon from "icons/MailIcon";
-import DownArrow from "icons/downarrow";
+import BagOutline from "icons/BagOutline";
 
 const Header = () => {
   return (
@@ -659,7 +654,7 @@ const LogoAndSearchBar = () => {
             </Link>
           </div>
           <div className={css["searchbar"]}>
-            <input type="text" placeholder="search for products" />
+            <input type="text" placeholder="Search for products..." />
             <button>
               <img src="/image/SEARCH.SVG" alt="" />
             </button>
@@ -667,28 +662,29 @@ const LogoAndSearchBar = () => {
           <div className={css["controls"]}>
             <ul>
               <li>
-                <Link href={"/cart"}>
+                <Link href={"/account"}>
                   <a>
-                    <CartIcon />
-                    <span className={css["texts"]}>My Cart</span>
+                    <span>
+                      <UserIcon size={32} />
+                    </span>
+                    <span className={css["texts"]}>My Account</span>
                   </a>
                 </Link>
               </li>
               <li>
-                <span>
-                  <UserIcon size={14} />
-                </span>
-                <span
-                  className={css["texts"]}
-                  onClick={() => Router.push("/account")}
-                >
-                 My Account
-                </span>
+                <Link href={"/cart"}>
+                  <a>
+                    <BagOutline size={32} />
+                    <span className={css["texts"]}>My Cart</span>
+                    <i className={css["badge"]}>0</i>
+                  </a>
+                </Link>
               </li>
-              <li>
+
+              {/* <li>
                 <MapIcon />
                 <span className={css["texts"]}>My basket</span>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
