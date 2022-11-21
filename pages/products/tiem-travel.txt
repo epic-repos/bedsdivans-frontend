@@ -253,14 +253,21 @@ const NewProductPage = () => {
                   </ul>
                 </div>
               </div>
-              <SelectOption label="Select Your Size" />
-              <SelectOption label="Storage Options" />
-              <SelectOption label="Select Your Feet" />
-              <SelectOption label="Select Your Headboard" />
-              <SelectOption label="Select Your Mattress" />
-            </div>
-            <div>
-              <AddToBasket />
+              <SelectOption
+                dataArray={bedSizeArray}
+                onChange={(event) => console.log(event.target.value)}
+                label="Select Your Size"
+              />
+
+              <SelectOption
+                onChange={(event) => console.log(event.target.value)}
+                dataArray={bedStorageArray}
+                label="Storage Options"
+              />
+
+              {/* <SelectOption label="Select Your Feet" /> */}
+              {/* <SelectOption label="Select Your Headboard" /> */}
+              {/* <SelectOption label="Select Your Mattress" /> */}
             </div>
           </div>
         </div>
@@ -273,47 +280,67 @@ export default NewProductPage;
 
 NewProductPage.getLayout = PerPageLayout;
 
-// METHOD 1
-interface SelectOptionProps {
+const bedSizeArray = [
+  {
+    text: "2FT 6″ – Small Single – £89",
+    value: "2 feet",
+  },
+  {
+    text: "3FT – Single – £129",
+    value: "3 feet",
+  },
+  {
+    text: "4FT – Small Double – £179",
+    value: "4 feet",
+  },
+  {
+    text: "4FT 6″ – Double – £179",
+    value: "4 feet 6 inch",
+  },
+  {
+    text: "5FT – King – £209",
+    value: "5 feet",
+  },
+  {
+    text: "6FT – Super King – £239",
+    value: "6 feet",
+  },
+];
+
+const bedStorageArray = [
+  {
+    text: "No Drawers",
+    value: "no-drawers",
+  },
+  {
+    text: "2 Drawers – £45",
+    value: "2-drawers-45",
+  },
+];
+
+interface SelectOptionProps extends React.ComponentPropsWithoutRef<"select"> {
   label: string;
+  dataArray: {
+    text: string;
+    value: string;
+  }[];
 }
 
-// METHOD 2
-// type SelectOptionProps = {
-//   label: string;
-// };
-
 const SelectOption = (props: SelectOptionProps) => {
+  const { label, dataArray, ...rest } = props;
   return (
     <div className={css["select-size"]}>
       <label>{props.label}</label>
       <div className={css["dropdown"]}>
-        <select>
-          <option value="2 feet">2FT 6″ – Small Single – £89</option>
-          <option value="3 feet">3FT – Single – £129</option>
-          <option value="4 feet">4FT – Small Double – £179</option>
-          <option value="4 feet 6 inch">4FT 6″ – Double – £179</option>
-          <option value="5 feet">5FT – King – £209</option>
-          <option value="6 feet">6FT – Super King – £239</option>
+        <select {...rest}>
+          {dataArray.map((data, index) => {
+            return (
+              <option key={index} value={data.value}>
+                {data.text}
+              </option>
+            );
+          })}
         </select>
-      </div>
-    </div>
-  );
-};
-const AddToBasket = () => {
-  return (
-    <div>
-      <div className={css["basket-row"]}>
-        <div className={css["basket-count"]}>
-          <button>-</button>
-          <div className={css["input"]}>
-            <input type={"number"} />
-          </div>
-          <button>+</button>
-          <button className={css["addToBasket"]}>ADD TO BASKET</button>
-        </div>
-
-        <button className={css["size-guide"]}>SIZE GUIDE</button>
       </div>
     </div>
   );

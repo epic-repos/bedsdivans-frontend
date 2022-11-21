@@ -1,0 +1,130 @@
+// New Product Page
+
+.grid {
+  display: grid;
+  // grid-template-columns: repeat(2,1fr);
+  grid-template-columns: 1fr 1fr;
+  padding: 20px 20px;
+  gap: 3rem;
+}
+
+.grid .left {
+  .year_warranty {
+    margin-top: 25px;
+    ul {
+      display: flex;
+      gap: 23px;
+      margin: 0;
+      margin-top: 1.5rem;
+    }
+    p {
+      text-align: center;
+      margin-right: 2rem;
+      // margin-top: 5px;
+      line-height: 2;
+    }
+  }
+}
+.grid .right {
+  width: 92%;
+  .product-name {
+    h1 {
+      font-size: 34px;
+      font-weight: 600;
+      font-family: roboto, sans-serif;
+    }
+  }
+  .trustpilot {
+    margin-top: 18px;
+    a {
+      span {
+        margin-left: 5px;
+      }
+    }
+  }
+  .coupon {
+    color: #222188;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 4;
+  }
+  .price {
+    color: #222178;
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 1;
+    font-family: "roboto", sans-serif;
+  }
+  .product-options {
+    .colors {
+      .color-options {
+        ul {
+          display: flex;
+          gap: 13px;
+          margin: 0 0 0 10px;
+          padding: 5px;
+        }
+      }
+    }
+    .select-size {
+      .dropdown {
+        display: flex;
+        align-items: center;
+        select {
+          outline: none;
+          flex: 1;
+          font-family: "roboto", sans-serif;
+          padding: 10px;
+          border: 2px solid #e6e6e6;
+          font-size: 14px;
+        }
+      }
+    }
+    .select-size {
+      label {
+        margin-top: 1rem;
+        color: #464646;
+        font-size: 14px;
+        font-weight: 700;
+      }
+    }
+  }
+  .basket-row {
+    display: flex;
+    justify-content: space-between;
+    .basket-count {
+      display: flex;
+      margin-top: 15px;
+      .input {
+        input {
+          width: 50px;
+          height: 40px;
+          border: 1px solid #e5e5e5;
+          text-align: center;
+        }
+      }
+      button {
+        padding: 0 9px;
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .addToBasket {
+        color: white;
+        background-color: #1e73be;
+        margin-left: 5px;
+        font-size: 13px;
+        padding: 10px 20px;
+      }
+    }
+    .size-guide {
+      color: white;
+      background-color: #1e73be;
+      margin-left: 5px;
+      font-size: 13px;
+      padding: 0px 20px;
+      font-weight: 600;
+      height: 40px;
+      margin-top: 15px;
+    }
+  }
+}
