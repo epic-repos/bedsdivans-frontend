@@ -1,20 +1,19 @@
 import React from "react";
 import { SVGICONPROPS } from "typings/icon";
 
-const MailIcon = ({ size, color, ...rest }: SVGICONPROPS) => {
+const BasketIcon = ({ size, color, ...rest }: SVGICONPROPS) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       width={size}
-      fill={color}
       height={size}
+      fill={color}
       {...rest}
     >
       <path fill="none" d="M0 0h24v24H0z" />
-      <path d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm17 4.238l-7.928 7.1L4 7.216V19h16V7.238zM4.511 5l7.55 6.662L19.502 5H4.511z" />
+      <path d="M7 8V6a5 5 0 1 1 10 0v2h3a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h3zm0 2H5v10h14V10h-2v2h-2v-2H9v2H7v-2zm2-2h6V6a3 3 0 0 0-6 0v2z" />
     </svg>
   );
 };
-
-export default MailIcon;
+export default BasketIcon;

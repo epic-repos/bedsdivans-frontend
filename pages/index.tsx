@@ -1,6 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
-/* eslint-disable react/no-unescaped-entities */
-/* eslint-disable jsx-a11y/alt-text */
 import NextSEO from "layout/nextseo";
 import styles from "styles/home.module.scss";
 import Image from "next/image";
@@ -10,7 +7,6 @@ import { NextPageWithLayout } from "typings/layout";
 import PerPageLayout from "layout/perpage";
 import BottomTextContent from "components/home/text";
 import FeatureSlider from "components/home/slider";
-import ProductListing from "components/home/products";
 import Title from "components/title";
 import TitleWIthBackground from "components/title/grey";
 import ProductsGrid from "components/home/grid";
@@ -152,6 +148,7 @@ const Home: NextPageWithLayout = () => {
                     src="/assets/images/mattressbanner/Group 693@2x.png"
                     width={1700}
                     height={400}
+                    alt="mattressess"
                   />
                 </Link>
               </div>
@@ -163,6 +160,7 @@ const Home: NextPageWithLayout = () => {
                     src="/assets/images/mattressbanner/Group 696@2x.png"
                     width={700}
                     height={700}
+                    alt="mattressess"
                   />
                 </Link>
               </div>
@@ -172,6 +170,7 @@ const Home: NextPageWithLayout = () => {
                     src="/assets/images/mattressbanner/Group 694@2x.png"
                     width={600}
                     height={295}
+                    alt="mattressess"
                   />
                 </Link>
                 <div className="" style={{ cursor: "pointer" }}>
@@ -180,6 +179,7 @@ const Home: NextPageWithLayout = () => {
                       src="/assets/images/mattressbanner/Group 695@2x.png"
                       width={600}
                       height={295}
+                      alt="mattressess"
                     />
                   </Link>
                 </div>

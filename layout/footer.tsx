@@ -2,266 +2,189 @@ import React from "react";
 import Image from "next/image";
 import Style from "styles/footer/footer.module.scss";
 import Link from "next/link";
+import visaicon from "icons/visaicon";
+import PhoneIcon from "icons/PhoneIcon";
+import MailIcon from "icons/MailIcon";
+import PayPal from "icons/paypalicon";
+import FacebookIcon from "icons/facebook";
+import InstagramIcon from "icons/instagram";
+import MasterCard from "icons/mastercard";
+import TwitterIcon from "icons/twittericon";
+import VisaIcon from "icons/visaicon";
+
 const Footer = () => {
   return (
     <footer>
-
-
-
-
-      <div className={Style.ftrBackgrd}>
-        <div className="">
-          <div className="">
-            <div className="container-fluid">
-              <div className="row">
-                <div
-                    className={`col-3 ${Style.footerformob}`}
-                  data-aos="fade-up"
-                  data-aos-delay="200"
-                >
-                  <ul>
-                    <li>
-                      <div className={Style.footerimage}>
-                        <img src="/image/1.png" alt="img" />
-                      </div>
+      <section className={Style.mainfooter}>
+      <div className="container">
+         <div className="row">
+            <div className="col-3">
+              <div className={Style.footer1}>
+                 <ul>
+                  <li><img src="/image/wplogo.webp" alt="logo" /></li>
+                  <li><img src="/image/yell.webp" alt="logo" /></li>
+                 </ul>
+               <div className={Style.footer1s}>
+               <ul>
+                  <li>
+                  <MailIcon size={25} color='#fff'/>
+                    Unit 8A Stag Industrial Estate Oxford Street Bilston WV14 7HZ
                     </li>
                     <li>
-                      <div className={Style.footerimage2}>
-                        <img src="/img/re.png" alt="img" />
-                        <img src="/image/5star.jpeg" alt="img" />
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-                <div
-                  className={`col-3 ${Style.footerformob}`}
-                  data-aos="fade-up"
-                  data-aos-delay="400"
-                >
-                  <div className={Style.single_wedge}>
-                    <h4>USEFUL LINKS</h4>
-                    <div className="footer-links">
-                      <div className="footer-row">
-                        <ul className="align-items-left">
-                          <li>
-                            <Link
-                              className={Style.ftr_links}
-                              href="/product/divanbed"
-                            >
-                              About Us
-                            </Link>
-                          </li>
-                          <li className="li">
-                            <Link
-                              className="single-link"
-                              href="/divanbed/suede-Fabric-Divan-Beds"
-                            >
-                              Our Blog
-                            </Link>
-                          </li>
-                          <li className="li">
-                            <Link
-                              className="single-link"
-                              href="/product/headboard"
-                            >
-                              Careers
-                            </Link>
-                          </li>
-                          <li className="li">
-                            <Link
-                              className="single-link"
-                              href="/product/Mattressess"
-                            >
-                              Corporate Governance
-                            </Link>
-                          </li>
-                          <li className="li">
-                            <Link
-                              className="single-link"
-                              href="/divanbed/velvet-Fabric-Divan-Beds"
-                            >
-                              Pepperfry In the News
-                            </Link>
-                          </li>
-                          <li className="li">
-                            <Link
-                              className="single-link"
-                              href="/allbed/sleigh-beds"
-                            >
-                              Find A Studio
-                            </Link>
-                          </li>
-                          <li className="li">
-                            <Link
-                              className="single-link"
-                              href="/allbed/sleigh-beds"
-                            >
-                              Gift Cards
-                            </Link>
-                          </li>
-                          <li className="li">
-                            <Link
-                              className="single-link"
-                              href="/allbed/sleigh-beds"
-                            >
-                              Brands
-                            </Link>
-                          </li>
-                          <li className="li">
-                            <Link
-                              className="single-link"
-                              href="/allbed/sleigh-beds"
-                            >
-                              Customer Reviews
-                            </Link>
-                          </li>
-
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div
-                    className={`col-3 ${Style.footerformob}`}
-                  data-aos="fade-up"
-                  data-aos-delay="600"
-                >
-                  <div className={Style.single_wedge}>
-                    <h4>Partners </h4>
-                    <div className="footer-links">
-                      <div className="footer-row">
-                        <ul className="align-items-center">
-                          <li className="li">
-                            <a href="/about" className="single-link">
-                              Sell With Us
-                            </a>
-                          </li>
-                          <li className="li">
-                            <a className="single-link" href="/product/shop">
-                              Become a Franchisee
-                            </a>
-                          </li>
-                          <li className="li">
-                            <a href="/contact" className="single-link">
-                              Design For Us
-                            </a>
-                          </li>
-                          <li className="li">
-                            <a className="single-link" href="/ReturnPolicy">
-                              Pepperfry Marketplace Policies
-                            </a>
-                          </li>
-                          <li className="li">
-                            <a className="single-link" href="/PrivacyPolicy">
-                              Login to Your Merchant
-                            </a>
-                          </li>
-                          <li className="li">
-                            <a className="single-link" href="checkout.html">
-                              Dashboard
-                            </a>
-                          </li>
-                          <li className="li">
-                            <a className="single-link" href="checkout.html">
-                              Important : GST and You
-                            </a>
-                          </li>
-                          <li className="li">
-                            <a className="single-link" href="checkout.html">
-                              Corporate Enquiries
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                   className={`col-3 ${Style.footerformob}`}
-                  data-aos="fade-up"
-                  data-aos-delay="600"
-                >
-                  <div className={Style.single_wedge}>
-                    <h4>Need Help? </h4>
-                    <div className="footer-links">
-                      <div className="footer-row">
-                        <ul className="align-items-center">
-                          <li className="li">
-                            <a href="/about" className="single-link">
-                              Contact Us
-                            </a>
-                          </li>
-                          <li className="li">
-                            <a className="single-link" href="/product/shop">
-                              Returns & Refund
-                            </a>
-                          </li>
-                          <li className="li">
-                            <a href="/contact" className="single-link">
-                              Track Your Order
-                            </a>
-                          </li>
-                          <li className="li">
-                            <a className="single-link" href="/ReturnPolicy">
-                              FAQs
-                            </a>
-                          </li>
-                          <li className="li">
-                            <a className="single-link" href="/PrivacyPolicy">
-                              Buy on Phone
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                    <PhoneIcon size={25} color='#fff'/>
+                    <Link href="#">
+                      <a>01902 405535</a>
+                    </Link>
+                  </li>
+                  <li>
+                  <MailIcon size={25} color='#fff'/>
+                    <Link href="#">
+                      <a>info@bedsdivans.co.uk</a>
+                    </Link>
+                  </li>
+                 </ul>
+               </div>
+           <div className={Style.footer1es}>
+           <ul>
+          
+                <li><VisaIcon size={50} color='#fff' /></li>
+                <li><MasterCard  size={45} color='#fff' /></li>
+                 <li><PayPal size={40} color='#fff' /></li>
+                 <li><MailIcon size={45} color='#fff' /></li>
+               </ul>
+           </div>
               </div>
             </div>
-          </div>
-          <div className="hrzntal_rw">
-            <hr />
-          </div>
-          <section className={Style.lastfooter}>
-            <div className="container">
-              <div className="row">
-                <div className="col-4">
-                  <p>Copyright by@dbz all right reserved</p>
-                </div>
-                <div className="col-4">
-                  <div className={Style.centerfooter}>
-                    <p>Keep in touch</p>
+            <div className="col-3">
+              <div className={Style.footer2}>
+                 <h3>USEFUL LINKS</h3>
+                 <ul>
+                   <li>
+                   <Link href="#">
+                      <a>Divan Beds</a>
+                    </Link>
+                    </li>
+                   <li>
+                    <Link href="#">
+                      <a>Suede Fabric Divan Bed</a>
+                    </Link>
+                    </li>
+                   <li>
+                   <Link href="#">
+                      <a> Headboards</a>
+                    </Link>
+                    </li>
+                   <li>
+                   <Link href="#">
+                      <a>Mattresses</a>
+                    </Link>
+                    </li>
+                    <li>
+                   <Link href="#">
+                      <a>Crushed Velvet Beds</a>
+                    </Link>
+                    </li>
+                    <li>
+                   <Link href="#">
+                      <a>Sleigh Beds</a>
+                    </Link>
+                    </li>
+                    <li>
+                   <Link href="#">
+                      <a>Blog</a>
+                    </Link>
+                    </li>
+                 </ul>
+              </div>
+            </div>
+            <div className="col-3">
+            <div className={Style.footer2}>
+                 <h3>ADDITIONAL LINKS</h3>
+                 <ul>
+                   <li>
+                   <Link href="#">
+                      <a>About Us</a>
+                    </Link>
+                    </li>
+                   <li>
+                    <Link href="#">
+                      <a>Shop</a>
+                    </Link>
+                    </li>
+                   <li>
+                   <Link href="#">
+                      <a>Contact Us</a>
+                    </Link>
+                    </li>
+                   <li>
+                   <Link href="#">
+                      <a>Return Policy</a>
+                    </Link>
+                    </li>
+                    <li>
+                   <Link href="#">
+                      <a>Policy & Warranty</a>
+                    </Link>
+                    </li>
+                    <li>
+                   <Link href="#">
+                      <a>Divan Bed Birmingham</a>
+                    </Link>
+                    </li>
+                    <li>
+                   <Link href="#">
+                      <a>Divan Beds Yorkshire</a>
+                    </Link>
+                    </li>
+                    <li>
+                   <Link href="#">
+                      <a>Divan Bed London</a>
+                    </Link>
+                    </li>
+                 </ul>
+              </div>
+            </div>
+            <div className="col-3">
+             <div className={Style.footer2}>
+                <h3>LATEST BLOGS</h3>
+                <ul>
+                  <li>
+                  <Link href="#">
+                      <a>Who Are People Sleeping With? UK’s Most Popular Podcasts To Fall Asleep To (2022)</a>
+                    </Link>
+                  </li>
+                  <li>
+                  <Link href="#">
+                      <a>UK’s Top Interior Design Turn Ons & Turn Offs</a>
+                    </Link>
+                  </li>
+                  <li>
+                  <Link href="#">
+                      <a>Types of Beds That You Need To Know</a>
+                    </Link>
+                  </li>
+                </ul>
+                <div className={Style.footer2s}>
                     <ul>
-                      <li>
-                        <img src="/image/fa.png" alt="img" />
-                      </li>
-                      <li>
-                        <img src="/image/twi.png" alt="img" />
-                      </li>
-                      <li>
-                        <img src="/image/ins.png" alt="img" />
-                      </li>
+                      <li><FacebookIcon size={25} color='#fff'/></li>
+                      <li><TwitterIcon size={25} color='#fff'/></li>
+                      <li><InstagramIcon size={25} color='#fff'/></li>
                     </ul>
-                  </div>
                 </div>
-                <div className="col-4">
-                  <ul>
-                    <li>
-                      <img src="/image/upi.png" alt="img" />
-                    </li>
-                    <li>
-                      <img src="/image/mas.png" alt="img" />
-                    </li>
-                  </ul>
-                </div>
-              </div>
+             </div>
             </div>
-          </section>
-        </div>
+         </div>
       </div>
-
-
+      </section>
+      <section className={Style.mainlastfooter}>
+         <div className="container"> 
+            <div className="row">
+               <div className="col-12">
+                   <p>You may not reproduce or communicate any of the content on this website, including files downloadable from this website, without the permission of the copyright owner, all contents and images on our website are owned and copyrighted by DBZKHAN LTD Bedsdivans 2022</p>
+               </div>
+            </div>
+         </div>
+      </section>
     </footer>
   );
 };

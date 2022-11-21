@@ -1,14 +1,14 @@
 // Hello World
 
 .container {
-  min-height: 50vh;
   display: grid;
+  min-height: 50vh;
   place-content: center;
   background: #1b3345;
-
   h1 {
     color: #fff;
     font-size: 3rem;
+    font-weight: 500;
     font-variant: small-caps;
   }
 }
