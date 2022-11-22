@@ -66,10 +66,10 @@
   }
 
   .price {
-    color: #000;
+    color: #222178;
     display: flex;
-    font-size: 1rem;
-    font-weight: 700;
+    font-size: 15px;
+    font-weight: 600;
     position: relative;
     font-style: normal;
     align-items: center;
@@ -112,5 +112,11 @@
 .clearpaycontent a { 
   font-size: 14px;
   color: blue !important;
-  padding-left: 15px;
+  padding-left: 10px;
+} 
+.clearpaycontent {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: -75px;
+  margin-top: 20px;
 } 

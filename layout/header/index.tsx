@@ -643,7 +643,7 @@ const LogoAndSearchBar = () => {
         <div className={css["item-grid"]}>
           <div className={css["menu-bar"]}>
             <button aria-label="menu-icon" onClick={onClickMenu}>
-              <MenuIcon size={20} />
+              <MenuIcon size={30} />
             </button>
           </div>
           <div className={css["logo"]}>
