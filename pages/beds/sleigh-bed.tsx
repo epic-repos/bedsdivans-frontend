@@ -11,7 +11,7 @@ import GridWrapper from "components/grid-card";
 import { BedWithImage } from "network-requests/types";
 import ProductCard from "components/grid-card/card";
 
-const Single30: NextPageWithLayout = () => {
+const SleighBed: NextPageWithLayout = () => {
   const { data } = useFetchAllBedsWithImage("Leather-beds");
   return (
     <>
@@ -20,7 +20,7 @@ const Single30: NextPageWithLayout = () => {
         <div className={` ${styles.section_first} container-fluid`}>
           <div className="row">
             <div className="col-12">
-              <h1 className={styles.headingh1}>Single (3"0)</h1>
+              <h1 className={styles.headingh1}>Sleigh Bed</h1>
             </div>
           </div>
         </div>
@@ -124,6 +124,6 @@ const Single30: NextPageWithLayout = () => {
     </>
   );
 };
-export default Single30;
+export default SleighBed;
 
-Single30.getLayout = PerPageLayout;
+SleighBed.getLayout = PerPageLayout;
