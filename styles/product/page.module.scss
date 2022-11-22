@@ -26,25 +26,81 @@
   }
 }
 
-.grid .left .product-image {
+// IMAGE SECTION
+.image-section {
+  max-width: 650px;
+}
+
+.image-lists {
   display: flex;
-  margin-bottom: 10px;
-  img {
-    transition: all 50ms ease;
+  align-items: center;
+  position: relative;
+  // max-width: 520px;
+  .arrow-left,
+  .arrow-right {
+    position: absolute;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 100%;
+    display: grid;
+    place-content: center;
+    background: #000000ab;
+    backdrop-filter: blur(12px);
+    top: 50%;
+    transform: translateY(-50%);
+
+    user-select: none;
+    cursor: pointer;
   }
-  figure {
-    transition: all 50ms ease;
-    background-repeat: no-repeat;
+  .arrow-left {
+    left: 8px;
+  }
+  .arrow-right {
+    right: 8px;
+  }
+  ul {
+    gap: 10px;
     margin: 0;
-  }
-  figure:hover {
-    opacity: 1;
-    img {
-      opacity: 0;
-      transition: all 50ms ease-in;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    li {
+      display: flex;
+      img {
+        min-width: 100px;
+        height: 100px;
+        object-fit: cover;
+        pointer-events: none;
+      }
     }
   }
 }
+
+.grid .left .image-section .product-image {
+  display: flex;
+  margin-bottom: 10px;
+  cursor: url("/cursor/icons8-zoom-in-2x-28.png"), auto;
+
+  img {
+    width: 100%;
+    height: 400px;
+    max-width: 100%;
+    object-fit: cover;
+    transition: all 50ms linear;
+  }
+  figure {
+    margin: 0;
+    transition: all 50ms linear;
+    width: 100%;
+  }
+  figure:hover {
+    img {
+      opacity: 0;
+      transition: all 50ms linear;
+    }
+  }
+}
+
 .grid .right {
   width: 92%;
   .product-name {
@@ -143,51 +199,6 @@
       font-weight: 600;
       height: 40px;
       margin-top: 15px;
-    }
-  }
-}
-
-.image-lists {
-  display: flex;
-  align-items: center;
-  position: relative;
-  max-width: 520px;
-  .arrow-left,
-  .arrow-right {
-    position: absolute;
-    height: 40px;
-    min-width: 40px;
-    border-radius: 100%;
-    display: grid;
-    place-content: center;
-    background: #000000ab;
-    backdrop-filter: blur(12px);
-    top: 50%;
-    transform: translateY(-50%);
-
-    user-select: none;
-    cursor: pointer;
-  }
-  .arrow-left {
-    left: 8px;
-  }
-  .arrow-right {
-    right: 8px;
-  }
-  ul {
-    gap: 10px;
-    margin: 0;
-    display: flex;
-    overflow: hidden;
-    align-items: center;
-    li {
-      display: flex;
-      img {
-        min-width: 100px;
-        height: 100px;
-        object-fit: cover;
-        pointer-events: none;
-      }
     }
   }
 }

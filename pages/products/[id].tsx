@@ -21,70 +21,70 @@ const bedStorageArray = [
 const NewProductPage = () => {
   const imageRef = React.useRef(null);
   const src = "/grey-linen.jpeg";
+
   const [style, setStyle] = React.useState<React.CSSProperties>({
-    backgroundSize: "cover",
-    backgroundPosition: "0% 0%",
     backgroundImage: `url(${src})`,
+    backgroundPosition: "0% 0%",
     backgroundRepeat: "no-repeat",
   });
-  const handleMouseMove = React.useCallback(
-    (e: any) => {
-      const { left, top, width, height } = e.target.getBoundingClientRect();
-      const x = ((e.pageX - left) / width) * 100;
-      const y = ((e.pageY - top) / height) * 100;
-      setStyle({
-        ...style,
-        backgroundPosition: `${x}% ${y}%`,
-      });
-    },
-    [style]
-  );
+
+  const zoom = 100;
+  const handleMouseMove = (e: any) => {
+    const { left, top, width, height } = e.target.getBoundingClientRect();
+    const x = ((e.pageX - left) / width) * zoom;
+    const y = ((e.pageY - top) / height) * zoom;
+    setStyle({
+      ...style,
+      backgroundPosition: `${x}% ${y}%`,
+    });
+  };
 
   return (
     <div>
       <div className="container">
         <div className={`${css["grid"]}`}>
           <div className={`${css["left"]}`}>
-            <div className={css["product-image"]}>
-              <figure
-                ref={imageRef}
-                style={style}
-                onMouseMove={handleMouseMove}
-              >
-                <Image
-                  src="/grey-linen.jpeg"
-                  alt="Grey-linen"
-                  height={424}
-                  width={600}
-                />
-              </figure>
+            <div className={css["image-section"]}>
+              <div className={css["product-image"]}>
+                <figure
+                  ref={imageRef}
+                  style={style}
+                  onMouseMove={handleMouseMove}
+                >
+                  <img
+                    className={css["image"]}
+                    src="/grey-linen.jpeg"
+                    alt="Grey-linen"
+                  />
+                </figure>
+              </div>
+              <ImageCarousel
+                selected={(value) => console.log(value)}
+                imagesArray={[
+                  {
+                    source: "/grey-linen.jpeg",
+                  },
+                  {
+                    source: "/grey-linen.jpeg",
+                  },
+                  {
+                    source: "/grey-linen.jpeg",
+                  },
+                  {
+                    source: "/grey-linen.jpeg",
+                  },
+                  {
+                    source: "/grey-linen.jpeg",
+                  },
+                  {
+                    source: "/grey-linen.jpeg",
+                  },
+                  {
+                    source: "/grey-linen.jpeg",
+                  },
+                ]}
+              />
             </div>
-            <ImageCarousel
-              selected={(value) => console.log(value)}
-              imagesArray={[
-                {
-                  source: "/grey-linen.jpeg",
-                },
-                {
-                  source: "/grey-linen.jpeg",
-                },
-                {
-                  source: "/grey-linen.jpeg",
-                },
-                {
-                  source: "/grey-linen.jpeg",
-                },
-                {
-                  source: "/grey-linen.jpeg",
-                },
-                {
-                  source: "/grey-linen.jpeg",
-                },
-                {
-                  source: "/grey-linen.jpeg",
-                },
-              ]}
-            />
             <div className={css.year_warranty}>
               <ul>
                 <li>
