@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable react/no-unescaped-entities */
 import NextSEO from "layout/nextseo";
 import styles from "styles/home.module.scss";
 import React from "react";

@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import css from "styles/grid-card.module.scss";
 import { BedWithImage } from "network-requests/types";
+import ClearpayIcon from "icons/clearpayicon";
 import Link from "next/link";
 
 interface ProductItemProps
@@ -32,21 +33,14 @@ const ProductCard = (props: ProductItemProps) => {
           src={image || "/fake.png"}
           className={css["cover"]}
         />
-        {coversControls && (
-          <ul className={css["controls"]}>
-            <li>
-              <img src="/bedscolor/1.jpg" alt="img" width="50" height="50" />
-            </li>
-            <li>
-              <img src="/bedscolor/2.jpg" alt="img" width="50" height="50" />
-            </li>
-          </ul>
-        )}
       </div>
       <div className={css["details"]}>
            <div className={css["clearpaycontent"]}>
            <Link href="#">
                       <a>or 4 payments of £22.25 with </a>
+              </Link>
+              <Link href="#">
+                 <a><ClearpayIcon size={100} color='#000'/></a>
               </Link>
            </div>
         <div className={css["name"]}>
@@ -57,8 +51,7 @@ const ProductCard = (props: ProductItemProps) => {
         </div>
         <p className={css["price"]}>
           <span>
-            {`£${price?.salePrice}`}
-            <del>{`£${price?.salePrice}`}</del>
+            {`£${price?.salePrice?.toFixed(2)}`}
           </span>
           {/* <span className={css["offer"]}>{percentage}% off</span> */}
         </p>
