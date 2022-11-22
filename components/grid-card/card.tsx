@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import css from "styles/grid-card.module.scss";
 import { BedWithImage } from "network-requests/types";
+import Link from "next/link";
 
 interface ProductItemProps
   extends React.ComponentPropsWithoutRef<"div">,
@@ -43,19 +44,24 @@ const ProductCard = (props: ProductItemProps) => {
         )}
       </div>
       <div className={css["details"]}>
+           <div className={css["clearpaycontent"]}>
+           <Link href="#">
+                      <a>or 4 payments of £22.25 with </a>
+              </Link>
+           </div>
         <div className={css["name"]}>
           <h2>{name}</h2>
+        </div>
+        <div className={css["trustpilot"]}>
+          <img src="/image/tru.png" alt="img" />
         </div>
         <p className={css["price"]}>
           <span>
             {`£${price?.salePrice}`}
             <del>{`£${price?.salePrice}`}</del>
           </span>
-          <span className={css["offer"]}>{percentage}% off</span>
+          {/* <span className={css["offer"]}>{percentage}% off</span> */}
         </p>
-        <div className={css["trustpilot"]}>
-          <img src="/image/tru.png" alt="img" />
-        </div>
       </div>
     </div>
   );

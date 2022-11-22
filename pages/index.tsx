@@ -1,5 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
-/* eslint-disable react/no-unescaped-entities */
 import NextSEO from "layout/nextseo";
 import styles from "styles/home.module.scss";
 import React from "react";
@@ -33,14 +31,14 @@ const Home: NextPageWithLayout = () => {
       <section className={styles.section2}>
         <div className="container">
           <div className="row">
-            <div className="col-6">
+            <div className={`${styles.mwfull} col-6`}>
               <div className={styles.section2image}>
                 <img src="/image/hdbed.webp" alt="image" />
                 <h3>Divan Beds</h3>
                 <button>shop now</button>
               </div>
             </div>
-            <div className="col-6">
+            <div className={`${styles.mwfull} col-6`}>
               <div className={styles.section2image}>
                 <img src="/image/mattress.webp" alt="image" />
                 <h3>mattresses</h3>
@@ -91,12 +89,12 @@ const Home: NextPageWithLayout = () => {
       <section className={styles.complementsection}>
         <div className="container">
           <div className="row">
-            <div className="col-8">
+            <div className={`${styles.mwfull} col-8`}>
               <div className={styles.complementcontent}>
                 <h3>Complement any interior with our stylish headboards</h3>
               </div>
             </div>
-            <div className="col-4">
+            <div className={`${styles.mwfull} col-4`}>
               <div className={styles.complementcontent1}>
                 <img src="/image/vector.webp" alt="img" />
                 <button>shop headboards</button>
@@ -109,12 +107,12 @@ const Home: NextPageWithLayout = () => {
       <section className={styles.dreambedsection}>
         <div className="container">
           <div className="row">
-            <div className="col-5">
+            <div className={`${styles.mwfull} col-5`}>
               <div className={styles.dreambedimage}>
                 <img src="/image/shutter.webp" alt="image" />
               </div>
             </div>
-            <div className="col-7">
+            <div className={`${styles.mwfull} col-7`}>
               <div className={styles.dreambedcontent}>
                 <h3>Find the bed of your dreams</h3>
                 <p>
@@ -196,12 +194,12 @@ const Home: NextPageWithLayout = () => {
       <section className={styles.onemattresssection}>
         <div className="container">
           <div className="row">
-            <div className="col-6">
+            <div className={`${styles.mwfull} col-6`}>
               <div className={styles.onemattressscontent}>
                 <img src="/image/offer.webp" alt="image" />
               </div>
             </div>
-            <div className="col-6">
+            <div className={`${styles.mwfull} col-6`}>
               <div className={styles.onemattressscontent1}>
                 <h3>We're your one-stop mattresses shop</h3>
                 <p>
@@ -268,12 +266,12 @@ const Home: NextPageWithLayout = () => {
       <section className={styles.onemattresssection}>
         <div className="container">
           <div className="row">
-            <div className="col-6">
+            <div className={`${styles.mwfull} col-6`}>
               <div className={styles.onemattressscontent}>
                 <img src="/image/shutterstock.webp" alt="image" />
               </div>
             </div>
-            <div className="col-6">
+            <div className={`${styles.mwfull} col-6`}>
               <div className={styles.onemattressscontent1}>
                 <h3>
                   Deals that don’t break the bank<br></br>— and we can deliver
@@ -305,33 +303,25 @@ const Home: NextPageWithLayout = () => {
       <section className={styles.onemattresssection}>
         <div className="container">
           <div className="row">
-            <div className="col-6">
+            <div className={`${styles.mwfull} col-6`}>
               <div className={styles.thousandcontent1}>
-                <h3>
-                  Deals that don’t break the bank<br></br>— and we can deliver
-                  in as little as 2 days.
-                </h3>
+                <h3>Thousands of happy customers over the last 10 years</h3>
                 <p>
-                  Our award-winning delivery service means you won’t be waiting
-                  around for your new bed. We have one of the fastest dispatch
-                  times in the UK, and with our live order tracking system
-                  you’ll always know when to expect us.
+                  Check out our TrustPilot reviews, you won’t be disappointed.
+                  We are confident you’ll love your new bed and that our service
+                  will leave you more than satisfied. But if you aren’t happy,
+                  we’ll happily either exchange it or give you a refund within
+                  30-days of purchase.
                 </p>
                 <p>
-                  Simply choose your bed and the type of mattress you want to go
-                  with it — and that’s it! We’ll have it delivered to you in no
-                  time.
-                </p>
-                <p>
-                  Easily transform your bed or divan with our great collection
-                  of stylish bed headboards.We stock lots of headboards for beds
-                  in a variety of colours, designs and sizes. They’re great for
-                  coordinating with a new divan bed, and can really help to
-                  further bring out the aesthetic you’re going for.
+                  The team we have is dedicated to offering an unbeatable
+                  customer service. So if there’s anything you need or any
+                  questions you want answering — just give us a call or send us
+                  an email. A friendly member of our team will be happy to help.
                 </p>
               </div>
             </div>
-            <div className="col-6">
+            <div className={`${styles.mwfull} col-6`}>
               <div className={styles.thousandcontent}>
                 <img src="/image/shutterstock1.webp" alt="image" />
               </div>
@@ -349,12 +339,12 @@ const Home: NextPageWithLayout = () => {
       <section className={styles.lastsection}>
         <div className="container">
           <div className="row">
-            <div className="col-4">
+            <div className={`${styles.mwfull} col-4`}>
               <div className={styles.lastsectionimage}>
                 <img src="/image/image21.webp" alt="img" />
               </div>
             </div>
-            <div className="col-8">
+            <div className={`${styles.mwfull} col-8`}>
               <div className={styles.lastcontent}>
                 <h3>We manufacture all beds at our UK factory</h3>
                 <p>
