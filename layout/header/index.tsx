@@ -630,7 +630,11 @@ const LogoAndSearchBar = () => {
       >
         <div ref={ref} className={css["navigation-content"]}>
           <div className={css["close-button"]}>
-            <button aria-label="menu-icon" onClick={onClickMenu}>
+            <button
+              title="close-icon"
+              aria-label="close-icon"
+              onClick={onClickMenu}
+            >
               <CloseIcon size={24} />
             </button>
           </div>
@@ -642,8 +646,17 @@ const LogoAndSearchBar = () => {
       <section className={` ${css["search-container"]} container`}>
         <div className={css["item-grid"]}>
           <div className={css["menu-bar"]}>
+<<<<<<< HEAD
             <button aria-label="menu-icon" onClick={onClickMenu}>
               <MenuIcon size={30} />
+=======
+            <button
+              title="menu-icon"
+              aria-label="menu-icon"
+              onClick={onClickMenu}
+            >
+              <MenuIcon size={20} />
+>>>>>>> bcbc95a7da638409e9b83aa907e8c116a5031048
             </button>
           </div>
           <div className={css["logo"]}>
@@ -655,7 +668,7 @@ const LogoAndSearchBar = () => {
           </div>
           <div className={css["searchbar"]}>
             <input type="text" placeholder="Search for products..." />
-            <button>
+            <button title="search" aria-label="search-icon">
               <img src="/image/SEARCH.SVG" alt="" />
             </button>
           </div>
