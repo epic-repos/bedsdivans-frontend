@@ -19,6 +19,7 @@ import GridWrapper from "components/grid-card";
 import ProductCard from "components/grid-card/card";
 import { BedWithImage } from "network-requests/types";
 import { useRouter } from "next/router";
+import RightIcon from "icons/rightarrow";
 
 const Home: NextPageWithLayout = () => {
   const { data } = useFetchAllBedsWithImage();
@@ -30,68 +31,40 @@ const Home: NextPageWithLayout = () => {
       <HeroImageContainer />
       <QuickInfo />
       <hr className={styles.banner_icons} />
-      <ProductsGrid
-        left={{
-          heading: `There's No Place Like A Bed`,
-          description: `Lord bless the person who invented beds! Choose from a wide variety to suit your needs and preferences.`,
-          image: "/images/z.png",
-        }}
-        right={{
-          images: gridImages.listOne,
-        }}
-        swipe={false}
-      />
-      <ProductsGrid
-        left={{
-          heading: `Secret To Good Sleep`,
-          description: `Your mattress plays a major role iin one's sleep cycle. The right mattress will ensure you get a good night's sleep every night`,
-          image: "/images/z.png",
-        }}
-        right={{
-          images: gridImages.listTwo,
-        }}
-        swipe={true}
-      />
-      <Title
-        title="Our Quality Products"
-        description="Get up Refresh Every day"
-        style={{
-          background: "#f5f5f5",
-        }}
-      />
-      <CategoryContainer />
-
-      <section className={styles.box3}>
+      <section className={styles.section2}>
         <div className="container">
           <div className="row">
-            <div className="col-12">
-              <div className={styles.perfectbed}>
-                <p>
-                  <strong>Why wait for the perfect bed?</strong>
-                  Spread the cost of your order with interest free credit
-                </p>
+            <div className="col-6">
+              <div className={styles.section2image}>
+                <img src="/image/hdbed.webp" alt="image" />
+                <h3>Divan Beds</h3>
+                <button>shop now</button>
+              </div>
+            </div>
+            <div className="col-6">
+              <div className={styles.section2image}>
+                <img src="/image/mattress.webp" alt="image" />
+                <h3>mattresses</h3>
+                <button>shop now</button>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <Title
-        title="Best-seller of the season"
-        description="Get up Refresh Every day"
-      />
-      {/* <ProductListing
-        productList={data?.pages?.["0"]?.data || []}
-        itemClassName="col-3"
-      /> */}
-      <div
-        style={{
-          background: "#f5f5f5",
-          padding: "2rem 0",
-        }}
-      >
+      <section className={styles.section3}>
         <div className="container">
+          <div className="row">
+            <div className="col-12">
+              <div className={styles.section3content}>
+                <h3>Best Selling Beds</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div className={styles.bestsellingproduct}>
           <GridWrapper grid="4" gap="2rem">
-            {data?.pages?.["0"]?.data?.map((item: BedWithImage, index) => {
+            {data?.pages?.["0"]?.data?.slice(0,4).map((item: BedWithImage, index) => {
               return (
                 <ProductCard
                   name={item?.name}
@@ -111,84 +84,207 @@ const Home: NextPageWithLayout = () => {
               );
             })}
           </GridWrapper>
-        </div>
+          <button>shop divan beds</button>
       </div>
-      <Title title="Featured" />
-      <FeatureSlider />
-      <TitleWIthBackground
-        title="Their words, our pride"
-        description="DBZ words of our happy customers"
-      />
+      {/* <CategoryContainer /> */}
+     <section className={styles.complementsection}>
+            <div className="container">
+               <div className="row">
+                   <div className="col-8">
+                    <div className={styles.complementcontent}>
+                       <h3>Complement any interior with our stylish headboards</h3>
+                    </div>
+                   </div>
+                   <div className="col-4">
+                    <div className={styles.complementcontent1}>
+                        <img src="/image/vector.webp" alt="img" />
+                        <button>shop headboards</button>
+                    </div>
+                   </div>
+               </div>
+            </div>
+     </section> 
 
-      <div className={`${styles["explore-mattress"]} section`}>
-        <div className="container">
+    <section className={styles.dreambedsection}>
+       <div className="container">
           <div className="row">
-            <div className="col-md-12 text-center">
-              <div className={styles["section-title"]}>
-                <h2 className={`${styles["heading"]}  ${styles["blue-color"]}`}>
-                  Explore Our Mattresses Set
-                </h2>
-                <p className={styles["description"]}>
-                  We’re one of the UK’s leading manufacturers of cheap divan
-                  beds, offering a rich selection of <br />
-                  products in a variety of styles.
-                </p>
+             <div className="col-5"> 
+             <div className={styles.dreambedimage}>
+                <img src="/image/shutter.webp" alt="image" />
+             </div>
+             </div>
+             <div className="col-7"> 
+             <div className={styles.dreambedcontent}>
+                <h3>Find the bed of your dreams</h3>
+                <p>You don’t have to spend a fortune to sleep on a super comfortable bed. Gone are the days when luxury and comfort meant emptying the bank account. Now, thanks to innovation and advances in technology, there are hundreds of cheap beds to choose from that both look and feel great. </p>
+                <p>We are one of the UK’s largest manufacturers of cheap beds for sale online and suppliers of top brands. With an enormous selection of affordable beds, bed frames, headboards, and mattresses — to suit just about every style, purpose and taste you can think of. Including:</p>
+                 <div className={styles.dreambedcontent1}>
+                 <ul>
+                  <li>
+                    <p><RightIcon size={40} color='#222178'/>The UK’s largest selection of cheap divan beds</p>
+                  </li>
+                  <li>
+                    <p><RightIcon size={40} color='#222178'/>Cheap small double and double beds with mattresses</p>
+                  </li>
+                  <li>
+                    <p><RightIcon size={40} color='#222178'/>Cheap king size and super king size beds</p>
+                  </li>
+                </ul>
+                 </div>
+             </div>
+             </div>
+          </div> 
+       </div>
+    </section>
+      <section className={styles.mattresssection}>
+          <div className="container">
+              <div className="row"> 
+                  <div className="col-12">
+                     <h3>Best Selling Mattresses</h3>
+                  </div>
               </div>
-            </div>
           </div>
-          <div className="container-fluid">
-            <div className="row">
-              <div
-                className={`${styles["mattres_sectionb"]} col-12`}
-                style={{ cursor: "pointer", padding: "0" }}
-              >
-                <Link href="/product/Mattressess">
-                  <Image
-                    className={styles.mattress_bannerone}
-                    src="/assets/images/mattressbanner/Group 693@2x.png"
-                    width={1700}
-                    height={400}
-                    alt="mattressess"
-                  />
-                </Link>
-              </div>
-            </div>
-            <div className={styles["fluid-row"]}>
-              <div className="col-6 col-xs-12" style={{ cursor: "pointer" }}>
-                <Link href="/mattressess/Mattressessproduct?title=Pillow%20Top%201500%20Pocket%20Medium%20firm%20Mattress%20Free%20UK%20Delivery">
-                  <Image
-                    src="/assets/images/mattressbanner/Group 696@2x.png"
-                    width={700}
-                    height={700}
-                    alt="mattressess"
-                  />
-                </Link>
-              </div>
-              <div className="col-6 col-xs-12" style={{ cursor: "pointer" }}>
-                <Link href="/mattressess/Mattressessproduct?title=Orthopedic%20Foam%20and%20Spring%20Mattress%20Medium%20Firmness">
-                  <Image
-                    src="/assets/images/mattressbanner/Group 694@2x.png"
-                    width={600}
-                    height={295}
-                    alt="mattressess"
-                  />
-                </Link>
-                <div className="" style={{ cursor: "pointer" }}>
-                  <Link href="/mattressess/Mattressessproduct?title=1500%20Pocket%20Tinsel%20Medium%20Firmness%20Mattress%20Free%20UK%20Delivery">
-                    <Image
-                      src="/assets/images/mattressbanner/Group 695@2x.png"
-                      width={600}
-                      height={295}
-                      alt="mattressess"
-                    />
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      </section>
+      <div className={styles.bestsellingproduct}>
+          <GridWrapper grid="4" gap="2rem">
+            {data?.pages?.["0"]?.data?.slice(0,4).map((item: BedWithImage, index) => {
+              return (
+                <ProductCard
+                  name={item?.name}
+                  price={item?.price}
+                  image={item?.image}
+                  key={index}
+                  coversControls
+                  onClick={() =>
+                    router.push({
+                      pathname: `/products/${item._id}`,
+                      query: {
+                        size: item?.variants && item?.variants[0]?.size,
+                      },
+                    })
+                  }
+                />
+              );
+            })}
+          </GridWrapper>
+          <button>shop divan beds</button>
       </div>
-      <BottomTextContent />
+      <section className={styles.onemattresssection}>
+          <div className="container">
+             <div className="row">
+                <div className="col-6"> 
+                <div className={styles.onemattressscontent}> 
+                     <img src="/image/offer.webp" alt="image" />
+                </div>
+                </div>
+                <div className="col-6"> 
+                <div className={styles.onemattressscontent1}> 
+                 <h3>We're your one-stop mattresses shop</h3>
+                 <p>Mattress shopping shouldn’t have to be difficult or expensive. And sleep shouldn’t be complicated either. That’s why we’ve collected only the best and most comfortable affordable mattresses — available at very low prices.</p>
+                 <p>Choose a mattress that you like and we’ll not only deliver it to you, but we’ll also take your old one away. Mattress shopping has never been easier or more convenient. Our mattresses are loved by our customers, and we’ve always got plenty of fantastic deals and sales on. So, from traditional spring, to memory foam or orthopaedic mattresses, make sure to view our range today. And if you can’t find what you’re looking for — just ask!</p>
+                 <p>One of our expert team members will be happy to source the right one for you. Either way, you’re only a few clicks away from having a comfier, better night’s sleep.</p>
+                </div>
+                </div>
+             </div>
+          </div>
+      </section>
+      <section className={styles.mattresssection}>
+          <div className="container">
+              <div className="row"> 
+                  <div className="col-12">
+                     <h3>Sleigh Bed Set</h3>
+                  </div>
+              </div>
+          </div>
+      </section>
+      <div className={styles.bestsellingproduct}>
+          <GridWrapper grid="4" gap="2rem">
+            {data?.pages?.["0"]?.data?.slice(0,4).map((item: BedWithImage, index) => {
+              return (
+                <ProductCard
+                  name={item?.name}
+                  price={item?.price}
+                  image={item?.image}
+                  key={index}
+                  coversControls
+                  onClick={() =>
+                    router.push({
+                      pathname: `/products/${item._id}`,
+                      query: {
+                        size: item?.variants && item?.variants[0]?.size,
+                      },
+                    })
+                  }
+                />
+              );
+            })}
+          </GridWrapper>
+          <button>shop divan beds</button>
+      </div>
+      <section className={styles.onemattresssection}>
+          <div className="container">
+             <div className="row">
+                <div className="col-6"> 
+                <div className={styles.onemattressscontent}> 
+                     <img src="/image/shutterstock.webp" alt="image" />
+                </div>
+                </div>
+                <div className="col-6"> 
+                <div className={styles.onemattressscontent1}> 
+                 <h3>Deals that don’t break the bank<br></br>— and we can deliver in as little as 2 days.</h3>
+                 <p>Our award-winning delivery service means you won’t be waiting around for your new bed. We have one of the fastest dispatch times in the UK, and with our live order tracking system you’ll always know when to expect us.</p>
+                 <p>Simply choose your bed and the type of mattress you want to go with it — and that’s it! We’ll have it delivered to you in no time.</p>
+                 <p>Easily transform your bed or divan with our great collection of stylish bed headboards.We stock lots of headboards for beds in a variety of colours, designs and sizes. They’re great for coordinating with a new divan bed, and can really help to further bring out the aesthetic you’re going for.</p>
+                </div>
+                </div>
+             </div>
+          </div>
+      </section>  
+      <section className={styles.onemattresssection}>
+          <div className="container">
+             <div className="row">
+                <div className="col-6"> 
+                <div className={styles.thousandcontent1}> 
+                 <h3>Deals that don’t break the bank<br></br>— and we can deliver in as little as 2 days.</h3>
+                 <p>Our award-winning delivery service means you won’t be waiting around for your new bed. We have one of the fastest dispatch times in the UK, and with our live order tracking system you’ll always know when to expect us.</p>
+                 <p>Simply choose your bed and the type of mattress you want to go with it — and that’s it! We’ll have it delivered to you in no time.</p>
+                 <p>Easily transform your bed or divan with our great collection of stylish bed headboards.We stock lots of headboards for beds in a variety of colours, designs and sizes. They’re great for coordinating with a new divan bed, and can really help to further bring out the aesthetic you’re going for.</p>
+                </div>
+                </div>
+                <div className="col-6"> 
+                <div className={styles.thousandcontent}> 
+                     <img src="/image/shutterstock1.webp" alt="image" />
+                </div>
+                </div>
+             </div>
+          </div>
+      </section>  
+      <section className={styles.bannerimage}>
+          <div className="container"> 
+             <div className="row">
+               <div className="col-12">
+               </div>
+             </div>
+          </div>
+      </section>
+      <section className={styles.lastsection}>
+         <div className="container">
+            <div className="row">
+               <div className="col-4">
+                <div className={styles.lastsectionimage}>
+                   <img src="/image/image21.webp" alt="img" />
+                </div>
+               </div>
+               <div className="col-8">
+                <div className={styles.lastcontent}>
+                   <h3>We manufacture all beds at our UK factory</h3>
+                   <p>Check out our TrustPilot reviews, you won’t be disappointed. We are confident you’ll love your new bed and that our service will leave you more than satisfied. But if you aren’t happy, we’ll happily either exchange it or give you a refund within 30-days of purchase.</p>
+                   <p>The team we have is dedicated to offering an unbeatable customer service. So if there’s anything you need or any questions you want answering — just give us a call or send us an email. A friendly member of our team will be happy to help.</p>
+                </div>
+               </div>
+            </div>
+         </div>
+      </section>
     </React.Fragment>
   );
 };

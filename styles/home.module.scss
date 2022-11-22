@@ -833,3 +833,173 @@ section.qualityproducts {
 .award-section-destop {
   display: none;
 }
+.section2image img {
+  width: 600px;
+  padding-bottom: 20px;
+}
+.section2image button {
+  margin: 0 auto;
+  display: block;
+  padding: 14px 75px 14px 75px;
+  border-radius: 10px 10px 10px 10px;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 500;
+  background-color: #222178;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+}
+.section2image h3 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: #222178;
+  padding-bottom: 10px;
+}
+.section2 {
+  padding: 35px 0px 35px 0px;
+}
+.section3content h3 {
+  text-align: center;
+  color: #222178;
+  font-family: "Roboto", Sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+}
+.bestsellingproduct {
+  margin: 25px 25px 0 25px;
+}
+.bestsellingproduct button {
+  background-color: #122178;
+  border-radius: 10px 10px 10px 10px;
+  padding: 12px 80px 12px 80px;
+  font-size: 22px;
+  font-weight: 500;
+  margin: 0 auto;
+  display: block;
+  margin-top: 30px;
+  color: #fff;
+    text-transform: uppercase;
+}
+.complementsection {
+  background-color: #122178;
+  margin-top: 30px;
+}
+.complementcontent h3 {
+  color: #fff;
+  text-align: end;
+  padding: 40px 0 40px 0px;
+}
+.complementcontent1 img {
+  padding: 40px 0 0 0;
+    width: 40px;
+}
+.complementcontent1 button {
+  padding: 15px 90px 15px 90px;
+  border-radius: 7px 7px 7px 7px;
+  background-color: #F3F3F3;
+  color: #000000;
+  text-transform: uppercase;
+  font-weight: 500;
+  position: relative;
+  left: 100px;
+  top: 20px;
+}
+.dreambedcontent h3 {
+  font-size: 38px;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  color: #222178;
+}
+.dreambedcontent p {
+  font-size: 18px;
+  font-weight: 400;
+  width: 876px;
+  line-height: 28px;
+}
+.dreambedsection {
+  padding: 40px 0px 0px 0px;
+}
+.dreambedcontent {
+  padding: 20px 0px 0px 0px;
+}
+.dreambedcontent1 ul li p {
+  font-size: 16px;
+  font-weight: 400;
+}
+.mattresssection h3 {
+  text-align: center;
+    color: #222178;
+    font-family: "Roboto", Sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+}
+.onemattressscontent1 {
+  padding: 80px 0 0 0;
+    margin-left: 10px;
+}
+.onemattressscontent1 h3 {
+  font-size: 29px;
+  color: #222178;
+  font-weight: 600;
+  font-family: "Roboto", Sans-serif;
+}
+.onemattressscontent1 p {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 26px;
+  width: 767px;
+  margin-bottom: 12px;
+  margin-top: 15px;
+}
+.onemattressscontent img {
+  padding-top: 80px;
+}
+.thousandcontent img {
+  padding-top: 80px;
+}
+.thousandcontent1 p {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 26px;
+  margin-bottom: 12px;
+  margin-top: 15px;
+}
+.thousandcontent1 h3 {
+  font-size: 29px;
+  color: #222178;
+  font-weight: 600;
+  font-family: "Roboto", Sans-serif;
+}
+.thousandcontent1 {
+  margin-top: 80px;
+}
+.lastcontent {
+  margin-left: 50px;
+}
+.lastcontent h3 {
+  font-size: 29px;
+  color: #222178;
+  font-weight: 600;
+  font-family: "Roboto", Sans-serif;
+}
+.lastcontent p {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 26px;
+  margin-bottom: 12px;
+  margin-top: 15px;
+  width: 910px;
+}
+.lastsection {
+  margin-top: 55px;
+  margin-bottom: 20px;
+}
+.bannerimage {
+  background-image: url('../public/image/mattressesbanner.webp');
+  padding: 240px;
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: cover;
+}
