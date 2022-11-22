@@ -40,6 +40,18 @@ const NewProductPage = () => {
   };
 
   return (
+    <>
+    <section className={css["producttitle"]}>
+      <div className="container">
+        <div className="row">
+          <div className="col-12">
+             <div className={css["productname1"]}>
+               <h1>Grey Linen Divan Bed Base or Set Headboard & Mattress Free Uk Delivery</h1>
+             </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <div>
       <div className="container">
         <div className={`${css["grid"]}`}>
@@ -349,6 +361,7 @@ const NewProductPage = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
