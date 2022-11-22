@@ -11,7 +11,7 @@ import GridWrapper from "components/grid-card";
 import { BedWithImage } from "network-requests/types";
 import ProductCard from "components/grid-card/card";
 
-const OttomanBed: NextPageWithLayout = () => {
+const AmbassadorRange: NextPageWithLayout = () => {
   const { data } = useFetchAllBedsWithImage("Leather-beds");
   return (
     <>
@@ -20,7 +20,7 @@ const OttomanBed: NextPageWithLayout = () => {
         <div className={` ${styles.section_first} container-fluid`}>
           <div className="row">
             <div className="col-12">
-              <h1 className={styles.headingh1}>Ottoman Beds</h1>
+              <h1 className={styles.headingh1}>Ambassador Range</h1>
             </div>
           </div>
         </div>
@@ -125,6 +125,6 @@ const OttomanBed: NextPageWithLayout = () => {
     </>
   );
 };
-export default OttomanBed;
+export default AmbassadorRange;
 
-OttomanBed.getLayout = PerPageLayout;
+AmbassadorRange.getLayout = PerPageLayout;
