@@ -50,7 +50,7 @@ const BedsTabs = ({
           <BedSizeTab
             items={productsPayload?.availabeSizes}
             value={bedState.bed.size} // LIKE ISACTIVE
-            onClickItem={(data) => {
+            onClickItem={(data: any) => {
               setBed(data);
               sizeHandler(`/products/${productsPayload._id}`, data?.value);
             }}

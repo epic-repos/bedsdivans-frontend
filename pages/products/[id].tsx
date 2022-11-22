@@ -1,22 +1,90 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @next/next/no-img-element */
-import PerPageLayout from "layout/perpage";
 import React from "react";
-import css from "styles/product/page.module.scss";
 import Image from "next/image";
+import ArrowLeft from "icons/ArrowLeft";
+import ArrowRight from "icons/ArrowRight";
+import PerPageLayout from "layout/perpage";
+import css from "styles/product/page.module.scss";
+
+const bedStorageArray = [
+  {
+    text: "No Drawers",
+    value: "no-drawers",
+  },
+  {
+    text: "2 Drawers – £45",
+    value: "2-drawers-45",
+  },
+];
+
 const NewProductPage = () => {
+  const imageRef = React.useRef(null);
+  const src = "/grey-linen.jpeg";
+  const [style, setStyle] = React.useState<React.CSSProperties>({
+    backgroundSize: "cover",
+    backgroundPosition: "0% 0%",
+    backgroundImage: `url(${src})`,
+    backgroundRepeat: "no-repeat",
+  });
+  const handleMouseMove = React.useCallback(
+    (e: any) => {
+      const { left, top, width, height } = e.target.getBoundingClientRect();
+      const x = ((e.pageX - left) / width) * 100;
+      const y = ((e.pageY - top) / height) * 100;
+      setStyle({
+        ...style,
+        backgroundPosition: `${x}% ${y}%`,
+      });
+    },
+    [style]
+  );
+
   return (
     <div>
       <div className="container">
         <div className={`${css["grid"]}`}>
           <div className={`${css["left"]}`}>
-            <div className={css.product_image}>
-              <Image
-                src="/grey-linen.jpeg"
-                alt="Grey-linen"
-                height={424}
-                width={600}
-              ></Image>
+            <div className={css["product-image"]}>
+              <figure
+                ref={imageRef}
+                style={style}
+                onMouseMove={handleMouseMove}
+              >
+                <Image
+                  src="/grey-linen.jpeg"
+                  alt="Grey-linen"
+                  height={424}
+                  width={600}
+                />
+              </figure>
             </div>
+            <ImageCarousel
+              selected={(value) => console.log(value)}
+              imagesArray={[
+                {
+                  source: "/grey-linen.jpeg",
+                },
+                {
+                  source: "/grey-linen.jpeg",
+                },
+                {
+                  source: "/grey-linen.jpeg",
+                },
+                {
+                  source: "/grey-linen.jpeg",
+                },
+                {
+                  source: "/grey-linen.jpeg",
+                },
+                {
+                  source: "/grey-linen.jpeg",
+                },
+                {
+                  source: "/grey-linen.jpeg",
+                },
+              ]}
+            />
             <div className={css.year_warranty}>
               <ul>
                 <li>
@@ -253,11 +321,26 @@ const NewProductPage = () => {
                   </ul>
                 </div>
               </div>
-              <SelectOption label="Select Your Size" />
-              <SelectOption label="Storage Options" />
-              <SelectOption label="Select Your Feet" />
-              <SelectOption label="Select Your Headboard" />
-              <SelectOption label="Select Your Mattress" />
+              <SelectOption
+                dataArray={bedStorageArray}
+                label="Select Your Size"
+              />
+              <SelectOption
+                dataArray={bedStorageArray}
+                label="Storage Options"
+              />
+              <SelectOption
+                dataArray={bedStorageArray}
+                label="Select Your Feet"
+              />
+              <SelectOption
+                dataArray={bedStorageArray}
+                label="Select Your Headboard"
+              />
+              <SelectOption
+                dataArray={bedStorageArray}
+                label="Select Your Mattress"
+              />
             </div>
             <div>
               <AddToBasket />
@@ -273,48 +356,117 @@ export default NewProductPage;
 
 NewProductPage.getLayout = PerPageLayout;
 
-// METHOD 1
-interface SelectOptionProps {
+interface SelectOptionProps extends React.ComponentPropsWithoutRef<"select"> {
   label: string;
+  dataArray: {
+    text: string;
+    value: string;
+  }[];
 }
 
-// METHOD 2
-// type SelectOptionProps = {
-//   label: string;
-// };
-
 const SelectOption = (props: SelectOptionProps) => {
+  const { label, dataArray, ...rest } = props;
   return (
     <div className={css["select-size"]}>
       <label>{props.label}</label>
       <div className={css["dropdown"]}>
-        <select>
-          <option value="2 feet">2FT 6″ – Small Single – £89</option>
-          <option value="3 feet">3FT – Single – £129</option>
-          <option value="4 feet">4FT – Small Double – £179</option>
-          <option value="4 feet 6 inch">4FT 6″ – Double – £179</option>
-          <option value="5 feet">5FT – King – £209</option>
-          <option value="6 feet">6FT – Super King – £239</option>
+        <select {...rest}>
+          {dataArray.map((data, index) => {
+            return (
+              <option key={index} value={data.value}>
+                {data.text}
+              </option>
+            );
+          })}
         </select>
       </div>
     </div>
   );
 };
+
+interface AddToBasketProps {}
 const AddToBasket = () => {
+  const [count, setCount] = React.useState(0);
+
+  const increaseCount = React.useCallback(() => {
+    setCount((i) => i + 1);
+  }, []);
+  const decreaseCount = React.useCallback(() => {
+    if (count > 0) {
+      setCount((i) => i - 1);
+    }
+  }, [count]);
+
   return (
     <div>
       <div className={css["basket-row"]}>
         <div className={css["basket-count"]}>
-          <button>-</button>
+          <button onClick={decreaseCount}>-</button>
           <div className={css["input"]}>
-            <input type={"number"} />
+            <input type={"number"} value={count} />
           </div>
-          <button>+</button>
+          <button onClick={increaseCount}>+</button>
           <button className={css["addToBasket"]}>ADD TO BASKET</button>
         </div>
-
         <button className={css["size-guide"]}>SIZE GUIDE</button>
       </div>
+    </div>
+  );
+};
+
+interface ImageTypes {
+  source: string;
+  [K: string]: any;
+}
+
+interface ImageCarouselProps {
+  imagesArray: ImageTypes[];
+  selected: (value: ImageTypes) => void;
+}
+
+const ImageCarousel = ({ imagesArray, selected }: ImageCarouselProps) => {
+  const containerRef = React.useRef<HTMLUListElement>(null);
+  const gapping = 10;
+  const imageWidth = 100;
+  const totalScroll = imageWidth + gapping;
+
+  const scrollLeft = React.useCallback(() => {
+    containerRef.current?.scrollBy({
+      behavior: "smooth",
+      left: -totalScroll,
+    });
+  }, [totalScroll]);
+  const scrollRight = React.useCallback(() => {
+    containerRef.current?.scrollBy({
+      behavior: "smooth",
+      left: totalScroll,
+    });
+  }, [totalScroll]);
+
+  const onSelectImage = React.useCallback(
+    (data: ImageTypes) => {
+      if (selected) {
+        selected(data);
+      }
+    },
+    [selected]
+  );
+
+  return (
+    <div className={css["image-lists"]}>
+      <span onClick={scrollLeft} className={css["arrow-left"]}>
+        <ArrowLeft color="#fff" size={32} />
+      </span>
+      <ul ref={containerRef}>
+        {imagesArray.map((data, index) => (
+          <li key={index} onClick={() => onSelectImage(data)}>
+            <img src={data.source} alt="" />
+          </li>
+        ))}
+      </ul>
+      <span onClick={scrollRight} className={css["arrow-right"]}>
+        <ArrowRight color="#fff" size={32} />
+      </span>
     </div>
   );
 };

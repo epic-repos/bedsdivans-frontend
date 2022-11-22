@@ -56,6 +56,7 @@ function DynamicInputFields({
 
   useEffect(() => {
     getValue(inputFields);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inputFields]);
 
   options?.map((item) => {
