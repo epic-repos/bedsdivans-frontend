@@ -646,17 +646,12 @@ const LogoAndSearchBar = () => {
       <section className={` ${css["search-container"]} container`}>
         <div className={css["item-grid"]}>
           <div className={css["menu-bar"]}>
-<<<<<<< HEAD
-            <button aria-label="menu-icon" onClick={onClickMenu}>
-              <MenuIcon size={30} />
-=======
             <button
               title="menu-icon"
               aria-label="menu-icon"
               onClick={onClickMenu}
             >
               <MenuIcon size={20} />
->>>>>>> bcbc95a7da638409e9b83aa907e8c116a5031048
             </button>
           </div>
           <div className={css["logo"]}>
