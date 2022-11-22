@@ -8,6 +8,7 @@ import css from "styles/layout.module.scss";
 
 const TrustPilotAndContact = () => {
   return (
+    <>
     <section className={css.container}>
       <div className="container">
         <div className={css["row"]}>
@@ -53,6 +54,38 @@ const TrustPilotAndContact = () => {
         </div>
       </div>
     </section>
+
+<section className={css.topheader1}>
+     <div className="container">
+         <div className="row">
+            <div className="col-12">
+                <div className={css.topheader12}>
+                <ul>
+              <li>
+                <span>
+                  <MailIcon size={18} />
+                </span>
+                <span className={css["text"]}>info@bedsdivans.co.uk</span>
+              </li>
+              <li>
+                <span>
+                  <PhoneIcon size={14} />
+                </span>
+                <span
+                  className={css["text"]}
+                  onClick={() => Router.push("/account")}
+                >
+                  01902405535
+                </span>
+              </li>
+            </ul>
+                </div>
+            </div>
+         </div>
+     </div>
+</section>
+
+</>
   );
 };
 export default TrustPilotAndContact;

@@ -18,7 +18,7 @@ const Footer = () => {
       <section className={Style.mainfooter}>
       <div className="container">
          <div className="row">
-            <div className="col-3">
+            <div className={`${Style.mwfull} col-3`}>
               <div className={Style.footer1}>
                  <ul>
                   <li><img src="/image/wplogo.webp" alt="logo" /></li>
@@ -55,7 +55,7 @@ const Footer = () => {
            </div>
               </div>
             </div>
-            <div className="col-3">
+            <div className={`${Style.mwfull} col-3`}>
               <div className={Style.footer2}>
                  <h3>USEFUL LINKS</h3>
                  <ul>
@@ -97,7 +97,7 @@ const Footer = () => {
                  </ul>
               </div>
             </div>
-            <div className="col-3">
+            <div className={`${Style.mwfull} col-3`}>
             <div className={Style.footer2}>
                  <h3>ADDITIONAL LINKS</h3>
                  <ul>
@@ -144,7 +144,7 @@ const Footer = () => {
                  </ul>
               </div>
             </div>
-            <div className="col-3">
+            <div className={`${Style.mwfull} col-3`}>
              <div className={Style.footer2}>
                 <h3>LATEST BLOGS</h3>
                 <ul>

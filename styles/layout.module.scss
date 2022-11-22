@@ -400,6 +400,9 @@ $tab: 768px;
     padding: 8px 0 0;
   }
 }
+.topheader1 {
+  display: none;
+}
 .contact-container ul li {
   font-size: 16px;
   font-weight: 500;
@@ -422,7 +425,6 @@ $tab: 768px;
   font-size: 15px;
 }
 .controls ul li {
-  // margin-left: 20px;
   position: relative;
 }
 .texts {
@@ -445,7 +447,28 @@ $tab: 768px;
   top: -6px;
   right: -2px;
 }
-
+.topheader12 ul {
+   display: flex;
+   justify-content: space-around;
+}
+.topheader1 {
+  background-color: #f2f2f2;
+  padding: 10px 0 0 0;
+}
+@media (max-width:500px) {
+  .topheader1 {
+    display: block;
+  }
+  .container {
+    display: none;
+  }
+  .controls ul li:nth-child(1) {
+    display: none;
+  }
+  .controls {
+    margin-right: 20px;
+  }
+}
 /***********************************************
  FOOTER STYLE
 ***********************************************/

@@ -168,3 +168,10 @@ p {
   background-color: #222178;
   border-top: 1px solid #FFFFFF40;
 }
+
+
+@media (max-width:500px) {
+  .mainfooter .mwfull {
+    width: 100%;
+  }
+}
