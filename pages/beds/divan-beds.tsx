@@ -50,7 +50,7 @@ const DivanBed: NextPageWithLayout = () => {
                 <li>Divan Bed</li>
               </ul>
             </div>
-            <div className="col-9">
+            <div className={`${styles.mwfull} col-9`}>
               <ul className={styles.items}>
                 <li className={styles.showingitems}>
                   <p className={styles.parashowing}>

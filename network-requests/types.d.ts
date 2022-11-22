@@ -7,8 +7,8 @@ type GetAllBedsParams = {
 
 interface ProductType {
     name?: string;
-    image?: string;
     price?: string;
+    image?: string;
 }
 
 interface AccessoriesTypes {
@@ -143,29 +143,29 @@ interface OrderRequestPayload {
         image: string;
     }[];
     shippingAddress?:
-    | {
-        address?: string | undefined;
-        townCity?: string | undefined;
-        postalCode?: string | undefined;
-        country?: string | undefined;
-        companyName?: string | undefined;
-    }
-    | undefined;
+        | {
+              address?: string | undefined;
+              townCity?: string | undefined;
+              postalCode?: string | undefined;
+              country?: string | undefined;
+              companyName?: string | undefined;
+          }
+        | undefined;
     totalPrice: number;
 
     payment?:
-    | {
-        paymentMethod: string;
-        paymentResult?:
         | {
-            id?: string | undefined;
-            status?: string | undefined;
-            update_time?: string | undefined;
-            email_address?: string | undefined;
-        }
+              paymentMethod: string;
+              paymentResult?:
+                  | {
+                        id?: string | undefined;
+                        status?: string | undefined;
+                        update_time?: string | undefined;
+                        email_address?: string | undefined;
+                    }
+                  | undefined;
+          }
         | undefined;
-    }
-    | undefined;
 
     orderNotes?: string | undefined;
 
