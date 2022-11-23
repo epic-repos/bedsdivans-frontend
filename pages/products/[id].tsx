@@ -13,6 +13,11 @@ import { dehydrate, QueryClient } from "react-query";
 import { useRouter } from "next/router";
 import { useFetchBedVariantsByIdAndSize } from "network-requests/queries";
 import useAppDispatch from "store/hooks/usedispatch";
+<<<<<<< HEAD
+=======
+import { nanoid } from "@reduxjs/toolkit";
+import Link from "next/link";
+>>>>>>> e4b81fe8951a9049fb75c75aaa35d8dbb0df06a3
 import addtocart from "store/slices/addtocart";
 
 const bedStorageArray = [
