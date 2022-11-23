@@ -16,11 +16,14 @@ const iconColor = "#777";
 const CartPage: NextPageWithLayout = () => {
   const {
     cartState: { cartItems, cartTotalAmount, cartTotalQuantity },
+
     removeFromCart,
     decreaseQuantity,
     increaseQuantity,
   } = useAddCart();
   const router = useRouter();
+
+  console.log({ cartItems, cartTotalAmount, cartTotalQuantity });
 
   let cartArray: any = [];
 
@@ -64,8 +67,8 @@ const CartPage: NextPageWithLayout = () => {
                             key={index}
                             name="Side Opening Storage Ottoman Mocha Linen CLEARANCE DEAL"
                             imageUrl={data.bed.image}
-                            price={`£${data.total}`}
-                            totalPrice={`£${data.total}`}
+                            price={`£${data.bed.price}`}
+                            totalPrice={`£${data.bed.price}`}
                             onAddQuantity={() => increaseQuantity(data.bed.id)}
                             onRemoveQuantity={() =>
                               decreaseQuantity(data.bed.id)

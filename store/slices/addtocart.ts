@@ -25,12 +25,12 @@ const addToCartSlice = createSlice({
                 itemInCart.quantity = itemInCart.quantity + 1;
                 state.cartTotalQuantity = state.cartTotalQuantity + 1;
                 state.cartTotalAmount =
-                    state.cartTotalAmount + action.payload.total;
+                    Number(state.cartTotalAmount + action.payload.total);
             } else {
                 state.cartItems.push({ ...action.payload, quantity: 1 }) as any;
                 state.cartTotalQuantity = 1 as number;
                 state.cartTotalAmount =
-                    state.cartTotalAmount + action.payload.total;
+                    Number(state.cartTotalAmount + action.payload.total);
             }
         },
         increaseQuantity: (state, action) => {
@@ -41,7 +41,7 @@ const addToCartSlice = createSlice({
                 item.quantity = (item?.quantity + 1) as number;
                 state.cartTotalQuantity = (state.cartTotalQuantity +
                     1) as number;
-                state.cartTotalAmount = (state.cartTotalAmount +
+                state.cartTotalAmount = Number(state.cartTotalAmount +
                     item.total) as number;
             }
         },
@@ -58,7 +58,7 @@ const addToCartSlice = createSlice({
                     item.quantity = (item?.quantity - 1) as number;
                     state.cartTotalQuantity = (state.cartTotalQuantity -
                         1) as number;
-                    state.cartTotalAmount = (state.cartTotalAmount -
+                    state.cartTotalAmount = Number(state.cartTotalAmount -
                         item.total) as number;
                 }
             }
@@ -75,7 +75,7 @@ const addToCartSlice = createSlice({
 
             state.cartTotalQuantity = state.cartTotalQuantity - item.quantity;
             state.cartTotalAmount =
-                state.cartTotalAmount -
+                Number(state.cartTotalAmount) -
                 Number(item.total) * Number(item.quantity);
         },
     },

@@ -13,6 +13,7 @@ const useAddCart = () => {
 
     const { push } = useRouter();
     const cartState = useAppSelector((state) => state.addToCart);
+
     // ADD FROM CART
     const addToCart = React.useCallback(
         (data: any) => {
