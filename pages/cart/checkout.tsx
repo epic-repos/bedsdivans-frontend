@@ -167,12 +167,11 @@ const Checkout: NextPageWithLayout = () => {
                     item (s)
                   </p>
                   {cartItems.map((data, index) => {
-                    // console.log(data);
                     return (
                       <BagItemsSummary
-                        onRemove={() => removeFromCart(data.bed.id)}
                         {...data}
                         key={index}
+                        onRemove={() => removeFromCart(data.bed.id)}
                       />
                     );
                   })}
@@ -371,6 +370,7 @@ const BagItemsSummary = ({ accessories, bed, onRemove }: ItemsSummaryProps) => {
             <li>
               <span>Bed Color </span>
               <span>:</span>
+
               <span>{accessories?.color?.name?.label}</span>
             </li>
             <li>
