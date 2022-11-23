@@ -595,9 +595,25 @@ const Description = () => {
         <li>free castor wheel’s legs are included</li>
         <li>3 different Mattress options and 4 headboard options available</li>
         <li>Made in the UK</li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li>1-year guarantee included on a full set</li>
+        <li>Headboard can be fitted on either side of the base for a 2 draw same side option</li>
+        <li>Base height is 12” without the feet</li>
+      </ul>
+      <h3>Dimensions:</h3>
+      <ul>
+        <li>Single W: 90cm L: 190cm</li>
+        <li>Small Double W: 120cm L: 190cm</li>
+        <li>Double W: 135cm L: 190cm</li>
+        <li>King Size W: 150cm L: 200cm</li>
+        <li>Super King Size W: 180cm L: 200cm</li>
+        <p><strong>Luxury base</strong> will add a touch of class to any bedroom. This <strong>Luxury divan bed</strong> will look great with your bedroom decor.</p>
+      </ul>
+      <h3>4 Headboards options available as an optional extra, shop our range of matching headboards here:</h3>
+      <ul>
+        <li><strong>Option 1</strong> – 26 Inch Diamond Button Cube Headboard</li>
+        <li>Option 2 – 26 Inch Matching Button Cube Headboard</li>
+        <li>Option 3 – 48 Inch Floor Standing Diamond Cube Headboard</li>
+        <li>Option 4 – 48 Inch Floor Standing Matching Cube Headboard</li>
       </ul>
     </div>
   );

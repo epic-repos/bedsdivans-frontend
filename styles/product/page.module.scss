@@ -17,7 +17,7 @@
   justify-content: center;
 } 
 .descriptionul li {
-  margin-left: 40px;
+  margin-left: 18px;
   background: #22217921!important;
   border-radius: 10px 10px 0 0!important;
   border-bottom: 4px solid #22217921!important;
@@ -26,6 +26,29 @@
   font-weight: 700;
   color: #515151;
   font-size: 18px;
+}
+.desctab1 h3 {
+  margin: 10px 0;
+  color: #252681;
+  font-weight: 600;
+  line-height: 1.4;
+  display: block;
+  font-size: 17px;
+  font-family: Roboto, "ms sans serif", Geneva, sans-serif;
+}
+.desctab1 ul li {
+  list-style-type: disc;
+  margin-bottom: 0;
+  font-size: 15px;
+  color: #4b4b6f;
+  font-weight: 500;
+  line-height: 27px;
+}
+.desctab1 ul p {
+  font-size: 15px;
+  color: #4B4F58;
+  padding-top: 10px;
+  margin-left: -15px;
 }
 .tab1 ul {
   display: flex;
@@ -129,6 +152,8 @@
     h1 {
       font-size: 34px;
       font-weight: 600;
+      font-family: roboto,sans-serif;
+      color: #000;
     }
   }
   .trustpilot {
