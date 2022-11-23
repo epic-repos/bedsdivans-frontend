@@ -80,7 +80,7 @@ return (
         <li>free castor wheel’s legs are included</li>
         <li>3 different Mattress options and 4 headboard options available</li>
         <li>Made in the UK</li>
-        <li></li>
+        <li>dfsver</li>
         <li></li>
         <li></li>
        </ul>

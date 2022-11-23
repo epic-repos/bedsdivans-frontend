@@ -121,7 +121,7 @@ const navigationLinks: NavigationLinksTypes[] = [
     path: "/beds/headboards/",
   },
   {
-    name: "Headboards",
+    name: "Garden Furniture",
     path: "/beds/furniture/garden-furniture/",
   },
 ];
