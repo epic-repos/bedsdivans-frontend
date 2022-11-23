@@ -3,6 +3,7 @@ import React from "react";
 type GetAllBedsParams = {
     pageParam: number;
     category?: string;
+    returnWhenNoVariants?: boolean;
 };
 
 interface ProductType {

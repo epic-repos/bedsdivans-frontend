@@ -68,6 +68,23 @@ export const getAllBedsWithImage = ({
             throw error;
         });
 
+//headboard With No Variants when returnWhenNoVariants is false is not Returned Here
+export const getAllHeadboardWithImage = ({
+    pageParam = 1,
+    category,
+    returnWhenNoVariants,
+}: GetAllBedsParams): Promise<BedResponse> =>
+    axios
+        .get<BedResponse>(
+            `/headboard/get-headboard-with-image?page=${pageParam}${
+                category ? `&category=${category} ` : ""
+            }${returnWhenNoVariants ? "&returnWhenNoVariants=true" : ""}`
+        )
+        .then((response) => response.data)
+        .catch((error) => {
+            throw error;
+        });
+
 //Beds With No Variants is Also Returned Here
 export const getAllBedsWithImageAdmin = ({
     pageParam = 1,
