@@ -58,14 +58,15 @@ const CartPage: NextPageWithLayout = () => {
                     <React.Fragment>
                       <TableHead />
                       {cartItems.map((data, index) => {
+                        console.log({ data });
                         return (
                           <ProductItem
                             intialQuantity={data.quantity}
                             key={index}
                             name="Side Opening Storage Ottoman Mocha Linen CLEARANCE DEAL"
                             imageUrl={data.bed.image}
-                            price={`£${data.total}`}
-                            totalPrice={`£${data.total}`}
+                            price={`£${data.bed.price}`}
+                            totalPrice={`£${data.bed.price}`}
                             onAddQuantity={() => increaseQuantity(data.bed.id)}
                             onRemoveQuantity={() =>
                               decreaseQuantity(data.bed.id)

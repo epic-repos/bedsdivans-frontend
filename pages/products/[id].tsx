@@ -13,18 +13,21 @@ import { dehydrate, QueryClient } from "react-query";
 import { useRouter } from "next/router";
 import { useFetchBedVariantsByIdAndSize } from "network-requests/queries";
 import useAppDispatch from "store/hooks/usedispatch";
-import { nanoid } from "@reduxjs/toolkit";
-import Link from "next/link";
 import addtocart from "store/slices/addtocart";
+import Styles from "styles/product/page.module.scss";
 
-const bedStorageArray = [
+const TabsArray = [
   {
-    text: "No Drawers",
-    value: "no-drawers",
+    name: "Description",
+    value: "description",
   },
   {
-    text: "2 Drawers – £45",
-    value: "2-drawers-45",
+    name: "Reviews",
+    value: "reviews",
+  },
+  {
+    name: "Policy & Warranty",
+    value: "warranty",
   },
 ];
 
@@ -62,11 +65,11 @@ const NewProductPage = () => {
     backgroundRepeat: "no-repeat",
   });
 
-  const zoom = 100;
+  const zoom = 200;
   const handleMouseMove = (e: any) => {
     const { left, top, width, height } = e.target.getBoundingClientRect();
-    const x = ((e.pageX - left) / width) * zoom;
-    const y = ((e.pageY - top) / height) * zoom;
+    const x = ((e.pageX - left) / width / 2) * zoom;
+    const y = ((e.pageY - top) / height / 2) * zoom;
     setStyle({
       ...style,
       backgroundPosition: `${x}% ${y}%`,
@@ -94,6 +97,8 @@ const NewProductPage = () => {
         quantity: state?.quantity,
       })
     );
+
+    router.push("/cart");
   };
 
   useEffect(() => {
@@ -104,6 +109,21 @@ const NewProductPage = () => {
       })`,
     }));
   }, [state, data]);
+
+  const [tabsName, setTabsName] = React.useState("description");
+
+  const TabsRender = React.useMemo(() => {
+    switch (tabsName) {
+      case "description":
+        return <Description />;
+      case "reviews":
+        return <Reviews />;
+      case "warranty":
+        return <PolicyWarranty />;
+      default:
+        return null;
+    }
+  }, [tabsName]);
 
   return (
     <div>
@@ -258,6 +278,9 @@ const NewProductPage = () => {
                 <span>£</span>
                 <span>{data?.variants[0]?.price?.salePrice}</span>
               </p>
+              <p className={css["selected-color"]}>
+                {state?.color?.name?.label}
+              </p>
             </div>
             <div className={css["product-options"]}>
               <div className={css["colors"]}>
@@ -284,7 +307,7 @@ const NewProductPage = () => {
                         >
                           <img
                             src={color?.name?.image}
-                            alt="grey-linen"
+                            alt={color?.name?.label}
                             height={33}
                             width={33}
                           ></img>
@@ -362,9 +385,22 @@ const NewProductPage = () => {
             </div>
           </div>
         </div>
-        <div>
-          <h2>krishna</h2>
-        </div>
+        <section className={Styles.descriptiontabs}>
+          <div className="container">
+            <ul className={`${Styles["descriptionul"]}`}>
+              {TabsArray.map((data, index) => (
+                <li
+                  onClick={() => setTabsName(data.value)}
+                  key={index}
+                  className={tabsName ? "activeClass" : "InactiveClass"}
+                >
+                  {data.name}
+                </li>
+              ))}
+            </ul>
+            <div>{TabsRender}</div>
+          </div>
+        </section>
       </div>
     </div>
   );
@@ -382,6 +418,8 @@ interface SelectOptionProps extends React.ComponentPropsWithoutRef<"select"> {
 
 const SelectOption = (props: SelectOptionProps) => {
   const { label, dataArray, type, ...rest } = props;
+
+  console.log({ label }, dataArray);
   return (
     <div className={css["select-size"]}>
       <label>{props.label}</label>
@@ -390,11 +428,11 @@ const SelectOption = (props: SelectOptionProps) => {
           {dataArray.map((data: any, index: number) => {
             return (
               <>
-                {type === "accessories" && (
+                {/* {type === "accessories" && (
                   <option key={index} value="">
                     No {label?.split(" ").pop()}
                   </option>
-                )}
+                )} */}
                 <option
                   key={index}
                   value={
@@ -417,7 +455,7 @@ interface AddToBasketProps {
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 const AddToBasket = ({ onClick, onChange }: AddToBasketProps) => {
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] = React.useState(1);
 
   const increaseCount = React.useCallback(() => {
     setCount((i) => i + 1);
@@ -539,4 +577,28 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
     props: { dehydratedState: dehydrate(queryClient) },
   };
+};
+
+const Description = () => {
+  return (
+    <div className={Styles.desctab1}>
+      <h3>Specifications:</h3>
+      <ul>
+        <li>Variety of colours available in many different fabrics</li>
+        <li>Various drawer options available</li>
+        <li>free castor wheel’s legs are included</li>
+        <li>3 different Mattress options and 4 headboard options available</li>
+        <li>Made in the UK</li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  );
+};
+const Reviews = () => {
+  return <div>Reviews</div>;
+};
+const PolicyWarranty = () => {
+  return <div>Policy & Warranty</div>;
 };
