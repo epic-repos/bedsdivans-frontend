@@ -269,7 +269,7 @@ const Home: NextPageWithLayout = () => {
         <div className="container">
           <div className="row">
             <div className={`${styles.mwfull} col-6`}>
-              <div className={styles.onemattressscontent}>
+              <div className={styles.onemattressscontent0}>
                 <img src="/image/shutterstock.webp" alt="image" />
               </div>
             </div>
