@@ -15,10 +15,22 @@ import { useFetchBedVariantsByIdAndSize } from "network-requests/queries";
 import useAppDispatch from "store/hooks/usedispatch";
 import addtocart from "store/slices/addtocart";
 
+const bedStorageArray = [
+  {
+    text: "No Drawers",
+    value: "no-drawers",
+  },
+  {
+    text: "2 Drawers – £45",
+    value: "2-drawers-45",
+  },
+];
+
 const NewProductPage = () => {
   const dispatch = useAppDispatch();
   const router = useRouter();
   const imageRef = React.useRef(null);
+  const src = "/grey-linen.jpeg";
 
   const { data } = useFetchBedVariantsByIdAndSize(
     router?.query?.id as string,
@@ -80,18 +92,16 @@ const NewProductPage = () => {
         quantity: state?.quantity,
       })
     );
-
-    router.push("/cart");
   };
 
-  //   useEffect(() => {
-  //     setStyle((style) => ({
-  //       ...style,
-  //       backgroundImage: `url(${
-  //         state?.color?.image || data?.variants[0]?.image
-  //       })`,
-  //     }));
-  //   }, [state, data]);
+  useEffect(() => {
+    setStyle((style) => ({
+      ...style,
+      backgroundImage: `url(${
+        state?.color?.image || data?.variants[0]?.image
+      })`,
+    }));
+  }, [state, data]);
 
   return (
     <div>
@@ -115,6 +125,18 @@ const NewProductPage = () => {
               <ImageCarousel
                 selected={(value) => console.log(value)}
                 imagesArray={[
+                  {
+                    source: "/grey-linen.jpeg",
+                  },
+                  {
+                    source: "/grey-linen.jpeg",
+                  },
+                  {
+                    source: "/grey-linen.jpeg",
+                  },
+                  {
+                    source: "/grey-linen.jpeg",
+                  },
                   {
                     source: "/grey-linen.jpeg",
                   },
@@ -338,6 +360,9 @@ const NewProductPage = () => {
             </div>
           </div>
         </div>
+        <div>
+          <h2>krishna</h2>
+        </div>
       </div>
     </div>
   );
@@ -360,7 +385,7 @@ const SelectOption = (props: SelectOptionProps) => {
       <label>{props.label}</label>
       <div className={css["dropdown"]}>
         <select {...rest}>
-          {dataArray?.map((data: any, index: number) => {
+          {dataArray.map((data: any, index: number) => {
             return (
               <>
                 {type === "accessories" && (
