@@ -15,9 +15,9 @@
 .descriptionul {
   display: flex;
   justify-content: center;
-} 
+}
 .descriptionul li {
-  margin-left: 18px;
+  margin-left: 40px;
   background: #22217921!important;
   border-radius: 10px 10px 0 0!important;
   border-bottom: 4px solid #22217921!important;
@@ -31,24 +31,7 @@
   margin: 10px 0;
   color: #252681;
   font-weight: 600;
-  line-height: 1.4;
-  display: block;
-  font-size: 17px;
-  font-family: Roboto, "ms sans serif", Geneva, sans-serif;
-}
-.desctab1 ul li {
-  list-style-type: disc;
-  margin-bottom: 0;
-  font-size: 15px;
-  color: #4b4b6f;
-  font-weight: 500;
-  line-height: 27px;
-}
-.desctab1 ul p {
-  font-size: 15px;
-  color: #4B4F58;
-  padding-top: 10px;
-  margin-left: -15px;
+  color: #515151; 
 }
 .tab1 ul {
   display: flex;
@@ -170,14 +153,17 @@
     font-size: 14px;
     line-height: 4;
   }
- ul.descriptionul {
-  display: flex;
- }
+  ul.descriptionul {
+    display: flex;
+  }
   .price {
     color: #222178;
     font-size: 35px;
     font-weight: 700;
     line-height: 1;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
   }
   .product-options {
     .colors {
@@ -254,65 +240,71 @@
   }
 }
 
-@media (max-width:500px) {
-   .grid {
+@media (max-width: 500px) {
+  .grid {
     grid-template-columns: 1fr;
-   }
-   .grid .left .image-section .product-image img {
+  }
+  .grid .left .image-section .product-image img {
     height: auto;
     max-width: 90%;
-   }
-   .image-lists {
+  }
+  .image-lists {
     display: none;
-   }
-   .product-name h1 {
+  }
+  .product-name h1 {
     display: none;
-   }
-   .productname1 h1 {
+  }
+  .productname1 h1 {
     display: block;
-   }
-   .grid .right {
+  }
+  .grid .right {
     margin-top: -55px;
-   }
-   .trustpilot a {
+  }
+  .trustpilot a {
     display: flex;
     align-items: flex-end;
-   }
-   .coupon {
+  }
+  .coupon {
     display: none;
-   }
-   .price {
+  }
+  .price {
     margin-top: 25px;
-   }
-   .addToBasket {
+  }
+  .addToBasket {
     padding: 10px 0 10px 0 !important;
     width: 115px;
     height: 50px;
     font-size: 10px !important;
-   }
-   .size-guide {
+  }
+  .size-guide {
     height: 50px !important;
     width: 125px;
     font-size: 10px !important;
-   }
-   .year_warranty {
+  }
+  .year_warranty {
     margin-right: 28px;
-   }
-   .input {
+  }
+  .input {
     input {
       height: 50px !important;
     }
   }
-  .descriptionul li { 
+  .descriptionul li {
     margin-left: 5px;
     padding: 12px 15px 12px 18px;
     font-size: 10px;
   }
 }
-@media (max-width:1200px) {
-  .descriptionul li { 
+@media (max-width: 1200px) {
+  .descriptionul li {
     margin-left: 5px;
     padding: 12px 15px 12px 18px;
     font-size: 10px;
   }
+}
+
+//
+.selected-color {
+  color: #222a;
+  font-size: 1rem;
 }
