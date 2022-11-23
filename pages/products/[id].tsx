@@ -16,6 +16,22 @@ import useAppDispatch from "store/hooks/usedispatch";
 import { nanoid } from "@reduxjs/toolkit";
 import Link from "next/link";
 import addtocart from "store/slices/addtocart";
+import Styles from "styles/product/page.module.scss";
+
+const TabsArray = [
+  {
+    name: "Description",
+    value: "description",
+  },
+  {
+    name: "Reviews",
+    value: "reviews",
+  },
+  {
+    name: "Policy & Warranty",
+    value: "warranty",
+  },
+];
 
 const bedStorageArray = [
   {
@@ -104,6 +120,21 @@ const NewProductPage = () => {
       })`,
     }));
   }, [state, data]);
+
+  const [tabsName, setTabsName] = React.useState("description");
+
+  const TabsRender = React.useMemo(() => {
+    switch (tabsName) {
+      case "description":
+        return <Description />;
+      case "reviews":
+        return <Reviews />;
+      case "warranty":
+        return <PolicyWarranty />;
+      default:
+        return null;
+    }
+  }, [tabsName]);
 
   return (
     <div>
@@ -362,9 +393,22 @@ const NewProductPage = () => {
             </div>
           </div>
         </div>
-        <div>
-          <h2>krishna</h2>
-        </div>
+        <section className={Styles.descriptiontabs}>
+          <div className="container">
+            <ul className={`${Styles["descriptionul"]}`}>
+              {TabsArray.map((data, index) => (
+                <li
+                  onClick={() => setTabsName(data.value)}
+                  key={index}
+                  className={tabsName ? "activeClass" : "InactiveClass"}
+                >
+                  {data.name}
+                </li>
+              ))}
+            </ul>
+            <div>{TabsRender}</div>
+          </div>
+        </section>
       </div>
     </div>
   );
@@ -539,4 +583,28 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
     props: { dehydratedState: dehydrate(queryClient) },
   };
+};
+
+const Description = () => {
+  return (
+    <div className={Styles.desctab1}>
+      <h3>Specifications:</h3>
+      <ul>
+        <li>Variety of colours available in many different fabrics</li>
+        <li>Various drawer options available</li>
+        <li>free castor wheel’s legs are included</li>
+        <li>3 different Mattress options and 4 headboard options available</li>
+        <li>Made in the UK</li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  );
+};
+const Reviews = () => {
+  return <div>Reviews</div>;
+};
+const PolicyWarranty = () => {
+  return <div>Policy & Warranty</div>;
 };
