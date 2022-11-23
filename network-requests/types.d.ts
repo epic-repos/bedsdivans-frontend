@@ -92,6 +92,7 @@ type BedWithSize = {
     createdAt: string;
     updatedAt: string;
     __v: number;
+    images: string[];
     availabeSizes: string[];
 };
 
