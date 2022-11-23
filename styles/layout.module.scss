@@ -387,6 +387,18 @@ $tab: 768px;
 .texts {
   font-size: 9px;
 }
+.maintopheader {
+  background-color: #222178;
+} 
+.maintopheadercontent p {
+  color: #fff;
+  text-align: center;
+  padding: 10px 0 0 0;
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-family: sofia-pro, Helvetica, Arial, sans-serif;
+}
 
 // STYLE FOR BADGE
 .badge {
@@ -425,6 +437,12 @@ $tab: 768px;
   .controls {
     margin-right: 20px;
   }
+  .maintopheadercontent p { 
+    width: 240px;
+    margin: 0 auto;
+    padding: 10px 0 6px 0;
+    font-size: 12px;
+  }
 }
 
 // STYLE FOR NAVIGATION
@@ -433,6 +451,7 @@ $tab: 768px;
   display: flex;
   text-align: center;
   gap: 3rem;
+  justify-content: center;
   .nav-links {
     padding: 0;
     margin: 0;
@@ -501,4 +520,5 @@ $tab: 768px;
       display: flex;
     }
   }
+
 }

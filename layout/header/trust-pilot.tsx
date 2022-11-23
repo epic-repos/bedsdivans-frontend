@@ -9,6 +9,17 @@ import css from "styles/layout.module.scss";
 const TrustPilotAndContact = () => {
   return (
     <>
+          <section className={css.maintopheader}>
+           <div className="container">
+              <div className="row">
+                 <div className="col-12">
+                    <div className={css.maintopheadercontent}> 
+                     <p>We offer free delivery on all orders, with no minimum spend!</p>
+                    </div>
+                 </div>
+              </div>
+           </div>
+      </section>
     <section className={css.container}>
       <div className="container">
         <div className={css["row"]}>
@@ -54,7 +65,6 @@ const TrustPilotAndContact = () => {
         </div>
       </div>
     </section>
-
 <section className={css.topheader1}>
      <div className="container">
          <div className="row">

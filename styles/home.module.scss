@@ -1016,7 +1016,7 @@ section.qualityproducts {
     background-image: url(/_next/static/media/fridaybanner.cdcfa7e3.webp);
     background-position: center;
     width: auto;
-    height: 190px;
+    height: 190px !important;
   }
   .section2 .mwfull {
     width: 100%;
@@ -1080,7 +1080,7 @@ section.qualityproducts {
 .bannerimage {
   background-position: center;
   margin-top: 20px;
-  height: 120px;
+  height: 120px !important;
   padding: inherit;
 }
 .onemattresssection .mwfull {
@@ -1110,4 +1110,18 @@ section.qualityproducts {
 .mattresssection {
   margin-top: 30px;
 }
+}
+@media (max-width:1200px) {
+   .complementcontent1 button {
+    left: 50px;
+    top: -40px;
+    padding: 15px 50px 15px 70px;
+   }
+   .bannerimage {
+    padding: inherit;
+    height: 370px;
+   }
+   .hero-container {
+    height: 420px;
+   }
 }
