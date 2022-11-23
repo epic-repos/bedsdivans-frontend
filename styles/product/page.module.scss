@@ -12,6 +12,23 @@
   font-weight: 600;
   display: none;
 }
+.descriptionul {
+  display: flex;
+  justify-content: center;
+} 
+.descriptionul li {
+  margin-left: 40px;
+  background: #22217921!important;
+  border-radius: 10px 10px 0 0!important;
+  border-bottom: 4px solid #22217921!important;
+  padding: 13px 30px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #515151; 
+}
+.tab1 ul {
+  display: flex;
+}
 .grid .left {
   .year_warranty {
     margin-top: 25px;
@@ -127,6 +144,9 @@
     font-size: 14px;
     line-height: 4;
   }
+ ul.descriptionul {
+  display: flex;
+ }
   .price {
     color: #222178;
     font-size: 35px;
@@ -256,5 +276,17 @@
     input {
       height: 50px !important;
     }
+  }
+  .descriptionul li { 
+    margin-left: 5px;
+    padding: 12px 15px 12px 18px;
+    font-size: 10px;
+  }
+}
+@media (max-width:1200px) {
+  .descriptionul li { 
+    margin-left: 5px;
+    padding: 12px 15px 12px 18px;
+    font-size: 10px;
   }
 }

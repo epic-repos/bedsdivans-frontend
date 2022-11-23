@@ -14,6 +14,7 @@ import { useRouter } from "next/router";
 import { useFetchBedVariantsByIdAndSize } from "network-requests/queries";
 import useAppDispatch from "store/hooks/usedispatch";
 import { nanoid } from "@reduxjs/toolkit";
+import Link from "next/link";
 import addtocart from "store/slices/addtocart";
 
 const bedStorageArray = [
