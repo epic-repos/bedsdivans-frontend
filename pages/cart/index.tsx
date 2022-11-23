@@ -16,11 +16,14 @@ const iconColor = "#777";
 const CartPage: NextPageWithLayout = () => {
   const {
     cartState: { cartItems, cartTotalAmount, cartTotalQuantity },
+
     removeFromCart,
     decreaseQuantity,
     increaseQuantity,
   } = useAddCart();
   const router = useRouter();
+
+  console.log({ cartItems, cartTotalAmount, cartTotalQuantity });
 
   let cartArray: any = [];
 
@@ -58,7 +61,6 @@ const CartPage: NextPageWithLayout = () => {
                     <React.Fragment>
                       <TableHead />
                       {cartItems.map((data, index) => {
-                        console.log({ data });
                         return (
                           <ProductItem
                             intialQuantity={data.quantity}

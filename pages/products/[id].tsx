@@ -84,7 +84,7 @@ const NewProductPage = () => {
           id: data?._id,
           name: data?.name,
           image: data?.variants?.[0]?.image,
-          price: data?.variants?.[0]?.price?.salePrice,
+          price: Number(data?.variants?.[0]?.price?.salePrice),
           size: router?.query?.size,
         },
         accessories: {
@@ -304,12 +304,19 @@ const NewProductPage = () => {
                           onClick={() => {
                             updateState("color", color);
                           }}
+                          style={{
+                            overflow: "hidden",
+                            borderRadius: "4px",
+                            border: `2px solid ${
+                              state?.color === color ? "#222178" : "transparent"
+                            }`,
+                          }}
                         >
                           <img
                             src={color?.name?.image}
                             alt={color?.name?.label}
-                            height={33}
-                            width={33}
+                            height={40}
+                            width={40}
                           ></img>
                         </li>
                       )
