@@ -4,6 +4,7 @@ import {
     getAllBedsWithImage,
     getAllBedsWithImageAdmin,
     getBedById,
+    getBedBySlug,
     getBedVariantById,
     getIconById,
     getIconsByType,
@@ -63,6 +64,8 @@ export const useFetchAllBedsWithImageAdmin = () =>
 
 export const useFetchBedById = (id: string) =>
     useQuery(["bed", id], (): Promise<Bed> => getBedById(id));
+export const useFetchBedBySlug = (slug: string) =>
+    useQuery(["bed", slug], (): Promise<Bed> => getBedBySlug(slug));
 
 export const useFetchBedVariantsById = (id: string) =>
     useQuery(
