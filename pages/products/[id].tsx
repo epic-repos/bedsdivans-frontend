@@ -167,9 +167,9 @@ const NewProductPage = ({ size: bedSize, id }: any) => {
                         <div className={css["image-section"]}>
                             <div className={css["product-image"]}>
                                 <figure
-                                    ref={imageRef}
-                                    style={style}
-                                    onMouseMove={handleMouseMove}
+                                    // ref={imageRef}
+                                    // style={style}
+                                    // onMouseMove={handleMouseMove}
                                 >
                                     <img
                                         className={css["image"]}
