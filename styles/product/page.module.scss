@@ -154,12 +154,12 @@
     transition: all 50ms linear;
     width: 100%;
   }
-  figure:hover {
-    img {
-      opacity: 0;
-      transition: all 50ms linear;
-    }
-  }
+  // figure:hover {
+  //   img {
+  //     opacity: 0;
+  //     transition: all 50ms linear;
+  //   }
+  // }
 }
 
 .grid .right {
@@ -201,6 +201,21 @@
   }
   .product-options {
     .colors {
+      label {
+        display: flex;
+        align-items: center;
+        padding: 0.5rem 0;
+        .active-color {
+          margin: 0;
+          padding: 0 0.5rem;
+          margin-left: 1rem;
+          background: #272883;
+          color: #fff;
+          border-radius: 4px;
+          font-weight: 600;
+          font-size: 1rem;
+        }
+      }
       .color-options {
         ul {
           display: flex;
@@ -235,7 +250,7 @@
   }
   .basket-row {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     .basket-count {
       display: flex;
       margin-top: 15px;
