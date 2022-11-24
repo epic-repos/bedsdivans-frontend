@@ -575,6 +575,9 @@ span.price-sums {
     margin-left: -10px;
     width: 100%;
   }
+  .productlistboxouter {
+    overflow: overlay;
+  }
   .summary-container { 
     min-width: auto;
     max-width: initial;

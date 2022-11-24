@@ -118,10 +118,6 @@ const NewProductPage = () => {
         quantity: state?.quantity,
       })
     );
-<<<<<<< HEAD
-    router.push('/cart')
-=======
->>>>>>> 429bf6bdbe48cfdc6cbb788b0dc0f16f897c770a
   };
 
   useEffect(() => {
@@ -688,9 +684,6 @@ const Description = () => {
   );
 };
 const Reviews = () => {
-<<<<<<< HEAD
-  return <div>Reviews</div>;
-=======
   return (
     <div>
       <div className={`${Styles.review} container`}>
@@ -796,7 +789,6 @@ const Reviews = () => {
       </div>
     </div>
   );
->>>>>>> 429bf6bdbe48cfdc6cbb788b0dc0f16f897c770a
 };
 const PolicyWarranty = () => {
   return (

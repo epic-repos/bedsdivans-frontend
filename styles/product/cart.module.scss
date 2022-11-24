@@ -67,7 +67,9 @@ span.shippingdetail {
   position: relative;
   top: -1px;
 }
-
+.productlistboxouter {
+  overflow: overlay;
+}
 .containers {
   padding-left: 40px;
   padding-right: 40px;
