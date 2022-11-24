@@ -106,7 +106,8 @@ const NewProductPage = ({ size: bedSize, id }: any) => {
         dispatch(
             addtocart.actions.addToCart({
                 bed: {
-                    id: data?._id,
+                    bedId: data?._id,
+                    id: data?.variants[0]._id,
                     name: data?.name,
                     image: data?.variants?.[0]?.image,
                     price: Number(data?.variants?.[0]?.price?.salePrice),

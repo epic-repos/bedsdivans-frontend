@@ -23,14 +23,21 @@ const addToCartSlice = createSlice({
             );
             if (itemInCart) {
                 itemInCart.quantity = itemInCart.quantity + 1;
+                itemInCart.total = itemInCart.quantity * itemInCart.bed.price;
                 state.cartTotalQuantity = state.cartTotalQuantity + 1;
-                state.cartTotalAmount =
-                    Number(state.cartTotalAmount + action.payload.total);
+                state.cartTotalAmount = Number(
+                    state.cartTotalAmount + action.payload.total
+                );
             } else {
-                state.cartItems.push({ ...action.payload, quantity: 1 }) as any;
+                state.cartItems.push({
+                    ...action.payload,
+                    quantity: 1,
+                    total: action?.payload?.price || 0,
+                }) as any;
                 state.cartTotalQuantity = 1 as number;
-                state.cartTotalAmount =
-                    Number(state.cartTotalAmount + action.payload.total);
+                state.cartTotalAmount = Number(
+                    state.cartTotalAmount + action.payload.total
+                );
             }
         },
         increaseQuantity: (state, action) => {
@@ -41,8 +48,9 @@ const addToCartSlice = createSlice({
                 item.quantity = (item?.quantity + 1) as number;
                 state.cartTotalQuantity = (state.cartTotalQuantity +
                     1) as number;
-                state.cartTotalAmount = Number(state.cartTotalAmount +
-                    item.total) as number;
+                state.cartTotalAmount = Number(
+                    state.cartTotalAmount + item.total
+                ) as number;
             }
         },
         decreaseQuantity: (state, action) => {
@@ -58,8 +66,9 @@ const addToCartSlice = createSlice({
                     item.quantity = (item?.quantity - 1) as number;
                     state.cartTotalQuantity = (state.cartTotalQuantity -
                         1) as number;
-                    state.cartTotalAmount = Number(state.cartTotalAmount -
-                        item.total) as number;
+                    state.cartTotalAmount = Number(
+                        state.cartTotalAmount - item.total
+                    ) as number;
                 }
             }
         },
