@@ -236,6 +236,7 @@
           padding: 10px;
           border: 2px solid #e6e6e6;
           font-size: 14px;
+          display: -webkit-box;
         }
       }
     }
@@ -303,7 +304,7 @@
   }
   .grid .left .image-section .product-image img {
     height: auto;
-    max-width: 90%;
+    // max-width: 90%;
   }
   .image-lists {
     display: none;
