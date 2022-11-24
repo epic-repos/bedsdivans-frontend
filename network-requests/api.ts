@@ -1,11 +1,9 @@
 import axios from "./axios";
 import {
     Accessories,
-    AccessoriesTypes,
     Bed,
     BedRequestPayload,
     BedResponse,
-    BedWithImage,
     BedWithSize,
     CreateBedVariantResponse,
     GetAllBedsParams,
@@ -59,8 +57,7 @@ export const getAllBedsWithImage = ({
 }: GetAllBedsParams): Promise<BedResponse> =>
     axios
         .get<BedResponse>(
-            `/beds/get-all-beds-with-base-image?page=${pageParam}${
-                category && `&category=${category}`
+            `/beds/get-all-beds-with-base-image?page=${pageParam}${category && `&category=${category}`
             }`
         )
         .then((response) => response.data)
@@ -97,6 +94,14 @@ export const getAllBedsWithImageAdmin = ({
         .catch((error) => {
             throw error;
         });
+
+
+// FOR SLUG BASED API
+
+export const getBedBySlug = (slug: string): Promise<Bed> => {
+    return axios.get<Bed>(`/beds/${slug}`).then((response) => response.data)
+        .catch((err) => { throw err; });
+}
 
 export const getBedById = (id: string): Promise<Bed> =>
     axios
@@ -276,3 +281,5 @@ export const deleteBedVariantById = (
         .catch((error) => {
             throw error;
         });
+
+
