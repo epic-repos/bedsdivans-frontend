@@ -3,6 +3,7 @@ import React from "react";
 type GetAllBedsParams = {
     pageParam: number;
     category?: string;
+    returnWhenNoVariants?: boolean;
 };
 
 interface ProductType {
@@ -91,6 +92,7 @@ type BedWithSize = {
     createdAt: string;
     updatedAt: string;
     __v: number;
+    images: string[];
     availabeSizes: string[];
 };
 

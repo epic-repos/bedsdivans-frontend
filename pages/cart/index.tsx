@@ -83,7 +83,10 @@ const CartPage: NextPageWithLayout = () => {
                   )}
                 </table>
               </div>
-              {/* BUTTON */}
+            <div className={style.inputbox}>
+              <input type="text" placeholder="Promo code" />
+              <button>Add</button>
+            </div>
               <div className={style.continueshopping}>
                 <a onClick={() => router.back()}> Continue shopping</a>
               </div>
@@ -176,14 +179,14 @@ const ProductItem = ({
             <div className={style.productdetails}>
               <div className={style.productname}>{name}</div>
               <ul className={style.list}>
-                <li>Selected Size : {size}</li>
-                <li>Selected Storage: {accessories?.storage?.name?.label}</li>
+                <li><strong>Selected Size :</strong>{size}</li>
+                <li><strong>Selected Storage:</strong>{accessories?.storage?.name?.label}</li>
                 <li>
-                  Selected Headboard : {accessories?.headboard?.name?.label}
+                <strong>Selected Headboard :</strong>{accessories?.headboard?.name?.label}
                 </li>
-                <li>Select Feet : {accessories?.feet?.name?.label}</li>
+                <li><strong>Select Feet : </strong>{accessories?.feet?.name?.label}</li>
                 <li>
-                  Selected Mattress : {accessories?.mattress?.name?.label}
+                <strong>Selected Mattress : </strong>{accessories?.mattress?.name?.label}
                 </li>
               </ul>
             </div>

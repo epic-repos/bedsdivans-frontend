@@ -3,6 +3,7 @@ import {
     getAllBeds,
     getAllBedsWithImage,
     getAllBedsWithImageAdmin,
+    getAllHeadboardWithImage,
     getBedById,
     getBedBySlug,
     getBedVariantById,
@@ -47,6 +48,21 @@ export const useFetchAllBedsWithImage = (category?: string) =>
             },
         }
     );
+export const useFetchAllHeadboardWithImage = (category?: string) =>
+    useInfiniteQuery(
+        ["headboard-image", category],
+        ({ pageParam = 1 }): Promise<BedResponse> =>
+            getAllHeadboardWithImage({ pageParam, category }),
+        {
+            refetchOnMount: true,
+            getNextPageParam: (lastPage: any) => {
+                if (lastPage.nextPage <= lastPage.totalPages)
+                    return lastPage.nextPage;
+                return undefined;
+            },
+        }
+    );
+
 export const useFetchAllBedsWithImageAdmin = () =>
     useInfiniteQuery(
         "beds-image-admin",

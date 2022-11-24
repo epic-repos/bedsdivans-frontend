@@ -36,7 +36,7 @@
     .productname {
       font-size: 16px;
       line-height: 1.4rem;
-      width: 300px;
+      // width: 300px;
       text-align: left;
       color: #0e3f70;
     }
@@ -172,15 +172,17 @@
   }
 
   .productcarlist {
+    border: 1px solid #e7e7e7;
     thead {
       td {
-        padding: 1rem 0;
+        padding: 10px 0 10px 0;
         text-align: center;
         border-bottom: 1px solid rgba(160, 160, 160, 0.25);
         border-top: 1px solid rgba(160, 160, 160, 0.25);
         color: #1f3447;
         font-size: 1rem;
         font-weight: 500;
+        background-color: #fbfbfb;
       }
     }
     tbody {
@@ -195,9 +197,9 @@
             opacity: 0.8;
           }
           .productname {
-            font-size: 15px;
-            font-weight: 400;
-            color: #1f3447;
+            font-size: 16px;
+            font-weight: 700;
+            color: #0170B9;
           }
           .deliverttime {
             padding-top: 5px;
@@ -207,9 +209,9 @@
         }
 
         .price {
-          font-weight: 400;
+          font-weight: 700;
           font-size: 1rem;
-          // font-family: "Circular-Loom";
+          color: #222178;
         }
 
         .qty {
@@ -501,5 +503,6 @@ ul.formdesign {
   li {
     font-size: 0.8rem;
     color: #555;
+    padding-bottom: 5px;
   }
 }
