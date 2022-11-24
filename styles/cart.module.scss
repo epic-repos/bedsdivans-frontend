@@ -287,37 +287,41 @@ span.price-sums {
 }
 .price-summary1 h5 {
   display: flex;
-    justify-content: space-between;
-    padding: 15px 30px;
-    border-bottom: 1px solid #e6e6e6;
-    width: 382px;
-    margin-left: 4px;
+  justify-content: space-between;
+  padding: 15px 30px 15px;
+  border-bottom: 1px solid #e6e6e6;
+  width: 382px;
+  margin-left: 4px;
+  margin-bottom: 0;
 }
 .price-summary {
   display: flex;
   flex-direction: column;
-  padding: 15px 0px;
+  padding: 0 0 0;
   border-top: 2px solid #f3f3f8;
+  margin-bottom: -5px;
   h5 {
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #e6e6e6;
     width: 382px;
-    padding: 15px 30px;
+    padding: 14px 30px;
     margin-left: 4px;
+    margin-bottom: 2px;
   }
 }
 
 .checkform {
   box-sizing: border-box;
-  padding: 20px;
+  padding: 0px 20px 0 25px;
   border-radius: 5px;
-    // width: 420px;
+  margin-top: -10px;
   p {
     color: #000;
     font-size: 1rem;
     font-weight: 500;
+    margin-bottom: 5px;
   }
 }
 
