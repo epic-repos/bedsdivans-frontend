@@ -477,7 +477,6 @@ $tab: 768px;
 
 .nav-container .nav-links .link {
   a {
-    font-size: 18px;
     text-transform: uppercase;
     color: #626363;
     text-transform: uppercase;
@@ -521,4 +520,41 @@ $tab: 768px;
     }
   }
 
+}
+@media (max-width:1200px) {
+  .nav-container .nav-links .link a {
+    font-size: 16px;
+  }
+}
+@media (max-width:991px) {
+  .nav-container .nav-links .link a {
+    font-size: 10px;
+  }
+  .topheader1 {
+    display: block;
+  }
+  .container {
+    display: none;
+  }
+  .search-container {
+    display: block;
+  }
+  .menudiv {
+    display: none;
+  }
+  .menu-bar {
+    display: block;
+  }
+  .searchbar {
+    display: none;
+  }
+  .controls ul li:nth-child(1){
+    display: none;
+  }
+  .logo {
+    justify-content: flex-end;
+  }
+  .complementcontent1 img {
+    display: none;
+  }
 }
