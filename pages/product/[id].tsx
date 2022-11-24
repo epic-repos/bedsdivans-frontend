@@ -18,65 +18,71 @@ import { useFetchBedVariantsByIdAndSize } from "network-requests/queries";
 // DYNAMIC COMPONENTS
 const ContentTabs = dynamic(() => import("components/products/tabs"));
 
-const NewProductPage = ({ size: bedSize, id }: any) => {
+const ProductDetailPage = ({ size: bedSize, id }: any) => {
   const router = useRouter();
   const dispatch = useAppDispatch();
   const imageRef = React.useRef(null);
 
   const [size, setSize] = React.useState(null);
 
-  const { data, isFetching } = useFetchBedVariantsByIdAndSize(
+  const { data, isFetching, isFetched } = useFetchBedVariantsByIdAndSize(
     id as any,
     size || (bedSize as any)
   );
 
-  const [state, setState] = React.useState<any>({
-    size: data?.variants?.[0]?.size,
-    color: undefined,
-    storage: undefined,
-    feet: undefined,
-    headboard: undefined,
-    mattress: undefined,
-    quantity: 1,
-  });
+  const [productData, setProductData] = React.useState(data);
 
+  const [productState, setProductState] = React.useState<any>();
   const [currentImage, setCurrentImage] = React.useState(
-    state?.color?.image || data?.variants[0]?.image
+    productState?.color?.image || productData?.variants[0]?.image
   );
+  // REFETCH DATA ON CHANGE
+  React.useMemo(() => {
+    if (isFetched) {
+      setProductData(data);
+    }
+  }, [data, isFetched]);
 
   React.useEffect(() => {
-    setCurrentImage(state?.color?.image || data?.variants[0]?.image);
-  }, [state?.color?.image, data?.variants]);
+    setCurrentImage(
+      productState?.color?.image || productData?.variants[0]?.image
+    );
+  }, [productState?.color?.image, productData?.variants]);
 
-  const updateState = (key: string, value: string | number) => {
-    setState((prevState: any) => ({
-      ...prevState,
-      [key]: value,
-    }));
-  };
+  const _updateState = React.useCallback(
+    (key: string, value: string | number) => {
+      setProductState((prevState: any) => ({
+        ...prevState,
+        [key]: value,
+      }));
+    },
+    []
+  );
+
+  const updateState = React.useMemo(() => _updateState, [_updateState]);
 
   // const { handleMouseMove, style } = useMouseMove(
-  //   state?.color?.image || data?.variants[0]?.image
+  //   state?.color?.image || productData?.variants[0]?.image
   // );
   //REDUX STATE
   const handleAddToCart = React.useCallback(() => {
     dispatch(
       addtocart.actions.addToCart({
         bed: {
-          id: data?._id,
-          name: data?.name,
-          image: data?.variants?.[0]?.image,
-          price: Number(data?.variants?.[0]?.price?.salePrice),
+          id: productData?._id,
+          name: productData?.name,
+          image: productData?.variants?.[0]?.image,
+          price: Number(productData?.variants?.[0]?.price?.salePrice),
           size: router?.query?.size,
         },
         accessories: {
-          color: state?.color,
-          storage: state?.storage,
-          feet: state?.feet,
-          headboard: state?.headboard,
-          mattress: state?.mattress,
+          color: productState?.color,
+          storage: productState?.storage,
+          feet: productState?.feet,
+          headboard: productState?.headboard,
+          mattress: productState?.mattress,
         },
-        quantity: state?.quantity,
+        quantity: productState?.quantity,
       })
     );
     router.push("/cart");
@@ -115,7 +121,9 @@ const NewProductPage = ({ size: bedSize, id }: any) => {
               <div className={css["product-image"]}>
                 <figure
                   ref={imageRef}
-                  // style={style}
+                  style={{
+                    minHeight: "400px",
+                  }}
                   // onMouseMove={handleMouseMove}
                 >
                   <img
@@ -128,8 +136,8 @@ const NewProductPage = ({ size: bedSize, id }: any) => {
               <ImageCarousel
                 selected={(value) => setCurrentImage(value)}
                 imagesArray={[
-                  state?.color?.image || data?.variants[0]?.image,
-                  ...(data?.images || []),
+                  productState?.color?.image || productData?.variants[0]?.image,
+                  ...(productData?.images || []),
                 ]}
               />
             </div>
@@ -208,7 +216,7 @@ const NewProductPage = ({ size: bedSize, id }: any) => {
           </div>
           <div className={css["right"]}>
             <div className={css["product-name"]}>
-              <h1>{data?.name}</h1>
+              <h1>{productData?.name}</h1>
             </div>
             <div className={css["trustpilot"]}>
               <a href="">
@@ -238,7 +246,7 @@ const NewProductPage = ({ size: bedSize, id }: any) => {
             <div className={css["price"]}>
               <p>
                 <span>£</span>
-                <span>{data?.variants[0]?.price?.salePrice}</span>
+                <span>{productData?.variants[0]?.price?.salePrice}</span>
               </p>
             </div>
             <div className={css["product-options"]}>
@@ -253,15 +261,15 @@ const NewProductPage = ({ size: bedSize, id }: any) => {
                   >
                     Choose Colour
                   </span>
-                  {state?.color?.name?.label && (
+                  {productState?.color?.name?.label && (
                     <span className={css["active-color"]}>
-                      {state?.color?.name?.label}
+                      {productState?.color?.name?.label}
                     </span>
                   )}
                 </label>
                 <div className={css["color-options"]}>
                   <ul>
-                    {data?.variants?.[0]?.accessories?.color?.map(
+                    {productData?.variants?.[0]?.accessories?.color?.map(
                       (color: any) => (
                         <li
                           key={color?._id}
@@ -272,7 +280,9 @@ const NewProductPage = ({ size: bedSize, id }: any) => {
                             overflow: "hidden",
                             borderRadius: "4px",
                             border: `2px solid ${
-                              state?.color === color ? "#222178" : "transparent"
+                              productState?.color === color
+                                ? "#222178"
+                                : "transparent"
                             }`,
                           }}
                         >
@@ -289,9 +299,9 @@ const NewProductPage = ({ size: bedSize, id }: any) => {
                 </div>
               </div>
               <SelectOption
-                dataArray={data?.availabeSizes as any}
+                dataArray={productData?.availabeSizes as any}
                 label="Select Your Size"
-                value={state?.size}
+                value={productState?.size}
                 onChange={(e) => {
                   updateState("size", e.target.value);
                   setSize(e.target.value as any);
@@ -299,7 +309,9 @@ const NewProductPage = ({ size: bedSize, id }: any) => {
               />
               <SelectOption
                 type="accessories"
-                dataArray={data?.variants?.[0]?.accessories?.storage as any}
+                dataArray={
+                  productData?.variants?.[0]?.accessories?.storage as any
+                }
                 label="Select Your Storage"
                 onChange={(e) => {
                   updateState(
@@ -310,7 +322,7 @@ const NewProductPage = ({ size: bedSize, id }: any) => {
               />
               <SelectOption
                 type="accessories"
-                dataArray={data?.variants?.[0]?.accessories?.feet as any}
+                dataArray={productData?.variants?.[0]?.accessories?.feet as any}
                 label="Select Your Feet"
                 onChange={(e) => {
                   updateState(
@@ -321,7 +333,9 @@ const NewProductPage = ({ size: bedSize, id }: any) => {
               />
               <SelectOption
                 type="accessories"
-                dataArray={data?.variants?.[0]?.accessories?.headboard as any}
+                dataArray={
+                  productData?.variants?.[0]?.accessories?.headboard as any
+                }
                 label="Select Your Headboard"
                 onChange={(e) => {
                   updateState(
@@ -332,7 +346,9 @@ const NewProductPage = ({ size: bedSize, id }: any) => {
               />
               <SelectOption
                 type="accessories"
-                dataArray={data?.variants?.[0]?.accessories?.mattress as any}
+                dataArray={
+                  productData?.variants?.[0]?.accessories?.mattress as any
+                }
                 label="Select Your Mattress"
                 onChange={(e) => {
                   updateState(
@@ -356,9 +372,9 @@ const NewProductPage = ({ size: bedSize, id }: any) => {
   );
 };
 
-export default NewProductPage;
+export default ProductDetailPage;
 
-NewProductPage.getLayout = PerPageLayout;
+ProductDetailPage.getLayout = PerPageLayout;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { id: query = null }: any = context.query;

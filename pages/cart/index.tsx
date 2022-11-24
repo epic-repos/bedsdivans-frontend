@@ -2,7 +2,6 @@
 import React from "react";
 import AddIcon from "icons/add";
 import DeleteIcon from "icons/delete";
-import CoupanIcon from "icons/coupan";
 import RemoveIcon from "icons/remove";
 import useAddCart from "store/hooks/useaddcart";
 import style from "styles/product/cart.module.scss";
@@ -42,7 +41,7 @@ const CartPage: NextPageWithLayout = () => {
   const goToCheckoutPage = async () => {
     router.push("/cart/checkout");
   };
-
+  // console.log({ cartItems: cartItems });
   return (
     <>
       <TitleHeader
@@ -66,10 +65,10 @@ const CartPage: NextPageWithLayout = () => {
                           <ProductItem
                             intialQuantity={data.quantity}
                             key={index}
-                            name="Side Opening Storage Ottoman Mocha Linen CLEARANCE DEAL"
+                            name={data.bed.name}
                             imageUrl={data.bed.image}
                             price={`£${data.bed.price}`}
-                            totalPrice={`£${data.bed.price}`}
+                            totalPrice={`£${data.total}`}
                             onAddQuantity={() => increaseQuantity(data.bed.id)}
                             onRemoveQuantity={() =>
                               decreaseQuantity(data.bed.id)
@@ -84,15 +83,15 @@ const CartPage: NextPageWithLayout = () => {
                   )}
                 </table>
               </div>
-           <div className={style.inputsection}>
-           <div className={style.inputbox}>
-              <input type="text" placeholder="Coupon code" />
-              <button>Apply coupon</button>
-            </div>
-            <div className={style.inputbox1}>
-            <button>update basket</button>
-            </div>
-           </div>
+              <div className={style.inputsection}>
+                <div className={style.inputbox}>
+                  <input type="text" placeholder="Coupon code" />
+                  <button>Apply coupon</button>
+                </div>
+                <div className={style.inputbox1}>
+                  <button>update basket</button>
+                </div>
+              </div>
               <div className={style.continueshopping}>
                 <a onClick={() => router.back()}> Continue shopping</a>
               </div>
@@ -185,14 +184,25 @@ const ProductItem = ({
             <div className={style.productdetails}>
               <div className={style.productname}>{name}</div>
               <ul className={style.list}>
-                <li><strong>Selected Size :</strong>{size}</li>
-                <li><strong>Selected Storage:</strong>{accessories?.storage?.name?.label}</li>
                 <li>
-                <strong>Selected Headboard :</strong>{accessories?.headboard?.name?.label}
+                  <strong>Selected Size :</strong>
+                  {size}
                 </li>
-                <li><strong>Select Feet : </strong>{accessories?.feet?.name?.label}</li>
                 <li>
-                <strong>Selected Mattress : </strong>{accessories?.mattress?.name?.label}
+                  <strong>Selected Storage:</strong>
+                  {accessories?.storage?.name?.label}
+                </li>
+                <li>
+                  <strong>Selected Headboard :</strong>
+                  {accessories?.headboard?.name?.label}
+                </li>
+                <li>
+                  <strong>Select Feet : </strong>
+                  {accessories?.feet?.name?.label}
+                </li>
+                <li>
+                  <strong>Selected Mattress : </strong>
+                  {accessories?.mattress?.name?.label}
                 </li>
               </ul>
             </div>
@@ -236,10 +246,19 @@ const PromoCode = ({ onCheckout, totalItems, totalPrice }: any) => {
             <span className={style.jssubtotal}> Subtotal</span>
             <span className={style.value}>£{totalPrice} </span>
           </li>
-             <li className={style.cartsummary1}>
-               <span className={style.shippingdetail}>Shipping</span>
-               <span className={style.shippingdetail1}>Free shipping<br></br>Shipping to <strong>test, test,<br></br>test, WV14 7HZ.</strong><br></br><Link href="#"><a>Change address</a></Link></span>
-             </li>
+          <li className={style.cartsummary1}>
+            <span className={style.shippingdetail}>Shipping</span>
+            <span className={style.shippingdetail1}>
+              Free shipping<br></br>Shipping to{" "}
+              <strong>
+                test, test,<br></br>test, WV14 7HZ.
+              </strong>
+              <br></br>
+              <Link href="#">
+                <a>Change address</a>
+              </Link>
+            </span>
+          </li>
           <li className={style.cartsummarytotals}>
             <div className={style.pritotal}>
               <span className={style.jssubtotal}>Total </span>
