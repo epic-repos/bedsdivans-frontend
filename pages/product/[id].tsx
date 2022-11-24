@@ -119,13 +119,7 @@ const ProductDetailPage = ({ size: bedSize, id }: any) => {
           <div className={`${css["left"]}`}>
             <div className={css["image-section"]}>
               <div className={css["product-image"]}>
-                <figure
-                  ref={imageRef}
-                  style={{
-                    minHeight: "400px",
-                  }}
-                  // onMouseMove={handleMouseMove}
-                >
+                <figure ref={imageRef}>
                   <img
                     className={css["image"]}
                     src={currentImage}
