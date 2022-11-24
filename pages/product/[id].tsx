@@ -101,10 +101,7 @@ const ProductDetailPage = ({ size: bedSize, id }: any) => {
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <h1>
-                Grey Linen Divan Bed Base or Set Headboard & Mattress Free Uk
-                Delivery
-              </h1>
+              <h1>{productData?.name}</h1>
             </div>
           </div>
         </div>
