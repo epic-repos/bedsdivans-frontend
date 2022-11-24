@@ -75,12 +75,7 @@ const Home: NextPageWithLayout = () => {
                                     coversControls
                                     onClick={() =>
                                         router.push({
-                                            pathname: `/products/${item._id}`,
-                                            query: {
-                                                size:
-                                                    item?.variants &&
-                                                    item?.variants[0]?.size,
-                                            },
+                                            pathname: `/products/${item.slug}`,
                                         })
                                     }
                                 />
@@ -202,12 +197,7 @@ const Home: NextPageWithLayout = () => {
                                     coversControls
                                     onClick={() =>
                                         router.push({
-                                            pathname: `/products/${item._id}`,
-                                            query: {
-                                                size:
-                                                    item?.variants &&
-                                                    item?.variants[0]?.size,
-                                            },
+                                            pathname: `/products/${item.slug}`,
                                         })
                                     }
                                 />
@@ -282,12 +272,7 @@ const Home: NextPageWithLayout = () => {
                                     coversControls
                                     onClick={() =>
                                         router.push({
-                                            pathname: `/products/${item._id}`,
-                                            query: {
-                                                size:
-                                                    item?.variants &&
-                                                    item?.variants[0]?.size,
-                                            },
+                                            pathname: `/products/${item.slug}`,
                                         })
                                     }
                                 />
