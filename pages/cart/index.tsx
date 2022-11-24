@@ -10,6 +10,7 @@ import { useRouter } from "next/router";
 import { NextPageWithLayout } from "typings/layout";
 import PerPageLayout from "layout/perpage";
 import TitleHeader from "components/title-header";
+import Link from "next/link";
 
 const iconColor = "#777";
 
@@ -83,10 +84,15 @@ const CartPage: NextPageWithLayout = () => {
                   )}
                 </table>
               </div>
-            <div className={style.inputbox}>
-              <input type="text" placeholder="Promo code" />
-              <button>Add</button>
+           <div className={style.inputsection}>
+           <div className={style.inputbox}>
+              <input type="text" placeholder="Coupon code" />
+              <button>Apply coupon</button>
             </div>
+            <div className={style.inputbox1}>
+            <button>update basket</button>
+            </div>
+           </div>
               <div className={style.continueshopping}>
                 <a onClick={() => router.back()}> Continue shopping</a>
               </div>
@@ -223,37 +229,23 @@ const ProductItem = ({
 
 const PromoCode = ({ onCheckout, totalItems, totalPrice }: any) => {
   return (
-    <div className="col-md-4">
+    <div className={`${style.mwfull} col-4`}>
       <div className={style.cartsummary}>
         <ul>
           <li className={style.cartsummaryline}>
-            <span className={style.jssubtotal}>{totalItems || 0} items</span>
+            <span className={style.jssubtotal}> Subtotal</span>
             <span className={style.value}>£{totalPrice} </span>
           </li>
-
+             <li className={style.cartsummary1}>
+               <span className={style.shippingdetail}>Shipping</span>
+               <span className={style.shippingdetail1}>Free shipping<br></br>Shipping to <strong>test, test,<br></br>test, WV14 7HZ.</strong><br></br><Link href="#"><a>Change address</a></Link></span>
+             </li>
           <li className={style.cartsummarytotals}>
             <div className={style.pritotal}>
               <span className={style.jssubtotal}>Total </span>
               <span className={style.value}>£{totalPrice} </span>
             </div>
-
-            <div className={style.alertexpecteddeliverydate}>
-              Estimated Delivery : <span>18/08/2022 - 25/08/2022</span>
-            </div>
           </li>
-
-          <li className={style.blockpromo}>
-            <div className={style.cartvoucherarea}>
-              <div className={style.img}>
-                <CoupanIcon />
-              </div>
-            </div>
-            <div className={style.inputbox}>
-              <input type="text" placeholder="Promo code" />
-              <button>Add</button>
-            </div>
-          </li>
-
           <li className={style.cartdetailedactions}>
             <a onClick={onCheckout}>Proceed to checkouts</a>
           </li>

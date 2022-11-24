@@ -62,8 +62,7 @@
 }
 
 .item {
-  width: 100;
-  background-color: rgb(243, 243, 248);
+  background-color: #fff; 
 }
 
 .item1 {
@@ -140,7 +139,11 @@
 .contact_form2 {
   padding-left: 32px;
 }
-
+p.bag-item {
+  text-align: center;
+    color: #000 !important;
+    padding-top: 25px;
+}
 .text_area {
   resize: none;
   width: 100%;
@@ -153,9 +156,12 @@
     display: flex;
     flex-direction: column;
     h3 {
-      color: rgb(14, 63, 112);
+      color: #000;
       font-weight: 600;
-      padding: "0 30px";
+      border-bottom: none;
+      font-size: 15px !important;
+      font-weight: 700 !important;
+      padding: 0 !important;
     }
     button {
       border: 1px solid #000;
@@ -168,6 +174,12 @@
       text-decoration: none;
       background: #041f5d;
     }
+    p.countryinput {
+      font-size: 14px;
+      color: #464646 !important;
+      font-weight: 500 !important;
+      padding-top: 18px;
+    }
     ul {
       padding: 0;
       margin: 0;
@@ -176,11 +188,24 @@
       flex-wrap: wrap;
       li {
         width: 100%;
+        margin-bottom: 10px;
       }
       input,
       select,
       textarea {
-        background: #fff;
+        width: 100%;
+        max-width: 100%;
+        border: 2px solid rgba(129,129,129,.2) !important;
+        background-color: transparent;
+        font-size: 14px;
+        border-radius: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        vertical-align: middle;
+        padding: 0 15px !important;
+        height: 42px;
+        transition: border-color .5s ease;
+        -webkit-transition: border-color .5s ease;
       }
 
       .countryname {
@@ -196,6 +221,10 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  border: 1px solid #f8f8f8;
+  background-color: #f8f8f8;
+  margin-bottom: 30px;  
+  position: relative;
   .bag-item {
     margin: 0;
     font-size: 20px;
@@ -210,7 +239,7 @@
   border-radius: 5px;
   background-color: #fff;
   overflow: hidden;
-  // box-shadow: 0 2px 10px 0 rgb(0 0 0 / 13%) !important;
+  margin: 20px;
 }
 
 .summary-container .summary-items .product-name {
@@ -243,39 +272,50 @@
 .summary-items {
   padding: 30px;
   padding-bottom: 15px;
-  h6 {
-  }
   ul {
     margin: 0;
   }
 }
-
+span.price-sum {
+  font-size: 16px;
+  font-weight: 600;
+}
+span.price-sums {
+  font-size: 14px;
+    font-weight: 500;
+    color: #464646;
+}
+.price-summary1 h5 {
+  display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    border-bottom: 1px solid #e6e6e6;
+    width: 382px;
+    margin-left: 4px;
+}
 .price-summary {
   display: flex;
   flex-direction: column;
-  padding: 15px 30px;
+  padding: 15px 0px;
   border-top: 2px solid #f3f3f8;
   h5 {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-bottom: 1px solid #e6e6e6;
+    width: 382px;
+    padding: 15px 30px;
+    margin-left: 4px;
   }
 }
 
 .checkform {
   box-sizing: border-box;
-  width: 400px;
-  background: #00b2bd;
   padding: 20px;
   border-radius: 5px;
-  // box-shadow: 0 2px 10px 0 rgb(0 0 0 / 13%) !important;
-  box-sizing: border-box;
-  width: 400px;
-  background: #1d3343;
-  padding: 20px;
-  border-radius: 5px;
+    // width: 420px;
   p {
-    color: #fff;
+    color: #000;
     font-size: 1rem;
     font-weight: 500;
   }
@@ -299,7 +339,34 @@
   font-weight: 500;
   border-radius: 28px;
 }
-
+.checkpro:hover {
+  background-color: #000;
+}
+.summary::before {
+  content: "";
+  position: absolute;
+  left: 0px;
+  width: 100%;
+  height: 10px;
+  background-color: transparent;
+  background-size: 15px 15px;
+  background-image: radial-gradient(farthest-side,rgba(0,0,0,0) 6px,#f8f8f8 0);
+  top: -11px;
+  background-position: -3px -5px,0 0;
+  z-index: 99;
+}
+.summary::after {
+  background-position: -3px 2px,0 0;
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background-color: transparent;
+  background-size: 15px 15px;
+  background-image: radial-gradient(farthest-side,rgba(0,0,0,0) 6px,#f8f8f8 0);
+  bottom: -10px;
+}
 .checkpro {
   cursor: pointer;
   border: 0;
@@ -308,14 +375,17 @@
   border-radius: 5px;
   font-size: 1.1rem;
   line-height: 18px;
-  color: #1d3343;
+  color: #fff;
   font-weight: 700;
   margin: 0;
   text-transform: uppercase;
   width: 100%;
-  background: #fff;
+  background: #0170B9;
 }
-
+.paymentparagraph p {
+  font-size: 14px;
+  font-weight: 500;
+}
 .disable {
   opacity: 0.5;
   cursor: not-allowed;
@@ -327,7 +397,7 @@
   border-bottom: 1px solid #e0e0e0;
   padding: 0.5rem 0;
   p {
-    color: #fff;
+    color: #000;
     margin: unset;
   }
 }
@@ -372,7 +442,12 @@
     }
   }
 }
-
+.coupan-text svg {
+  width: 20px;
+}
+.coupan-text strong {
+  font-size: 10px;
+}
 .colorchange {
   color: rgb(0, 178, 189);
 }
@@ -391,7 +466,7 @@
   .radio-box {
     gap: 6px;
     display: flex;
-    color: #fff;
+    color: #000;
     padding: 16px 0;
     align-items: center;
     // border-bottom: 1px solid #e0e0e0;
@@ -426,7 +501,10 @@
   gap: 10px;
   padding-left: 0;
 }
-
+.coupan-text {
+  font-size: 15px;
+  font-weight: 700;
+}
 .coupan-container .coupan-text {
   outline: none;
   border: none;
@@ -438,9 +516,18 @@
   user-select: none;
   strong {
     cursor: pointer;
+    font-size: 15px;
+    color: #222178;
+    font-weight: 600;
   }
 }
-
+.billformbox h3 {
+  font-size: 22px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  padding: 20px 0 14px;
+  border-bottom: 1px solid #ebebeb;
+}
 .coupan-input {
   outline: none;
   border: none;
@@ -475,4 +562,34 @@
     background-color: #1d3343;
     border: 2px solid #1d3343;
   }
+}
+@media (max-width:500px) {
+  .item1 {
+    width: 100%;
+  }
+  .row { 
+    flex-wrap: wrap;
+  }
+  .button { 
+    margin-top: 40px;
+    margin-left: -10px;
+    width: 100%;
+  }
+  .productlistboxouter {
+    overflow: overlay;
+  }
+  .summary-container { 
+    min-width: auto;
+    max-width: initial;
+    margin-left: 10px;
+    margin-right: 10px;
+
+  }
+  .coupan-container { 
+    padding: 25px 0 0 0;
+  }
+  .coupan-container .coupan-text { 
+    flex-wrap: wrap;
+  }
+  
 }

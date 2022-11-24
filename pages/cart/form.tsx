@@ -44,7 +44,7 @@ const ContactForm = ({ onChange }: FormProps) => {
                     name="firstName"
                     type="text"
                     placeholder="Enter your first name"
-                    label="First Name"
+                    label="First Name*"
                     onChange={onChangeInputs}
                   />
                 </div>
@@ -53,7 +53,7 @@ const ContactForm = ({ onChange }: FormProps) => {
                     name="lastName"
                     type="text"
                     placeholder="Enter your last name"
-                    label="Last Name"
+                    label="Last Name*"
                     onChange={onChangeInputs}
                   />
                 </div>
@@ -61,9 +61,7 @@ const ContactForm = ({ onChange }: FormProps) => {
             </li>
             <li>
               <div className="row">
-                <div className="col-md-6">
-                  {/* <label htmlFor="cname">Company Name (optional)</label>
-                  <input type="text" id="cname" /> */}
+                <div className="col-md-12">
                   <Input
                     onChange={onChangeInputs}
                     name="companyName"
@@ -73,23 +71,12 @@ const ContactForm = ({ onChange }: FormProps) => {
                   />
                 </div>
                 <div className="col-md-6">
-                  {/* <label htmlFor="country">Country / Region *</label>
-                  <p className={css.countryname}>United Kingdom (UK)</p> */}
-                  <Select
-                    name="country"
-                    label="Country / Region *"
-                    onChange={onChangeInputs}
-                    options={[
-                      {
-                        label: "Not Selected",
-                        value: "",
-                      },
-                      {
-                        label: "United Kingdom (UK)",
-                        value: "UK",
-                      },
-                    ]}
-                  />
+                   <p className={css.countryinput}>
+                   Country/Region *
+                   </p>
+                   <h3 className={css.countryinput1}>
+                   United Kingdom (UK)
+                   </h3>
                 </div>
               </div>
             </li>
@@ -110,6 +97,13 @@ const ContactForm = ({ onChange }: FormProps) => {
                     label="Street address *"
                     onChange={onChangeInputs}
                   />
+                    <Input
+                    type="text"
+                    name="houseNumber"
+                    placeholder="Apartment, suite, unit, etc. (optional)"
+                    label=""
+                    onChange={onChangeInputs}
+                  />
                 </div>
               </div>
             </li>
@@ -126,7 +120,18 @@ const ContactForm = ({ onChange }: FormProps) => {
             </li>
             <li>
               <div className="row">
-                <div className="col-md-6">
+                <Input
+                  id="town"
+                  type="text"
+                  name="country"
+                  label="Country (optional)"
+                  onChange={onChangeInputs}
+                />
+              </div>
+            </li>
+            <li>
+              <div className="row">
+                <div className="col-md-12">
                   <Input
                     type="text"
                     name="postcode"
@@ -136,7 +141,7 @@ const ContactForm = ({ onChange }: FormProps) => {
                     onChange={onChangeInputs}
                   />
                 </div>
-                <div className="col-md-6">
+                <div className="col-md-12">
                   <Input
                     type="number"
                     name="phone"
@@ -152,7 +157,7 @@ const ContactForm = ({ onChange }: FormProps) => {
                 <div className="col-md-12">
                   <Input
                     name="email"
-                    label="Email"
+                    label="Email address *"
                     id="email"
                     type="email"
                     onChange={onChangeInputs}

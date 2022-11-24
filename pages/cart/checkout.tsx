@@ -5,6 +5,7 @@ import axios from "network-requests/axios";
 import { useCreateOrder } from "network-requests/mutations";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import CalendarIcon from "icons/calendaricon";
 import React, { useMemo } from "react";
 import useAddCart from "store/hooks/useaddcart";
 import css from "styles/cart.module.scss";
@@ -136,7 +137,7 @@ const Checkout: NextPageWithLayout = () => {
         <div className="container">
           <div className={css["coupan-container"]}>
             <div className={css["coupan-text"]}>
-              <CoupanIcon />
+              <CalendarIcon />
               Have a coupon?
               <strong onClick={() => setCoupanInput(!coupanInput)}>
                 Click here to enter your code
@@ -146,7 +147,7 @@ const Checkout: NextPageWithLayout = () => {
               <div className={css["coupan-input"]}>
                 <label>If you have a coupon code, please apply it below.</label>
                 <div className={css["inputs"]}>
-                  <input placeholder="Coupan Code" type="text" />
+                  <input placeholder="Coupon Code" type="text" />
                   <button>Apply coupon</button>
                 </div>
               </div>
@@ -159,12 +160,7 @@ const Checkout: NextPageWithLayout = () => {
               {haveSomethingInCart ? (
                 <div className={css["summary"]}>
                   <p className={css["bag-item"]}>
-                    My Bag have{" "}
-                    <strong className={css.colorchange}>
-                      {" "}
-                      {cartItems?.length}
-                    </strong>{" "}
-                    item (s)
+                  YOUR ORDER
                   </p>
                   {cartItems.map((data, index) => {
                     return (
@@ -197,7 +193,6 @@ const Checkout: NextPageWithLayout = () => {
         </div>
       </div>
       {/* CONTACT END */}
-      <Recommendation />
     </React.Fragment>
   );
 };
@@ -323,6 +318,10 @@ const PaymentButton = ({
   switch (paymentType) {
     case "stripe":
       return (
+        <>
+        <div className={css.paymentparagraph}>
+          <p>Your personal data will be used to process your order,<br></br>support your experience throughout this website, and for<br></br>other purposes described in our <Link href="#"><a>privacy policy.</a></Link></p>
+        </div>
         <button
           disabled={disable}
           className={`${css.checkpro} ${disable ? css.disable : ""}`}
@@ -331,6 +330,7 @@ const PaymentButton = ({
         >
           Pay via Checkout
         </button>
+        </>
       );
     case "cash-on-delivery":
       return (
@@ -397,13 +397,26 @@ const BagItemsSummary = ({ accessories, bed, onRemove }: ItemsSummaryProps) => {
         </div>
         <div className={css["price-summary"]}>
           <h5>
-            <span> Price</span> <span>£{bed?.price}</span>
+            <span className={css["price-sum"]}> Price</span> 
+            <span className={css["price-sums"]}>£{bed?.price}</span>
+          </h5>
+        </div>
+        <div className={css["price-summary1"]}>
+          <h5>
+          <span className={css["price-sum"]}>Shipping</span>
+          <span className={css["price-sums"]}>Free shipping</span>
+          </h5>
+        </div>
+        <div className={css["price-summary1"]}>
+          <h5>
+          <span className={css["price-sum"]}>Total</span>
+          <span className={css["price-sums"]}>	£619.00</span>
           </h5>
         </div>
         <div className={css.CartItems_buttons}>
-          <button onClick={onRemove} className={css.removebutton}>
+          {/* <button onClick={onRemove} className={css.removebutton}>
             Remove
-          </button>
+          </button> */}
         </div>
       </div>
     </React.Fragment>
@@ -411,69 +424,4 @@ const BagItemsSummary = ({ accessories, bed, onRemove }: ItemsSummaryProps) => {
 };
 
 const Recommendation = () => {
-  return (
-    <div className={css["fluid-container"]}>
-      <div className="container">
-        <div className={css.first_boxcart}>
-          <div className={css.item3}>
-            <h5>Services recommended for you</h5>
-            <div className={`${css.bg_white}  ${css.boxfirst_cart}`}>
-              <h4>Mattress and bed frame recycling service</h4>
-              <p>
-                For peace of mind, add this to your order today – we’ll collect
-                and recycle your old bed during the delivery of your new bed.
-              </p>
-              <ul className={css.boxfirst_cartul}>
-                <li>
-                  All recyclable materials are reused, and waste is turned into
-                  green energy
-                </li>
-                <li>
-                  Ensure you have dismantled any furniture items prior to
-                  delivery
-                </li>
-                <li>
-                  We’ll provide you with a green bag to wrap your item in before
-                  delivery
-                </li>
-                <li>
-                  All recyclable materials are reused, and waste is turned into
-                  green energy
-                </li>
-              </ul>
-            </div>
-
-            <div className={`${css.bg_white}  ${css.boxfirst_cart}`}>
-              <h4>Bed frame assembly</h4>
-              <p>
-                Fancy sitting back and relaxing while we assemble your new bed?
-              </p>
-              <ul className={css.boxfirst_cartul}>
-                <li>Our team are fully trained in bed building</li>
-                <li>
-                  We offer a quick and tidy service – all packaging is taken
-                  away
-                </li>
-              </ul>
-            </div>
-            <div className={`${css.bg_white}  ${css.boxfirst_cart}`}>
-              <h4>Bedcover service plan</h4>
-              <p>
-                Be rest assured by adding insurance to your purchase. We’ll then
-                provide:
-              </p>
-              <ul className={css.boxfirst_cartul}>
-                <li>Structural defect cover for 8 years*</li>
-                <li>Accidental cosmetic damage cover for 5 years</li>
-                <li>
-                  A FREE mattress protector with each mattress added to the
-                  service plan
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
 };

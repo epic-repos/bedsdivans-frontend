@@ -1,3 +1,75 @@
+.inputbox input {
+  border: 1px solid #d3ced2;
+  padding: 5px 10px;
+}
+span.value {
+  font-size: 16px !important;
+  color: #222178 !important;
+}
+.inputbox input::placeholder {
+  color: #d3ced2;
+}
+.mwfull {
+  width: 28%;
+}
+span.shippingdetail1 {
+  font-size: 15px;
+  font-weight: 400 !important;
+  color: #777!important;
+}
+span.shippingdetail1 a {
+  font-size: 15px;
+  color: blue !important;
+}
+span.shippingdetail {
+  color: #0e3f70;
+  font-size: 15px;
+  font-weight: 600;
+}
+.cartsummary1 {
+  display: flex;
+  justify-content: space-between;
+}
+.inputsection {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid rgba(0,0,0,.1);
+  padding: 8px;
+  flex-wrap: wrap;
+}
+.inputbox1 button:hover {
+  background-color: #000;
+}
+.inputbox button:hover {
+  background-color: #000;
+}
+.inputbox1 button {
+  border: 1px solid #0170B9;
+  font-size: 14px !important;
+  padding: 6px 12px !important;
+  text-transform: uppercase !important;
+  background-color: #0170B9;
+  color: #fff;
+  font-weight: 700;
+  margin-left: 8px;
+  position: relative;
+  top: -1px;
+}
+.inputbox button {
+  border: 1px solid #0170B9;
+  font-size: 14px !important;
+  padding: 6px 12px !important;
+  text-transform: uppercase !important;
+  background-color: #0170B9;
+  color: #fff;
+  font-weight: 700;
+  margin-left: 8px;
+  position: relative;
+  top: -1px;
+}
+.productlistboxouter {
+  overflow: overlay;
+}
 .containers {
   padding-left: 40px;
   padding-right: 40px;
@@ -18,6 +90,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-wrap: wrap;
   .productsimage {
     display: flex;
     align-items: center;
@@ -207,7 +280,6 @@
             font-weight: 100;
           }
         }
-
         .price {
           font-weight: 700;
           font-size: 1rem;
@@ -318,16 +390,20 @@
         }
       }
     }
-
+    .cartdetailedactions a:hover {
+      background-color: #000;
+    }
     .cartdetailedactions {
       a {
-        background: #1f3447;
+        background: #0170b9;
         color: #fff !important;
         border: none 1px #f0f0f0;
-        padding: 1rem 1.25rem;
+        padding: 14px;
         width: 100%;
         display: block;
+        text-transform: uppercase;
         text-align: center;
+        font-weight: 700;
       }
     }
 
@@ -337,9 +413,9 @@
       justify-content: space-between;
 
       span {
-        color: #0e3f70;
-        font-size: 1.2rem;
-        font-weight: 400;
+          color: #0e3f70;
+    font-size: 15px;
+    font-weight: 600;
       }
     }
 
@@ -350,8 +426,9 @@
         align-items: center;
 
         span {
-          font-size: 2rem;
-          font-weight: 500;
+          color: #0e3f70;
+    font-size: 15px;
+    font-weight: 600;
         }
       }
     }
@@ -504,5 +581,26 @@ ul.formdesign {
     font-size: 0.8rem;
     color: #555;
     padding-bottom: 5px;
+  }
+}
+.continueshopping {
+  display: none;
+}
+@media (max-width:500px) {
+  .inputbox button { 
+    padding: 7px 5px 6px 5px !important;
+    margin-left: 3px;
+    position: relative;
+    top: 0px;
+  }
+  .inputbox1 button {
+    padding: 6px 110px !important;
+    position: relative;
+    top: 5px;
+    margin-bottom: 8px;
+  }
+  .mwfull {
+    width: 100%;
+    margin-top: 15px;
   }
 }
