@@ -94,7 +94,7 @@ export const useFetchBedVariantsByIdAndSize = (id: string, size: string) =>
         ["bed-variant", id, size],
         (): Promise<BedWithSize> => getBedVariantById(id, size),
         {
-            refetchOnMount: true,
+            enabled: !!id && !!size,
         }
     );
 

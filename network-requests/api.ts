@@ -57,7 +57,8 @@ export const getAllBedsWithImage = ({
 }: GetAllBedsParams): Promise<BedResponse> =>
     axios
         .get<BedResponse>(
-            `/beds/get-all-beds-with-base-image?page=${pageParam}${category && `&category=${category}`
+            `/beds/get-all-beds-with-base-image?page=${pageParam}${
+                category && `&category=${category}`
             }`
         )
         .then((response) => response.data)
@@ -95,13 +96,16 @@ export const getAllBedsWithImageAdmin = ({
             throw error;
         });
 
-
 // FOR SLUG BASED API
 
 export const getBedBySlug = (slug: string): Promise<Bed> => {
-    return axios.get<Bed>(`/beds/${slug}`).then((response) => response.data)
-        .catch((err) => { throw err; });
-}
+    return axios
+        .get<Bed>(`/beds/${slug}`)
+        .then((response) => response.data)
+        .catch((err) => {
+            throw err;
+        });
+};
 
 export const getBedById = (id: string): Promise<Bed> =>
     axios
@@ -113,7 +117,7 @@ export const getBedById = (id: string): Promise<Bed> =>
 
 export const getBedVariantById = (
     id: string,
-    size?: string | undefined
+    size?: string
 ): Promise<BedWithSize> => {
     if (size)
         return axios
@@ -124,7 +128,7 @@ export const getBedVariantById = (
             });
     else
         return axios
-            .get<BedWithSize>(`/beds/get-bed-variant/${id}`)
+            .get<BedWithSize>(`/beds/${id}`)
             .then((response) => response.data)
             .catch((error) => {
                 throw error;
@@ -281,5 +285,3 @@ export const deleteBedVariantById = (
         .catch((error) => {
             throw error;
         });
-
-
