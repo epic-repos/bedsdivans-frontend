@@ -44,19 +44,21 @@ const bedStorageArray = [
   },
 ];
 
-const NewProductPage = () => {
+const NewProductPage = ({ size: bedSize, id }: any) => {
   const dispatch = useAppDispatch();
   const router = useRouter();
   const imageRef = React.useRef(null);
   const src = "/grey-linen.jpeg";
 
+  const [size, setSize] = React.useState(null);
+
   const { data } = useFetchBedVariantsByIdAndSize(
-    router?.query?.id as string,
-    router?.query?.size as string
+    id as any,
+    size || (bedSize as any)
   );
 
   const [state, setState] = React.useState<any>({
-    size: undefined,
+    size: data?.variants?.[0]?.size,
     color: undefined,
     storage: undefined,
     feet: undefined,
@@ -334,16 +336,10 @@ const NewProductPage = () => {
               <SelectOption
                 dataArray={data?.availabeSizes as any}
                 label="Select Your Size"
+                value={state?.size}
                 onChange={(e) => {
-                  console.log(e);
-                  router.push(
-                    {
-                      pathname: `/products/${router?.query?.id}`,
-                      query: { size: e.target.value },
-                    },
-                    undefined,
-                    { scroll: false }
-                  );
+                  updateState("size", e.target.value);
+                  setSize(e.target.value as any);
                 }}
               />
               <SelectOption
@@ -439,7 +435,7 @@ const SelectOption = (props: SelectOptionProps) => {
       <label>{props.label}</label>
       <div className={css["dropdown"]}>
         <select {...rest}>
-          {dataArray.map((data: any, index: number) => {
+          {dataArray?.map((data: any, index: number) => {
             return (
               <>
                 {type === "accessories" && (
@@ -490,7 +486,11 @@ const AddToBasket = ({ onClick, onChange }: AddToBasketProps) => {
         <div className={css["basket-count"]}>
           <button onClick={decreaseCount}>-</button>
           <div className={css["input"]}>
-            <input type={"number"} value={count} />
+            <input
+              type={"number"}
+              value={count}
+              onChange={(e) => setCount(Number(e.target.value))}
+            />
           </div>
           <button onClick={increaseCount}>+</button>
           <button className={css["addToBasket"]} onClick={onClick}>
@@ -561,35 +561,51 @@ const ImageCarousel = ({ imagesArray, selected }: ImageCarouselProps) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { id, size } = context.query;
+  const { id: query = null }: any = context.query;
+  let size: any = null;
+  let id: any = null;
 
-  if (!isValidObjectId(id)) {
-    return redirect404();
+  if (query) {
+    const lastWord = query.split("-").pop();
+    if (lastWord && !isNaN(parseInt(lastWord.slice(0, 1)))) {
+      size = lastWord;
+    }
+    id = query.replace(`-${size}`, "");
   }
 
-  const queryClient = new QueryClient();
-  await queryClient.prefetchQuery(
-    ["bed-variant", id, size],
-    async () =>
-      await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/beds/${id}?size=${size}`
-      ).then((res) => {
-        const response = res.json() as any;
-        if (response.success === false) {
-          return {
-            redirect: {
-              permanent: false,
-              destination: "/",
-            },
-          };
-        } else {
-          return response;
-        }
-      })
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/beds/${id}${
+      size ? `?size=${size}` : ""
+    }`
   );
 
+  const data = await res.json();
+
+  const queryClient = new QueryClient();
+  await queryClient.prefetchQuery(["bed-variant", id, size], async () => data);
+
+  if (res.statusText !== "OK") {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/",
+      },
+    };
+  } else if (data?.variants?.length === 0 || !data) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/",
+      },
+    };
+  }
+
   return {
-    props: { dehydratedState: dehydrate(queryClient) },
+    props: {
+      dehydratedState: dehydrate(queryClient),
+      size,
+      id,
+    },
   };
 };
 
@@ -686,6 +702,7 @@ const Description = () => {
 const Reviews = () => {
   return (
     <div>
+      {" "}
       <div className={`${Styles.review} container`}>
         <div className="row">
           <div className="col-md-6">

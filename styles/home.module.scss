@@ -3,12 +3,12 @@
 .hero-container {
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url(../public/image/fridaybanner.webp);
+  background-image: url(../public/banner_images.jpeg);
 }
 .slider_height {
-  min-height: 500px;
-  max-height: 800px;
-  height: 70vh;
+  min-height: 574px;
+  max-height: 836px;
+  height: 75vh;
 }
 
 .heading {
@@ -880,7 +880,7 @@ section.qualityproducts {
   display: block;
   margin-top: 30px;
   color: #fff;
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 .complementsection {
   background-color: #122178;
@@ -893,12 +893,12 @@ section.qualityproducts {
 }
 .complementcontent1 img {
   padding: 40px 0 0 0;
-    width: 40px;
+  width: 40px;
 }
 .complementcontent1 button {
   padding: 15px 90px 15px 90px;
   border-radius: 7px 7px 7px 7px;
-  background-color: #F3F3F3;
+  background-color: #f3f3f3;
   color: #000000;
   text-transform: uppercase;
   font-weight: 500;
@@ -929,14 +929,14 @@ section.qualityproducts {
 }
 .mattresssection h3 {
   text-align: center;
-    color: #222178;
-    font-family: "Roboto", Sans-serif;
-    font-size: 36px;
-    font-weight: 600;
+  color: #222178;
+  font-family: "Roboto", Sans-serif;
+  font-size: 36px;
+  font-weight: 600;
 }
 .onemattressscontent1 {
   padding: 30px 0 0 0;
-    margin-left: 10px;
+  margin-left: 10px;
 }
 .onemattresssection {
   margin-top: 37px;
@@ -1000,20 +1000,19 @@ section.qualityproducts {
   margin-bottom: 20px;
 }
 .bannerimage {
-  background-image: url('../public/image/mattressesbanner.webp');
+  background-image: url("../public/image/mattressesbanner.webp");
   padding: 240px;
-    background-repeat: no-repeat;
-    width: 100%;
-    background-size: cover;
-    margin-top: 20px;
+  background-repeat: no-repeat;
+  width: 100%;
+  background-size: cover;
+  margin-top: 20px;
 }
 
-
-@media (max-width:500px) {
+@media (max-width: 500px) {
   .hero-container {
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url(/_next/static/media/fridaybanner.cdcfa7e3.webp);
+    background-image: url(../public/banner_images.jpeg);
     background-position: center;
     width: auto;
     height: 190px !important;
@@ -1112,38 +1111,17 @@ section.qualityproducts {
   margin-top: 30px;
 }
 }
-@media (max-width:1200px) {
-   .complementcontent1 button {
+@media (max-width: 1200px) {
+  .complementcontent1 button {
     left: 50px;
     top: -40px;
     padding: 15px 50px 15px 70px;
-   }
-   .bannerimage {
+  }
+  .bannerimage {
     padding: inherit;
     height: 370px;
-   }
-   .hero-container {
-    height: 420px;
-   }
-}
-@media (max-width:991px) {
+  }
   .hero-container {
-    height: 260px;
-   }
-   .complementcontent h3 {
-    font-size: 18px;
-    padding: 50px 0 0 0;
-   }
-   .complementcontent1 button {
-    left: 55px;
-    top: 32px;
-    padding: 15px 25px 15px 14px;
-    margin-bottom: 60px;
-   }
-   .bannerimage { 
-    height: 310px;
-   }
-   .complementcontent1 img {
-    display: none;
+    height: 420px;
   }
 }
