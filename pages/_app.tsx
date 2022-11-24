@@ -10,39 +10,39 @@ import { useState } from "react";
 
 // import 'bootstrap/dist/css/bootstrap.min.css'
 function RootApp({ Component, pageProps }: AppPropsWithLayout) {
-  const getLayout = Component.getLayout ?? ((page) => page);
-  //REACT QUERY
-  const [queryClient] = useState(
-    () =>
-      new QueryClient({
-        defaultOptions: {
-          queries: {
-            refetchOnReconnect: true,
-            retry: false,
-            refetchOnMount: true,
-            refetchOnWindowFocus: false,
-          },
-        },
-      })
-  );
-
-  //save store in local storage
-  store.subscribe(() => {
-    localStorage.setItem(
-      "cart",
-      JSON.stringify(store.getState().addToCart || {})
+    const getLayout = Component.getLayout ?? ((page) => page);
+    //REACT QUERY
+    const [queryClient] = useState(
+        () =>
+            new QueryClient({
+                defaultOptions: {
+                    queries: {
+                        refetchOnReconnect: true,
+                        retry: false,
+                        refetchOnMount: true,
+                        refetchOnWindowFocus: false,
+                    },
+                },
+            })
     );
-  });
 
-  return getLayout(
-    <Provider store={store}>
-      <QueryClientProvider client={queryClient}>
-        <Hydrate state={pageProps.dehydratedState}>
-          <Component {...pageProps} />
-          <ReactQueryDevtools initialIsOpen={false} />
-        </Hydrate>
-      </QueryClientProvider>
-    </Provider>
-  );
+    //save store in local storage
+    store.subscribe(() => {
+        localStorage.setItem(
+            "cart",
+            JSON.stringify(store.getState().addToCart || {})
+        );
+    });
+
+    return getLayout(
+        <Provider store={store}>
+            <QueryClientProvider client={queryClient}>
+                <Hydrate state={pageProps.dehydratedState}>
+                    <Component {...pageProps} />
+                    <ReactQueryDevtools initialIsOpen={false} />
+                </Hydrate>
+            </QueryClientProvider>
+        </Provider>
+    );
 }
 export default RootApp;

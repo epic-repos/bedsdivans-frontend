@@ -89,10 +89,7 @@ export const useFetchBedVariantsById = (id: string) =>
 export const useFetchBedVariantsByIdAndSize = (id: string, size: string) =>
     useQuery(
         ["bed-variant", id, size],
-        (): Promise<BedWithSize> => getBedVariantById(id, size),
-        {
-            refetchOnMount: true,
-        }
+        (): Promise<BedWithSize> => getBedVariantById(id, size)
     );
 
 export const useFetchIconsByType = (type: string) =>

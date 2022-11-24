@@ -473,7 +473,7 @@ const SelectOption = (props: SelectOptionProps) => {
             <label>{props.label}</label>
             <div className={css["dropdown"]}>
                 <select {...rest}>
-                    {dataArray.map((data: any, index: number) => {
+                    {dataArray?.map((data: any, index: number) => {
                         return (
                             <>
                                 {type === "accessories" && (
