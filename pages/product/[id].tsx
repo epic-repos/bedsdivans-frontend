@@ -94,6 +94,7 @@ const ProductDetailPage = ({ size: bedSize, id }: any) => {
   //     backgroundImage: `url(${currentImage})`,
   //   }));
   // }, [currentImage]);
+  // console.log(productData?.variants?.[0]?.accessories?.storage?.length > 0);
 
   return (
     <div>
@@ -241,54 +242,56 @@ const ProductDetailPage = ({ size: bedSize, id }: any) => {
               </p>
             </div>
             <div className={css["product-options"]}>
-              <div className={css["colors"]}>
-                <label>
-                  <span style={{ color: "red" }}>*</span>
-                  <span
-                    style={{
-                      fontSize: "18px",
-                      fontWeight: "700",
-                    }}
-                  >
-                    Choose Colour
-                  </span>
-                  {productState?.color?.name?.label && (
-                    <span className={css["active-color"]}>
-                      {productState?.color?.name?.label}
+              {productData?.variants?.[0]?.accessories?.color?.length > 0 && (
+                <div className={css["colors"]}>
+                  <label>
+                    <span style={{ color: "red" }}>*</span>
+                    <span
+                      style={{
+                        fontSize: "18px",
+                        fontWeight: "700",
+                      }}
+                    >
+                      Choose Colour
                     </span>
-                  )}
-                </label>
-                <div className={css["color-options"]}>
-                  <ul>
-                    {productData?.variants?.[0]?.accessories?.color?.map(
-                      (color: any) => (
-                        <li
-                          key={color?._id}
-                          onClick={() => {
-                            updateState("color", color);
-                          }}
-                          style={{
-                            overflow: "hidden",
-                            borderRadius: "4px",
-                            border: `2px solid ${
-                              productState?.color === color
-                                ? "#222178"
-                                : "transparent"
-                            }`,
-                          }}
-                        >
-                          <img
-                            src={color?.name?.image}
-                            alt={color?.name?.label}
-                            height={40}
-                            width={40}
-                          ></img>
-                        </li>
-                      )
+                    {productState?.color?.name?.label && (
+                      <span className={css["active-color"]}>
+                        {productState?.color?.name?.label}
+                      </span>
                     )}
-                  </ul>
+                  </label>
+                  <div className={css["color-options"]}>
+                    <ul>
+                      {productData?.variants?.[0]?.accessories?.color?.map(
+                        (color: any) => (
+                          <li
+                            key={color?._id}
+                            onClick={() => {
+                              updateState("color", color);
+                            }}
+                            style={{
+                              overflow: "hidden",
+                              borderRadius: "4px",
+                              border: `2px solid ${
+                                productState?.color === color
+                                  ? "#222178"
+                                  : "transparent"
+                              }`,
+                            }}
+                          >
+                            <img
+                              src={color?.name?.image}
+                              alt={color?.name?.label}
+                              height={40}
+                              width={40}
+                            ></img>
+                          </li>
+                        )
+                      )}
+                    </ul>
+                  </div>
                 </div>
-              </div>
+              )}
               <SelectOption
                 dataArray={productData?.availabeSizes as any}
                 label="Select Your Size"
@@ -298,56 +301,68 @@ const ProductDetailPage = ({ size: bedSize, id }: any) => {
                   setSize(e.target.value as any);
                 }}
               />
-              <SelectOption
-                type="accessories"
-                dataArray={
-                  productData?.variants?.[0]?.accessories?.storage as any
-                }
-                label="Select Your Storage"
-                onChange={(e) => {
-                  updateState(
-                    "storage",
-                    e.target.value && JSON.parse(e.target.value)
-                  );
-                }}
-              />
-              <SelectOption
-                type="accessories"
-                dataArray={productData?.variants?.[0]?.accessories?.feet as any}
-                label="Select Your Feet"
-                onChange={(e) => {
-                  updateState(
-                    "feet",
-                    e.target.value && JSON.parse(e.target.value)
-                  );
-                }}
-              />
-              <SelectOption
-                type="accessories"
-                dataArray={
-                  productData?.variants?.[0]?.accessories?.headboard as any
-                }
-                label="Select Your Headboard"
-                onChange={(e) => {
-                  updateState(
-                    "headboard",
-                    e.target.value && JSON.parse(e.target.value)
-                  );
-                }}
-              />
-              <SelectOption
-                type="accessories"
-                dataArray={
-                  productData?.variants?.[0]?.accessories?.mattress as any
-                }
-                label="Select Your Mattress"
-                onChange={(e) => {
-                  updateState(
-                    "mattress",
-                    e.target.value && JSON.parse(e.target.value)
-                  );
-                }}
-              />
+              {productData?.variants?.[0]?.accessories?.storage?.length > 0 && (
+                <SelectOption
+                  type="accessories"
+                  dataArray={
+                    productData?.variants?.[0]?.accessories?.storage as any
+                  }
+                  label="Select Your Storage"
+                  onChange={(e) => {
+                    updateState(
+                      "storage",
+                      e.target.value && JSON.parse(e.target.value)
+                    );
+                  }}
+                />
+              )}
+              {productData?.variants?.[0]?.accessories?.feet?.length > 0 && (
+                <SelectOption
+                  type="accessories"
+                  dataArray={
+                    productData?.variants?.[0]?.accessories?.feet as any
+                  }
+                  label="Select Your Feet"
+                  onChange={(e) => {
+                    updateState(
+                      "feet",
+                      e.target.value && JSON.parse(e.target.value)
+                    );
+                  }}
+                />
+              )}
+              {productData?.variants?.[0]?.accessories?.headboard?.length >
+                0 && (
+                <SelectOption
+                  type="accessories"
+                  dataArray={
+                    productData?.variants?.[0]?.accessories?.headboard as any
+                  }
+                  label="Select Your Headboard"
+                  onChange={(e) => {
+                    updateState(
+                      "headboard",
+                      e.target.value && JSON.parse(e.target.value)
+                    );
+                  }}
+                />
+              )}
+              {productData?.variants?.[0]?.accessories?.mattress?.length >
+                0 && (
+                <SelectOption
+                  type="accessories"
+                  dataArray={
+                    productData?.variants?.[0]?.accessories?.mattress as any
+                  }
+                  label="Select Your Mattress"
+                  onChange={(e) => {
+                    updateState(
+                      "mattress",
+                      e.target.value && JSON.parse(e.target.value)
+                    );
+                  }}
+                />
+              )}
             </div>
             <div>
               <AddToBasket

@@ -16,7 +16,9 @@ import { useRouter } from "next/router";
 import RightIcon from "icons/rightarrow";
 
 const Home: NextPageWithLayout = () => {
-  const { data } = useFetchAllBedsWithImage();
+  const { data } = useFetchAllBedsWithImage("divan-beds");
+  const { data: mattress } = useFetchAllBedsWithImage("mattresses");
+  const { data: sleighbed } = useFetchAllBedsWithImage("sleighbeds");
 
   const router = useRouter();
   return (
@@ -166,7 +168,7 @@ const Home: NextPageWithLayout = () => {
       </section>
       <div className={styles.bestsellingproduct}>
         <GridWrapper grid="4" gap="2rem">
-          {data?.pages?.["0"]?.data
+          {mattress?.pages?.["0"]?.data
             ?.slice(0, 4)
             .map((item: BedWithImage, index) => {
               return (
@@ -235,7 +237,7 @@ const Home: NextPageWithLayout = () => {
       </section>
       <div className={styles.bestsellingproduct}>
         <GridWrapper grid="4" gap="2rem">
-          {data?.pages?.["0"]?.data
+          {sleighbed?.pages?.["0"]?.data
             ?.slice(0, 4)
             .map((item: BedWithImage, index) => {
               return (
