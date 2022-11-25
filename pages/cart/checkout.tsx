@@ -267,19 +267,6 @@ const TotalSummary = ({
     return (
         <div className={css.checkform}>
             <div className={css.items}>
-                <p>Price Summary </p>
-                <div className={css.price}>
-                    <p>Sub Total (Incl.of taxes) </p>
-                    <p>£{cartTotalAmount?.toFixed(2)}</p>
-                </div>
-                <div className={css.price}>
-                    <p>Shipping</p>
-                    <p>FREE</p>
-                </div>
-                <div className={css.price}>
-                    <p>Total</p>
-                    <p>£{cartTotalAmount?.toFixed(2)}</p>
-                </div>
                 <div className={css.payment}>
                     {paymentTypeArray.map((data, index) => (
                         <React.Fragment key={index}>
@@ -395,6 +382,10 @@ const BagItemsSummary = ({ accessories, bed, onRemove }: ItemsSummaryProps) => {
         <React.Fragment>
             <div className={css["summary-container"]}>
                 <div className={css["summary-items"]}>
+                    <ul>
+                        <li>Product</li>
+                        <li>Subtotal</li>
+                    </ul>
                     <h4 className={css["product-name"]}>{bed?.name}</h4>
                     <ul>
                         <li>
@@ -432,14 +423,14 @@ const BagItemsSummary = ({ accessories, bed, onRemove }: ItemsSummaryProps) => {
                 </div>
                 <div className={css["price-summary"]}>
                     <h5>
-                        <span className={css["price-sum"]}> Price</span>
+                        <span className={css["price-sum"]}> Subtotal </span>
                         <span className={css["price-sums"]}>£{bed?.price}</span>
                     </h5>
                 </div>
                 <div className={css["price-summary1"]}>
                     <h5>
                         <span className={css["price-sum"]}>Shipping</span>
-                        <span className={css["price-sums"]}>Free shipping</span>
+                        <span className={css["price-sums1"]}>Free<br></br>shipping</span>
                     </h5>
                 </div>
                 <div className={css["price-summary1"]}>

@@ -52,7 +52,7 @@ const CartPage: NextPageWithLayout = () => {
       <div className={style.sectioncart}>
         <div className="container">
           <div className="row">
-            <div className="col-md-8">
+            <div className={`${style.mwfull} col-8`}>
               <div className={style.productlistboxouter}>
                 <table className={style.productcarlist}>
                   {cartItems.length <= 0 ? (

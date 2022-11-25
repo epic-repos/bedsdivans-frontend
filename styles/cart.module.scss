@@ -59,6 +59,7 @@
 
 .row {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .item {
@@ -227,12 +228,23 @@ p.bag-item {
   position: relative;
   .bag-item {
     margin: 0;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 700;
     color: rgb(14, 63, 112);
   }
 }
-
+.summary-items ul:nth-child(1){
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ebebeb;
+  padding-bottom: 5px;
+  margin-bottom: 12px;
+}
+.summary-items ul:nth-child(1) li {
+  font-size: 16px;
+  font-weight: 700;
+  color: #514f58;
+}
 .summary-container {
   min-width: 380px;
   max-width: 400px;
@@ -243,9 +255,9 @@ p.bag-item {
 }
 
 .summary-container .summary-items .product-name {
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1.6;
-  font-size: 1.2rem;
+  font-size: 16px;
 }
 .summary-items {
   display: flex;
@@ -260,7 +272,7 @@ p.bag-item {
     &:nth-of-type(1) {
       font-size: 1rem;
       font-weight: 600;
-      color: #222;
+      color: #6f7279;
     }
     &:nth-of-type(3) {
       font-size: 1rem;
@@ -278,12 +290,21 @@ p.bag-item {
 }
 span.price-sum {
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
+  color: #514f58;
 }
 span.price-sums {
-  font-size: 14px;
-    font-weight: 500;
-    color: #464646;
+  font-size: 16px;
+  font-weight: 700;
+  color: #222178;
+}
+span.price-sums1 {
+  font-size: 17px;
+  font-weight: 500;
+  color: #202036;
+  text-indent: -17px;
+  line-height: 32px;
+
 }
 .price-summary1 h5 {
   display: flex;
@@ -595,5 +616,15 @@ span.price-sums {
   .coupan-container .coupan-text { 
     flex-wrap: wrap;
   }
-  
+}
+@media (max-width:1200px) {
+   .item1 {
+    width: 100%;
+   }
+   .button {
+    width: 100%;
+   }
+   .summary-container { 
+    max-width: none;
+   }
 }
