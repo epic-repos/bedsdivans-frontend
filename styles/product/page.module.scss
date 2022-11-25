@@ -231,14 +231,34 @@
         align-items: center;
         select {
           outline: none;
-          flex: 1;
+          flex: 1 1;
+          position: relative;
           width: 100%;
+          top: 0;
           padding: 10px;
           border: 2px solid #e6e6e6;
           font-size: 14px;
-          display: -webkit-box;
+        
+          -webkit-appearance: none !important;
+          -moz-appearance: none;
+          -ms-appearance: none !important;
+         
         }
       }
+    }
+    .select-size .dropdown select::after {
+      content: "▼";
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 0 1em;
+      background: #2b2e2e;
+      cursor: pointer;
+      pointer-events: none;
+      transition: 0.25s all ease;
+      height: 100px;
+      width: 100px;
+      z-index: 1001010000000;
     }
     .select-size {
       label {
