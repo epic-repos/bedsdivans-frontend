@@ -1113,15 +1113,18 @@ section.qualityproducts {
 }
 @media (max-width: 1200px) {
   .complementcontent1 button {
-    left: 50px;
-    top: -40px;
-    padding: 15px 50px 15px 70px;
+    left: 40px;
+    top: 40px;
+    padding: 15px 16px 15px 16px;
   }
   .bannerimage {
     padding: inherit;
-    height: 370px;
+    height: 250px;
   }
   .hero-container {
-    height: 420px;
+    height: 290px;
+  }
+  .complementcontent1 img { 
+    display: none;
   }
 }

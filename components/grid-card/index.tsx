@@ -26,6 +26,11 @@ const GridWrapper = (props: React.PropsWithChildren<GridWrapperProps>) => {
               grid-template-columns: repeat(2, 1fr);
             }
           }
+          @media screen and (max-width:1200px){
+            .grid-${grid} {
+              grid-template-columns: repeat(2, 1fr);
+            }
+          }
           @media screen and (max-width:425px){
             .grid-${grid} {
               grid-template-columns: repeat(1, 1fr);

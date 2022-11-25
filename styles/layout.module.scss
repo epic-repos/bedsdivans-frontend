@@ -443,6 +443,9 @@ $tab: 768px;
     padding: 10px 0 6px 0;
     font-size: 12px;
   }
+  .logo { 
+    margin-left: 0 !important;
+  }
 }
 
 // STYLE FOR NAVIGATION
@@ -545,13 +548,13 @@ $tab: 768px;
   .menu-bar {
     display: block;
   }
+  .menu-bar button {
+    background: none;
+  }
   .searchbar {
     display: none;
   }
   .controls ul li:nth-child(1){
     display: none;
-  }
-  .logo {
-    justify-content: flex-end;
   }
 }
