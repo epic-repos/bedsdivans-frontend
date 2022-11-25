@@ -14,6 +14,7 @@ import ProductCard from "components/grid-card/card";
 import { BedWithImage } from "network-requests/types";
 import { useRouter } from "next/router";
 import RightIcon from "icons/rightarrow";
+import Link from "next/link";
 
 const Home: NextPageWithLayout = () => {
   const { data } = useFetchAllBedsWithImage("divan-beds");
@@ -39,7 +40,10 @@ const Home: NextPageWithLayout = () => {
               <div className={styles.section2image}>
                 <img src="/image/hdbed.webp" alt="image" />
                 <h3>Divan Beds</h3>
-                <button>shop now</button>
+                <button>
+                  {" "}
+                  <Link href="/beds/divan-beds"> shop now </Link>
+                </button>
               </div>
             </div>
             <div className={`${styles.mwfull} col-6`}>
