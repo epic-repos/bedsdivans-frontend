@@ -1,0 +1,22 @@
+.section1 ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+.aboutussectioncontent ul {
+    display: block !important;
+}
+.aboutussectioncontent ul li img {
+    width: 100%;
+}
+.section1 ul li:nth-child(1){
+    width: 33.3333%;
+}
+.aboutussectioncontent3 ul li img {
+    width: 380px;
+}
+.aboutussectioncontent3 ul {
+    display: block;
+}
+.aboutussectioncontent3 ul li:nth-child(1) {
+    width: auto;
+}
