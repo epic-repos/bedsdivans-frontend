@@ -9,9 +9,12 @@ import { useFetchAllBedsWithImage } from "network-requests/queries";
 import GridWrapper from "components/grid-card";
 import { BedWithImage } from "network-requests/types";
 import ProductCard from "components/grid-card/card";
+import { useRouter } from "next/router";
 
 const DivanBeds: NextPageWithLayout = () => {
   const { data } = useFetchAllBedsWithImage();
+
+  const router = useRouter();
   return (
     <>
       <NextSEO title={"DBZBEDS"} />
@@ -36,7 +39,7 @@ const DivanBeds: NextPageWithLayout = () => {
       <section className={styles.beddropdown}>
         <div className="container">
           <div className="row">
-            <div className={` ${styles.left_filter} col-2`}>
+            <div className={`${styles.left_filter} col-2`}>
               <h3>PRODUCT CATEGORIES</h3>
               <ul>
                 <li>Divan Bed</li>
@@ -82,6 +85,7 @@ const DivanBeds: NextPageWithLayout = () => {
                 <GridWrapper grid="3">
                   {data?.pages?.["0"]?.data?.map(
                     (item: BedWithImage, index) => {
+                      console.log(item.slug);
                       return (
                         <ProductCard
                           name={item?.name}
@@ -89,19 +93,7 @@ const DivanBeds: NextPageWithLayout = () => {
                           image={item?.image}
                           key={index}
                           coversControls
-                        />
-                      );
-                    }
-                  )}
-                  {data?.pages?.["0"]?.data?.map(
-                    (item: BedWithImage, index) => {
-                      return (
-                        <ProductCard
-                          name={item?.name}
-                          price={item?.price}
-                          image={item?.image}
-                          key={index}
-                          coversControls
+                          onClick={() => router.push(`/product/${item.slug}/`)}
                         />
                       );
                     }

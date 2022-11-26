@@ -1,16 +1,39 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { CartProductTypes } from "typings/product";
 
-const cartInitial =
-    typeof window !== "undefined"
-        ? JSON.parse(localStorage.getItem("cart") || "[]")
-        : [];
-
+// const cartInitial =
+//     typeof window !== "undefined"
+//         ? JSON.parse(localStorage.getItem("cart") || "[]")
+//         : [];
 const initialState: CartProductTypes = {
-    cartItems: cartInitial?.cartItems || [],
-    cartTotalQuantity: cartInitial?.cartTotalQuantity || 0,
-    cartTotalAmount: cartInitial?.cartTotalAmount || 0,
+    cartItems: [],
+    cartTotalQuantity: 0,
+    cartTotalAmount: 0,
 };
+
+
+
+// const stored = {
+//     data: {
+//         cartItems: [],
+//         cartTotalQuantity: 0,
+//         cartTotalAmount: 0,
+//     } as CartProductTypes,
+// };
+
+// (async () => {
+//     try {
+//         const value = (await localforage.getItem("cart-items")) as any;
+//         // This code runs once the value has been loaded
+//         // from the offline store.
+//         stored.data = value;
+//     } catch (err) {
+//         // This code runs if there were any errors.
+//         console.log(err);
+//     }
+// })();
+
+
 
 const addToCartSlice = createSlice({
     name: "Cart",

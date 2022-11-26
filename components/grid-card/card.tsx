@@ -35,14 +35,13 @@ const ProductCard = (props: ProductItemProps) => {
         />
       </div>
       <div className={css["details"]}>
-           <div className={css["clearpaycontent"]}>
-           <Link href="#">
-                      <a>or 4 payments of £22.25 with </a>
-              </Link>
-              <Link href="#">
-                 <a><ClearpayIcon size={100} color='#000'/></a>
-              </Link>
-           </div>
+        <div className={css["clearpaycontent"]}>
+          <a>or 4 payments of £22.25 with </a>
+
+          <a>
+            <ClearpayIcon size={100} color="#000" />
+          </a>
+        </div>
         <div className={css["name"]}>
           <h2>{name}</h2>
         </div>
@@ -50,9 +49,7 @@ const ProductCard = (props: ProductItemProps) => {
           <img src="/image/tru.png" alt="img" />
         </div>
         <p className={css["price"]}>
-          <span>
-            {`£${price?.salePrice?.toFixed(2)}`}
-          </span>
+          <span>{`£${price?.salePrice?.toFixed(2)}`}</span>
           {/* <span className={css["offer"]}>{percentage}% off</span> */}
         </p>
       </div>
