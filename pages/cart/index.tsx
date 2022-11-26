@@ -23,7 +23,7 @@ const CartPage: NextPageWithLayout = () => {
   } = useAddCart();
   const router = useRouter();
 
-  console.log({ cartItems, cartTotalAmount, cartTotalQuantity });
+  console.log({ cartItems });
 
   let cartArray: any = [];
 
@@ -41,7 +41,7 @@ const CartPage: NextPageWithLayout = () => {
   const goToCheckoutPage = async () => {
     router.push("/cart/checkout");
   };
-  // console.log({ cartItems: cartItems });
+  console.log({ cartItems: cartItems });
   return (
     <>
       <TitleHeader
@@ -61,6 +61,7 @@ const CartPage: NextPageWithLayout = () => {
                     <React.Fragment>
                       <TableHead />
                       {cartItems.map((data, index) => {
+                        console.log(data);
                         return (
                           <ProductItem
                             intialQuantity={data.quantity}
@@ -68,7 +69,7 @@ const CartPage: NextPageWithLayout = () => {
                             name={data.bed.name}
                             imageUrl={data.bed.image}
                             price={`£${data.bed.price}`}
-                            totalPrice={`£${data.total}`}
+                            totalPrice={`£${data.bed.price}`}
                             onAddQuantity={() => increaseQuantity(data.bed.id)}
                             onRemoveQuantity={() =>
                               decreaseQuantity(data.bed.id)
@@ -190,19 +191,19 @@ const ProductItem = ({
                 </li>
                 <li>
                   <strong>Selected Storage:</strong>
-                  {accessories?.storage?.name?.label}
+                  {accessories?.storage?.name}
                 </li>
                 <li>
                   <strong>Selected Headboard :</strong>
-                  {accessories?.headboard?.name?.label}
+                  {accessories?.headboard?.name}
                 </li>
                 <li>
                   <strong>Select Feet : </strong>
-                  {accessories?.feet?.name?.label}
+                  {accessories?.feet?.name}
                 </li>
                 <li>
                   <strong>Selected Mattress : </strong>
-                  {accessories?.mattress?.name?.label}
+                  {accessories?.mattress?.name}
                 </li>
               </ul>
             </div>

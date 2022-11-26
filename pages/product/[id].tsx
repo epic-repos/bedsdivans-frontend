@@ -1,101 +1,136 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @next/next/no-img-element */
-import Image from "next/image";
 import React from "react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { GetServerSideProps } from "next";
 import PerPageLayout from "layout/perpage";
-import addtocart from "store/slices/addtocart";
 import css from "styles/product/page.module.scss";
 import { dehydrate, QueryClient } from "react-query";
-import useAppDispatch from "store/hooks/usedispatch";
 import AddToBasket from "components/products/add-to-basket";
 import SelectOption from "components/products/select-options";
 import ImageCarousel from "components/products/image-carousel";
 import { useFetchBedVariantsByIdAndSize } from "network-requests/queries";
+import Colors from "components/products/colors";
+import Warranty from "components/products/warranty";
+import useAddCart from "store/hooks/useaddcart";
+import useProduct from "store/hooks/use-product";
 
 // DYNAMIC COMPONENTS
 const ContentTabs = dynamic(() => import("components/products/tabs"));
 
 const ProductDetailPage = ({ size: bedSize, id }: any) => {
   const router = useRouter();
-  const dispatch = useAppDispatch();
-  const imageRef = React.useRef(null);
 
-  const [size, setSize] = React.useState(null);
+  const { setAccessories, productState, setBed } = useProduct();
 
+  const [size, setSize] = React.useState("");
   const { data, isFetching, isFetched } = useFetchBedVariantsByIdAndSize(
     id as any,
     size || (bedSize as any)
   );
-
-  const [productData, setProductData] = React.useState(data);
-
-  const [productState, setProductState] = React.useState<any>();
+  // API DATA
+  const [productData, setProductData] = React.useState({
+    id: data?._id,
+    name: data?.name,
+    images: data?.images,
+    description: data?.description,
+    categories: data?.categories,
+    availabeSizes: data?.availabeSizes,
+    variants: data?.variants[0],
+  });
   const [currentImage, setCurrentImage] = React.useState(
-    productState?.color?.image || productData?.variants[0]?.image
+    productState?.accessories?.color?.image || productData?.variants?.image
   );
   // REFETCH DATA ON CHANGE
   React.useMemo(() => {
     if (isFetched) {
-      setProductData(data);
+      setProductData({
+        id: data?._id,
+        name: data?.name,
+        images: data?.images,
+        description: data?.description,
+        categories: data?.categories,
+        variants: data?.variants[0],
+        availabeSizes: data?.availabeSizes,
+      });
     }
   }, [data, isFetched]);
 
-  React.useEffect(() => {
+  React.useMemo(() => {
     setCurrentImage(
-      productState?.color?.image || productData?.variants[0]?.image
+      productState?.accessories?.color?.image || productData?.variants?.image
     );
-  }, [productState?.color?.image, productData?.variants]);
+  }, [productState?.accessories?.color?.image, productData?.variants]);
+  React.useMemo(() => {
+    setBed({
+      id: productData?.id,
+      name: productData?.name,
+      image: productData?.variants?.image,
+      price: Number(productData?.variants?.price?.salePrice),
+      size: size,
+    });
+  }, [productData, size]);
 
   const _updateState = React.useCallback(
-    (key: string, value: string | number) => {
-      setProductState((prevState: any) => ({
-        ...prevState,
-        [key]: value,
-      }));
+    (key: string, value: any) => {
+      setAccessories(key, value);
     },
-    []
+    [setAccessories]
   );
 
   const updateState = React.useMemo(() => _updateState, [_updateState]);
-
-  // const { handleMouseMove, style } = useMouseMove(
-  //   state?.color?.image || productData?.variants[0]?.image
-  // );
+  const { addToCart, cartState } = useAddCart();
   //REDUX STATE
+
   const handleAddToCart = React.useCallback(() => {
-    dispatch(
-      addtocart.actions.addToCart({
-        bed: {
-          id: productData?._id,
-          name: productData?.name,
-          image: productData?.variants?.[0]?.image,
-          price: Number(productData?.variants?.[0]?.price?.salePrice),
-          size: router?.query?.size,
-        },
-        accessories: {
-          color: productState?.color,
-          storage: productState?.storage,
-          feet: productState?.feet,
-          headboard: productState?.headboard,
-          mattress: productState?.mattress,
-        },
-        quantity: productState?.quantity,
-      })
-    );
-    router.push("/cart");
-  }, []);
+    // setBed({
+    //   id: productData?.id,
+    //   name: productData?.name,
+    //   image: productData?.variants?.image,
+    //   price: Number(productData?.variants?.price?.salePrice),
+    //   size: size,
+    // });
+    addToCart({
+      // bed: {
+      //   id: productData?.id,
+      //   name: productData?.name,
+      //   image: productData?.variants?.image,
+      //   price: Number(productData?.variants?.price?.salePrice),
+      //   size: size,
+      // },
+      bed: productState.bed,
+      accessories: productState.accessories,
+    });
 
-  // React.useEffect(() => {
-  //   setStyle((style) => ({
-  //     ...style,
-  //     backgroundImage: `url(${currentImage})`,
-  //   }));
-  // }, [currentImage]);
-  // console.log(productData?.variants?.[0]?.accessories?.storage?.length > 0);
+    console.log(productState);
+    // router.push("/cart");
+  }, [
+    addToCart,
+    productData?.id,
+    productData?.name,
+    productData?.variants?.image,
+    productData?.variants?.price?.salePrice,
+    productState,
+    size,
+  ]);
 
+  // @ts-ignore ( IMAGE ARRAY )
+  const carouselImages = [productData?.variants?.image, ...productData?.images];
+
+  const onChangeAccessories = React.useCallback(
+    (key: string, e: any) => {
+      const values = JSON.parse(e.target.value);
+      updateState(key, {
+        name: values?.name?.label,
+        value: values?.name?.value,
+        price: Number(values?.price),
+      });
+    },
+    [updateState]
+  );
+
+  console.log({ cartState });
   return (
     <div>
       <section className={css.mainproducttitle}>
@@ -114,104 +149,30 @@ const ProductDetailPage = ({ size: bedSize, id }: any) => {
             opacity: isFetching ? 0.5 : 1,
           }}
         >
+          {/* LEFT */}
           <div className={`${css["left"]}`}>
             <div className={css["image-section"]}>
               <div className={css["product-image"]}>
-                <figure ref={imageRef}>
-                  <img
-                    className={css["image"]}
-                    src={currentImage}
-                    alt="Grey-linen"
-                  />
-                </figure>
+                <img
+                  className={css["image"]}
+                  src={currentImage as string}
+                  alt="Grey-linen"
+                />
               </div>
               <ImageCarousel
-                selected={(value) => setCurrentImage(value)}
-                imagesArray={[
-                  productState?.color?.image || productData?.variants[0]?.image,
-                  ...(productData?.images || []),
-                ]}
+                selected={(value: any) => setCurrentImage(value)}
+                imagesArray={carouselImages}
               />
             </div>
-            <div className={css.year_warranty}>
-              <ul>
-                <li>
-                  <Image
-                    src="/one-year-warranty-1.jpg"
-                    height={132}
-                    width={132}
-                    alt="short-image"
-                  ></Image>
-                </li>
-                <li>
-                  <Image
-                    src="/free-delivery2.png"
-                    height={132}
-                    width={132}
-                    alt="short-image"
-                  ></Image>
-                </li>
-                <li>
-                  <Image
-                    src="/made-in-britain3.png"
-                    height={132}
-                    width={132}
-                    alt="short-image"
-                  ></Image>
-                </li>
-                <li>
-                  <Image
-                    src="/trust-pilot4.png"
-                    height={132}
-                    width={132}
-                    alt="short-image"
-                  ></Image>
-                </li>
-              </ul>
-              <p>1 Year Warranty * Made in Britain</p>
-              <ul>
-                <li>
-                  <Image
-                    src="/headboard1.png"
-                    height={79}
-                    width={132}
-                    alt="headboard"
-                  ></Image>
-                </li>
-                <li>
-                  <Image
-                    src="/2-drawers-1-either-side2.png"
-                    height={79}
-                    width={132}
-                    alt="headboard"
-                  ></Image>
-                </li>
-                <li>
-                  <Image
-                    src="/2-drawers-same-side3.png"
-                    height={79}
-                    width={132}
-                    alt="headboard"
-                  ></Image>
-                </li>
-                <li>
-                  <Image
-                    src="/4-drawers4.png"
-                    height={79}
-                    width={132}
-                    alt="headboard"
-                  ></Image>
-                </li>
-              </ul>
-              <p>Headboard can be fixed on both ends of the beds</p>
-            </div>
+            <Warranty />
           </div>
+          {/* RIGHT */}
           <div className={css["right"]}>
             <div className={css["product-name"]}>
               <h1>{productData?.name}</h1>
             </div>
             <div className={css["trustpilot"]}>
-              <a href="">
+              <a>
                 <img
                   src="/Trustpilot-4.5-Stars-300x63.png"
                   alt="trustpilot"
@@ -238,129 +199,66 @@ const ProductDetailPage = ({ size: bedSize, id }: any) => {
             <div className={css["price"]}>
               <p>
                 <span>£</span>
-                <span>{productData?.variants[0]?.price?.salePrice}</span>
+                <span>{productData?.variants?.price?.salePrice}</span>
               </p>
             </div>
             <div className={css["product-options"]}>
-              {productData?.variants?.[0]?.accessories?.color?.length > 0 && (
-                <div className={css["colors"]}>
-                  <label>
-                    <span style={{ color: "red" }}>*</span>
-                    <span
-                      style={{
-                        fontSize: "18px",
-                        fontWeight: "700",
-                      }}
-                    >
-                      Choose Colour
-                    </span>
-                    {productState?.color?.name?.label && (
-                      <span className={css["active-color"]}>
-                        {productState?.color?.name?.label}
-                      </span>
-                    )}
-                  </label>
-                  <div className={css["color-options"]}>
-                    <ul>
-                      {productData?.variants?.[0]?.accessories?.color?.map(
-                        (color: any) => (
-                          <li
-                            key={color?._id}
-                            onClick={() => {
-                              updateState("color", color);
-                            }}
-                            style={{
-                              overflow: "hidden",
-                              borderRadius: "4px",
-                              border: `2px solid ${
-                                productState?.color === color
-                                  ? "#222178"
-                                  : "transparent"
-                              }`,
-                            }}
-                          >
-                            <img
-                              src={color?.name?.image}
-                              alt={color?.name?.label}
-                              height={40}
-                              width={40}
-                            ></img>
-                          </li>
-                        )
-                      )}
-                    </ul>
-                  </div>
-                </div>
+              {productData?.variants?.accessories?.color && (
+                <Colors
+                  colorArray={productData?.variants?.accessories?.color}
+                  colorName={productState?.accessories.color?.name}
+                  onPickColor={(value: any) =>
+                    updateState("color", {
+                      image: value?.image,
+                      name: value?.name?.label,
+                    })
+                  }
+                  activeColor={productState?.accessories.color as any}
+                />
               )}
               <SelectOption
                 dataArray={productData?.availabeSizes as any}
                 label="Select Your Size"
-                value={productState?.size}
+                value={size}
                 onChange={(e) => {
                   updateState("size", e.target.value);
                   setSize(e.target.value as any);
                 }}
               />
-              {productData?.variants?.[0]?.accessories?.storage?.length > 0 && (
+              {productData?.variants?.accessories?.storage && (
                 <SelectOption
                   type="accessories"
-                  dataArray={
-                    productData?.variants?.[0]?.accessories?.storage as any
-                  }
+                  dataArray={productData?.variants?.accessories?.storage}
                   label="Select Your Storage"
-                  onChange={(e) => {
-                    updateState(
-                      "storage",
-                      e.target.value && JSON.parse(e.target.value)
-                    );
-                  }}
+                  onChange={(e) => onChangeAccessories("storage", e)}
                 />
               )}
-              {productData?.variants?.[0]?.accessories?.feet?.length > 0 && (
+              {productData?.variants?.accessories?.feet && (
                 <SelectOption
                   type="accessories"
-                  dataArray={
-                    productData?.variants?.[0]?.accessories?.feet as any
-                  }
+                  dataArray={productData?.variants?.accessories?.feet as any}
                   label="Select Your Feet"
-                  onChange={(e) => {
-                    updateState(
-                      "feet",
-                      e.target.value && JSON.parse(e.target.value)
-                    );
-                  }}
+                  onChange={(e) => onChangeAccessories("feet", e)}
                 />
               )}
-              {productData?.variants?.[0]?.accessories?.headboard?.length >
-                0 && (
+              {productData?.variants?.accessories?.headboard && (
                 <SelectOption
                   type="accessories"
                   dataArray={
-                    productData?.variants?.[0]?.accessories?.headboard as any
+                    productData?.variants?.accessories?.headboard as any
                   }
                   label="Select Your Headboard"
-                  onChange={(e) => {
-                    updateState(
-                      "headboard",
-                      e.target.value && JSON.parse(e.target.value)
-                    );
-                  }}
+                  onChange={(e) => onChangeAccessories("headboard", e)}
                 />
               )}
-              {productData?.variants?.[0]?.accessories?.mattress?.length >
-                0 && (
+              {productData?.variants?.accessories?.mattress && (
                 <SelectOption
                   type="accessories"
                   dataArray={
-                    productData?.variants?.[0]?.accessories?.mattress as any
+                    productData?.variants?.accessories?.mattress as any
                   }
                   label="Select Your Mattress"
-                  onChange={(e) => {
-                    updateState(
-                      "mattress",
-                      e.target.value && JSON.parse(e.target.value)
-                    );
-                  }}
+                  onChange={(e) => onChangeAccessories("mattress", e)}
                 />
               )}
             </div>
@@ -430,3 +328,20 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     },
   };
 };
+// addToCart({
+//   bed: {
+//     id: productData?.id,
+//     name: productData?.name,
+//     image: productData?.variants?.image,
+//     price: Number(productData?.variants?.price?.salePrice),
+//     size: size,
+//   },
+//   accessories: {
+//     color: productState?.accessories?.color,
+//     storage: productState?.accessories?.storage,
+//     feet: productState?.accessories?.feet,
+//     headboard: productState?.accessories?.headboard,
+//     mattress: productState?.accessories?.mattress,
+//   },
+//   quantity: productState?.quantity,
+// });

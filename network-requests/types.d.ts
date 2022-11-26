@@ -85,13 +85,13 @@ type BedWithImage = {
 
 type BedWithSize = {
     _id: string;
+    __v: number;
     name: string;
     description: string;
     categories: string[];
     variants: VariantsTypes[];
     createdAt: string;
     updatedAt: string;
-    __v: number;
     images: string[];
     availabeSizes: string[];
 };

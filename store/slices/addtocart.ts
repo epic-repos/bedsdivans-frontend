@@ -1,15 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { CartProductTypes } from "typings/product";
 
-const cartInitial =
-    typeof window !== "undefined"
-        ? JSON.parse(localStorage.getItem("cart") || "[]")
-        : [];
+// const cartInitial =
+//     typeof window !== "undefined"
+//         ? JSON.parse(localStorage.getItem("cart") || "[]")
+//         : [];
 
 const initialState: CartProductTypes = {
-    cartItems: cartInitial?.cartItems || [],
-    cartTotalQuantity: cartInitial?.cartTotalQuantity || 0,
-    cartTotalAmount: cartInitial?.cartTotalAmount || 0,
+    cartItems: [],
+    cartTotalQuantity: 0,
+    cartTotalAmount: 0,
 };
 
 const addToCartSlice = createSlice({

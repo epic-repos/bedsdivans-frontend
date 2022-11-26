@@ -11,16 +11,14 @@ import { useRouter } from "next/router";
 const useAddCart = () => {
     const dispatch = useAppDispatch();
 
-    const { push } = useRouter();
     const cartState = useAppSelector((state) => state.addToCart);
 
     // ADD FROM CART
     const addToCart = React.useCallback(
         (data: any) => {
             dispatch(addToCartSlice.actions.addToCart(data));
-            push(`/cart`);
         },
-        [dispatch, push]
+        [dispatch]
     );
     // ADD FROM CART
     const increaseQuantity = React.useCallback(
