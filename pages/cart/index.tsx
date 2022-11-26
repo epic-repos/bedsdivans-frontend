@@ -23,8 +23,6 @@ const CartPage: NextPageWithLayout = () => {
   } = useAddCart();
   const router = useRouter();
 
-  console.log({ cartItems });
-
   let cartArray: any = [];
 
   cartItems.map((item) => {
@@ -41,7 +39,7 @@ const CartPage: NextPageWithLayout = () => {
   const goToCheckoutPage = async () => {
     router.push("/cart/checkout");
   };
-  console.log({ cartItems: cartItems });
+
   return (
     <>
       <TitleHeader
@@ -61,7 +59,6 @@ const CartPage: NextPageWithLayout = () => {
                     <React.Fragment>
                       <TableHead />
                       {cartItems.map((data, index) => {
-                        console.log(data);
                         return (
                           <ProductItem
                             intialQuantity={data.quantity}

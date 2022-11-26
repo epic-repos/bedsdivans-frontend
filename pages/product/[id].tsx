@@ -5,25 +5,23 @@ import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { GetServerSideProps } from "next";
 import PerPageLayout from "layout/perpage";
+import Colors from "components/products/colors";
+import useAddCart from "store/hooks/useaddcart";
+import useProduct from "store/hooks/use-product";
 import css from "styles/product/page.module.scss";
+import Warranty from "components/products/warranty";
 import { dehydrate, QueryClient } from "react-query";
 import AddToBasket from "components/products/add-to-basket";
 import SelectOption from "components/products/select-options";
 import ImageCarousel from "components/products/image-carousel";
 import { useFetchBedVariantsByIdAndSize } from "network-requests/queries";
-import Colors from "components/products/colors";
-import Warranty from "components/products/warranty";
-import useAddCart from "store/hooks/useaddcart";
-import useProduct from "store/hooks/use-product";
 
 // DYNAMIC COMPONENTS
 const ContentTabs = dynamic(() => import("components/products/tabs"));
 
 const ProductDetailPage = ({ size: bedSize, id }: any) => {
   const router = useRouter();
-
   const { setAccessories, productState, setBed } = useProduct();
-
   const [size, setSize] = React.useState("");
   const { data, isFetching, isFetched } = useFetchBedVariantsByIdAndSize(
     id as any,
@@ -70,6 +68,7 @@ const ProductDetailPage = ({ size: bedSize, id }: any) => {
       price: Number(productData?.variants?.price?.salePrice),
       size: size,
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productData, size]);
 
   const _updateState = React.useCallback(
@@ -80,41 +79,23 @@ const ProductDetailPage = ({ size: bedSize, id }: any) => {
   );
 
   const updateState = React.useMemo(() => _updateState, [_updateState]);
-  const { addToCart, cartState } = useAddCart();
+  const { addToCart } = useAddCart();
   //REDUX STATE
 
-  const handleAddToCart = React.useCallback(() => {
-    // setBed({
-    //   id: productData?.id,
-    //   name: productData?.name,
-    //   image: productData?.variants?.image,
-    //   price: Number(productData?.variants?.price?.salePrice),
-    //   size: size,
-    // });
+  const _handleAddToCart = React.useCallback(() => {
     addToCart({
-      // bed: {
-      //   id: productData?.id,
-      //   name: productData?.name,
-      //   image: productData?.variants?.image,
-      //   price: Number(productData?.variants?.price?.salePrice),
-      //   size: size,
-      // },
       bed: productState.bed,
       accessories: productState.accessories,
     });
+    // console.log(productState);
+    router.push("/cart");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [addToCart, productState]);
 
-    console.log(productState);
-    // router.push("/cart");
-  }, [
-    addToCart,
-    productData?.id,
-    productData?.name,
-    productData?.variants?.image,
-    productData?.variants?.price?.salePrice,
-    productState,
-    size,
-  ]);
-
+  const handleAddToCart = React.useMemo(
+    () => _handleAddToCart,
+    [_handleAddToCart]
+  );
   // @ts-ignore ( IMAGE ARRAY )
   const carouselImages = [productData?.variants?.image, ...productData?.images];
 
@@ -130,7 +111,6 @@ const ProductDetailPage = ({ size: bedSize, id }: any) => {
     [updateState]
   );
 
-  console.log({ cartState });
   return (
     <div>
       <section className={css.mainproducttitle}>
@@ -328,20 +308,3 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     },
   };
 };
-// addToCart({
-//   bed: {
-//     id: productData?.id,
-//     name: productData?.name,
-//     image: productData?.variants?.image,
-//     price: Number(productData?.variants?.price?.salePrice),
-//     size: size,
-//   },
-//   accessories: {
-//     color: productState?.accessories?.color,
-//     storage: productState?.accessories?.storage,
-//     feet: productState?.accessories?.feet,
-//     headboard: productState?.accessories?.headboard,
-//     mattress: productState?.accessories?.mattress,
-//   },
-//   quantity: productState?.quantity,
-// });
