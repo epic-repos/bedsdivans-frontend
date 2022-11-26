@@ -21,7 +21,7 @@ interface NavigationLinksTypes {
 const navigationLinks: NavigationLinksTypes[] = [
   {
     name: "Divan Beds",
-    path: "/divan-Beds",
+    path: "/beds/divan-beds",
     subMenu: [
       {
         name: "House Fabric Divan Beds",
@@ -82,35 +82,36 @@ const navigationLinks: NavigationLinksTypes[] = [
           {
             name: "Wing Bed Range",
             path: "/beds/sleigh-beds/wing-bed-range/",
-          }
-        ]
+          },
+        ],
       },
     ],
   },
   {
     name: "Shop By Bed Size",
     path: "/beds/shop-by-bed-size/",
-    subMenu:[{
+    subMenu: [
+      {
         name: 'Single (3"0)',
         path: "/beds/shop-by-bed-size/single-30/",
-    },
-    {
+      },
+      {
         name: 'Small Double (4"0)',
         path: "/beds/shop-by-bed-size/small-double-40/",
-    },
-    {
+      },
+      {
         name: 'Double (4"6)',
         path: "/beds/shop-by-bed-size/double-46/",
-    },
-    {
+      },
+      {
         name: 'King (5"0)',
         path: "/beds/shop-by-bed-size/king-50/",
-    },
-    {
+      },
+      {
         name: 'Super King (6"0)',
         path: "/beds/shop-by-bed-size/super-king-60/",
-    },
-]
+      },
+    ],
   },
   {
     name: "Mattresses",
