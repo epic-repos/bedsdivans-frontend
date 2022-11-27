@@ -1,6 +1,5 @@
 .section1 ul {
     display: flex;
-    flex-wrap: wrap;
 }
 .aboutussectioncontent ul {
     display: block !important;
@@ -19,4 +18,23 @@
 }
 .aboutussectioncontent3 ul li:nth-child(1) {
     width: auto;
+}
+.aboutuslastcontent h1 {
+    font-size: 22px;
+    color: #000;
+    font-family: "Roboto", Sans-serif;
+    font-weight: 600;    
+}
+.aboutuslastcontent p {
+    font-size: 18px;
+    font-weight: 400;
+    color: #4B4B6F;    
+}
+@media (max-width:500px) {
+    .aboutuslastcontent h1 { 
+        text-align: center;
+    }
+    .aboutus_section1__aHqBj ul li:nth-child(1) { 
+        width: 100% !important;
+    }
 }

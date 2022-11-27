@@ -3,6 +3,7 @@ import React from 'react'
 import styles from 'styles/about-us/aboutus.module.scss'
 const AboutUs = () => {
   return (
+    <>
     <section className={styles.aboutussection}>
          <div className='container'> 
             <div className='row'>
@@ -62,13 +63,15 @@ const AboutUs = () => {
                                <ul>
                                 <li>
                                     <img src="/image/Black-Velvet.png" alt="img" />
+                                    <p>We Offer A Variety Of Colors And Sizes For Our Velvet<br></br>Range. The Mattress In This Picture Is Of Our 2000<br></br>Buckingham Gold Edition.</p>
                                 </li>
                                 <li>
-                                   <img src="/image/Ice-velvet.png" alt="img" />
-                                <p>100% Feedback</p>
+                                   <img src="/image/Ice-velvet.png" alt="im g" />
+                                <p>All pictures taken by Bedsdivans.co.uk including this<br></br>tinsel top (size double) set</p>
                                 </li>
                                 <li>
                                     <img src="/image/Supreme-Velvet.png" alt="img" />
+                                    <p>Supreme Vertically Paneled Headboard Comes In<br></br>Many Colors And Sizes To Ensure You Get The Right<br></br>Frame And Bed To Suit You. Pictured Headboard<br></br>Above Stands At 26" In Height.</p>
                                 </li>
                                 <li>
                                     <img src="/image/Gun-Grey.png" alt="img" />
@@ -85,6 +88,22 @@ const AboutUs = () => {
          </div>
          </div>
     </section>
+    <section className={styles.mydiv2}>
+        <div className='container'>
+           <div className='row'>
+               <div className='col-12'>
+                  <div className={styles.aboutuslastcontent}>
+                    <h1>Why buy beds from www.bedsdivans.co.uk</h1>
+                    <p>Beds divans has always put the customer first we believe the importance of the look and quality of the bed must be at the highest standards. We can assure you we will not be beaten on quality yet affordable price too.</p>
+                    <p>You can read many reviews of our clients that have purchased our beds and they will share their experience with shopping with us.</p>
+                    <p>Always keep a look out for extra discounts on selected items .</p>
+                    <p>Contact us today to find out more about our range of divan beds or browse and buy for next day delivery on our website.</p>
+                  </div>
+               </div>
+           </div>
+        </div>
+    </section>
+    </>
   )
 }
 
