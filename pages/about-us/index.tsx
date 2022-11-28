@@ -4,6 +4,15 @@ import styles from 'styles/about-us/aboutus.module.scss'
 const AboutUs = () => {
   return (
     <>
+    <section className={styles.aboutus}>
+          <div className='container'>
+             <div className='row'>
+                <div className='col-12'>
+                    <h2>About us</h2>
+                </div>
+             </div>
+          </div>
+    </section>
     <section className={styles.aboutussection}>
          <div className='container'> 
             <div className='row'>

@@ -25,6 +25,16 @@
     font-family: "Roboto", Sans-serif;
     font-weight: 600;    
 }
+.aboutus {
+    background-color: #000;
+    padding: 85px 0px 85px 0px;
+}
+.aboutus h2 {
+    font-size: 60px;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+}
 .aboutuslastcontent p {
     font-size: 18px;
     font-weight: 400;
@@ -32,9 +42,26 @@
 }
 @media (max-width:500px) {
     .aboutuslastcontent h1 { 
-        text-align: center;
+        margin-top: 25px;
     }
-    .aboutus_section1__aHqBj ul li:nth-child(1) { 
-        width: 100% !important;
+    .section1 ul li:nth-child(1){
+        width: 100%;
+    }
+    .section1 ul {
+       flex-wrap: wrap;
+    } 
+    .aboutus { 
+        padding: 50px 0px 50px 0px;
+    }
+    .aboutus h2 { 
+        font-size: 40px;
+    }
+}
+@media (max-width:1200px) {
+    .aboutuslastcontent h1 { 
+        margin-top: 25px;
+    }
+    .section1 ul li:nth-child(1){
+        width: 100%;
     }
 }
