@@ -26,20 +26,18 @@ const DivanBedBirmingham = () => {
             </div>
             <div className={`${styles.mwfull} col-6`}>
               <div className={styles.firstsection1}>
-                <h2>Divan Beds Birmingham</h2>
+                <h2>
+                  Buying that perfect bed can be confusing and exhaustive.
+                </h2>
                 <p>
-                  Elegance and class go hand in hand. We are experts in creating
-                  the best <strong>divan beds in Birmingham</strong>. From the
-                  <strong>luxury bed in Birmingham</strong> to basic beds, our
-                  collection is attention-grabbing.
-                </p>
-                <p>
-                  We have a wide variety of beds. Therefore, Leave tiring visits
-                  to <strong>bed shops in Birmingham</strong>. Buy cheap beds
-                  with the best wood quality, proportions, and structure. Reach
-                  us to get easy buying of a divan bed,
-                  <strong>bed mattresses in Birmingham</strong>, bed frame, and
-                  <strong>cheap bed in Birmingham</strong>.
+                  Here at Beds Divans we make sure that you don’t have to wade
+                  through numerous <strong>bed stores in London.</strong> Get
+                  the best and the most fine-quality divan bed wood proportions,
+                  structures and more with us. We make buying bed frame,{" "}
+                  <strong>divan bed mattresses in London</strong> easy for you.
+                  Also, are you looking for the best divan bed base and{" "}
+                  <strong>divan beds in london</strong>? Then, Do drop by to
+                  look at our collection and place order online, hassle-free.
                 </p>
               </div>
             </div>
@@ -105,19 +103,22 @@ const DivanBedBirmingham = () => {
           <div className="row">
             <div className={`${styles.mwfull} col-6`}>
               <div className={styles.section23}>
-                <h3>Importance of buying the right bed</h3>
+                <h3>
+                  We help you buy the best/Importance of buying the right bed
+                </h3>
                 <p>
-                  Furniture is the essence of every home. Whether basic or
-                  classical English taste, furniture style is important. We have
-                  the best collection of beds in Birmingham UK.
-                </p>
-                <h3>Years of Experience in Giving The Comfort You Deserve</h3>
-                <p>
-                  We have invested years of experience in furniture
-                  manufacturing to offer best divan beds sale in Birmingham.
-                  Choose from wide variety of Divan beds. Get options like
-                  Sleigh beds, Ottoman beds, Headboards with mattress in
-                  Birmingham.
+                  In every modern London household, the right kind of furniture
+                  adds to home aesthetics. And, it all begins with creating the
+                  perfect blend of style and elegant furniture for every corner
+                  of the home. We have a wide stock of Divan Beds,{" "}
+                  <strong>Sleigh Beds,</strong>
+                  Ottoman Beds, Mattresses, Headboards. From luxury beds to
+                  budget-friendly divan beds in London and best{" "}
+                  <strong>mattresses in London,</strong> we have it all. Beds
+                  Divans collection is a treasure for you. So, come and explore
+                  contemporary beds, luxury beds, divan beds and range of
+                  mattress in London. We are also leading brand name selling
+                  premium <strong>mattress shop in London.</strong>
                 </p>
                 <button>About Us</button>
               </div>
@@ -126,17 +127,19 @@ const DivanBedBirmingham = () => {
               <div className={styles.section24}>
                 <h3>A wide range of divan beds</h3>
                 <p>
-                  Finding the right size, wood quality, and style is easy with
-                  us. Our online website displays hundreds of bed options. We
-                  offer beds and cheap mattress in Birmingham UK.
+                  We have years of experience in ideating and crafting beds that
+                  resonate with our customers needs. So, if you are looking to
+                  buy divan bed in London or <strong>divan bed base,</strong>{" "}
+                  mattresses, and <strong>cheap bed in London</strong> just
+                  reach out to us.
                 </p>
-                <h3>Pick the best divan bed option from Beds Divans</h3>
+                <h3>Free Mattresses With Bed Options</h3>
                 <p>
-                  Get the best Double bed, divan bed, and mattresses in
-                  Birmingham. Also, an array of cheap beds in Birmingham. Now
-                  select the best options with unmatched quality and
-                  incomparable prices. We expertise in offering cheap and luxury
-                  bed frames in Birmingham, king size bed, single bed.
+                  Not merely Divan beds, we offer range of free mattresses in
+                  London with a variety of bed options for you. Our customers
+                  don’t have to search anywhere else once they come to us.
+                  Because, we have different combinations of bed options like
+                  luxury beds in London and also, next day beds in London.
                 </p>
               </div>
             </div>
@@ -160,17 +163,19 @@ const DivanBedBirmingham = () => {
               <div className={styles.contact1}>
                 <h3>Why buy beds from Bedsdivan.co.uk</h3>
                 <p>
-                  Bedsdivan is the best destination for selecting high-quality
-                  beds. Our experience to offer a wide range of durable beds
-                  makes us a well-known brand. Hence, we have all types of{" "}
-                  <strong>beds in Birmingham UK</strong>.
+                  The answer is straightforward – We have years of experience in
+                  creating the best quality divan beds in Yorkshire. Each
+                  product goes through strict quality assurance checks. While
+                  our customer support division is well equipped to respond to
+                  customers, round the clock.
                 </p>
+                <h3>Attractive Divan Bed Options at Great Discounts</h3>
                 <p>
-                  Buy Divan beds, Sleigh beds, Ottoman beds, double size bed,
-                  and other basic beds online with us. We are also here to offer
-                  durable and <strong>cheap mattresses in Birmingham</strong>.
-                  Along with beds, take advantage of our{" "}
-                  <strong>mattress sale in Birmingham</strong>.
+                  The answer is straightforward – We have years of experience in
+                  creating the best quality divan beds in Yorkshire. Each
+                  product goes through strict quality assurance checks. While
+                  our customer support division is well equipped to respond to
+                  customers, round the clock.
                 </p>
                 <button>Learn More</button>
               </div>
@@ -197,15 +202,18 @@ const DivanBedBirmingham = () => {
               <h2>Our Latest Products</h2>
               <p>
                 All you need to do is visit our website. Select from a wide
-                variety of durable beds options and beds for sale with{" "}
+                variety of durable beds options and{" "}
+                <strong>beds for sale</strong> with{" "}
+                <strong>
+                  <Link href="#">
+                    <a>best mattress in London.</a>
+                  </Link>{" "}
+                </strong>
+                Also, find the suitable divan bed,{" "}
+                <strong>bed frames in London,</strong> sleigh bed or any other
+                bed. After selecting the bed, you can easily place the
                 <Link href="#">
-                  <a>best mattress in London.</a>
-                </Link>{" "}
-                Also, find the suitable divan bed, bed frames in London, sleigh
-                bed or any other bed. After selecting the bed, you can easily
-                place the
-                <Link href="#">
-                  <a>order</a>
+                  <a> order </a>
                 </Link>
                 online within minutes.
               </p>

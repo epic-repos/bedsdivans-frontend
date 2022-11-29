@@ -26,20 +26,16 @@ const DivanBedBirmingham = () => {
             </div>
             <div className={`${styles.mwfull} col-6`}>
               <div className={styles.firstsection1}>
-                <h2>Divan Beds Birmingham</h2>
+                <h2>Divan Beds Yorkshire</h2>
                 <p>
-                  Elegance and class go hand in hand. We are experts in creating
-                  the best <strong>divan beds in Birmingham</strong>. From the
-                  <strong>luxury bed in Birmingham</strong> to basic beds, our
-                  collection is attention-grabbing.
-                </p>
-                <p>
-                  We have a wide variety of beds. Therefore, Leave tiring visits
-                  to <strong>bed shops in Birmingham</strong>. Buy cheap beds
-                  with the best wood quality, proportions, and structure. Reach
-                  us to get easy buying of a divan bed,
-                  <strong>bed mattresses in Birmingham</strong>, bed frame, and
-                  <strong>cheap bed in Birmingham</strong>.
+                  Beautifully crafted wooden and engineered beds add to the
+                  elegance of a home. When your interior decor needs something
+                  special, we bring the best in{" "}
+                  <strong>divan beds in Yorkshire.</strong> We at Divanbeds work
+                  to manufacture world’s best bed options for you. Whether it is
+                  Sleigh bed, basic bed, Ottoman bed, king size bed in
+                  Yorkshire, we are the experts. Our customer can get best
+                  quality <strong>beds for sale in Yorkshire.</strong>
                 </p>
               </div>
             </div>
@@ -107,17 +103,13 @@ const DivanBedBirmingham = () => {
               <div className={styles.section23}>
                 <h3>Importance of buying the right bed</h3>
                 <p>
-                  Furniture is the essence of every home. Whether basic or
-                  classical English taste, furniture style is important. We have
-                  the best collection of beds in Birmingham UK.
-                </p>
-                <h3>Years of Experience in Giving The Comfort You Deserve</h3>
-                <p>
-                  We have invested years of experience in furniture
-                  manufacturing to offer best divan beds sale in Birmingham.
-                  Choose from wide variety of Divan beds. Get options like
-                  Sleigh beds, Ottoman beds, Headboards with mattress in
-                  Birmingham.
+                  Finding the right kind of bed should be simple. A right bed is
+                  equal to good sleep. When you are looking for basic beds, or
+                  <strong>divan double bed in Yorkshire,</strong> our name
+                  stands out. We are one of the leading bed{" "}
+                  <strong>manufacturers in Yorkshire.</strong> It is also our
+                  expertise to manufacture the best quality and{" "}
+                  <strong>cheap beds in Yorkshire.</strong>
                 </p>
                 <button>About Us</button>
               </div>
@@ -126,17 +118,18 @@ const DivanBedBirmingham = () => {
               <div className={styles.section24}>
                 <h3>A wide range of divan beds</h3>
                 <p>
-                  Finding the right size, wood quality, and style is easy with
-                  us. Our online website displays hundreds of bed options. We
-                  offer beds and cheap mattress in Birmingham UK.
+                  We offer variety in plenty. As special{" "}
+                  <strong>divan crushed velvet bed manufacturer,</strong> our
+                  years of experience in crafting bed options speaks for itself.
+                  Our stock is not limited to a few options.
                 </p>
-                <h3>Pick the best divan bed option from Beds Divans</h3>
+                <h3>Countless Divan Beds Options to Suit your Needs</h3>
                 <p>
-                  Get the best Double bed, divan bed, and mattresses in
-                  Birmingham. Also, an array of cheap beds in Birmingham. Now
-                  select the best options with unmatched quality and
-                  incomparable prices. We expertise in offering cheap and luxury
-                  bed frames in Birmingham, king size bed, single bed.
+                  We have a huge collection of{" "}
+                  <strong>cheap divan bed base in Yorkshire</strong>
+                  with many shapes, sizes, wood qualities, and aesthetic
+                  appeals. So, what are you waiting for? Find the best of
+                  <strong>Yorkshire beds</strong> with Divanbeds right now!
                 </p>
               </div>
             </div>
@@ -160,17 +153,19 @@ const DivanBedBirmingham = () => {
               <div className={styles.contact1}>
                 <h3>Why buy beds from Bedsdivan.co.uk</h3>
                 <p>
-                  Bedsdivan is the best destination for selecting high-quality
-                  beds. Our experience to offer a wide range of durable beds
-                  makes us a well-known brand. Hence, we have all types of{" "}
-                  <strong>beds in Birmingham UK</strong>.
+                  The answer is straightforward – We have years of experience in
+                  creating the best quality divan beds in Yorkshire. Each
+                  product goes through strict quality assurance checks. While
+                  our customer support division is well equipped to respond to
+                  customers, round the clock.
                 </p>
+                <h3>Attractive Divan Bed Options at Great Discounts</h3>
                 <p>
-                  Buy Divan beds, Sleigh beds, Ottoman beds, double size bed,
-                  and other basic beds online with us. We are also here to offer
-                  durable and <strong>cheap mattresses in Birmingham</strong>.
-                  Along with beds, take advantage of our{" "}
-                  <strong>mattress sale in Birmingham</strong>.
+                  The answer is straightforward – We have years of experience in
+                  creating the best quality divan beds in Yorkshire. Each
+                  product goes through strict quality assurance checks. While
+                  our customer support division is well equipped to respond to
+                  customers, round the clock.
                 </p>
                 <button>Learn More</button>
               </div>
@@ -197,15 +192,18 @@ const DivanBedBirmingham = () => {
               <h2>Our Latest Products</h2>
               <p>
                 All you need to do is visit our website. Select from a wide
-                variety of durable beds options and beds for sale with{" "}
+                variety of durable beds options and{" "}
+                <strong>beds for sale</strong> with{" "}
+                <strong>
+                  <Link href="#">
+                    <a>best mattress in London.</a>
+                  </Link>{" "}
+                </strong>
+                Also, find the suitable divan bed,{" "}
+                <strong>bed frames in London,</strong> sleigh bed or any other
+                bed. After selecting the bed, you can easily place the
                 <Link href="#">
-                  <a>best mattress in London.</a>
-                </Link>{" "}
-                Also, find the suitable divan bed, bed frames in London, sleigh
-                bed or any other bed. After selecting the bed, you can easily
-                place the
-                <Link href="#">
-                  <a>order</a>
+                  <a> order </a>
                 </Link>
                 online within minutes.
               </p>
